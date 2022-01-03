@@ -4,30 +4,49 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    
+
     private GameObject PinBoard;
-    void Start()
+   
+   
+    private void Start()
     {
         PinBoard = GameObject.Find("Tablica Korkowa");
         PinBoard.SetActive(false);
+       
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        PinBoardOpening();
-    }
-    void PinBoardOpening()
-    {
-        //bool ActiveStatus=false;
-        if (Input.GetKey(KeyCode.K))
+      
+        //Operacja otwierania i zamykania tablicy korkowej
+
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            
-            PinBoard.SetActive(true);
-           // ActiveStatus = true;
-            
+            PinBoardOpening();
         }
-        
+        //Nie wiem jak zrobiæ, ¿eby Tablica otwiera³a siê i zamyka³a na jednym przycisku. 
+        //W tym momencie jeœli tak zrobiê w czasie jednego klikniêcia Tablica otwiera siê i od razu zamyka
+        //Wiêc na razie zostawiam "Escape"
+
+        if (Input.GetKeyDown(KeyCode.Escape)&& PinBoard.activeSelf==true)
+        {
+            PinBoardClosing();
+        }
+
 
     }
+     void PinBoardOpening()
+    {
+        PinBoard.SetActive(true);
+    }
+    private void PinBoardClosing()
+    {      
+        PinBoard.SetActive(false);
+    }
+
+
+
 }
+

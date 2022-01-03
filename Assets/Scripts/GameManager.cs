@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-  
+
     private GameObject PinBoard;
-    void Start()
+   
+   
+    private void Start()
     {
         PinBoard = GameObject.Find("Tablica Korkowa");
         PinBoard.SetActive(false);
-        Debug.Log(PinBoard.activeSelf);
+       
     }
+
 
     // Update is called once per frame
     void Update()
     {
-
+      
         //Operacja otwierania i zamykania tablicy korkowej
 
         if (Input.GetKeyDown(KeyCode.K))

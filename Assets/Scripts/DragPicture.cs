@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragPicture : MonoBehaviour, IDragHandler
+public class DragPicture : MonoBehaviour, IDragHandler,IPointerDownHandler
 
 
 //Zdjêcie z tym skryptem bêdzie reagowaæ na przesuniêcie myszy.
@@ -23,6 +23,9 @@ public class DragPicture : MonoBehaviour, IDragHandler
         PictureToDrag.anchoredPosition += eventData.delta;
     }
 
-   
+    public void OnPointerDown(PointerEventData eventData)
+    { //przerzuca zdjêciê na górê, ¿eby je by³o widaæ
+        PictureToDrag.SetAsLastSibling();
+    }
 }
 

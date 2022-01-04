@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class DragPicture : MonoBehaviour, IDragHandler,IPointerDownHandler
+public class DragPicture : MonoBehaviour, IDragHandler,IPointerDownHandler,IEndDragHandler
 
 
 //Zdjêcie z tym skryptem bêdzie reagowaæ na przesuniêcie myszy.
@@ -14,14 +14,39 @@ public class DragPicture : MonoBehaviour, IDragHandler,IPointerDownHandler
     private RectTransform Evidence;
     [SerializeField]
     private RectTransform PinBoard;
-  
+    private void Start()
+    {
+        Debug.Log("Evidence: " + Evidence.transform.localPosition);
+        Debug.Log("Pinboard: " + PinBoard.transform.localPosition);
+
+    }
+    private void Update()
+    {
+        Debug.Log("Evidence: " + Evidence.transform.localPosition);
+
+    }
+
     public void OnDrag(PointerEventData eventData)
-    { if(Input.GetKey(KeyCode.Mouse0))
+    {
+      
+
+        if (Input.GetKey(KeyCode.Mouse0))
         if (IsInBorder(PinBoard,Evidence))
         {
             Evidence.anchoredPosition += eventData.delta;
         }
     }
+    
+    public void OnEndDrag(PointerEventData eventData)
+    {// Jeœli zdjêcie wyjdzie poza granice to restartuje jego pozycjê
+        if (IsInBorder(PinBoard, Evidence) == false)
+        {
+            Evidence.transform.Translate(Vector3.MoveTowards( -Evidence.transform.localPosition, PinBoard.transform.localPosition, 0));
+        }
+        
+      
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     { //przerzuca zdjêciê na górê stosu, ¿eby je by³o widaæ
         Evidence.SetAsLastSibling();

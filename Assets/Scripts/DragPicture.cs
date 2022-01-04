@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class DragPicture : MonoBehaviour, IDragHandler,IPointerDownHandler,IEndDragHandler
+public class DragPicture : MonoBehaviour, IDragHandler,IPointerDownHandler,IBeginDragHandler,IEndDragHandler
 
 
 //Zdjêcie z tym skryptem bêdzie reagowaæ na przesuniêcie myszy.
@@ -14,35 +14,31 @@ public class DragPicture : MonoBehaviour, IDragHandler,IPointerDownHandler,IEndD
     private RectTransform Evidence;
     [SerializeField]
     private RectTransform PinBoard;
-    private void Start()
+    private Vector3 velocity = Vector3.zero;
+    private Vector3 LastPosition;
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Evidence: " + Evidence.transform.localPosition);
-        Debug.Log("Pinboard: " + PinBoard.transform.localPosition);
-
-    }
-    private void Update()
-    {
-        Debug.Log("Evidence: " + Evidence.transform.localPosition);
-
+         LastPosition=Evidence.anchoredPosition;
+        print(LastPosition);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-      
-
         if (Input.GetKey(KeyCode.Mouse0))
-        if (IsInBorder(PinBoard,Evidence))
-        {
-            Evidence.anchoredPosition += eventData.delta;
-        }
+            if (IsInBorder(PinBoard, Evidence))
+            {
+                Evidence.anchoredPosition += eventData.delta;
+            }
+            else if (IsInBorder(PinBoard, Evidence) == false)
+                Evidence.anchoredPosition = LastPosition; 
+
     }
-    
+
     public void OnEndDrag(PointerEventData eventData)
     {// Jeœli zdjêcie wyjdzie poza granice to restartuje jego pozycjê
-        if (IsInBorder(PinBoard, Evidence) == false)
-        {
-            Evidence.transform.Translate(Vector3.MoveTowards( -Evidence.transform.localPosition, PinBoard.transform.localPosition, 0));
-        }
+        { }
+            
+        
         
       
     }
@@ -60,7 +56,7 @@ public class DragPicture : MonoBehaviour, IDragHandler,IPointerDownHandler,IEndD
         Vector3 LowerLimit = ReturnCorners(PinBoard, 0);
         Vector3 EvidenceLowerLimit = ReturnCorners(Evidence, 0);
         Vector3 EvidenceUpperLimit = ReturnCorners(Evidence, 2);
-
+        Vector3 EvidencePosition = Evidence.position;
         if (EvidenceLowerLimit.x >=LowerLimit.x && EvidenceLowerLimit.y >= LowerLimit.y && EvidenceUpperLimit.x <= UpperLimit.x && EvidenceUpperLimit.y <= UpperLimit.y)
         {
             return true;

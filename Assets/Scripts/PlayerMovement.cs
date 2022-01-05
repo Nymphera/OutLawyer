@@ -7,7 +7,11 @@ using UnityEngine.AI;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask Clickable;
+    private LayerMask Ground;
+    [SerializeField]
+    private Camera Inspector;
+    
+
     private NavMeshAgent Player;
     Ray myRay;
     void Start()
@@ -18,17 +22,30 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { Vector3 mouse = Input.mousePosition;
+    { 
         if (Input.GetKey(KeyCode.Mouse1))
         {
-             myRay=Camera.main.ScreenPointToRay(mouse);
-
+            Move();
         }
+       
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            Inspect();
+        }
+    }
+    private void Move()
+    {
+        Vector3 mouse = Input.mousePosition;
+        myRay = Camera.main.ScreenPointToRay(mouse);
         RaycastHit HitInfo;
-        if(Physics.Raycast (myRay, out HitInfo,100,Clickable))
+        if (Physics.Raycast(myRay, out HitInfo, 100, Ground))
         {
             Player.SetDestination(HitInfo.point);
         }
-       
+    }
+    private void Inspect()
+    {
+        ;
+        //CinemachineSwitcher.SwitchState();
     }
 }

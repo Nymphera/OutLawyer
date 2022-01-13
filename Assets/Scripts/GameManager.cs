@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         PinBoard = GameObject.Find("Tablica Korkowa");
-        PinBoard.SetActive(false);
+        PinBoard.SetActive(true);
        
     }
 

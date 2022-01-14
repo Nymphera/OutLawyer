@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf184a4d20e59474a93529479c776419, type: 3}
   m_Name: Evidence 2
   m_EditorClassIdentifier: 
-  EvidenceName: 
+  EvidenceName: Evidence 2
   Description: 
   Artwork: {fileID: 0}
+  Object: {fileID: 0}

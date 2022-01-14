@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf184a4d20e59474a93529479c776419, type: 3}
   m_Name: Evidence 1
   m_EditorClassIdentifier: 
-  EvidenceName: 
-  Description: 
-  Artwork: {fileID: 0}
+  EvidenceName: Evidence 1
+  Description: Krabiarz ma Kraby
+  Artwork: {fileID: 2100000, guid: 62626ae1d25182047b50a7804220eea6, type: 2}
+  Object: {fileID: 2588196502752350071, guid: 226502d392ed5b048971e13fa89155a4, type: 3}

@@ -9,7 +9,7 @@ using UnityEngine;
         public string EvidenceName;
         public string Description;
         public Material Artwork;
-        
+    public GameObject Object;
 
     }
 

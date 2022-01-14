@@ -10,6 +10,12 @@ using UnityEngine;
         public string Description;
         public Material Artwork;
     public GameObject Object;
+    private Material Material;
 
+    public void SpriteRender()
+    {
+        Material=Object.GetComponentInChildren<Material>();
+        Material = Artwork;
     }
+}
 

@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EvidenceDisplay : MonoBehaviour
-{
-    // Start is called before the first frame update
+{   
+    public MeshRenderer Mesh;
+    private Material Material;
+    public Evidence Evidence;
+    
     void Start()
     {
+        Mesh.material = Evidence.Artwork;
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

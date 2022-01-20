@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CinemachineSwitcher : MonoBehaviour
 {   [SerializeField]
     private Animator Animator;
-    private bool MainCameraState = true;
+    private bool MainCameraState = false;
 
     
     public void SwitchState()

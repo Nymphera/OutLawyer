@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7893966552543382392}
   - component: {fileID: 9056819110265244930}
   - component: {fileID: 3933395190291583176}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Evidence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,8 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials: []
+  m_Materials:
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,8 +124,8 @@ GameObject:
   - component: {fileID: 5332431100844099811}
   - component: {fileID: 8614215437791567810}
   - component: {fileID: 4233522938731360453}
-  m_Layer: 6
-  m_Name: Pin (1)
+  m_Layer: 7
+  m_Name: 'Pin '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

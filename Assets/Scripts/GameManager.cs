@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+    public GameObject Evidence;
     private GameObject PinBoard;
     private bool ActiveStatus = false;
    
     private void Start()
     {
-        PinBoard = GameObject.Find("Tablica Korkowa");
+        PinBoard = GameObject.Find("PinBoard");
         PinBoard.SetActive(true);
        
     }
@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour
                ActiveStatus= PinBoardClosing();
         }
       
-
-       
+        
+ 
         
 
 

@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Inspect()
     {
-        ;
+        
         //CinemachineSwitcher.SwitchState();
     }
 }

@@ -7,7 +7,8 @@ public class EvidenceDisplay : MonoBehaviour
     public MeshRenderer Mesh;
     public Evidence Evidence;
     private Camera cam;
-    private Evidence PointedEvidence=null;
+    private Evidence PointedEvidence = null;
+    GameObject PointedObject = null;
     void Start()
     {
         cam = Camera.main;
@@ -19,33 +20,30 @@ public class EvidenceDisplay : MonoBehaviour
         if (IsTouchingEvidence())
         {
             PointedEvidence.ShowDescription();
-            if (Input.GetMouseButton(0))
-            {
-                PointedEvidence.DragPicture();
-            }
+           
         }
 
-
-
-      
     }
+
 
     void SpriteRender()
     {
-       Mesh.material = Evidence.Artwork;
+        Mesh.material = Evidence.Artwork;
     }
-   
+
     private bool IsTouchingEvidence()
     {
-        GameObject PointedObject;
+
         Ray Ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit Hit;
+
+
         if (Physics.Raycast(Ray, out Hit, 100))
         {
             if (Hit.transform.gameObject.layer == 7)
             {
                 PointedObject = Hit.transform.gameObject;
-                PointedEvidence=PointedObject.GetComponent<EvidenceDisplay>().Evidence;
+                PointedEvidence = PointedObject.GetComponent<EvidenceDisplay>().Evidence;
 
                 return true;
 
@@ -53,12 +51,13 @@ public class EvidenceDisplay : MonoBehaviour
             else
                 return false;
         }
-        else return false;
+        else 
+            return false;
     }
-  
+   
+        }
 
 
- }
 
 
 

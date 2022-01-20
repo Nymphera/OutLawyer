@@ -19,13 +19,7 @@ using UnityEngine;
     {
         Debug.Log(Description);
     }
-    public void DragPicture()
-    {
-        Object.transform.position = Input.mousePosition;
-    }
-    private void GetBoundaries(GameObject Object)
-    {
-        Vector3 Boundaries = Object.GetComponent<Transform>().localScale;
-    }
+    
+   
     }
 

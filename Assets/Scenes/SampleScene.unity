@@ -791,8 +791,8 @@ MonoBehaviour:
   spawn: 0
   snapFirst: 0
   snapLast: 0
-  Length: 2
-  PartDistance: 0.21
+  Length: 1
+  PartDistance: 0.1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

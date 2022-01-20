@@ -43,8 +43,7 @@ public class RopeSpawn : MonoBehaviour
         for(int x = 0; x < count; x++)
         {
             GameObject Temporary;
-            Temporary = Instantiate(PartPrefab, new Vector3(transform.position.x, transform.position.y*(x+1), transform.position.z),
-                Quaternion.identity, ParentObject.transform);
+            Temporary = Instantiate(PartPrefab, new Vector3(transform.position.x, transform.position.y+PartDistance*(x+1), transform.position.z),Quaternion.identity, ParentObject.transform);
             Temporary.transform.eulerAngles = new Vector3(180, 0, 0);
             
             Temporary.name = ParentObject.transform.childCount.ToString();

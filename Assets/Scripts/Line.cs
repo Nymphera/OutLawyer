@@ -4,47 +4,34 @@ using UnityEngine;
 
 public class Line : MonoBehaviour
 {
-    Ray Ray ;
-    RaycastHit Hit;
-    Camera cam;
+
+    LineRenderer Linerenderer;
+
     private int LayerMask;
-    
+    Material Reason  ;   //motyw
+    Material Conclusion;    //wniosek
+    Material Contradiction; //sprzecznoœæ
+    Material Proof ;    //Dowód
+
+    Vector3 MousePosition;
+
     void Start()
     {
-        cam = Camera.main;
-        
+        Reason.SetColor(0, Color.green);
+        Conclusion.SetColor(0, Color.blue);
+        Contradiction.SetColor(0, Color.red);
+        Proof.SetColor(0, Color.yellow);
+       
+
+
     }
-    QueryTriggerInteraction QueryTriggerInteraction;
-    
     private void Update()
-    { Ray=cam.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(Ray,out Hit, 100))
-        {
-           if (Hit.transform.gameObject.layer ==7)
-            {
-                GameObject Evidence = Hit.transform.gameObject;
-                //GameObject Pin = Evidence.\;
-                if (Input.GetMouseButton(0))
-                {
-                    
-
-                }
-
-
-
-
-
-
-            }
-          
-            
-          
-           
-
-
-
-
-        }    
+    {
+        MousePosition = Input.mousePosition;
+        Ray Ray = Camera.main.ScreenPointToRay(MousePosition);
     }
+    private void DrawLine()
+    {
 
+    }
 }

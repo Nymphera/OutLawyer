@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CinemachineSwitcher : MonoBehaviour
 {   [SerializeField]
     private Animator Animator;
     private bool MainCameraState = true;
+    private Button PinboardButton;
     void Start()
     {
-        
+        PinboardButton = PinboardButton.GetComponent<Button>();
+        PinboardButton = GameObject.Find("PinBoard Button").GetComponent<Button>();
     }
-    void Update()
+   
+    private void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (PinboardButton.IsActive())
         {
             SwitchState();
         }

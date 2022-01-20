@@ -8,13 +8,13 @@ public class EvidenceDisplay : MonoBehaviour
     public Evidence Evidence;
     private Camera cam;
     private Evidence PointedEvidence = null;
-    GameObject PointedObject = null;
-    void Start()
+    
+    private void Awake()
     {
-        cam = Camera.main;
         SpriteRender();
-
+        cam = Camera.main;
     }
+  
     private void Update()
     {
         if (IsTouchingEvidence())
@@ -36,7 +36,7 @@ public class EvidenceDisplay : MonoBehaviour
 
         Ray Ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit Hit;
-
+        GameObject PointedObject ;
 
         if (Physics.Raycast(Ray, out Hit, 100))
         {

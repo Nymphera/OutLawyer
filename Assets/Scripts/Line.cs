@@ -15,7 +15,7 @@ public class Line : MonoBehaviour
 
     Vector3 MousePosition;
 
-    void Start()
+    void Awake()
     {
         Reason.SetColor(0, Color.green);
         Conclusion.SetColor(0, Color.blue);

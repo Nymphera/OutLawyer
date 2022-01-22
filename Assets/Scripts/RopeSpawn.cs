@@ -13,13 +13,14 @@ public class RopeSpawn : MonoBehaviour
     int Length = 1;
     [SerializeField]
     private float PartDistance=0.21f;
-    
+
+    private Vector3 MousePosiiton;
     
 
 
     private void Update()
     {
-
+        Debug.Log(MousePosition());
 
         if (reset == true)
         {
@@ -32,6 +33,36 @@ public class RopeSpawn : MonoBehaviour
             spawn = false;
            
         }
+        if (Input.GetMouseButton(1) )
+        {
+
+        }
+    }
+   private Vector3 MousePosition()
+    {
+        GameObject Temporary;
+        Ray Ray=Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit Hit;
+        if (Physics.Raycast(Ray, out Hit, 100))
+        {
+            if (Hit.transform.gameObject.layer == 7)
+            {
+                Debug.Log("Pin!");
+                Temporary = Hit.transform.gameObject;
+                return Temporary.GetComponentInChildren<Transform>().position;
+                
+            }
+
+            return Vector3.zero;
+
+        }
+        else
+        {
+            Debug.Log("no Pin :(");
+            return Vector3.zero;
+        }
+            
+
     }
     public void DestroyRope()
     {
@@ -42,12 +73,13 @@ public class RopeSpawn : MonoBehaviour
     }
     public void SpawnRope()
     {
-
-
-
         int count = (int)(Length / PartDistance);
         Debug.Log(count);
-        for(int x = 0; x < count; x++)
+
+
+
+
+        for (int x = 0; x < count; x++)
         {
             GameObject Temporary;
 

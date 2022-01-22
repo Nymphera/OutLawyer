@@ -42,6 +42,9 @@ public class RopeSpawn : MonoBehaviour
     }
     public void SpawnRope()
     {
+
+
+
         int count = (int)(Length / PartDistance);
         Debug.Log(count);
         for(int x = 0; x < count; x++)
@@ -61,7 +64,7 @@ public class RopeSpawn : MonoBehaviour
                 //lina buduje siê od do³u
                  Destroy(Temporary.GetComponent<CharacterJoint>());
 
-                
+             
             }
            
             else

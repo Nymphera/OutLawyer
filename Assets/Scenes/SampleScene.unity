@@ -791,7 +791,6 @@ MonoBehaviour:
   Pin: {fileID: 0}
   reset: 0
   spawn: 1
-  snapFirst: 1
   snapLast: 0
   Length: 5
   PartDistance: 0.21

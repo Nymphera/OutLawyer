@@ -13,15 +13,17 @@ public class RopeSpawn : MonoBehaviour
     int Length = 1;
     [SerializeField]
     private float PartDistance=0.21f;
+    [SerializeField]
+    Vector3 FirstPin, SecondPin;
 
-    private Vector3 MousePosiiton;
+    private Vector3 MousePos;
     
 
 
     private void Update()
     {
-        Debug.Log(MousePosition());
 
+        Debug.Log(MousePosition());
         if (reset == true)
         {
             DestroyRope();
@@ -29,16 +31,22 @@ public class RopeSpawn : MonoBehaviour
         }
         if (spawn == true)
         {
+            spawn = true;
             SpawnRope();
             spawn = false;
            
         }
         if (Input.GetMouseButton(1) )
+        { //if (FirstPin == Vector3.zero&& SecondPin == Vector3.zero)
+            FirstPin = MousePosition();
+        
+        }
+        if (Input.GetMouseButton(0))
         {
-
+            SecondPin = MousePosition();
         }
     }
-   private Vector3 MousePosition()
+   public Vector3 MousePosition()
     {
         GameObject Temporary;
         Ray Ray=Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -73,6 +81,7 @@ public class RopeSpawn : MonoBehaviour
     }
     public void SpawnRope()
     {
+       Vector3 MousePos= MousePosition();
         int count = (int)(Length / PartDistance);
         Debug.Log(count);
 
@@ -84,7 +93,7 @@ public class RopeSpawn : MonoBehaviour
             GameObject Temporary;
 
             Temporary =
-            Instantiate(PartPrefab, new Vector3(transform.position.x, transform.position.y + PartDistance * (x + 1), transform.position.z),
+            Instantiate(PartPrefab, new Vector3(MousePos.x, MousePos.y + PartDistance * (x + 1), MousePos.z),
             Quaternion.identity, ParentObject.transform);
             Temporary.transform.eulerAngles = new Vector3(180, 0, 0);
 

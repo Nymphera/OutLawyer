@@ -5,9 +5,9 @@ using UnityEngine;
 public class RopeSpawn : MonoBehaviour
 {
     [SerializeField]
-    GameObject PartPrefab, ParentObject;
+    GameObject PartPrefab, ParentObject,Pin;
     [SerializeField]
-    bool reset, spawn, snapFirst, snapLast;
+    bool reset, spawn, snapLast;
     [SerializeField]
     [Range(1, 100)]
     int Length = 1;
@@ -15,6 +15,7 @@ public class RopeSpawn : MonoBehaviour
     private float PartDistance=0.21f;
     
     
+
 
     private void Update()
     {
@@ -29,6 +30,7 @@ public class RopeSpawn : MonoBehaviour
         {
             SpawnRope();
             spawn = false;
+           
         }
     }
     public void DestroyRope()
@@ -47,7 +49,7 @@ public class RopeSpawn : MonoBehaviour
             GameObject Temporary;
 
             Temporary =
-            Instantiate(PartPrefab, new Vector3(transform.position.x, transform.position.y + PartDistance * (-x + 1), transform.position.z),
+            Instantiate(PartPrefab, new Vector3(transform.position.x, transform.position.y + PartDistance * (x + 1), transform.position.z),
             Quaternion.identity, ParentObject.transform);
             Temporary.transform.eulerAngles = new Vector3(180, 0, 0);
 
@@ -55,46 +57,31 @@ public class RopeSpawn : MonoBehaviour
 
 
             if (x == 0)
-             {
-                /*   Vector3 Pin = PinPosition().transform.position;
-                   Temporary= Instantiate(PartPrefab, new Vector3(Pin.x, Pin.y + PartDistance * (x + 1), Pin.z),
-                   Quaternion.identity, ParentObject.transform);
-                   Temporary.transform.eulerAngles = new Vector3(180, 0, 0);
+            { 
+                //lina buduje siê od do³u
+                 Destroy(Temporary.GetComponent<CharacterJoint>());
 
-                   Temporary.name = ParentObject.transform.childCount.ToString();
-                   Temporary.GetComponent<CharacterJoint>().connectedBody = PinPosition().GetComponent<Rigidbody>();
-                */
-
-
-
-                // Destroy(Temporary.GetComponent<CharacterJoint>());
-                Temporary.GetComponent<CharacterJoint>().connectedBody = PinPosition().GetComponent<Rigidbody>();
-             }
+                
+            }
            
             else
             {
             
-
-
                 Temporary.GetComponent<CharacterJoint>().connectedBody =
                     ParentObject.transform.Find((ParentObject.transform.childCount - 1).ToString()).GetComponent<Rigidbody>();
             }
+            if (snapLast ==true&&x==count-1)
+            {
+                SnapLast(Temporary);
+                snapLast = false;
+            }
         }
     }
-    GameObject PinPosition()
+   
+    
+
+    private void SnapLast(GameObject Temporary)
     {
-        Ray Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit Hit;
-        if (Physics.Raycast(Ray, out Hit, 100))
-        {
-            if (Hit.transform.name == "Pin")
-            {
-                Debug.Log(Hit.transform.name);
-                return Hit.transform.gameObject;
-                    //.transform.GetComponent<Rigidbody>();
-            }
-            else return null;
-        }
-        else return null;
+        Temporary.transform.GetComponent<Rigidbody>().isKinematic = true;
     }
 }

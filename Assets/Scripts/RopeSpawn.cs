@@ -5,7 +5,7 @@ using UnityEngine;
 public class RopeSpawn : MonoBehaviour
 {
     [SerializeField]
-    GameObject PartPrefab, ParentObject,Pin;
+    GameObject PartPrefab, ParentObject;
     [SerializeField]
     bool reset, spawn, snapLast;
     [SerializeField]
@@ -14,10 +14,10 @@ public class RopeSpawn : MonoBehaviour
     [SerializeField]
     private float PartDistance=0.21f;
     [SerializeField]
-    Vector3 FirstPin, SecondPin;
+    GameObject FirstPin, SecondPin = null;
 
     private Vector3 MousePos;
-    
+
 
 
     private void Update()
@@ -37,7 +37,7 @@ public class RopeSpawn : MonoBehaviour
            
         }
         if (Input.GetMouseButton(1) )
-        { //if (FirstPin == Vector3.zero&& SecondPin == Vector3.zero)
+        { 
             FirstPin = PinPosition();
         
         }
@@ -46,7 +46,7 @@ public class RopeSpawn : MonoBehaviour
             SecondPin = PinPosition();
         }
     }
-   public Vector3 PinPosition()
+   public GameObject PinPosition()
     {
         GameObject Temporary;
         Ray Ray=Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -55,19 +55,21 @@ public class RopeSpawn : MonoBehaviour
         {
             if (Hit.transform.gameObject.layer == 7)
             {
-                Debug.Log("Pin!");
+               
                 Temporary = Hit.transform.gameObject;
-                return Temporary.GetComponentInChildren<Transform>().position;
+                print("heh");
+                return Temporary.transform.gameObject;
                 
             }
-
-            return Vector3.zero;
-
+            else
+            {
+                
+                return null;
+            }
         }
         else
         {
-            Debug.Log("no Pin :(");
-            return Vector3.zero;
+            return null;
         }
             
 
@@ -91,14 +93,14 @@ public class RopeSpawn : MonoBehaviour
         for (int x = 0; x < count; x++)
         {
             GameObject Temporary;
-
+            Vector3 PinPosition = FirstPin.transform.position;
             Temporary =
-            Instantiate(PartPrefab, new Vector3(FirstPin.x, FirstPin.y + PartDistance * (x + 1), FirstPin.z),
+            Instantiate(PartPrefab, new Vector3(PinPosition.x, PinPosition.y + PartDistance * (x + 1), PinPosition.z),
             Quaternion.identity, ParentObject.transform);
             Temporary.transform.eulerAngles = new Vector3(180, 0, 0);
 
             Temporary.name = ParentObject.transform.childCount.ToString();
-
+            
 
             if (x == 0)
             { 

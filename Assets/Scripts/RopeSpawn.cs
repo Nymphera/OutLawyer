@@ -84,7 +84,7 @@ public class RopeSpawn : MonoBehaviour
     public void SpawnRope()
     {
         //tu trzeba daæ odleg³oœæ miêdzy pinami na pewno
-        float Length=Vector3.Distance(FirstPin.transform.position,SecondPin.transform.position);
+        float Length=Vector3.Distance(FirstPin.transform.position,SecondPin.transform.position)+3;
         int count = (int)(Length / PartDistance);
         Debug.Log(count);
 
@@ -104,11 +104,12 @@ public class RopeSpawn : MonoBehaviour
             
 
             if (x == 0)
-            { 
+            {
                 //lina buduje siê od do³u
-                 Destroy(Temporary.GetComponent<CharacterJoint>());
+                // Destroy(Temporary.GetComponent<CharacterJoint>());
+                Temporary.GetComponent<CharacterJoint>().connectedBody = FirstPin.transform.gameObject.GetComponent<Rigidbody>();   
 
-             
+
             }
            
             else

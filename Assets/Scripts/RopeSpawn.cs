@@ -48,7 +48,7 @@ public class RopeSpawn : MonoBehaviour
     }
    public GameObject PinPosition()
     {
-        GameObject Temporary;
+        Transform Temporary;
         Ray Ray=Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit Hit;
         if (Physics.Raycast(Ray, out Hit, 100))
@@ -56,8 +56,9 @@ public class RopeSpawn : MonoBehaviour
             if (Hit.transform.gameObject.layer == 7)
             {
                
-                Temporary = Hit.transform.gameObject;
-                print("heh");
+                Temporary = Hit.transform.GetChild(0);
+                print(Temporary.name);
+              
                 return Temporary.transform.gameObject;
                 
             }
@@ -82,12 +83,12 @@ public class RopeSpawn : MonoBehaviour
     }
     public void SpawnRope()
     {
-        //tu trzeba daæ odleg³oœæ miêdzy pinami na pewno
+        
         float Length=Vector3.Distance(FirstPin.transform.position,SecondPin.transform.position);
         int count = (int)(Length / PartDistance);
         Debug.Log(count);
 
-
+        
 
 
         for (int x = 0; x < count; x++)
@@ -97,7 +98,7 @@ public class RopeSpawn : MonoBehaviour
             Vector3 PinPosition = FirstPin.transform.position;
             Temporary =
             Instantiate(PartPrefab, new Vector3(PinPosition.x +PartDistance*(x*SpawnDirection.x), 
-            PinPosition.y + PartDistance * (x*SpawnDirection.y), PinPosition.z  ),
+            PinPosition.y + PartDistance * (x*SpawnDirection.y), PinPosition.z -0.1f ),
             Quaternion.identity, ParentObject.transform);
             Temporary.transform.eulerAngles = new Vector3(180, 0, 0);
 

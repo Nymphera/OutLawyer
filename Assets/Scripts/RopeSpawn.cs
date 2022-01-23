@@ -10,7 +10,7 @@ public class RopeSpawn : MonoBehaviour
     bool reset, spawn, snapLast;
     [SerializeField]
     [Range(1, 100)]
-    int Length = 1;
+    float Length = 1;
     [SerializeField]
     private float PartDistance=0.21f;
     [SerializeField]
@@ -30,7 +30,7 @@ public class RopeSpawn : MonoBehaviour
             reset = false;
         }
         if (spawn == true)
-        {
+        {//spawn rope po wciœniêciu guzika 
             spawn = true;
             SpawnRope();
             spawn = false;
@@ -83,7 +83,8 @@ public class RopeSpawn : MonoBehaviour
     }
     public void SpawnRope()
     {
-      
+        //tu trzeba daæ odleg³oœæ miêdzy pinami na pewno
+        float Length=Vector3.Distance(FirstPin.transform.position,SecondPin.transform.position);
         int count = (int)(Length / PartDistance);
         Debug.Log(count);
 

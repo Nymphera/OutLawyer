@@ -62,8 +62,7 @@ public class RopeSpawn : MonoBehaviour
                 
             }
             else
-            {
-                
+            { 
                 return null;
             }
         }
@@ -84,7 +83,7 @@ public class RopeSpawn : MonoBehaviour
     public void SpawnRope()
     {
         //tu trzeba daæ odleg³oœæ miêdzy pinami na pewno
-        float Length=Vector3.Distance(FirstPin.transform.position,SecondPin.transform.position)+1;
+        float Length=Vector3.Distance(FirstPin.transform.position,SecondPin.transform.position);
         int count = (int)(Length / PartDistance);
         Debug.Log(count);
 
@@ -93,12 +92,12 @@ public class RopeSpawn : MonoBehaviour
 
         for (int x = 0; x < count; x++)
         {
-            Vector3 SpawnDirection = (FirstPin.transform.position - SecondPin.transform.position);
+            Vector3 SpawnDirection = -(FirstPin.transform.position - SecondPin.transform.position);
             GameObject Temporary;
             Vector3 PinPosition = FirstPin.transform.position;
             Temporary =
-            Instantiate(PartPrefab, new Vector3(PinPosition.x +PartDistance*(x+SpawnDirection.x), 
-            PinPosition.y + PartDistance * (x + SpawnDirection.y), PinPosition.z  ),
+            Instantiate(PartPrefab, new Vector3(PinPosition.x +PartDistance*(x*SpawnDirection.x), 
+            PinPosition.y + PartDistance * (x*SpawnDirection.y), PinPosition.z  ),
             Quaternion.identity, ParentObject.transform);
             Temporary.transform.eulerAngles = new Vector3(180, 0, 0);
 
@@ -116,7 +115,7 @@ public class RopeSpawn : MonoBehaviour
            
             else if(x==count-1)
             {
-            
+                //to prawie dzia³a, tylko bierze pozycje pivot evidence, zamiast pozycji pina
                 Temporary.GetComponent<CharacterJoint>().connectedBody = 
                 ParentObject.transform.Find((ParentObject.transform.childCount - 1).ToString()).GetComponent<Rigidbody>();
                 CharacterJoint LastJoint= Temporary.AddComponent<CharacterJoint>();

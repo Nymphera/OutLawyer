@@ -15,6 +15,8 @@ public class RopeSpawn : MonoBehaviour
     private float PartDistance=0.21f;
     [SerializeField]
     GameObject FirstPin, SecondPin = null;
+    [SerializeField]
+    Material Yellow, Green, Blue, Red;
 
     private Vector3 MousePos;
 
@@ -96,6 +98,7 @@ public class RopeSpawn : MonoBehaviour
             Vector3 SpawnDirection = -(FirstPin.transform.position - SecondPin.transform.position);
             GameObject Temporary;
             Vector3 PinPosition = FirstPin.transform.position;
+            PartPrefab.transform.GetComponent<MeshRenderer>().material =LineColor();
             Temporary =
             Instantiate(PartPrefab, new Vector3(PinPosition.x +PartDistance*(x*SpawnDirection.x), 
             PinPosition.y + PartDistance * (x*SpawnDirection.y), PinPosition.z -0.1f ),
@@ -139,7 +142,10 @@ public class RopeSpawn : MonoBehaviour
     }
    
     
-
+    private Material LineColor()
+    {
+        return Yellow;
+    }
     private void SnapLast(GameObject Temporary)
     {
         Temporary.transform.GetComponent<Rigidbody>().isKinematic = true;

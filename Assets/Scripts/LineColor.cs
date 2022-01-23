@@ -11,13 +11,13 @@ public class LineColor : MonoBehaviour
     private void Start()
     {
         LineMaterial = LinePrefab.GetComponent<Material>();
-       // Debug.Log(LinePrefab.transform.GetComponent<Material>().name);
+       Debug.Log(LinePrefab.transform.GetComponent<Material>().name);
     }
 
 
     public void SetLineMaterial()
     {
-        
+        Debug.Log(LinePrefab.transform.GetComponent<Material>().name);
         LineMaterial.SetColor(0, Color.yellow);
     }
    private enum Colors

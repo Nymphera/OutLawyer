@@ -84,7 +84,7 @@ public class RopeSpawn : MonoBehaviour
     public void SpawnRope()
     {
         //tu trzeba daæ odleg³oœæ miêdzy pinami na pewno
-        float Length=Vector3.Distance(FirstPin.transform.position,SecondPin.transform.position)+3;
+        float Length=Vector3.Distance(FirstPin.transform.position,SecondPin.transform.position)+1;
         int count = (int)(Length / PartDistance);
         Debug.Log(count);
 
@@ -93,10 +93,12 @@ public class RopeSpawn : MonoBehaviour
 
         for (int x = 0; x < count; x++)
         {
+            Vector3 SpawnDirection = (FirstPin.transform.position - SecondPin.transform.position);
             GameObject Temporary;
             Vector3 PinPosition = FirstPin.transform.position;
             Temporary =
-            Instantiate(PartPrefab, new Vector3(PinPosition.x, PinPosition.y + PartDistance * (x + 1), PinPosition.z),
+            Instantiate(PartPrefab, new Vector3(PinPosition.x +PartDistance*(x+SpawnDirection.x), 
+            PinPosition.y + PartDistance * (x + SpawnDirection.y), PinPosition.z  ),
             Quaternion.identity, ParentObject.transform);
             Temporary.transform.eulerAngles = new Vector3(180, 0, 0);
 
@@ -112,9 +114,19 @@ public class RopeSpawn : MonoBehaviour
 
             }
            
-            else
+            else if(x==count-1)
             {
             
+                Temporary.GetComponent<CharacterJoint>().connectedBody = 
+                ParentObject.transform.Find((ParentObject.transform.childCount - 1).ToString()).GetComponent<Rigidbody>();
+                CharacterJoint LastJoint= Temporary.AddComponent<CharacterJoint>();
+
+                
+                LastJoint.connectedBody=SecondPin.transform.gameObject.GetComponent<Rigidbody>();
+            }
+            else 
+            {
+
                 Temporary.GetComponent<CharacterJoint>().connectedBody =
                     ParentObject.transform.Find((ParentObject.transform.childCount - 1).ToString()).GetComponent<Rigidbody>();
             }

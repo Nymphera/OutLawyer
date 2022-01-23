@@ -99,7 +99,7 @@ public class RopeSpawn : MonoBehaviour
             Temporary =
             Instantiate(PartPrefab, new Vector3(PinPosition.x +PartDistance*(x*SpawnDirection.x), 
             PinPosition.y + PartDistance * (x*SpawnDirection.y), PinPosition.z -0.1f ),
-            Quaternion.identity, ParentObject.transform);
+            new Quaternion(SpawnDirection.x,SpawnDirection.y,SpawnDirection.z,0), ParentObject.transform);
             Temporary.transform.eulerAngles = new Vector3(180, 0, 0);
 
             Temporary.name = ParentObject.transform.childCount.ToString();
@@ -109,7 +109,7 @@ public class RopeSpawn : MonoBehaviour
             {
                 //lina buduje siê od do³u
                 // Destroy(Temporary.GetComponent<CharacterJoint>());
-                Temporary.GetComponent<CharacterJoint>().connectedBody = FirstPin.transform.gameObject.GetComponent<Rigidbody>();   
+                Temporary.GetComponent<CharacterJoint>().connectedBody = FirstPin.GetComponent<Rigidbody>();   
 
 
             }
@@ -122,7 +122,7 @@ public class RopeSpawn : MonoBehaviour
                 CharacterJoint LastJoint= Temporary.AddComponent<CharacterJoint>();
 
                 
-                LastJoint.connectedBody=SecondPin.transform.gameObject.GetComponent<Rigidbody>();
+                LastJoint.connectedBody=SecondPin.GetComponent<Rigidbody>();
             }
             else 
             {

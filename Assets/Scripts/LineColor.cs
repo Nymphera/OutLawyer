@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class LineColor : MonoBehaviour
 {
-    private Color Green=Color.green;
-    private Color Red=Color.red;
-    private Color blue=Color.blue;
-    private Color Yellow=Color.yellow;
+   
     private Material LineMaterial;
 
     public GameObject LinePrefab;

@@ -5,20 +5,24 @@ using UnityEngine;
 public class DragEvidence : MonoBehaviour
 {
     private Vector3 mouseOffset;
+    private Vector3 mouseOffset2;
 
     private float mouseZCoord;
-
-
+    private float mouseZCoord2;
+    public GameObject Evidence;
+    public GameObject Pin;
 
 
     void OnMouseDown()
 
     {
 
-        mouseZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+        mouseZCoord = Camera.main.WorldToScreenPoint(Evidence.transform.position).z;
+        mouseZCoord2 = Camera.main.WorldToScreenPoint(Pin.transform.position).z;
 
 
-        mouseOffset = gameObject.transform.position - GetMouseAsWorldPoint();
+        mouseOffset = Evidence.transform.position - GetMouseAsWorldPoint();
+        mouseOffset2 = Pin.transform.position - GetMouseAsWorldPoint();
 
     }
 
@@ -38,6 +42,7 @@ public class DragEvidence : MonoBehaviour
     void OnMouseDrag()
 
     {
-        transform.position = GetMouseAsWorldPoint() + mouseOffset;
+      Evidence.transform.position = GetMouseAsWorldPoint() + mouseOffset;
+       Pin.transform.position = GetMouseAsWorldPoint() + mouseOffset2;
     }
 }

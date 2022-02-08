@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
             if(isOpen==false)
             {
              PinBoard.SetActive(true);
+
             }
             else //isOpen==true
             {

@@ -7,10 +7,10 @@ public class CinemachineSwitcher : MonoBehaviour
 {   [SerializeField]
     private Animator Animator;
     private bool MainCameraState = false;
-    
+    public static CinemachineSwitcher Instance;
     private void Awake()
     {
-       
+        Instance = this;
     }
     public void SwitchState()
     {

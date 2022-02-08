@@ -7,19 +7,29 @@ using UnityEngine;
     public class Evidence : ScriptableObject
     {
     public LayerMask PinBoard;
-        public string EvidenceName;
+        public string Name;
         public string Description;
         public Material Artwork;
     public GameObject Object;
-    private Camera cam;
-    private Material Material;
-
-
+   
+    public EvidenceType evidenceType;
+    
+    public enum EvidenceType 
+    { 
+        Evidence,
+        Location
+    }
+  
+    
     public void ShowDescription()
     {
         Debug.Log(Description);
     }
-    
-   
+    public void ShowType()
+    {
+        Debug.Log(evidenceType);
+
     }
+
+}
 

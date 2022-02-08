@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Camera Inspector;
     
-
+    
     private NavMeshAgent Player;
     Ray myRay;
     void Start()

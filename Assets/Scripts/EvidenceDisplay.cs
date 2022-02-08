@@ -6,37 +6,32 @@ public class EvidenceDisplay : MonoBehaviour
 {
     public MeshRenderer Mesh;
     public Evidence Evidence;
+
+   
     private Camera cam;
-    private Evidence PointedEvidence = null;
+    public Evidence PointedEvidence = null;
+    private Vector3 LocationPosition;
     
+
     private void Awake()
     {
         SpriteRender();
         cam = Camera.main;
     }
-  
     private void Update()
     {
         if (IsTouchingEvidence())
         {
             PointedEvidence.ShowDescription();
-           
+            PointedEvidence.ShowType();
         }
-
     }
-
-
-    void SpriteRender()
-    {
-        Mesh.material = Evidence.Artwork;
-    }
-
-    private bool IsTouchingEvidence()
+    public bool IsTouchingEvidence()
     {
 
         Ray Ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit Hit;
-        GameObject PointedObject ;
+        GameObject PointedObject;
 
         if (Physics.Raycast(Ray, out Hit, 100))
         {
@@ -51,11 +46,15 @@ public class EvidenceDisplay : MonoBehaviour
             else
                 return false;
         }
-        else 
+        else
             return false;
     }
-   
-        }
+    
+    void SpriteRender()
+        {
+            Mesh.material = Evidence.Artwork;
+        }  
+}
 
 
 

@@ -15,7 +15,8 @@ MonoBehaviour:
   PinBoard:
     serializedVersion: 2
     m_Bits: 64
-  EvidenceName: Evidence 2
+  Name: Bar
   Description: ...
   Artwork: {fileID: 2100000, guid: 02dd72327ceef5b47bc727e6d6d043bf, type: 2}
   Object: {fileID: 3242774187239063980, guid: 226502d392ed5b048971e13fa89155a4, type: 3}
+  evidenceType: 1

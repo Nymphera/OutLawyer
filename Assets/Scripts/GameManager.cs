@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+    public static GameManager Instance;
+    public GameObject Evidence;
     private GameObject PinBoard;
-    private bool ActiveStatus = false;
-   
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
-        PinBoard = GameObject.Find("Tablica Korkowa");
+        PinBoard = GameObject.Find("PinBoard");
         PinBoard.SetActive(false);
        
     }
@@ -20,33 +24,32 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        //Operacja otwierania i zamykania tablicy korkowej
        
-        if (Input.GetKeyUp(KeyCode.K))
-        {   if (ActiveStatus == false)
-               ActiveStatus= PinBoardOpening();
-            else if (ActiveStatus == true)
-               ActiveStatus= PinBoardClosing();
-        }
+       
+     
       
-
-       
+        
+ 
         
 
 
     }
-     bool PinBoardOpening()
-    {
-        PinBoard.SetActive(true);
-        return true;
+        public void OpenPinBoard(bool isOpen)
+        {
+            if(isOpen==false)
+            {
+             PinBoard.SetActive(true);
+
+            }
+            else //isOpen==true
+            {
+                PinBoard.SetActive(false);
+            }
+        }
+  
     }
-    bool PinBoardClosing()
-    {      
-        PinBoard.SetActive(false);
-        return false;
-    }
 
 
 
-}
+
 

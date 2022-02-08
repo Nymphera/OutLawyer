@@ -17,25 +17,6 @@ public class Inspector : MonoBehaviour
         Cinemachine= GetComponent<CinemachineVirtualCamera>();
         InspectObject=Cinemachine.Follow;
     }
-    void Update()
-    {
-        
-        
-            InspectObject = MousePoininting();
-            print(InspectObject.name);
-
-    }
-      Transform MousePoininting()
-       {
-        Ray Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-           RaycastHit HitInfo;
-        if (Physics.Raycast(Ray, out HitInfo, 100, Interact))
-        {
-            return HitInfo.transform;
-        }
-        else
-            return null;
-           
-
-       }
+    
+   
 }

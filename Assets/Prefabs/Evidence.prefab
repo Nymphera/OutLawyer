@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mesh: {fileID: 67227960903184415}
-  transform: {fileID: 0}
+  transform: {fileID: 9208964073810647742}
   Evidence: {fileID: 0}
   PointedEvidence: {fileID: 0}
 --- !u!114 &886522225375974236

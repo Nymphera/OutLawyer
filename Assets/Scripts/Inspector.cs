@@ -4,8 +4,8 @@ using UnityEngine;
 using Cinemachine;
 
 public class Inspector : MonoBehaviour
-{[SerializeField]
-    private LayerMask Interact;
+{//[SerializeField]
+    //private LayerMask Interact;
     [SerializeField]
     private Camera MainCamera;
 

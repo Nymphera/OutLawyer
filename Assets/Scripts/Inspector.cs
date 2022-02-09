@@ -11,12 +11,14 @@ public class Inspector : MonoBehaviour
 
     private CinemachineVirtualCamera Cinemachine;
     private Transform InspectObject;
+    [SerializeField]
+    private float CameraDistance;
     private void Start()
     {
         
         Cinemachine= GetComponent<CinemachineVirtualCamera>();
         InspectObject=Cinemachine.Follow;
     }
-    
+
    
 }

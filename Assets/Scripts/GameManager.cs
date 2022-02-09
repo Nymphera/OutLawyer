@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
                 break;
         }
-        OnGameStateChanged(newState);
+       // OnGameStateChanged(newState);
     }
         public void OpenPinBoard(bool isOpen)
         {

@@ -488,13 +488,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 97910345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2adf148a19499274795e418631d7db45, type: 3}
+  m_Script: {fileID: 11500000, guid: fb7194dc27b9df64c8beca7482ee8e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TouchSensitivityX: 10
-  TouchSensitivityY: 10
-  TouchXInputMapTo: Mouse X
-  TouchYInputMapTo: Mouse Y
+  PlayerIndex: -1
+  XYAxis: {fileID: 2671882827072009398, guid: 167911c74db604745a4c7864cc50f3b0, type: 3}
+  ZAxis: {fileID: -9121502885738966847, guid: 167911c74db604745a4c7864cc50f3b0, type: 3}
 --- !u!1 &155903577
 GameObject:
   m_ObjectHideFlags: 0

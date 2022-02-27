@@ -10,6 +10,9 @@ using UnityEngine;
         public string Name;
         public string Description;
         public Material Artwork;
+    public float ArtworkXsize;
+    public float ArtworkYsize;
+
     public GameObject Object;
    
     public EvidenceType evidenceType;

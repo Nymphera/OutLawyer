@@ -10,11 +10,11 @@ public class PinBoardScript : MonoBehaviour
     private Camera cam;
     private GameObject Player;
     private Vector3 LocationPosition;
-    private GameObject Teleport;
+    private GameObject TeleportButton;
     private void Start()
     {
-        Teleport = GameObject.Find("Teleport");
-        Teleport.SetActive(false);
+        TeleportButton = GameObject.Find("Teleport");
+        TeleportButton.SetActive(false);
         cam = Camera.main;
         Player = GameObject.Find("Player");
 
@@ -41,7 +41,7 @@ public class PinBoardScript : MonoBehaviour
         LocationPosition = GameObject.Find(PointedEvidence.Name).transform.position;
         CinemachineSwitcher.Instance.SwitchState();
         Player.transform.position = LocationPosition;
-
+        TeleportButton.SetActive(false);
     
     }
     public void ShowOptions()
@@ -50,10 +50,10 @@ public class PinBoardScript : MonoBehaviour
         {
             
             Vector3 mousePosition= Input.mousePosition;
-            Debug.Log("mouse position " + mousePosition);
-            Teleport.transform.position = mousePosition;
-            Debug.Log("Teleport button: "+ Teleport.transform.localPosition);
-            Teleport.SetActive(true);
+          
+            TeleportButton.transform.position = mousePosition;
+            Debug.Log("Teleport button: "+ TeleportButton.transform.localPosition);
+            TeleportButton.SetActive(true);
         }
         else Debug.Log("no options!");
     }

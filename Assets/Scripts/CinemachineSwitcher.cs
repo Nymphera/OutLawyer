@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class CinemachineSwitcher : MonoBehaviour
 {   [SerializeField]
     private Animator Animator;
     private bool MainCameraState = false;
     public static CinemachineSwitcher Instance;
+    [SerializeField]
+    private InputAction action;
     private void Awake()
     {
         Instance = this;
@@ -16,13 +19,13 @@ public class CinemachineSwitcher : MonoBehaviour
     {
         if (MainCameraState)
         {
-            Animator.Play("PlayerCamera");
-            GameManager.Instance.OpenPinBoard(true);
+            Animator.Play("Biuro Cam");
+            //GameManager.Instance.OpenPinBoard(true);
         }
         else
         {
-            Animator.Play("InspectCamera");
-            GameManager.Instance.OpenPinBoard(false);
+            Animator.Play("PinBoard Cam");
+           // GameManager.Instance.OpenPinBoard(false);
         }
         MainCameraState = !MainCameraState;
     }

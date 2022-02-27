@@ -5,8 +5,9 @@ using UnityEngine;
 public class EvidenceDisplay : MonoBehaviour
 {
     public MeshRenderer Mesh;
+    public Transform transform;
     public Evidence Evidence;
-
+    
    
     private Camera cam;
     public Evidence PointedEvidence = null;
@@ -15,8 +16,10 @@ public class EvidenceDisplay : MonoBehaviour
 
     private void Awake()
     {
+        
         SpriteRender();
         cam = Camera.main;
+
     }
     private void Update()
     {
@@ -53,7 +56,12 @@ public class EvidenceDisplay : MonoBehaviour
     void SpriteRender()
         {
             Mesh.material = Evidence.Artwork;
-        }  
+        }
+    private void ArtworkSize()
+    {
+
+    }
+    
 }
 
 

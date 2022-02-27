@@ -11,7 +11,7 @@ public class PinBoardCamera : MonoBehaviour
     {
         Vector3 position = transform.position;
 
-        if (Input.GetKey("w"))
+        if (true)
         {
             position.y += CameraSpeed * Time.deltaTime;
         }

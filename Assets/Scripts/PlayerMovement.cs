@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -10,12 +11,13 @@ public class PlayerMovement : MonoBehaviour
     private LayerMask Ground;
     [SerializeField]
     private Camera Inspector;
+    private InputActionMap PlayerInput;
     
     
     private NavMeshAgent Player;
     Ray myRay;
     void Start()
-    {
+    {   
         Player = GetComponent<NavMeshAgent>();
         
     }
@@ -23,18 +25,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        if (Input.GetKey(KeyCode.Mouse1))
-        {
-            Move();
-        }
        
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            Inspect();
-        }
     }
-    private void Move()
+    public void Move()
     {
+        Debug.Log("move!");
         Vector3 mouse = Input.mousePosition;
         myRay = Camera.main.ScreenPointToRay(mouse);
         RaycastHit HitInfo;
@@ -42,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Player.SetDestination(HitInfo.point);
         }
+       
     }
     private void Inspect()
     {

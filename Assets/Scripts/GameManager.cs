@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public GameObject Evidence;
+   
     private GameObject PinBoard;
     public GameState State;
     public static event Action<GameState> OnGameStateChanged; 
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     {
         PinBoard = GameObject.Find("PinBoard");
         PinBoard.SetActive(false);
-        UpdateGameState(GameState.PlayerMove);
+       // UpdateGameState(GameState.PlayerMove);
     }
 
     public void UpdateGameState(GameState newState)

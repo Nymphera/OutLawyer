@@ -61,11 +61,11 @@ public class PinBoardCamera : MonoBehaviour
         }
         if (x > Screen.width * 0.95f)
         {
-            direction.x += 1;
+            direction.x +=-1;
         }
         if (x < Screen.width * 0.05f)
         {
-            direction.x += -1;
+            direction.x += 1;
         }
 
         return direction;

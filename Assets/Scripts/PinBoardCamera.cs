@@ -9,9 +9,14 @@ public class PinBoardCamera : MonoBehaviour
     
     
     [SerializeField]
-    private float CameraSpeed=20f;
+    private float CameraSpeed=2f;  
     [SerializeField]
-    private float FieldOfView = 40f;
+    private float ZoomSpeed=3f;
+    [SerializeField]
+    private float zoomMin = 40f;
+    [SerializeField]
+    private float zoomMax = 10f;
+
     [SerializeField]
     private Vector3 FollowOffset;
 
@@ -26,7 +31,7 @@ public class PinBoardCamera : MonoBehaviour
         Camera = GetComponent<CinemachineVirtualCamera>();
         cameraTransform = Camera.VirtualCameraGameObject.transform;
 
-        FieldOfView = Camera.m_Lens.FieldOfView;
+        
        
     }
 
@@ -39,6 +44,10 @@ public class PinBoardCamera : MonoBehaviour
         if (x != 0 || y != 0)
         {
             MoveCamera(x, y);
+        }
+        if (z != 0)
+        {
+            ZoomCamera(z);
         }
         
        
@@ -78,4 +87,11 @@ public class PinBoardCamera : MonoBehaviour
         cameraTransform.position = Vector3.Lerp(cameraTransform.position, (Vector3)Direction*CameraSpeed + cameraTransform.position,Time.deltaTime);
         Debug.Log(Direction);
     }
+    public void ZoomCamera(float increment)
+    {
+        float FieldOfView = Camera.m_Lens.FieldOfView;
+        float target = Mathf.Clamp(FieldOfView+increment, zoomMin, zoomMax);
+        Camera.m_Lens.FieldOfView = Mathf.Lerp(FieldOfView, target, Time.deltaTime * ZoomSpeed);
+    }
+
 }

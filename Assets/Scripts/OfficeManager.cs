@@ -16,7 +16,7 @@ public class OfficeManager : MonoBehaviour
     
     void Start()
     {
-     
+     //kamera od razu spierdala, zanim siê 
     }
 
     // Update is called once per frame

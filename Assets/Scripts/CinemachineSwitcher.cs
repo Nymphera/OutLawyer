@@ -11,10 +11,15 @@ public class CinemachineSwitcher : MonoBehaviour
     public static CinemachineSwitcher Instance;
     [SerializeField]
     private InputAction action;
+   
+
     private void Awake()
     {
+       
         Instance = this;
+        
     }
+   
     public void SwitchState()
     {
         if (MainCameraState)

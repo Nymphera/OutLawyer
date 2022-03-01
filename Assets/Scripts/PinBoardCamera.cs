@@ -19,6 +19,7 @@ public class PinBoardCamera : MonoBehaviour
 
     [SerializeField]
     private Vector3 FollowOffset;
+    private float FieldOfView=40f;
 
     private CinemachineInputProvider InputProvider;
     private CinemachineVirtualCamera Camera;
@@ -30,9 +31,9 @@ public class PinBoardCamera : MonoBehaviour
         InputProvider = GetComponent<CinemachineInputProvider>();
         Camera = GetComponent<CinemachineVirtualCamera>();
         cameraTransform = Camera.VirtualCameraGameObject.transform;
+        OfficeManager.OnStateChanged += OfficeManagerOnStateChanged;
 
-        
-       
+
     }
 
     void Update()
@@ -41,7 +42,7 @@ public class PinBoardCamera : MonoBehaviour
         float y = InputProvider.GetAxisValue(1);
         float z = InputProvider.GetAxisValue(2);
 
-        if (x != 0 || y != 0)
+        if ((x != 0 || y != 0)&&FieldOfView<=35f)
         {
             MoveCamera(x, y);
         }
@@ -53,13 +54,16 @@ public class PinBoardCamera : MonoBehaviour
        
     }
 
-   
-    
-    
-    
-    public Vector2 MoveDirection(float x,float y)
+    private void OfficeManagerOnStateChanged(OfficeState newState)
     {
-        Vector2 direction = Vector2.zero;
+
+    }
+
+
+
+    public Vector3 MoveDirection(float x,float y)
+    {
+        Vector3 direction = Vector3.zero;
         if (y>Screen.height*0.95f)
         {
             direction.y += 1;
@@ -70,11 +74,12 @@ public class PinBoardCamera : MonoBehaviour
         }
         if (x > Screen.width * 0.95f)
         {
-            direction.x +=-1;
+            direction.z +=-1;
         }
         if (x < Screen.width * 0.05f)
         {
-            direction.x += 1;
+            
+            direction.z += 1;
         }
 
         return direction;
@@ -83,13 +88,13 @@ public class PinBoardCamera : MonoBehaviour
     
     public void MoveCamera(float x, float y)
     {
-        Vector2 Direction = MoveDirection(x, y);
-        cameraTransform.position = Vector3.Lerp(cameraTransform.position, (Vector3)Direction*CameraSpeed + cameraTransform.position,Time.deltaTime);
+        Vector3 Direction = MoveDirection(x, y);
+        cameraTransform.position = Vector3.Lerp(cameraTransform.position, Direction*CameraSpeed + cameraTransform.position,Time.deltaTime);
         Debug.Log(Direction);
     }
     public void ZoomCamera(float increment)
     {
-        float FieldOfView = Camera.m_Lens.FieldOfView;
+         FieldOfView = Camera.m_Lens.FieldOfView;
         float target = Mathf.Clamp(FieldOfView+increment, zoomMin, zoomMax);
         Camera.m_Lens.FieldOfView = Mathf.Lerp(FieldOfView, target, Time.deltaTime * ZoomSpeed);
     }

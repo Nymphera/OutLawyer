@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         PinBoard = GameObject.Find("PinBoard");
-        PinBoard.SetActive(false);
+       // PinBoard.SetActive(false);
        // UpdateGameState(GameState.PlayerMove);
     }
 

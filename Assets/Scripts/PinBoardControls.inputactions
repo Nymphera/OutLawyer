@@ -1,14 +1,14 @@
 {
-    "name": "MouseControls",
+    "name": "PinBoardControls",
     "maps": [
         {
-            "name": "Mouse",
-            "id": "2b96d24b-774d-4934-9926-06c9cc0c2b6f",
+            "name": "PinBoard",
+            "id": "a8d95204-0452-4c7d-a274-326f513cc369",
             "actions": [
                 {
-                    "name": "Pan",
-                    "type": "PassThrough",
-                    "id": "8cce518a-90f5-4506-8d1c-917e7628be6f",
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "eeb4a843-cdba-4631-b218-46d810e8f836",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
@@ -16,7 +16,7 @@
                 {
                     "name": "Zoom",
                     "type": "PassThrough",
-                    "id": "941304ed-f13b-4cfd-844e-59309e02190f",
+                    "id": "3efde2e3-8833-481b-8464-433d14318b78",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
@@ -25,21 +25,21 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "41973d33-f3a8-4998-81a3-f9ecddb386c7",
+                    "id": "bacfcc87-96b7-42f7-9315-a59305ddbb30",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pan",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "c7918355-25d1-427c-812b-9206359c585f",
+                    "id": "5687f3f4-d858-448e-a632-79817e78e990",
                     "path": "<Mouse>/scroll/y",
                     "interactions": "",
-                    "processors": "Normalize(min=-1,max=1)",
+                    "processors": "",
                     "groups": "",
                     "action": "Zoom",
                     "isComposite": false,

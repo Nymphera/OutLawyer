@@ -7,20 +7,19 @@ using UnityEngine.InputSystem;
 public class OfficeManager : MonoBehaviour
 {
     public static event Action <OfficeState> OnStateChanged;
-    [SerializeField]
-    private GameObject PinBoardCamera,PinBoard;
     
+    public static OfficeManager Instance;
+    private GameObject PinBoard;
 
     public OfficeState State;
     private void Awake()
     {
-        OfficeManager.OnStateChanged += OfficeManagerOnStateChanged;
-        PinBoard.transform.GetChild(1).gameObject.SetActive(false);
+        Instance = this;
+   
+        PinBoard = transform.GetChild(2).gameObject;
+
     }
-    private void OfficeManagerOnStateChanged(OfficeState obj)
-    {
-      
-    }
+ 
 
     void Start()
     {
@@ -30,7 +29,7 @@ public class OfficeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(State);
 
     }
 
@@ -45,10 +44,13 @@ public class OfficeManager : MonoBehaviour
         switch (newState)
         {
             case OfficeState.Overview:
+                HandleOverview();
                 break;
             case OfficeState.Newspaper:
+                HandleNewspaper();      
                 break;
             case OfficeState.PinBoard:
+                HandlePinBoard();
                 break;
             case OfficeState.Dialogs:
                 break;
@@ -58,7 +60,22 @@ public class OfficeManager : MonoBehaviour
         //OnStateChanged(newState);
         OnStateChanged?.Invoke(newState);
     }
-    } 
+
+    private void HandlePinBoard()
+    {
+     
+    }
+
+    private void HandleNewspaper()
+    {
+       
+    }
+
+    private void HandleOverview()
+    {
+      
+    }
+} 
 
 
 public enum OfficeState{

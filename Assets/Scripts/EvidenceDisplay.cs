@@ -23,13 +23,13 @@ public class EvidenceDisplay : MonoBehaviour
     }
     private void Update()
     {
-        if (IsTouchingEvidence())
+        if (PinBoardScript.Instance.IsTouchingEvidence())
         {
             PointedEvidence.ShowDescription();
             PointedEvidence.ShowType();
         }
     }
-    public bool IsTouchingEvidence()
+   /* public bool IsTouchingEvidence()
     {
 
         Ray Ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -51,16 +51,13 @@ public class EvidenceDisplay : MonoBehaviour
         }
         else
             return false;
-    }
+    }*/
     
     void SpriteRender()
         {
             Mesh.material = Evidence.Artwork;
         }
-    private void ArtworkSize()
-    {
-
-    }
+    
     
 }
 

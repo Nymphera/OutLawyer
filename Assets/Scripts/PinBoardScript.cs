@@ -2,24 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class PinBoardScript : MonoBehaviour
-{
-    private Evidence Evidence;
+{   
     private Evidence PointedEvidence;
     private Camera cam;
-    private GameObject Player;
+   
     private Vector3 LocationPosition;
     private GameObject TeleportButton;
-    private void Start()
+    public static PinBoardScript Instance;
+    
+   [SerializeField]
+    private CinemachineVirtualCamera PinCamera; 
+    
+
+    private void Awake()
     {
-        TeleportButton = GameObject.Find("Teleport");
-        TeleportButton.SetActive(false);
+        OfficeManager.OnStateChanged += OfficeManagerOnStateChanged;
+        Instance = this;
         cam = Camera.main;
-        Player = GameObject.Find("Player");
 
     }
-  
+   
+
+    private void OnDestroy()
+    {
+        OfficeManager.OnStateChanged -= OfficeManagerOnStateChanged;
+
+    }
+    private void OfficeManagerOnStateChanged(OfficeState State)
+    {  
+       
+            Debug.Log("yesman");
+       PinCamera.GetComponent<PinBoardCamera>().enabled=(State == OfficeState.PinBoard);
+        transform.GetChild(1).gameObject.SetActive(State==OfficeState.PinBoard);
+    }
+
 
     // Update is called once per frame
     private void Update()
@@ -35,7 +54,7 @@ public class PinBoardScript : MonoBehaviour
 
     }
 
-    public void SetPlayerLocation()
+    public void SetPlayerLocation(GameObject Player)
     {   //lokacja musi mieæ tak¹ sam¹ nazwê jak jej dowód
         
         LocationPosition = GameObject.Find(PointedEvidence.Name).transform.position;
@@ -59,7 +78,6 @@ public class PinBoardScript : MonoBehaviour
     }
     public bool IsTouchingEvidence()
     {
-
         Ray Ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit Hit;
         GameObject PointedObject;

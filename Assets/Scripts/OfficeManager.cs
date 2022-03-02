@@ -11,17 +11,13 @@ public class OfficeManager : MonoBehaviour
     public static event Action <OfficeState> OnStateChanged;
     
     public static OfficeManager Instance;
-    private GameObject PinBoard;
-    [SerializeField]
-    private Text text;
 
     public OfficeState State;
     private void Awake()
     {
         Instance = this;
    
-        PinBoard = transform.GetChild(2).gameObject;
-        text.gameObject.SetActive(false);
+      
     }
  
 
@@ -30,17 +26,6 @@ public class OfficeManager : MonoBehaviour
         UpdateOfficeState(OfficeState.Overview);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(State);
-
-    }
-
-   /* internal static CinemachineSwitcher OnStateChanged()
-    {
-        throw new NotImplementedException();
-    }*/
 
     public void UpdateOfficeState(OfficeState newState)
     {
@@ -64,7 +49,7 @@ public class OfficeManager : MonoBehaviour
 
         }
 
-        //OnStateChanged(newState);
+
         OnStateChanged?.Invoke(newState);
     }
 
@@ -72,7 +57,7 @@ public class OfficeManager : MonoBehaviour
         {
         Debug.Log("Teleporting!");
         
-        await Task.Delay(2000); //animacja przenoszenia siê do lokacji
+        await Task.Delay(2000); 
 
         GameManager.Instance.UpdateGameState(GameState.Location);
         }

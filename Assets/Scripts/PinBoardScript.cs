@@ -92,14 +92,11 @@ public class PinBoardScript : MonoBehaviour
             }
             else
             {
-     
                 return false;
             }
-               
         }
         else
         {
-          
             return false;
         }
            

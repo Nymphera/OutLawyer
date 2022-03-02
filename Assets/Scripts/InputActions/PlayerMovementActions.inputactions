@@ -24,7 +24,7 @@
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
+                    "name": "WASD",
                     "id": "343d18b2-03ee-4944-825f-e536aa8a3d44",
                     "path": "2DVector",
                     "interactions": "",

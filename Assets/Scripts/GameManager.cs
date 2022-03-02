@@ -6,19 +6,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-   
+   [SerializeField]
     private GameObject PinBoard;
     public GameState State;
+   
     public static event Action<GameState> OnGameStateChanged; 
     private void Awake()
     {
         Instance = this;
     }
     private void Start()
-    {
-        PinBoard = GameObject.Find("PinBoard");
-        // PinBoard.SetActive(false);
-        // UpdateGameState(GameState.PlayerMove);
+    {   
         UpdateGameState(GameState.Office);
     }
 
@@ -40,26 +38,15 @@ public class GameManager : MonoBehaviour
 
     private void HandleLocation()
     {
-        OfficeManager.Instance.gameObject.SetActive(false);
- 
+        OfficeManager.Instance.GetComponent<OfficeManager>().enabled = false;
+
+
     }
 
     private void HandleOffice()
     {
-        OfficeManager.Instance.gameObject.SetActive(true);
+        OfficeManager.Instance.GetComponent<OfficeManager>().enabled = true;
     }
-    /*   public void OpenPinBoard(bool isOpen)
-  {
-      if(isOpen==false)
-      {
-       PinBoard.SetActive(true);
-
-      }
-      else //isOpen==true
-      {
-          PinBoard.SetActive(false);
-      }
-  }*/
 
 }
     public enum GameState

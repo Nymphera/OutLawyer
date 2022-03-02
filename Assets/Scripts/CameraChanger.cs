@@ -6,7 +6,9 @@ using Cinemachine;
 public class CameraChanger : MonoBehaviour
 {
     [SerializeField]
-    private CinemachineVirtualCamera OfficeCam, PlayerCam;
+    private CinemachineVirtualCamera OfficeCam;
+    [SerializeField]
+        private CinemachineFreeLook PlayerCam;
     private void Awake()
     {
         GameManager.OnGameStateChanged += ChangeCamera;
@@ -16,13 +18,13 @@ public class CameraChanger : MonoBehaviour
     {
         if (State == GameState.Office)
         {
-            OfficeCam.Priority = 1;
+            OfficeCam.Priority = 100;
             PlayerCam.Priority = 0;
         }
         if (State == GameState.Location)
         {
             OfficeCam.Priority = 0;
-            PlayerCam.Priority = 1;
+            PlayerCam.Priority = 100;
         }
 
     }

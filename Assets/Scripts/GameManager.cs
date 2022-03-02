@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         PinBoard = GameObject.Find("PinBoard");
-       // PinBoard.SetActive(false);
-       // UpdateGameState(GameState.PlayerMove);
+        // PinBoard.SetActive(false);
+        // UpdateGameState(GameState.PlayerMove);
+        UpdateGameState(GameState.Office);
     }
 
     public void UpdateGameState(GameState newState)
@@ -27,30 +28,42 @@ public class GameManager : MonoBehaviour
 
         switch (newState)
         {
-            case GameState.PlayerMove:
+            case GameState.Office:
+                HandleOffice();
                 break;
-            case GameState.PinBoard:
-
+            case GameState.Location:
+                HandleLocation();
                 break;
         }
-       // OnGameStateChanged(newState);
+        OnGameStateChanged?.Invoke(newState);
     }
-        public void OpenPinBoard(bool isOpen)
-        {
-            if(isOpen==false)
-            {
-             PinBoard.SetActive(true);
 
-            }
-            else //isOpen==true
-            {
-                PinBoard.SetActive(false);
-            }
-        }
-
+    private void HandleLocation()
+    {
+        OfficeManager.Instance.gameObject.SetActive(false);
+ 
     }
+
+    private void HandleOffice()
+    {
+        OfficeManager.Instance.gameObject.SetActive(true);
+    }
+    /*   public void OpenPinBoard(bool isOpen)
+  {
+      if(isOpen==false)
+      {
+       PinBoard.SetActive(true);
+
+      }
+      else //isOpen==true
+      {
+          PinBoard.SetActive(false);
+      }
+  }*/
+
+}
     public enum GameState
     {
-        PlayerMove,
-        PinBoard
+        Office,
+        Location
     }

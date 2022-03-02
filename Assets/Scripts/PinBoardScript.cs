@@ -12,6 +12,7 @@ public class PinBoardScript : MonoBehaviour
     private Vector3 LocationPosition;
     private GameObject TeleportButton;
     public static PinBoardScript Instance;
+    private GameObject Player;
     
    [SerializeField]
     private CinemachineVirtualCamera PinCamera; 
@@ -32,15 +33,10 @@ public class PinBoardScript : MonoBehaviour
 
     }
     private void OfficeManagerOnStateChanged(OfficeState State)
-    {  
-       
-            Debug.Log("yesman");
-       PinCamera.GetComponent<PinBoardCamera>().enabled=(State == OfficeState.PinBoard);
-        transform.GetChild(1).gameObject.SetActive(State==OfficeState.PinBoard);
+    {
+        PinCamera.GetComponent<PinBoardCamera>().enabled = (State == OfficeState.PinBoard);
+        transform.GetChild(1).gameObject.SetActive(State == OfficeState.PinBoard);
     }
-
-
-    // Update is called once per frame
     private void Update()
     {
         
@@ -54,14 +50,14 @@ public class PinBoardScript : MonoBehaviour
 
     }
 
-    public void SetPlayerLocation(GameObject Player)
-    {   //lokacja musi mieæ tak¹ sam¹ nazwê jak jej dowód
-        
-        LocationPosition = GameObject.Find(PointedEvidence.Name).transform.position;
+    public void SetPlayerLocation()
+    {   
+        Player = GameObject.Find("Player");
+        LocationPosition = new Vector3(0, 0, -15);
         CinemachineSwitcher.Instance.SwitchState();
         Player.transform.position = LocationPosition;
-        TeleportButton.SetActive(false);
-    
+        
+        OfficeManager.Instance.UpdateOfficeState(OfficeState.MovingtoLocation);
     }
     public void ShowOptions()
     {

@@ -16,7 +16,7 @@ public class OfficeManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-   
+        
       
     }
  
@@ -65,6 +65,9 @@ public class OfficeManager : MonoBehaviour
     private void HandlePinBoard()
     {
      
+
+
+
     }
 
     private void HandleNewspaper()
@@ -76,7 +79,10 @@ public class OfficeManager : MonoBehaviour
     {
       
     }
-
+    public void MoveToOffice()
+    {
+        GameManager.Instance.UpdateGameState(GameState.Office);
+    }
 } 
 
 

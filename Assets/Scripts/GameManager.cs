@@ -7,13 +7,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
    [SerializeField]
-    private GameObject PinBoard;
+    private GameObject PinBoard,Player;
     public GameState State;
    
     public static event Action<GameState> OnGameStateChanged; 
     private void Awake()
-    {
+    {   
         Instance = this;
+        Player = GameObject.Find("Player");
     }
     private void Start()
     {   
@@ -39,7 +40,9 @@ public class GameManager : MonoBehaviour
     private void HandleLocation()
     {
         OfficeManager.Instance.GetComponent<OfficeManager>().enabled = false;
+       
 
+        
 
     }
 

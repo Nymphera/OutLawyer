@@ -30,6 +30,17 @@ public class PlayerController : MonoBehaviour
     { PlayerInputActions = new PlayerMovementActions();
         CharacterController = GetComponent<CharacterController>();
         cam = Camera.main;
+        GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+    }
+
+    private void GameManager_OnGameStateChanged(GameState State)
+    {
+        Player.GetComponent<PlayerController>().enabled = (State == GameState.Location);
+
+    }
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
     }
     void Start()
     {   
@@ -45,18 +56,10 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 Input = movement.ReadValue<Vector2>();
-        Vector3 Direction = new Vector3(Input.x, 0f, Input.y);
+        Move(Input);
 
-        Debug.Log(Direction);
-        
-        float targetAngle=Mathf.Atan2(Direction.x,Direction.z)*Mathf.Rad2Deg+cam.transform.eulerAngles.y;
 
-        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,turnSmoothTime);
-        transform.rotation = Quaternion.Euler(0f, angle, 0f);
-        //PlayerBody.GetComponent<Rigidbody>().AddForce(Direction *PlayerSpeed); 
-        Vector3 moveDirection = Quaternion.Euler(0f, angle, 0f)*Vector3.forward;
-        if(Direction.magnitude>0)
-        CharacterController.Move(moveDirection  * PlayerSpeed * Time.deltaTime);
+
     }
 
  
@@ -66,35 +69,24 @@ public class PlayerController : MonoBehaviour
         movement.Disable();
     }
     // Update is called once per frame
-    void Update()
-    { 
-       
-    }
-    public void Move()
+   
+    public void Move(Vector2 Input)
     {
-        
+        Vector3 Direction = new Vector3(Input.x, 0f, Input.y);
+
+        float targetAngle = Mathf.Atan2(Direction.x, Direction.z) * Mathf.Rad2Deg + cam.transform.eulerAngles.y;
+
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        //PlayerBody.GetComponent<Rigidbody>().AddForce(Direction *PlayerSpeed); 
+        Vector3 moveDirection = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
+        if (Direction.magnitude > 0.1)
+            CharacterController.Move(moveDirection * PlayerSpeed * Time.deltaTime);
 
 
-
-
-
-
-
-
-
-        Debug.Log("move!");
-        Vector3 mouse = Input.mousePosition;
-        myRay = Camera.main.ScreenPointToRay(mouse);
-        RaycastHit HitInfo;
-        if (Physics.Raycast(myRay, out HitInfo, 100, Ground))
-        {
-            Player.SetDestination(HitInfo.point);
-        }
-       
     }
     private void Inspect()
     {
         
-        //CinemachineSwitcher.SwitchState();
     }
 }

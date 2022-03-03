@@ -16,16 +16,16 @@ public class PinBoardCamera : MonoBehaviour
     private float zoomMin = 40f;
     [SerializeField]
     private float zoomMax = 10f;
-
+    [Range (0f,0.3f)]
     [SerializeField]
-    private Vector3 FollowOffset;
+    private float MoveSensitivity = 0.05f;
     private float FieldOfView=40f;
 
     private CinemachineInputProvider InputProvider;
     private CinemachineVirtualCamera Camera;
     private Transform cameraTransform;
 
-    private float x, y, z;
+    
   
     
     private void Awake()
@@ -63,19 +63,19 @@ public class PinBoardCamera : MonoBehaviour
     public Vector3 MoveDirection(float x,float y)
     {
         Vector3 direction = Vector3.zero;
-        if (y>Screen.height*0.95f)
+        if (y>Screen.height*(1-MoveSensitivity))
         {
             direction.y += 1;
         }
-        if (y < Screen.height * 0.05f)
+        if (y < Screen.height * MoveSensitivity)
         {
             direction.y += -1;
         }
-        if (x > Screen.width * 0.95f)
+        if (x > Screen.width * (1-MoveSensitivity))
         {
             direction.z +=-1;
         }
-        if (x < Screen.width * 0.05f)
+        if (x < Screen.width * MoveSensitivity)
         {
             
             direction.z += 1;

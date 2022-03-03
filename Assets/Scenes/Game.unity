@@ -578,7 +578,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448417913}
-  m_LocalRotation: {x: -0.00032988715, y: -0.9807222, z: 0.19539115, w: 0.002469435}
+  m_LocalRotation: {x: -0.123113245, y: 0.0024386998, z: -0.0005096824, w: 0.99238956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 20
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -700,7 +700,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529474990}
-  m_LocalRotation: {x: -0.00037463717, y: -0.9841056, z: 0.17756726, w: 0.0024630781}
+  m_LocalRotation: {x: -0.13185127, y: 0.0024430763, z: -0.0004881743, w: 0.9912664}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -736,7 +736,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 20
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -775,7 +775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588913792}
   m_LocalRotation: {x: 0.16398485, y: -0.002457663, z: 0.0004085514, w: 0.98645973}
-  m_LocalPosition: {x: 0, y: 1.5728219, z: 15.638594}
+  m_LocalPosition: {x: 0, y: 1.5728219, z: -15.638594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1848267771}
@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1649401378}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 20
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1248,7 +1248,7 @@ GameObject:
   - component: {fileID: 797947692}
   - component: {fileID: 797947695}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: PlayerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3146,7 +3146,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649401377}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.37, y: -0.44, z: -21.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3154,7 +3154,7 @@ Transform:
   - {fileID: 797947691}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1649401379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3167,10 +3167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8bd9b442194fe1419ab9597300e666c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerBody: {fileID: 797947690}
   Ground:
     serializedVersion: 2
     m_Bits: 8
-  PlayerSpeed: 0
+  PlayerSpeed: 100
+  turnSmoothTime: 0.1
 --- !u!195 &1649401380
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3178,7 +3180,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649401377}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -3240,7 +3242,7 @@ CharacterController:
   m_GameObject: {fileID: 1649401377}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Height: 1.5
   m_Radius: 0.5
@@ -4214,7 +4216,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135324345}
-  m_LocalRotation: {x: -0.00028491652, y: -0.97700596, z: 0.21319766, w: 0.002475042}
+  m_LocalRotation: {x: -0.11436023, y: 0.0024341121, z: -0.0005311605, w: 0.9934362}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4250,7 +4252,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 20
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000

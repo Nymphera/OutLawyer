@@ -9,9 +9,13 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
+    private GameObject PlayerBody;
+    [SerializeField]
     private LayerMask Ground;
     [SerializeField]
-    private float PlayerSpeed=6,turnSmoothTime=0.1f;
+    private float PlayerSpeed = 6f;
+        [SerializeField]
+        private float turnSmoothTime=5f;
     float turnSmoothVelocity;
     private CharacterController CharacterController;
     
@@ -39,22 +43,20 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 direction = movement.ReadValue<Vector2>();
-        float targetAngle=Mathf.Atan2(direction.x,direction.y)*Mathf.Rad2Deg;
-        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,turnSmoothTime);
-        transform.rotation = Quaternion.Euler(0, angle, 0);
+        Vector2 Input = movement.ReadValue<Vector2>();
+        Vector3 Direction = new Vector3(Input.x, 0f, Input.y);
+
+        Debug.Log(Direction);
         
-        CharacterController.Move(InputToVector3(direction)*Time.deltaTime*PlayerSpeed);
+        float targetAngle=Mathf.Atan2(Direction.x,Direction.z)*Mathf.Rad2Deg;
+
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,turnSmoothTime);
+        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        //PlayerBody.GetComponent<Rigidbody>().AddForce(Direction *PlayerSpeed); 
+        CharacterController.Move(Direction * Time.deltaTime * PlayerSpeed);
     }
 
-    private Vector3 InputToVector3(Vector2 direction)
-    {
-        Vector3 Direction = Vector3.zero;
-        Direction.x = direction.x;
-        
-        Direction.z = direction.y;
-        return Direction;
-    }
+ 
 
     private void OnDisable()
     {

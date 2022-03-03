@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {   
-        UpdateGameState(GameState.Office);
+        UpdateGameState(GameState.Location);
     }
 
     public void UpdateGameState(GameState newState)

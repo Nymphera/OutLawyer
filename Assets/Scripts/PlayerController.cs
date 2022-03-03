@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 
 public class PlayerController : MonoBehaviour
-{
+{   
     [SerializeField]
     private GameObject PlayerBody;
     [SerializeField]
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
         private float turnSmoothTime=5f;
     float turnSmoothVelocity;
     private CharacterController CharacterController;
-    
+    private Camera cam;
 
 
     private PlayerMovementActions PlayerInputActions;
@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     { PlayerInputActions = new PlayerMovementActions();
         CharacterController = GetComponent<CharacterController>();
+        cam = Camera.main;
     }
     void Start()
     {   
@@ -48,12 +49,14 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log(Direction);
         
-        float targetAngle=Mathf.Atan2(Direction.x,Direction.z)*Mathf.Rad2Deg;
+        float targetAngle=Mathf.Atan2(Direction.x,Direction.z)*Mathf.Rad2Deg+cam.transform.eulerAngles.y;
 
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,turnSmoothTime);
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
         //PlayerBody.GetComponent<Rigidbody>().AddForce(Direction *PlayerSpeed); 
-        CharacterController.Move(Direction * Time.deltaTime * PlayerSpeed);
+        Vector3 moveDirection = Quaternion.Euler(0f, angle, 0f)*Vector3.forward;
+        if(Direction.magnitude>0)
+        CharacterController.Move(moveDirection  * PlayerSpeed * Time.deltaTime);
     }
 
  

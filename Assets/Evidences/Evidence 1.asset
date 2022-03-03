@@ -17,7 +17,7 @@ MonoBehaviour:
     m_Bits: 71
   Name: Krabiarnia
   Description: Krabiarz ma Kraby
-  Artwork: {fileID: 2100000, guid: 62626ae1d25182047b50a7804220eea6, type: 2}
+  Artwork: {fileID: 2100000, guid: fcac397647bac7e4fb88c99de4162c58, type: 2}
   ArtworkXsize: 0
   ArtworkYsize: 0
   Object: {fileID: 3242774187239063980, guid: 226502d392ed5b048971e13fa89155a4, type: 3}

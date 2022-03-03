@@ -17,7 +17,7 @@ MonoBehaviour:
     m_Bits: 64
   Name: 
   Description: 
-  Artwork: {fileID: 2100000, guid: 8ff167cd7b52dfb43baad8acdea90be3, type: 2}
+  Artwork: {fileID: 2100000, guid: fcac397647bac7e4fb88c99de4162c58, type: 2}
   ArtworkXsize: 0
   ArtworkYsize: 0
   Object: {fileID: 0}

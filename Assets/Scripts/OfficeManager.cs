@@ -57,8 +57,8 @@ public class OfficeManager : MonoBehaviour
         {
         Debug.Log("Teleporting!");
         
-        await Task.Delay(2000); 
-
+        await Task.Delay(2000);
+        
         GameManager.Instance.UpdateGameState(GameState.Location);
         }
 

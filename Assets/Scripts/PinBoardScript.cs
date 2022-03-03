@@ -10,32 +10,41 @@ public class PinBoardScript : MonoBehaviour
     private Camera cam;
    
     private Vector3 LocationPosition;
-    private GameObject TeleportButton;
+
     public static PinBoardScript Instance;
     private GameObject Player;
     
    [SerializeField]
-    private CinemachineVirtualCamera PinCamera; 
-    
+    private CinemachineVirtualCamera PinCamera;
+    [SerializeField]
+    private GameObject PinBoardButton, TeleportButton, LineButtons;
 
     private void Awake()
     {
         OfficeManager.OnStateChanged += OfficeManagerOnStateChanged;
+        GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
         Instance = this;
         cam = Camera.main;
 
     }
-   
+
+    private void GameManager_OnGameStateChanged(GameState State)
+    {
+        PinBoardButton.SetActive(State==GameState.Office);
+    }
 
     private void OnDestroy()
     {
         OfficeManager.OnStateChanged -= OfficeManagerOnStateChanged;
+        GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
 
     }
     private void OfficeManagerOnStateChanged(OfficeState State)
     {
         PinCamera.GetComponent<PinBoardCamera>().enabled = (State == OfficeState.PinBoard);
-        transform.GetChild(1).gameObject.SetActive(State == OfficeState.PinBoard);
+     
+        LineButtons.SetActive(State == OfficeState.PinBoard);
+
     }
     private void Update()
     {

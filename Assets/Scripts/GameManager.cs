@@ -14,12 +14,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {   
         Instance = this;
-        Player = GameObject.Find("Player");
+        UpdateGameState(GameState.Office);
     }
-    private void Start()
-    {   
-        UpdateGameState(GameState.Location);
-    }
+  
 
     public void UpdateGameState(GameState newState)
     {
@@ -41,14 +38,14 @@ public class GameManager : MonoBehaviour
     {
         OfficeManager.Instance.GetComponent<OfficeManager>().enabled = false;
        
-
-        
+       
 
     }
 
     private void HandleOffice()
     {
         OfficeManager.Instance.GetComponent<OfficeManager>().enabled = true;
+        
     }
 
 }

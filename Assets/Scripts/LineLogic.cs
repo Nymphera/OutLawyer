@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 
@@ -14,8 +15,12 @@ public class LineLogic : MonoBehaviour
     private InputAction MousePosition;
     private PinBoardControls PinBoardControls;
     private Camera Cam;
+    [SerializeField]
+    private Image SettingsPanel;
+
     private void Awake()
     {
+        SettingsPanel.gameObject.SetActive(false);
         PinBoardControls = new PinBoardControls();
         LineRenderer = GetComponent<LineRenderer>();
         PinBoardScript = GetComponent<PinBoardScript>();
@@ -33,16 +38,21 @@ public class LineLogic : MonoBehaviour
     private void MouseLeftClick_performed(InputAction.CallbackContext obj)
     {
         Debug.Log(MousePosition.ReadValue<Vector2>());
-
-        
-    }
-    private void MouseRightClick_performed(InputAction.CallbackContext obj)
-    {
-        Debug.Log("Right Click");
         Evidence = TouchedEvidence();
         if (Evidence != null)
         {
-            Debug.Log("you clicked evidence");
+            
+        }
+
+
+    }
+    private void MouseRightClick_performed(InputAction.CallbackContext obj)
+    {
+        
+        Evidence = TouchedEvidence();
+        if (Evidence != null)
+        {
+            ShowOptions(MousePosition.ReadValue<Vector2>());
         }
 
     }
@@ -75,9 +85,10 @@ public class LineLogic : MonoBehaviour
         else return null;
 
     }
-    private void ShowOptions()
+    private void ShowOptions(Vector2 MousePosition)
     {
-
+        SettingsPanel.gameObject.SetActive(true);
+        SettingsPanel.transform.position = MousePosition;
         
         Evidence Evid = Evidence.GetComponent<EvidenceDisplay>().Evidence;
         Debug.Log(Evid.name);

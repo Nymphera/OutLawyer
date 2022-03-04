@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 886522225375974236}
   - component: {fileID: 301750570533264861}
   - component: {fileID: 5730644615172831290}
+  - component: {fileID: 2903554722782459338}
   m_Layer: 7
   m_Name: Evidence
   m_TagString: Untagged
@@ -95,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a99716492a408e4ea723f0a7988aa03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Evidence: {fileID: 0}
+  Evidence: {fileID: 5901820395731602024}
   Pin: {fileID: 8640623116764911033}
 --- !u!64 &301750570533264861
 MeshCollider:
@@ -127,6 +128,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2903554722782459338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901820395731602024}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6401249569686076866
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +158,6 @@ GameObject:
   - component: {fileID: 6554271571567176053}
   - component: {fileID: 5276661575391440183}
   - component: {fileID: 15427272074946103}
-  - component: {fileID: 8732886373288492209}
   m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
@@ -223,24 +241,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000005, y: 1, z: 1.0000005}
   m_Center: {x: -0.00000017881402, y: 0, z: 0.00000007450582}
---- !u!114 &8732886373288492209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6401249569686076866}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &8640623116764911033
 GameObject:
   m_ObjectHideFlags: 0

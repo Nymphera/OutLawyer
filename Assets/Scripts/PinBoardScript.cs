@@ -7,7 +7,7 @@ using System;
 
 public class PinBoardScript : MonoBehaviour
 {
-    
+
 
    
     private Camera cam;
@@ -21,9 +21,10 @@ public class PinBoardScript : MonoBehaviour
     private CinemachineVirtualCamera PinCamera;
     [SerializeField]
     private GameObject PinBoardButton, TeleportButton, LineButtons;
-    
+    bool state;
     private void Awake()
     {
+         state=true;
         OfficeManager.OnStateChanged += OfficeManagerOnStateChanged;
         GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
         Instance = this;
@@ -52,10 +53,21 @@ public class PinBoardScript : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+       /* if (Input.GetMouseButton(0))
         {
+           
             PointedEvidence=TouchedEvidence();
-            PointedEvidence.GetComponentInChildren<Outline>().enabled = true;
+            if(state) 
+            {
+                PointedEvidence.GetComponent<Outline>().enabled = true;
+               
+            }          
+            else
+            {
+                PointedEvidence.GetComponent<Outline>().enabled = false;
+                
+            }
+            state = !state;
         }
         if ( Input.GetMouseButton(1))
         {
@@ -63,7 +75,7 @@ public class PinBoardScript : MonoBehaviour
           
         
             
-        }
+        }*/
 
     }
 
@@ -78,34 +90,10 @@ public class PinBoardScript : MonoBehaviour
         
         OfficeManager.Instance.UpdateOfficeState(OfficeState.MovingtoLocation);
     }
-    public void ShowOptions()
-    {
-       
-            PointedEvidence = TouchedEvidence();
-        Evidence Evidence = PointedEvidence.GetComponent<EvidenceDisplay>().Evidence;
+   
 
-    }
+
     
-    private GameObject TouchedEvidence()
-    {
-        Ray Ray = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit Hit;
-        GameObject Evidence;
-
-        if (Physics.Raycast(Ray, out Hit, 1000))
-        {
-            if (Hit.transform.gameObject.layer == 7)
-            {
-                Evidence = Hit.transform.gameObject;
-                Debug.Log(Evidence);
-
-                return Evidence;
-
-            }
-            else return null;
-        }
-        else return null;
-
-    }
+   
     
 }

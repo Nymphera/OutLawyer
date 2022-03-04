@@ -8,15 +8,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {   
-    [SerializeField]
-    private GameObject PlayerBody;
-    [SerializeField]
-    private LayerMask Ground;
+
+
     [SerializeField]
     private float PlayerSpeed = 6f;
         [SerializeField]
         private float turnSmoothTime=5f;
-    float turnSmoothVelocity;
+    private float turnSmoothVelocity;
     private CharacterController CharacterController;
     private Camera cam;
 
@@ -29,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     { PlayerInputActions = new PlayerMovementActions();
         CharacterController = GetComponent<CharacterController>();
+        Player = GetComponent<NavMeshAgent>();
         cam = Camera.main;
         GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
     }
@@ -42,11 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
     }
-    void Start()
-    {   
-        Player = GetComponent<NavMeshAgent>();
-        
-    }
+  
     private void OnEnable()
     {
         movement = PlayerInputActions.Player.Move; 

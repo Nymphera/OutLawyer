@@ -20,7 +20,7 @@ public class PinBoardScript : MonoBehaviour
     [SerializeField]
     private CinemachineVirtualCamera PinCamera;
     [SerializeField]
-    private GameObject PinBoardButton, TeleportButton, LineButtons;
+    private GameObject PinBoardButton,  LineButtons,SettingsPanel;
     bool state;
     private void Awake()
     {
@@ -35,6 +35,7 @@ public class PinBoardScript : MonoBehaviour
     private void GameManager_OnGameStateChanged(GameState State)
     {
         PinBoardButton.SetActive(State==GameState.Office);
+        SettingsPanel.SetActive(false);
     }
 
     private void OfficeManagerOnStateChanged(OfficeState State)
@@ -42,6 +43,7 @@ public class PinBoardScript : MonoBehaviour
         PinCamera.GetComponent<PinBoardCamera>().enabled = (State == OfficeState.PinBoard);
 
         LineButtons.SetActive(State == OfficeState.PinBoard);
+        SettingsPanel.SetActive(false);
 
     }
     private void OnDestroy()

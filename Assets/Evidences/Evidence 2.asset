@@ -16,9 +16,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   Name: Bar
-  Description: ...
+  Description: "Z tego miejsca chcia\u0142bym podzi\u0119kowa\u0107 wszystkim moim
+    fanom. Gdybym mia\u0142 powiedzie\u0107 co jest w \u017Cyciu najwa\u017Cniejsze
+    to powiedzia\u0142bym \u017Ce ludzie"
   Artwork: {fileID: 2100000, guid: fcac397647bac7e4fb88c99de4162c58, type: 2}
   ArtworkXsize: 0
   ArtworkYsize: 0
   Object: {fileID: 3242774187239063980, guid: 226502d392ed5b048971e13fa89155a4, type: 3}
-  evidenceType: 1
+  evidenceType: 0

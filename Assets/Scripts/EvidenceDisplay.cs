@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EvidenceDisplay : MonoBehaviour
 {
-    public MeshRenderer Mesh;
-    public Transform transform;
+    private MeshRenderer Mesh;
+    private Transform transform;
     public Evidence Evidence;
     
    
     private Camera cam;
-    public Evidence PointedEvidence = null;
+    private Evidence PointedEvidence = null;
     private Vector3 LocationPosition;
     
 

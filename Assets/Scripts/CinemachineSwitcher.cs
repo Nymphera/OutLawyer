@@ -9,8 +9,7 @@ public class CinemachineSwitcher : MonoBehaviour
     private Animator Animator;
     private bool MainCameraState = false;
     public static CinemachineSwitcher Instance;
-    [SerializeField]
-    private InputAction action;
+
     
    
 

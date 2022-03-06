@@ -14,7 +14,7 @@ public class PinBoardScript : MonoBehaviour
    
     private Vector3 LocationPosition;
 
-    public static PinBoardScript Instance;
+  
     private GameObject Player, PointedEvidence;
 
     [SerializeField]
@@ -27,7 +27,7 @@ public class PinBoardScript : MonoBehaviour
          state=true;
         OfficeManager.OnStateChanged += OfficeManagerOnStateChanged;
         GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
-        Instance = this;
+       
         cam = Camera.main;
 
     }
@@ -35,14 +35,14 @@ public class PinBoardScript : MonoBehaviour
     private void GameManager_OnGameStateChanged(GameState State)
     {
         PinBoardButton.SetActive(State==GameState.Office);
-        SettingsPanel.SetActive(false);
+        SettingsPanel.SetActive(State==GameState.Office);
     }
 
     private void OfficeManagerOnStateChanged(OfficeState State)
     {
         PinCamera.GetComponent<PinBoardCamera>().enabled = (State == OfficeState.PinBoard);
 
-        LineButtons.SetActive(State == OfficeState.PinBoard);
+        //LineButtons.SetActive(State == OfficeState.PinBoard);
         SettingsPanel.SetActive(false);
 
     }
@@ -53,45 +53,11 @@ public class PinBoardScript : MonoBehaviour
 
     }
     
-    private void Update()
-    {
-       /* if (Input.GetMouseButton(0))
-        {
-           
-            PointedEvidence=TouchedEvidence();
-            if(state) 
-            {
-                PointedEvidence.GetComponent<Outline>().enabled = true;
-               
-            }          
-            else
-            {
-                PointedEvidence.GetComponent<Outline>().enabled = false;
-                
-            }
-            state = !state;
-        }
-        if ( Input.GetMouseButton(1))
-        {
-            ShowOptions();
-          
-        
-            
-        }*/
-
-    }
+ 
 
 
 
-    public void SetPlayerLocation()
-    {   
-        Player = GameObject.Find("Player");
-        LocationPosition = new Vector3(0, 0, -15);
-        CinemachineSwitcher.Instance.SwitchState();
-        Player.transform.position = LocationPosition;
-        
-        OfficeManager.Instance.UpdateOfficeState(OfficeState.MovingtoLocation);
-    }
+  
    
 
 

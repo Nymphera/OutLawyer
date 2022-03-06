@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 
 
-public class LineLogic : MonoBehaviour
+public class PinBoardLogic : MonoBehaviour
 {
     private LineRenderer LineRenderer;
     private PinBoardScript PinBoardScript;
@@ -20,8 +20,10 @@ public class LineLogic : MonoBehaviour
     private Image SettingsPanel;
     [SerializeField]
     private Text Description;
-    
+    [SerializeField]
     private Button TeleportButton;
+    
+ 
 
     private void Awake()
     {
@@ -42,7 +44,7 @@ public class LineLogic : MonoBehaviour
     
     private void MouseLeftClick_performed(InputAction.CallbackContext obj)
     {
-        SettingsPanel.gameObject.SetActive(false);
+      //  SettingsPanel.gameObject.SetActive(false);
         Vector2 pos=MousePosition.ReadValue<Vector2>();
         Object = TouchedObject(pos);
         if (Object.transform.gameObject.layer == 8)
@@ -112,7 +114,7 @@ public class LineLogic : MonoBehaviour
         Description.text = Evid.Description.ToString();
         SettingsPanel.gameObject.SetActive(true);
         SettingsPanel.transform.position = MousePosition;
-        SettingsPanel.transform.GetChild(1).gameObject.SetActive(ButtonState);
+        TeleportButton.gameObject.SetActive(ButtonState);
 
 
     }
@@ -141,5 +143,14 @@ public class LineLogic : MonoBehaviour
         Vector3 idontknow = new Vector3(mouse.x, mouse.y, pos.z);
         LineRenderer.SetPosition(0, pos);
         LineRenderer.SetPosition(1, idontknow);
+    }
+    public void SetPlayerLocation()
+    {
+        GameObject Player = GameObject.Find("Player");
+        Vector3 LocationPosition = new Vector3(0, 0, -15);
+       
+        Player.transform.position = LocationPosition;
+        CinemachineSwitcher.Instance.SwitchState();
+        OfficeManager.Instance.UpdateOfficeState(OfficeState.MovingtoLocation);
     }
 }

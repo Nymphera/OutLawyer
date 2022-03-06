@@ -6,7 +6,7 @@ using Cinemachine;
 public class CameraChanger : MonoBehaviour
 {
     [SerializeField]
-    private CinemachineVirtualCamera OfficeCam;
+    private CinemachineStateDrivenCamera OfficeCam;
     [SerializeField]
         private CinemachineFreeLook PlayerCam;
     private void Awake()

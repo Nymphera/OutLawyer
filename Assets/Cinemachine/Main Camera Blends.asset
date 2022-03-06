@@ -16,7 +16,7 @@ MonoBehaviour:
   - m_From: CM Biuro
     m_To: PlayerCam
     m_Blend:
-      m_Style: 0
+      m_Style: 7
       m_Time: 2
       m_CustomCurve:
         serializedVersion: 2
@@ -27,7 +27,7 @@ MonoBehaviour:
   - m_From: PlayerCam
     m_To: CM Biuro
     m_Blend:
-      m_Style: 0
+      m_Style: 7
       m_Time: 2
       m_CustomCurve:
         serializedVersion: 2

@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleOffice()
     {
+        Player.GetComponent<PlayerController>().enabled = false;
         OfficeManager.Instance.GetComponent<OfficeManager>().enabled = true;
         
     }

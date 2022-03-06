@@ -16,14 +16,16 @@ public class PinBoardCamera : MonoBehaviour
     private float zoomMin = 40f;
     [SerializeField]
     private float zoomMax = 10f;
-
+    [Range (0f,0.3f)]
     [SerializeField]
-    private Vector3 FollowOffset;
+    private float MoveSensitivity = 0.05f;
     private float FieldOfView=40f;
 
     private CinemachineInputProvider InputProvider;
     private CinemachineVirtualCamera Camera;
-    private Transform cameraTransform; 
+    private Transform cameraTransform;
+
+    
   
     
     private void Awake()
@@ -31,7 +33,7 @@ public class PinBoardCamera : MonoBehaviour
         InputProvider = GetComponent<CinemachineInputProvider>();
         Camera = GetComponent<CinemachineVirtualCamera>();
         cameraTransform = Camera.VirtualCameraGameObject.transform;
-        OfficeManager.OnStateChanged += OfficeManagerOnStateChanged;
+      
 
 
     }
@@ -42,7 +44,7 @@ public class PinBoardCamera : MonoBehaviour
         float y = InputProvider.GetAxisValue(1);
         float z = InputProvider.GetAxisValue(2);
 
-        if ((x != 0 || y != 0)&&FieldOfView<=35f)
+        if ((x != 0 || y != 0) && FieldOfView <= 35f)
         {
             MoveCamera(x, y);
         }
@@ -50,33 +52,30 @@ public class PinBoardCamera : MonoBehaviour
         {
             ZoomCamera(z);
         }
-        
-       
-    }
 
-    private void OfficeManagerOnStateChanged(OfficeState newState)
-    {
 
     }
+
+    
 
 
 
     public Vector3 MoveDirection(float x,float y)
     {
         Vector3 direction = Vector3.zero;
-        if (y>Screen.height*0.95f)
+        if (y>Screen.height*(1-MoveSensitivity))
         {
             direction.y += 1;
         }
-        if (y < Screen.height * 0.05f)
+        if (y < Screen.height * MoveSensitivity)
         {
             direction.y += -1;
         }
-        if (x > Screen.width * 0.95f)
+        if (x > Screen.width * (1-MoveSensitivity))
         {
             direction.z +=-1;
         }
-        if (x < Screen.width * 0.05f)
+        if (x < Screen.width * MoveSensitivity)
         {
             
             direction.z += 1;

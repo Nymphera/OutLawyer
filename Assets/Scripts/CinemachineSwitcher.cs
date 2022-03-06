@@ -9,28 +9,34 @@ public class CinemachineSwitcher : MonoBehaviour
     private Animator Animator;
     private bool MainCameraState = false;
     public static CinemachineSwitcher Instance;
-    [SerializeField]
-    private InputAction action;
+
+    
    
 
     private void Awake()
     {
+        
+        
        
         Instance = this;
         
     }
+
    
+
     public void SwitchState()
     {
         if (MainCameraState)
         {
             Animator.Play("Biuro Cam");
-            //GameManager.Instance.OpenPinBoard(true);
+            OfficeManager.Instance.UpdateOfficeState(OfficeState.Overview);
+            
+
         }
         else
         {
             Animator.Play("PinBoard Cam");
-           // GameManager.Instance.OpenPinBoard(false);
+            OfficeManager.Instance.UpdateOfficeState(OfficeState.PinBoard);
         }
         MainCameraState = !MainCameraState;
     }

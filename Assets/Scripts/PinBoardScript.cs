@@ -2,93 +2,66 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
+using System;
 
 public class PinBoardScript : MonoBehaviour
 {
-    private Evidence Evidence;
-    private Evidence PointedEvidence;
+
+
+   
     private Camera cam;
-    private GameObject Player;
+   
     private Vector3 LocationPosition;
-    private GameObject TeleportButton;
-    private void Start()
-    {
-        TeleportButton = GameObject.Find("Teleport");
-        TeleportButton.SetActive(false);
-        cam = Camera.main;
-        Player = GameObject.Find("Player");
 
-    }
   
+    private GameObject Player, PointedEvidence;
 
-    // Update is called once per frame
-    private void Update()
+    [SerializeField]
+    private CinemachineVirtualCamera PinCamera;
+    [SerializeField]
+    private GameObject PinBoardButton,  LineButtons,SettingsPanel;
+    bool state;
+    private void Awake()
     {
-        
-        if ( Input.GetMouseButton(1))
-        {
-            ShowOptions();
-            Debug.Log("yes sir");
-        
-            
-        }
+         state=true;
+        OfficeManager.OnStateChanged += OfficeManagerOnStateChanged;
+        GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+       
+        cam = Camera.main;
 
     }
 
-    public void SetPlayerLocation()
-    {   //lokacja musi mieæ tak¹ sam¹ nazwê jak jej dowód
-        
-        LocationPosition = GameObject.Find(PointedEvidence.Name).transform.position;
-        CinemachineSwitcher.Instance.SwitchState();
-        Player.transform.position = LocationPosition;
-        TeleportButton.SetActive(false);
+    private void GameManager_OnGameStateChanged(GameState State)
+    {
+        PinBoardButton.SetActive(State==GameState.Office);
+        SettingsPanel.SetActive(State==GameState.Office);
+    }
+
+    private void OfficeManagerOnStateChanged(OfficeState State)
+    {
+        PinCamera.GetComponent<PinBoardCamera>().enabled = (State == OfficeState.PinBoard);
+
+        //LineButtons.SetActive(State == OfficeState.PinBoard);
+        SettingsPanel.SetActive(false);
+
+    }
+    private void OnDestroy()
+    {
+        OfficeManager.OnStateChanged -= OfficeManagerOnStateChanged;
+        GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
+
+    }
     
-    }
-    public void ShowOptions()
-    {
-        if (IsTouchingEvidence() && PointedEvidence.evidenceType.ToString() == "Location")
-        {
-            
-            Vector3 mousePosition= Input.mousePosition;
-          
-            TeleportButton.transform.position = mousePosition;
-            Debug.Log("Teleport button: "+ TeleportButton.transform.localPosition);
-            TeleportButton.SetActive(true);
-        }
-        else Debug.Log("no options!");
-    }
-    public bool IsTouchingEvidence()
-    {
+ 
 
-        Ray Ray = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit Hit;
-        GameObject PointedObject;
 
-        if (Physics.Raycast(Ray, out Hit, 1000))
-        {
-            if (Hit.transform.gameObject.layer == 7)
-            {
-                Debug.Log("Yes");
-                PointedObject = Hit.transform.gameObject;
-                Debug.Log(PointedObject);
-                PointedEvidence = PointedObject.GetComponent<EvidenceDisplay>().Evidence;
 
-                return true;
+  
+   
 
-            }
-            else
-            {
-     
-                return false;
-            }
-               
-        }
-        else
-        {
-          
-            return false;
-        }
-           
-    }
+
+    
+   
     
 }

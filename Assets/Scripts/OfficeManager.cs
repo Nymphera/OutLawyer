@@ -1,43 +1,31 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class OfficeManager : MonoBehaviour
 {
     public static event Action <OfficeState> OnStateChanged;
-    [SerializeField]
-    private GameObject PinBoardCamera,PinBoard;
     
+    public static OfficeManager Instance;
 
     public OfficeState State;
     private void Awake()
     {
-        OfficeManager.OnStateChanged += OfficeManagerOnStateChanged;
-        PinBoard.transform.GetChild(1).gameObject.SetActive(false);
-    }
-    private void OfficeManagerOnStateChanged(OfficeState obj)
-    {
+        Instance = this;
+        
       
     }
+ 
 
     void Start()
     {
         UpdateOfficeState(OfficeState.Overview);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
-
-   /* internal static CinemachineSwitcher OnStateChanged()
-    {
-        throw new NotImplementedException();
-    }*/
 
     public void UpdateOfficeState(OfficeState newState)
     {
@@ -45,26 +33,64 @@ public class OfficeManager : MonoBehaviour
         switch (newState)
         {
             case OfficeState.Overview:
+                HandleOverview();
                 break;
             case OfficeState.Newspaper:
+                HandleNewspaper();      
                 break;
             case OfficeState.PinBoard:
+                HandlePinBoard();
                 break;
             case OfficeState.Dialogs:
+                break;
+            case OfficeState.MovingtoLocation:
+                HandleMovingtoLocation();
                 break;
 
         }
 
-        //OnStateChanged(newState);
+
         OnStateChanged?.Invoke(newState);
     }
-    } 
+
+        private async void HandleMovingtoLocation()
+        {
+        Debug.Log("Teleporting!");
+        
+        await Task.Delay(2000);
+        
+        GameManager.Instance.UpdateGameState(GameState.Location);
+        }
+
+    private void HandlePinBoard()
+    {
+     
+
+
+
+    }
+
+    private void HandleNewspaper()
+    {
+       //show Newspaper
+    }
+
+    private void HandleOverview()
+    {
+      
+    }
+    public void MoveToOffice()
+    {
+        GameManager.Instance.UpdateGameState(GameState.Office);
+    }
+} 
 
 
 public enum OfficeState{
     Overview, //1
     Newspaper,  
     PinBoard,
-    Dialogs //>>
+    Dialogs,
+    MovingtoLocation
     
 }

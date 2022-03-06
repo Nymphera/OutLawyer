@@ -6,20 +6,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-   
-    private GameObject PinBoard;
+   [SerializeField]
+    private GameObject PinBoard,Player;
     public GameState State;
+   
     public static event Action<GameState> OnGameStateChanged; 
     private void Awake()
-    {
+    {   
         Instance = this;
+        UpdateGameState(GameState.Office);
     }
-    private void Start()
-    {
-        PinBoard = GameObject.Find("PinBoard");
-       // PinBoard.SetActive(false);
-       // UpdateGameState(GameState.PlayerMove);
-    }
+  
 
     public void UpdateGameState(GameState newState)
     {
@@ -27,30 +24,34 @@ public class GameManager : MonoBehaviour
 
         switch (newState)
         {
-            case GameState.PlayerMove:
+            case GameState.Office:
+                HandleOffice();
                 break;
-            case GameState.PinBoard:
-
+            case GameState.Location:
+                HandleLocation();
                 break;
         }
-       // OnGameStateChanged(newState);
+        OnGameStateChanged?.Invoke(newState);
     }
-        public void OpenPinBoard(bool isOpen)
-        {
-            if(isOpen==false)
-            {
-             PinBoard.SetActive(true);
 
-            }
-            else //isOpen==true
-            {
-                PinBoard.SetActive(false);
-            }
-        }
+    private void HandleLocation()
+    {
+        OfficeManager.Instance.GetComponent<OfficeManager>().enabled = false;
+       
+       
 
     }
+
+    private void HandleOffice()
+    {
+        Player.GetComponent<PlayerController>().enabled = false;
+        OfficeManager.Instance.GetComponent<OfficeManager>().enabled = true;
+        
+    }
+
+}
     public enum GameState
     {
-        PlayerMove,
-        PinBoard
+        Office,
+        Location
     }

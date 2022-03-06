@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Main Camera Blends
   m_EditorClassIdentifier: 
   m_CustomBlends:
-  - m_From: '**ANY CAMERA**'
-    m_To: CM Biuro
+  - m_From: CM Biuro
+    m_To: PlayerCam
     m_Blend:
-      m_Style: 1
+      m_Style: 7
       m_Time: 2
       m_CustomCurve:
         serializedVersion: 2
@@ -24,10 +24,10 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - m_From: '**ANY CAMERA**'
-    m_To: CM W terenie
+  - m_From: PlayerCam
+    m_To: CM Biuro
     m_Blend:
-      m_Style: 1
+      m_Style: 7
       m_Time: 2
       m_CustomCurve:
         serializedVersion: 2

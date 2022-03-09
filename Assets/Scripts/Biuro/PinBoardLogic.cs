@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,10 +10,7 @@ using UnityEngine.UI;
 
 public class PinBoardLogic : MonoBehaviour
 {
-    private LineRenderer LineRenderer;
-    private PinBoardScript PinBoardScript;
-    private GameObject Object;
-    private Vector3 Start, End;
+    
     private InputAction MousePosition;
     private PinBoardControls PinBoardControls;
     private Camera Cam;
@@ -22,14 +20,19 @@ public class PinBoardLogic : MonoBehaviour
     private Text Description;
     [SerializeField]
     private Button TeleportButton;
-
-    
-
+    public static PinBoardLogic Instance;
+    private Line Line;
+    [SerializeField]
+    private Transform LineParent;
+    [SerializeField]
+    private GameObject linePrefab;
+    public List<Vector3> points = new List<Vector3>();
     private void Awake()
     {
+        Instance = this;
         SettingsPanel.gameObject.SetActive(false);
         PinBoardControls = new PinBoardControls();
-        LineRenderer = GetComponent<LineRenderer>();
+       
         //PinBoardScript = GetComponent<PinBoardScript>();
        PinBoardControls.PinBoard.MouseLeftClick.performed += MouseLeftClick_performed;
         PinBoardControls.PinBoard.MouseRightClick.performed += MouseRightClick_performed;
@@ -44,15 +47,9 @@ public class PinBoardLogic : MonoBehaviour
 
     private void MouseLeftClick_performed(InputAction.CallbackContext context)
     {
-        Transform Pin;
-        Transform Evidence;
-         Vector2 pos=MousePosition.ReadValue<Vector2>();
-             Object = TouchedObject(pos);
-            Evidence = Object.transform.parent;
-
-
-
-
+        Vector2 pos=MousePosition.ReadValue<Vector2>();
+        GameObject Object = TouchedObject(pos);
+        GameObject Evidence = Object.transform.parent.gameObject;
 
 
         SettingsPanel.gameObject.SetActive(false);
@@ -60,13 +57,13 @@ public class PinBoardLogic : MonoBehaviour
         if (Object.layer==7) 
         {
             
-            Vector3 position = GetPinPosition(Evidence);
-          
-          
-            
-            
-             CreateLine(position);
-         }
+            Vector3 position = GetPinPosition(Evidence.transform);
+           
+            Debug.Log(position);
+            GetLinePoint(position);
+            // Line = Instantiate(linePrefab,LineParent).GetComponent<Line>();
+            //  Line.AddPoint(position);
+        }
 
 
      }  
@@ -77,8 +74,8 @@ public class PinBoardLogic : MonoBehaviour
         Vector2 pos = MousePosition.ReadValue<Vector2>();
 
 
-        Object = TouchedObject(pos);
-        Debug.Log(Object.name);
+        GameObject Object = TouchedObject(pos);
+       
         if (Object.layer==7) //jeœli obiekt to dowód z tablicy
          {
             
@@ -95,7 +92,7 @@ public class PinBoardLogic : MonoBehaviour
     }
 
 
-    private GameObject TouchedObject(Vector2 mouseposition)
+    public GameObject TouchedObject(Vector2 mouseposition)
     {
         Cam = Camera.main;
         Ray Ray = Cam.ScreenPointToRay(mouseposition);
@@ -126,31 +123,36 @@ public class PinBoardLogic : MonoBehaviour
 
 
     }
-    private Vector3 GetPinPosition(Transform Object)
+    public Vector3 GetPinPosition(Transform Object)
     {
         Transform Pin;
         Pin = Object.GetChild(1);
+        Debug.Log(Pin.name);
         Vector3 PinPosition = Pin.position;
 
       
             Pin.GetComponent<Outline>().enabled = !Pin.GetComponent<Outline>().enabled;
-        
-        Debug.Log(PinPosition);
-            return PinPosition;
+        //if (Pin.GetComponent<Outline>().enabled==true)
+       // GetLinePoint(Pin.transform);
+
+        return PinPosition;
        
         
     }
-    private void DragLineCursor(GameObject Object)
+
+    private void GetLinePoint(Vector3 position)
     {
-        Vector3 pos = Object.transform.position;
-        Object.transform.position = MousePosition.ReadValue<Vector2>();
+        points.Add(position);
     }
-    private void CreateLine(Vector3 pos)
-    { Vector2 mouse = MousePosition.ReadValue<Vector2>();
-        Vector3 idontknow = new Vector3(mouse.x, mouse.y, pos.z);
+    public void CreateLine()
+    {
+        Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
+        Debug.Log(points.GetEnumerator());
+        foreach (var vector in points)
+        {
+            Line.AddPoint(vector);
+          
+        }
         
-        LineRenderer.SetPosition(0, pos);
-        LineRenderer.SetPosition(1, idontknow);
     }
- 
 }

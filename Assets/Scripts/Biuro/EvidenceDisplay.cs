@@ -26,7 +26,8 @@ public class EvidenceDisplay : MonoBehaviour
 
     void SpriteRender()
         {
-            Mesh.material = Evidence.Artwork;
+        Debug.Log("remember about mesh");
+           // Mesh.material = Evidence.Artwork;
         }
     
     

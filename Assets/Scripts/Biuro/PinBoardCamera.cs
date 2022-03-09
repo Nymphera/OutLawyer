@@ -23,8 +23,9 @@ public class PinBoardCamera : MonoBehaviour
 
     private CinemachineInputProvider InputProvider;
     private CinemachineVirtualCamera Camera;
+    [SerializeField]
     private Transform cameraTransform;
-
+    Vector3 cameraPosition;
     
   
     
@@ -32,18 +33,20 @@ public class PinBoardCamera : MonoBehaviour
     {
         InputProvider = GetComponent<CinemachineInputProvider>();
         Camera = GetComponent<CinemachineVirtualCamera>();
-        cameraTransform = Camera.VirtualCameraGameObject.transform;
-      
+       // cameraTransform = Camera.VirtualCameraGameObject.transform;
+        
 
 
     }
 
     void Update()
     {
+        cameraPosition = cameraTransform.position;
+       
         float x = InputProvider.GetAxisValue(0);
         float y = InputProvider.GetAxisValue(1);
         float z = InputProvider.GetAxisValue(2);
-
+       
         if ((x != 0 || y != 0) && FieldOfView <= 35f)
         {
             MoveCamera(x, y);
@@ -63,19 +66,19 @@ public class PinBoardCamera : MonoBehaviour
     public Vector3 MoveDirection(float x,float y)
     {
         Vector3 direction = Vector3.zero;
-        if (y>Screen.height*(1-MoveSensitivity))
+        if (y>Screen.height*(1-MoveSensitivity) &&cameraPosition.y<5.4)
         {
             direction.y += 1;
         }
-        if (y < Screen.height * MoveSensitivity)
+        if (y < Screen.height * MoveSensitivity&&cameraPosition.y>4.45)
         {
             direction.y += -1;
         }
-        if (x > Screen.width * (1-MoveSensitivity))
+        if (x > Screen.width * (1-MoveSensitivity)&&cameraPosition.z>-1.25)
         {
             direction.z +=-1;
         }
-        if (x < Screen.width * MoveSensitivity)
+        if (x < Screen.width * MoveSensitivity &&cameraPosition.z<0.3)
         {
             
             direction.z += 1;

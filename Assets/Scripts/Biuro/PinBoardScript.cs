@@ -28,7 +28,7 @@ public class PinBoardScript : MonoBehaviour
         OfficeManager.OnStateChanged += OfficeManagerOnStateChanged;
         GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
        
-        cam = Camera.main;
+        
 
     }
 
@@ -40,6 +40,7 @@ public class PinBoardScript : MonoBehaviour
 
     private void OfficeManagerOnStateChanged(OfficeState State)
     {
+       
         PinCamera.GetComponent<PinBoardCamera>().enabled = (State == OfficeState.PinBoard);
 
         //LineButtons.SetActive(State == OfficeState.PinBoard);

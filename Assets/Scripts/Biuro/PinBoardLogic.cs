@@ -22,16 +22,16 @@ public class PinBoardLogic : MonoBehaviour
     private Text Description;
     [SerializeField]
     private Button TeleportButton;
+
     
- 
 
     private void Awake()
     {
         SettingsPanel.gameObject.SetActive(false);
         PinBoardControls = new PinBoardControls();
         LineRenderer = GetComponent<LineRenderer>();
-        PinBoardScript = GetComponent<PinBoardScript>();
-        PinBoardControls.PinBoard.MouseLeftClick.performed += MouseLeftClick_performed;
+        //PinBoardScript = GetComponent<PinBoardScript>();
+       PinBoardControls.PinBoard.MouseLeftClick.performed += MouseLeftClick_performed;
         PinBoardControls.PinBoard.MouseRightClick.performed += MouseRightClick_performed;
         
     }
@@ -41,41 +41,48 @@ public class PinBoardLogic : MonoBehaviour
         MousePosition = PinBoardControls.PinBoard.Move;
         MousePosition.Enable();
     }
-    
-    private void MouseLeftClick_performed(InputAction.CallbackContext obj)
+
+    private void MouseLeftClick_performed(InputAction.CallbackContext context)
     {
-      //  SettingsPanel.gameObject.SetActive(false);
-        Vector2 pos=MousePosition.ReadValue<Vector2>();
-        Object = TouchedObject(pos);
-        if (Object.transform.gameObject.layer == 8)
+        Transform Pin;
+        Transform Evidence;
+         Vector2 pos=MousePosition.ReadValue<Vector2>();
+             Object = TouchedObject(pos);
+            Evidence = Object.transform.parent;
+
+
+
+
+
+
+        SettingsPanel.gameObject.SetActive(false);
+
+        if (Object.layer==7) 
         {
+            
+            Vector3 position = GetPinPosition(Evidence);
+          
+          
+            
+            
+             CreateLine(position);
+         }
 
-            //zmiana koloru linii
 
-        }
-        
-        
-        
-        if (Object.layer==7) //jeœli obiekt to dowód z tablicy
-        {
-            //tworzenie linii z pin position do pozycji myszki
-           Vector3 position = GetPinPosition(Object);
-            CreateLine(position);
-        }
-        
-
-    }
-    private  void MouseRightClick_performed(InputAction.CallbackContext obj)
+     }  
+ 
+    private void MouseRightClick_performed(InputAction.CallbackContext obj)
     {
         
         Vector2 pos = MousePosition.ReadValue<Vector2>();
 
 
         Object = TouchedObject(pos);
-         if (Object.layer==7) //jeœli obiekt to dowód z tablicy
+        Debug.Log(Object.name);
+        if (Object.layer==7) //jeœli obiekt to dowód z tablicy
          {
             
-            ShowOptions(pos);
+            ShowOptions(Object,pos);
 
         }
        
@@ -93,19 +100,20 @@ public class PinBoardLogic : MonoBehaviour
         Cam = Camera.main;
         Ray Ray = Cam.ScreenPointToRay(mouseposition);
         RaycastHit Hit;
-        
+       
 
-        if (Physics.Raycast(Ray, out Hit, 100))
+        if (Physics.Raycast(Ray, out Hit, 1000))
         {
-             return  Hit.transform.gameObject;              
+           
+            return  Hit.transform.gameObject;              
         }
         else return null;
 
     }
-    private void ShowOptions(Vector2 MousePosition)
+    private void ShowOptions(GameObject Object,Vector2 MousePosition)
     {
         bool ButtonState=false;
-        Object = TouchedObject(MousePosition);
+        
         Evidence Evid = Object.transform.GetComponentInParent<EvidenceDisplay>().Evidence;
         if (Evid.evidenceType == Evidence.EvidenceType.Location)
         {
@@ -118,20 +126,19 @@ public class PinBoardLogic : MonoBehaviour
 
 
     }
-    private Vector3 GetPinPosition(GameObject Object)
+    private Vector3 GetPinPosition(Transform Object)
     {
-        var obj=Object.transform.parent;
+        Transform Pin;
+        Pin = Object.GetChild(1);
+        Vector3 PinPosition = Pin.position;
+
+      
+            Pin.GetComponent<Outline>().enabled = !Pin.GetComponent<Outline>().enabled;
         
-        if (Object.layer == 7)
-        {
-            Vector3 PinPosition = obj.GetChild(1).transform.position;
-
-
-
-            Debug.Log(PinPosition);
+        Debug.Log(PinPosition);
             return PinPosition;
-        }
-        return Vector3.zero;
+       
+        
     }
     private void DragLineCursor(GameObject Object)
     {
@@ -141,16 +148,9 @@ public class PinBoardLogic : MonoBehaviour
     private void CreateLine(Vector3 pos)
     { Vector2 mouse = MousePosition.ReadValue<Vector2>();
         Vector3 idontknow = new Vector3(mouse.x, mouse.y, pos.z);
+        
         LineRenderer.SetPosition(0, pos);
         LineRenderer.SetPosition(1, idontknow);
     }
-    public void SetPlayerLocation()
-    {
-        GameObject Player = GameObject.Find("Player");
-        Vector3 LocationPosition = new Vector3(0, 0, -15);
-       
-        Player.transform.position = LocationPosition;
-        CinemachineSwitcher.Instance.SwitchState();
-        OfficeManager.Instance.UpdateOfficeState(OfficeState.MovingtoLocation);
-    }
+ 
 }

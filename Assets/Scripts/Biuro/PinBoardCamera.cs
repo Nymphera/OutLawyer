@@ -92,7 +92,7 @@ public class PinBoardCamera : MonoBehaviour
     {
         Vector3 Direction = MoveDirection(x, y);
         cameraTransform.position = Vector3.Lerp(cameraTransform.position, Direction*CameraSpeed + cameraTransform.position,Time.deltaTime);
-        Debug.Log(Direction);
+       
     }
     public void ZoomCamera(float increment)
     {

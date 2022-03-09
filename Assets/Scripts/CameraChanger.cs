@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+
 public class CameraChanger : MonoBehaviour
 {
     [SerializeField]
@@ -21,7 +22,7 @@ public class CameraChanger : MonoBehaviour
             OfficeCam.Priority = 100;
             PlayerCam.Priority = 0;
         }
-        if (State == GameState.Location)
+        if (State == GameState.Move)
         {
             OfficeCam.Priority = 0;
             PlayerCam.Priority = 100;

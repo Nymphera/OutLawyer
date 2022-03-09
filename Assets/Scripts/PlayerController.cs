@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void GameManager_OnGameStateChanged(GameState State)
     {
-        Player.GetComponent<PlayerController>().enabled = (State == GameState.Location);
+        Player.GetComponent<PlayerController>().enabled = (State == GameState.Move);
 
     }
     private void OnDestroy()

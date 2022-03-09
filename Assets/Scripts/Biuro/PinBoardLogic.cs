@@ -59,10 +59,8 @@ public class PinBoardLogic : MonoBehaviour
             
             Vector3 position = GetPinPosition(Evidence.transform);
            
-            Debug.Log(position);
             GetLinePoint(position);
-            // Line = Instantiate(linePrefab,LineParent).GetComponent<Line>();
-            //  Line.AddPoint(position);
+
         }
 
 
@@ -127,7 +125,7 @@ public class PinBoardLogic : MonoBehaviour
     {
         Transform Pin;
         Pin = Object.GetChild(1);
-        Debug.Log(Pin.name);
+        
         Vector3 PinPosition = Pin.position;
 
       

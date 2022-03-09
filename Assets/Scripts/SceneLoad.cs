@@ -9,4 +9,13 @@ public class SceneLoad : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+    public void LoadKrabiarnia()
+    {
+        SceneManager.LoadScene("Krabiarnia");
+    }  
+    public void LoadOffice()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
 }

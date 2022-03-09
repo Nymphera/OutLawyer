@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {   
         Instance = this;
-        UpdateGameState(GameState.Office);
+        UpdateGameState(GameState.Location);
     }
   
 
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleLocation()
     {
+        CinemachineSwitcher.Instance.SwitchState();
         OfficeManager.Instance.GetComponent<OfficeManager>().enabled = false;
        
        

@@ -8,23 +8,15 @@ using System;
 public class PinBoardScript : MonoBehaviour
 {
 
-
-   
-    private Camera cam;
-   
-    private Vector3 LocationPosition;
-
-  
-    private GameObject Player, PointedEvidence;
-
     [SerializeField]
     private CinemachineVirtualCamera PinCamera;
     [SerializeField]
     private GameObject PinBoardButton,  LineButtons,SettingsPanel;
-    bool state;
+    private PinBoardLogic PinBoardLogic;
+   
     private void Awake()
     {
-         state=true;
+        PinBoardLogic = GetComponent<PinBoardLogic>();
         OfficeManager.OnStateChanged += OfficeManagerOnStateChanged;
         GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
        
@@ -42,7 +34,7 @@ public class PinBoardScript : MonoBehaviour
     {
        
         PinCamera.GetComponent<PinBoardCamera>().enabled = (State == OfficeState.PinBoard);
-
+        PinBoardLogic.enabled = (State == OfficeState.PinBoard);
         //LineButtons.SetActive(State == OfficeState.PinBoard);
         SettingsPanel.SetActive(false);
 

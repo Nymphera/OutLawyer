@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OfficeManager : MonoBehaviour
 {
@@ -58,8 +59,8 @@ public class OfficeManager : MonoBehaviour
         Debug.Log("Teleporting!");
         
         await Task.Delay(2000);
-        
-        GameManager.Instance.UpdateGameState(GameState.Location);
+
+        SceneManager.LoadScene("Krabiarnia");
         }
 
     private void HandlePinBoard()

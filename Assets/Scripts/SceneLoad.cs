@@ -17,5 +17,8 @@ public class SceneLoad : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        SceneManager.LoadScene("Biuro");
+    }
 }

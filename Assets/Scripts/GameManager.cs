@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {   
         Instance = this;
-        UpdateGameState(GameState.Location);
+        UpdateGameState(GameState.Move);
     }
   
 
@@ -24,35 +24,25 @@ public class GameManager : MonoBehaviour
 
         switch (newState)
         {
-            case GameState.Office:
-                HandleOffice();
+            case GameState.Move:
                 break;
-            case GameState.Location:
-                HandleLocation();
+            case GameState.Inspect:
+                break;
+            case GameState.Dialog:
                 break;
         }
+       
         OnGameStateChanged?.Invoke(newState);
     }
 
-    private void HandleLocation()
-    {
-        CinemachineSwitcher.Instance.SwitchState();
-        OfficeManager.Instance.GetComponent<OfficeManager>().enabled = false;
-       
-       
 
-    }
-
-    private void HandleOffice()
-    {
-        Player.GetComponent<PlayerController>().enabled = false;
-        OfficeManager.Instance.GetComponent<OfficeManager>().enabled = true;
-        
-    }
 
 }
     public enum GameState
     {
-        Office,
-        Location
+       Move,
+       Inspect,
+        Dialog,
+        Negotiations,
+        Office
     }

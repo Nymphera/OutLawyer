@@ -147,12 +147,13 @@ public class PinBoardLogic : MonoBehaviour
     public void CreateLine()
     {
         Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
-        Debug.Log(points.GetEnumerator());
+        
         foreach (var vector in points)
         {
             Line.AddPoint(vector);
-          
         }
-        
+        //to chyba nie dzia³a
+        if (Line.pointsCount != 2)
+            Destroy(LineParent.transform.GetChild(Line.pointsCount-1).gameObject);
     }
 }

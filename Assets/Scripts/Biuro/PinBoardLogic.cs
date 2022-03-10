@@ -27,8 +27,11 @@ public class PinBoardLogic : MonoBehaviour
     [SerializeField]
     private GameObject linePrefab;
     public List<Vector3> points = new List<Vector3>();
+    [SerializeField]
+    Transform[] Pins;
     private void Awake()
     {
+        Pins = new Transform[2];
         Instance = this;
         SettingsPanel.gameObject.SetActive(false);
         PinBoardControls = new PinBoardControls();
@@ -55,12 +58,8 @@ public class PinBoardLogic : MonoBehaviour
         SettingsPanel.gameObject.SetActive(false);
 
         if (Object.layer==7) 
-        {
-            
-            Vector3 position = GetPinPosition(Evidence.transform);
-           
-            GetLinePoint(position);
-
+        {      
+             GetPinsPosition(Evidence.transform);
         }
 
 
@@ -121,27 +120,24 @@ public class PinBoardLogic : MonoBehaviour
 
 
     }
-    public Vector3 GetPinPosition(Transform Object)
-    {
-        Transform Pin;
-        Pin = Object.GetChild(1);
-        
-        Vector3 PinPosition = Pin.position;
-
-      
-            Pin.GetComponent<Outline>().enabled = !Pin.GetComponent<Outline>().enabled;
-        //if (Pin.GetComponent<Outline>().enabled==true)
-       // GetLinePoint(Pin.transform);
-
-        return PinPosition;
+    public void GetPinsPosition(Transform Object)
+    {    
+        Transform Pin = Object.GetChild(1);
+     
+        if(Pins[0]!=null)
+        Pins[0].gameObject.GetComponent<Outline>().enabled = false;
+        Pins[0] = Pins[1];
+        Pins[1] = Pin;
        
+        foreach(Transform obj in Pins)
+        { if(obj!=null)
+            obj.gameObject.GetComponent<Outline>().enabled = true;
+           points.Add(obj.position);
+        }      
         
     }
 
-    private void GetLinePoint(Vector3 position)
-    {
-        points.Add(position);
-    }
+ 
     public void CreateLine()
     {
         Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();

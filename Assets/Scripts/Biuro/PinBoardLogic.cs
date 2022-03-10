@@ -26,12 +26,13 @@ public class PinBoardLogic : MonoBehaviour
     private Transform LineParent;
     [SerializeField]
     private GameObject linePrefab;
-    public List<Vector3> points = new List<Vector3>();
     [SerializeField]
+    public Vector3[] points;
     Transform[] Pins;
     private void Awake()
     {
         Pins = new Transform[2];
+        points = new Vector3[2];
         Instance = this;
         SettingsPanel.gameObject.SetActive(false);
         PinBoardControls = new PinBoardControls();
@@ -132,9 +133,9 @@ public class PinBoardLogic : MonoBehaviour
         foreach(Transform obj in Pins)
         { if(obj!=null)
             obj.gameObject.GetComponent<Outline>().enabled = true;
-           points.Add(obj.position);
-        }      
-        
+        }
+        points[0] = points[1];
+        points[1] = Pin.position;
     }
 
  

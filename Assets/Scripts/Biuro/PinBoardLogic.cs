@@ -127,15 +127,21 @@ public class PinBoardLogic : MonoBehaviour
      
         if(Pins[0]!=null)
         Pins[0].gameObject.GetComponent<Outline>().enabled = false;
-        Pins[0] = Pins[1];
-        Pins[1] = Pin;
+        if (Pins[1] != Pin)
+        {
+            Pins[0] = Pins[1];
+            Pins[1] = Pin;
+
+            points[0] = points[1];
+            points[1] = Pin.position;
+        }
+       
        
         foreach(Transform obj in Pins)
         { if(obj!=null)
             obj.gameObject.GetComponent<Outline>().enabled = true;
         }
-        points[0] = points[1];
-        points[1] = Pin.position;
+       
     }
 
  

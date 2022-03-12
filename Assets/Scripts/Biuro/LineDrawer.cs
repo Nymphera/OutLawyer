@@ -21,7 +21,7 @@ public class LineDrawer : MonoBehaviour
     private void Awake()
     {  
         PinBoardControls = new PinBoardControls();
-       PinBoardControls.PinBoard.MouseLeftClick.performed += MouseLeftClick_performed;
+
     }
     private void OnEnable()
     {
@@ -33,25 +33,11 @@ public class LineDrawer : MonoBehaviour
     {
         PinBoardControls.Disable();
     }
-    private void MouseLeftClick_performed(InputAction.CallbackContext obj)
-    {
-        /* Vector2 pos = mousepos.ReadValue<Vector2>();
-         GameObject Object = PinBoardLogic.Instance.TouchedObject(pos);
-         Transform Evidence = Object.transform.parent;
 
-         if (Object.layer == 7)
-         {
-
-             Vector3 position = PinBoardLogic.Instance.GetPinPosition(Evidence);
-             Draw(position);
-         }
-
- */
-    }
     public void BeginDraw(Vector3 position)
     {
         currentLine=Instantiate(linePrefab, this.transform).GetComponent<Line>();
-        currentLine.SetColor(lineColor);
+       // currentLine.SetColor(lineColor);
         currentLine.SetLineWidth(width);
         currentLine.AddPoint(position);
     }

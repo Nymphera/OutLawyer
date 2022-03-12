@@ -30,7 +30,7 @@ public class EvidenceDisplay : MonoBehaviour
         Debug.Log("remember about mesh");
            // Mesh.material = Evidence.Artwork;
         }
-    
+ 
     
 }
 

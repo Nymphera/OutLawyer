@@ -45,9 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c65453c2fd932464aa8a64b64c27c495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LineRenderer: {fileID: 8969533229563378571}
+  lineRenderer: {fileID: 8969533229563378571}
   points: []
   pointsCount: 0
+  animationDuration: 100
+  Yellow: {fileID: 2100000, guid: 86d33a708e0548d42a313570136d61df, type: 2}
+  Green: {fileID: 2100000, guid: 5ddd7de6d9d343442baa15921abe0b8a, type: 2}
+  Red: {fileID: 2100000, guid: 86fe40e452003aa4c9a896b6b687f85c, type: 2}
+  Blue: {fileID: 2100000, guid: 6ca8e41d9f04b7c42a42311570f76c4c, type: 2}
 --- !u!120 &8969533229563378571
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -88,10 +93,7 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 1, y: 0, z: 0}
-  - {x: 0, y: 1, z: 0}
+  m_Positions: []
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -112,8 +114,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0, g: 0, b: 0, a: 1}
+      key1: {r: 0, g: 0, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -136,11 +138,11 @@ LineRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 0
+      m_Mode: 1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 10
+    numCapVertices: 10
     alignment: 0
     textureMode: 0
     shadowBias: 0.5

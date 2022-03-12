@@ -28,10 +28,10 @@ public class PinBoardLogic : MonoBehaviour
     private GameObject linePrefab;
     [SerializeField]
     public Vector3[] points;
-    Transform[] Pins;
+   [SerializeField] Transform[] Evidences;
     private void Awake()
     {
-        Pins = new Transform[2];
+        Evidences = new Transform[2];
         points = new Vector3[2];
         Instance = this;
         SettingsPanel.gameObject.SetActive(false);
@@ -53,14 +53,15 @@ public class PinBoardLogic : MonoBehaviour
     {
         Vector2 pos=MousePosition.ReadValue<Vector2>();
         GameObject Object = TouchedObject(pos);
-        GameObject Evidence = Object.transform.parent.gameObject;
+       
 
 
         SettingsPanel.gameObject.SetActive(false);
 
         if (Object.layer==7) 
-        {      
-             GetPinsPosition(Evidence.transform);
+        {
+            GameObject Evidence = Object.transform.parent.gameObject;
+            GetPinPosition(Evidence.transform);
         }
 
 
@@ -121,34 +122,41 @@ public class PinBoardLogic : MonoBehaviour
 
 
     }
-    public void GetPinsPosition(Transform Object)
+    public void GetPinPosition(Transform Object) // pobiera Transform Dowodu, mo¿na wzi¹æ Evidence Display
     {    
         Transform Pin = Object.GetChild(1);
      
-        if(Pins[0]!=null)
-        Pins[0].gameObject.GetComponent<Outline>().enabled = false;
-        if (Pins[1] != Pin)
+        if(Evidences[0]!=null)
+        Evidences[0].GetChild(1).gameObject.GetComponent<Outline>().enabled = false;
+       if (Evidences[1] != Object)
         {
-            Pins[0] = Pins[1];
-            Pins[1] = Pin;
+            Debug.Log("here");
+            Evidences[0] = Evidences[1];
+            Evidences[1] = Object;
 
             points[0] = points[1];
-            points[1] = Pin.position;
+            points[1] = Object.GetChild(1).position;
         }
        
        
-        foreach(Transform obj in Pins)
+        foreach(Transform obj in Evidences)
         { if(obj!=null)
-            obj.gameObject.GetComponent<Outline>().enabled = true;
+            {
+                Transform pin = obj.GetChild(1);
+                pin.gameObject.GetComponent<Outline>().enabled = true;
+            }
+            
         }
        
     }
 
  
-    public void CreateLine()
+    public void CreateLine_Yellow()
     {
+      
         Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
-        
+        Line.SetColor("Yellow");
+        Line.AnimateLine();
         foreach (var vector in points)
         {
             Line.AddPoint(vector);
@@ -156,5 +164,49 @@ public class PinBoardLogic : MonoBehaviour
         //to chyba nie dzia³a
         if (Line.pointsCount != 2)
             Destroy(LineParent.transform.GetChild(Line.pointsCount-1).gameObject);
+        
+    }
+    public void CreateLine_Green()
+    {
+
+        Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
+        Line.SetColor("Green");
+        Line.AnimateLine();
+        foreach (var vector in points)
+        {
+            Line.AddPoint(vector);
+        }
+        //to chyba nie dzia³a
+        if (Line.pointsCount != 2)
+            Destroy(LineParent.transform.GetChild(Line.pointsCount - 1).gameObject);
+    }
+    public void CreateLine_Red()
+    {
+
+        Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
+        Line.SetColor("Red");
+        Line.AnimateLine();
+        foreach (var vector in points)
+        {
+            Line.AddPoint(vector);
+        }
+        //to chyba nie dzia³a
+        if (Line.pointsCount != 2)
+            Destroy(LineParent.transform.GetChild(Line.pointsCount - 1).gameObject);
+    }
+    public void CreateLine_Blue()
+    {
+
+        Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
+        Line.SetColor("Blue");
+        Line.AnimateLine();
+        foreach (var vector in points)
+        {
+            Line.AddPoint(vector);
+        }
+        //to chyba nie dzia³a
+        if (Line.pointsCount != 2)
+            Destroy(LineParent.transform.GetChild(Line.pointsCount - 1).gameObject);
     }
 }
+

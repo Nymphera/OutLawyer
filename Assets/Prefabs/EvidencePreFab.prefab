@@ -2294,7 +2294,7 @@ Transform:
   m_GameObject: {fileID: 5378733833409980531}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.215, y: 0.321, z: -0.496}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 724708433007596110}
   - {fileID: 8347758825028789333}
@@ -2314,8 +2314,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Renderer: {fileID: 6664754145273631904}
+  Plane: {fileID: 5769392804849543936}
   Evidence: {fileID: 0}
-  m_MainTexture: {fileID: 0}
 --- !u!1 &5769392804849543936
 GameObject:
   m_ObjectHideFlags: 0

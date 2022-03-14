@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf184a4d20e59474a93529479c776419, type: 3}
-  m_Name: "Brak po\u015Bwiadczenia"
+  m_Name: Nagranie z kamer
   m_EditorClassIdentifier: 
   Layer:
     serializedVersion: 2
-    m_Bits: 7
-  Name: "Brak po\u015Bwiadczenia"
-  Description: "Brak po\u015Bwiadczenia"
-  Artwork: {fileID: 21300000, guid: 7fc50aacfc001ca40bd401a9c4068629, type: 3}
-  orientation: 1
+    m_Bits: 0
+  Name: Nagranie z kamer
+  Description: Nagranie z kamer
+  Artwork: {fileID: 21300000, guid: 66f5436801c1e9d45933fb5bea71c1a5, type: 3}
   evidenceType: 0
-  conectedEvidence:
-  - {fileID: 11400000, guid: bfb5b1fa548aa5341bed0b64b786d7f1, type: 2}
-  conectionType: 02000000
+  conectedEvidence: []
+  conectionType: 

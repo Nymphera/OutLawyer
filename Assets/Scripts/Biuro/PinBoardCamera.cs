@@ -66,11 +66,11 @@ public class PinBoardCamera : MonoBehaviour
     public Vector3 MoveDirection(float x,float y)
     {
         Vector3 direction = Vector3.zero;
-        if (y>Screen.height*(1-MoveSensitivity) &&cameraPosition.y<5.4)
+        if (y>Screen.height*(1-MoveSensitivity) &&cameraPosition.y<2.3)
         {
             direction.y += 1;
         }
-        if (y < Screen.height * MoveSensitivity&&cameraPosition.y>4.45)
+        if (y < Screen.height * MoveSensitivity&&cameraPosition.y>1.5)
         {
             direction.y += -1;
         }

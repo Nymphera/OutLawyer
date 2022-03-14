@@ -124,7 +124,7 @@ public class PinBoardLogic : MonoBehaviour
      
         if(Evidences[0]!=null)
         Evidences[0].GetChild(1).gameObject.GetComponent<Outline>().enabled = false;
-       if (Evidences[1] != Object)
+       if (!(Evidences[1] == Object||Evidences[0]==Object))
         {
             
             Evidences[0] = Evidences[1];

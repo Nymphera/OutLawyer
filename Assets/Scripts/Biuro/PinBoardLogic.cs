@@ -51,19 +51,15 @@ public class PinBoardLogic : MonoBehaviour
 
     private void MouseLeftClick_performed(InputAction.CallbackContext context)
     {
-        Vector2 pos=MousePosition.ReadValue<Vector2>();
+        Vector2 pos = MousePosition.ReadValue<Vector2>();
         GameObject Object = TouchedObject(pos);
        
-
-
-        SettingsPanel.gameObject.SetActive(false);
-
-        if (Object.layer==7) 
-        {
-            GameObject Evidence = Object.transform.parent.gameObject;
-            GetPinPosition(Evidence.transform);
-        }
-
+            SettingsPanel.gameObject.SetActive(false);
+            if (Object?.layer == 7)
+            {
+                GameObject Evidence = Object.transform.parent.gameObject;
+                GetPinPosition(Evidence.transform);
+            }
 
      }  
  
@@ -130,7 +126,7 @@ public class PinBoardLogic : MonoBehaviour
         Evidences[0].GetChild(1).gameObject.GetComponent<Outline>().enabled = false;
        if (Evidences[1] != Object)
         {
-            Debug.Log("here");
+            
             Evidences[0] = Evidences[1];
             Evidences[1] = Object;
 

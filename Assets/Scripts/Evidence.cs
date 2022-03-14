@@ -12,7 +12,8 @@ public class Evidence : ScriptableObject
     [HideInInspector] public LayerMask Layer;
         public string Name;
         public string Description;
-        public Material Artwork;
+    public Sprite Artwork;
+       
     public EvidenceType evidenceType;
     
     public Evidence[] conectedEvidence = new Evidence[0];

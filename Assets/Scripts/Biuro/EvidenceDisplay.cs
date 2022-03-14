@@ -6,29 +6,26 @@ using UnityEngine.InputSystem;
 
 public class EvidenceDisplay : MonoBehaviour
 {
-    private MeshRenderer Mesh;
+    [SerializeField]
+    private MeshRenderer Renderer;
 
     public Evidence Evidence;
-    
    
- 
-  
-
     private void Awake()
     {
+        Evidence.Layer = 7;
     
-        
-        SpriteRender();
-      
-
+            SpriteRender();
     }
 
-
     void SpriteRender()
-        {
-        Evidence.Layer = 7;
-        Debug.Log("remember about mesh");
-           // Mesh.material = Evidence.Artwork;
+    {
+        Material material = new Material(Shader.Find("Standard"));
+        material.mainTexture= Evidence.Artwork.texture;
+        Renderer.material=material;
+            
+        
+        //    Mesh.material =new = Evidence.Artwork;
         }
  
     

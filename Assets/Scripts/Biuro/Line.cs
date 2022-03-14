@@ -20,14 +20,10 @@ public class Line : MonoBehaviour
         pointsCount++;
         lineRenderer.positionCount = pointsCount;
         lineRenderer.SetPosition(pointsCount - 1, newPoint);
-        Debug.Log("newPoint: " + newPoint);
-        //if (pointsCount > 1)
-        //  edgeCollider.points = points.ToArray();
+        
+      
     }
-    private void Start()
-    {
-        StartCoroutine(AnimateLine());
-    }
+   
     public void SetColor(string color)
     {
 
@@ -65,7 +61,7 @@ public class Line : MonoBehaviour
        
         float segmentDuration = animationDuration / pointsCount;
 
-        for (int i = 0; i < pointsCount - 1; i++)
+        for (int i = 0; i < pointsCount ; i++)
         {
             float startTime = Time.time;
 

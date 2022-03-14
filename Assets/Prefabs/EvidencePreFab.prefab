@@ -2313,7 +2313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7733ad09441edde4cb874249dc391971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Renderer: {fileID: 6664754145273631904}
   Evidence: {fileID: 0}
+  m_MainTexture: {fileID: 0}
 --- !u!1 &5769392804849543936
 GameObject:
   m_ObjectHideFlags: 0
@@ -2374,7 +2376,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3293e885e8b4ba44291e7e62f6904bf8, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

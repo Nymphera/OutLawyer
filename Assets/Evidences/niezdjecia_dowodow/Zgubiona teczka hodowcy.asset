@@ -18,7 +18,7 @@ MonoBehaviour:
   Name: Zgubiona teczka hodowcy
   Description: Zgubiona teczka hodowcy
   Artwork: {fileID: 21300000, guid: 26354afad4d3f8444ad6cb22940377ae, type: 3}
-  orientation: 1
+  orientation: 0
   evidenceType: 0
   conectedEvidence:
   - {fileID: 11400000, guid: 733436fcea2146f4b8bd7476289a5912, type: 2}

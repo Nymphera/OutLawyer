@@ -22,4 +22,6 @@ MonoBehaviour:
   evidenceType: 0
   conectedEvidence:
   - {fileID: 11400000, guid: bfb5b1fa548aa5341bed0b64b786d7f1, type: 2}
-  conectionType: 02000000
+  - {fileID: 11400000, guid: 5181a8d9fd03d8c4fada62a7f51206c6, type: 2}
+  - {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
+  conectionType: 020000000300000002000000

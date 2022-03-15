@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 7
   Name: Nagranie z kamer
   Description: Nagranie z kamer
   Artwork: {fileID: 21300000, guid: 66f5436801c1e9d45933fb5bea71c1a5, type: 3}
+  orientation: 0
   evidenceType: 0
-  conectedEvidence: []
-  conectionType: 
+  conectedEvidence:
+  - {fileID: 11400000, guid: 918345b74bd390940b301e659d30b364, type: 2}
+  - {fileID: 11400000, guid: 22d820f08a219f5429cdd265ce42ca43, type: 2}
+  conectionType: 0000000001000000

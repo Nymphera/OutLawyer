@@ -20,5 +20,7 @@ MonoBehaviour:
   Artwork: {fileID: 21300000, guid: 303c3bf23df036c4c98a509bee8fef9b, type: 3}
   orientation: 1
   evidenceType: 0
-  conectedEvidence: []
-  conectionType: 
+  conectedEvidence:
+  - {fileID: 11400000, guid: 74a6c70194c064346ad8507321db7c00, type: 2}
+  - {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
+  conectionType: 0300000001000000

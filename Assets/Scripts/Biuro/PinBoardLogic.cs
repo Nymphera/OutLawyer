@@ -40,8 +40,15 @@ public class PinBoardLogic : MonoBehaviour
         //PinBoardScript = GetComponent<PinBoardScript>();
        PinBoardControls.PinBoard.MouseLeftClick.performed += MouseLeftClick_performed;
         PinBoardControls.PinBoard.MouseRightClick.performed += MouseRightClick_performed;
-        
+        PinBoardControls.PinBoard.DeleteLine.performed += DeleteLine_performed;
     }
+
+    private void DeleteLine_performed(InputAction.CallbackContext obj)
+    {
+        int childcount = LineParent.childCount - 1;
+        Destroy(LineParent.GetChild(childcount).gameObject);
+    }
+
     private void OnEnable()
     {
         PinBoardControls.Enable();

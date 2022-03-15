@@ -62,6 +62,15 @@ public partial class @PinBoardControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DeleteLine"",
+                    ""type"": ""Button"",
+                    ""id"": ""d78a56a5-4da6-4fec-b560-e4173f845d85"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -108,6 +117,17 @@ public partial class @PinBoardControls : IInputActionCollection2, IDisposable
                     ""action"": ""MouseRightClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb8686fc-1bd0-432c-b0d1-df8d5ee27c5a"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DeleteLine"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -120,6 +140,7 @@ public partial class @PinBoardControls : IInputActionCollection2, IDisposable
         m_PinBoard_Zoom = m_PinBoard.FindAction("Zoom", throwIfNotFound: true);
         m_PinBoard_MouseLeftClick = m_PinBoard.FindAction("MouseLeftClick", throwIfNotFound: true);
         m_PinBoard_MouseRightClick = m_PinBoard.FindAction("MouseRightClick", throwIfNotFound: true);
+        m_PinBoard_DeleteLine = m_PinBoard.FindAction("DeleteLine", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -183,6 +204,7 @@ public partial class @PinBoardControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_PinBoard_Zoom;
     private readonly InputAction m_PinBoard_MouseLeftClick;
     private readonly InputAction m_PinBoard_MouseRightClick;
+    private readonly InputAction m_PinBoard_DeleteLine;
     public struct PinBoardActions
     {
         private @PinBoardControls m_Wrapper;
@@ -191,6 +213,7 @@ public partial class @PinBoardControls : IInputActionCollection2, IDisposable
         public InputAction @Zoom => m_Wrapper.m_PinBoard_Zoom;
         public InputAction @MouseLeftClick => m_Wrapper.m_PinBoard_MouseLeftClick;
         public InputAction @MouseRightClick => m_Wrapper.m_PinBoard_MouseRightClick;
+        public InputAction @DeleteLine => m_Wrapper.m_PinBoard_DeleteLine;
         public InputActionMap Get() { return m_Wrapper.m_PinBoard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -212,6 +235,9 @@ public partial class @PinBoardControls : IInputActionCollection2, IDisposable
                 @MouseRightClick.started -= m_Wrapper.m_PinBoardActionsCallbackInterface.OnMouseRightClick;
                 @MouseRightClick.performed -= m_Wrapper.m_PinBoardActionsCallbackInterface.OnMouseRightClick;
                 @MouseRightClick.canceled -= m_Wrapper.m_PinBoardActionsCallbackInterface.OnMouseRightClick;
+                @DeleteLine.started -= m_Wrapper.m_PinBoardActionsCallbackInterface.OnDeleteLine;
+                @DeleteLine.performed -= m_Wrapper.m_PinBoardActionsCallbackInterface.OnDeleteLine;
+                @DeleteLine.canceled -= m_Wrapper.m_PinBoardActionsCallbackInterface.OnDeleteLine;
             }
             m_Wrapper.m_PinBoardActionsCallbackInterface = instance;
             if (instance != null)
@@ -228,6 +254,9 @@ public partial class @PinBoardControls : IInputActionCollection2, IDisposable
                 @MouseRightClick.started += instance.OnMouseRightClick;
                 @MouseRightClick.performed += instance.OnMouseRightClick;
                 @MouseRightClick.canceled += instance.OnMouseRightClick;
+                @DeleteLine.started += instance.OnDeleteLine;
+                @DeleteLine.performed += instance.OnDeleteLine;
+                @DeleteLine.canceled += instance.OnDeleteLine;
             }
         }
     }
@@ -238,5 +267,6 @@ public partial class @PinBoardControls : IInputActionCollection2, IDisposable
         void OnZoom(InputAction.CallbackContext context);
         void OnMouseLeftClick(InputAction.CallbackContext context);
         void OnMouseRightClick(InputAction.CallbackContext context);
+        void OnDeleteLine(InputAction.CallbackContext context);
     }
 }

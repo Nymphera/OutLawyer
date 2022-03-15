@@ -11,7 +11,8 @@
                     "id": "eeb4a843-cdba-4631-b218-46d810e8f836",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Zoom",
@@ -19,7 +20,8 @@
                     "id": "3efde2e3-8833-481b-8464-433d14318b78",
                     "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "MouseLeftClick",
@@ -27,7 +29,8 @@
                     "id": "9868803f-b28c-49cc-b2e5-a48ac1acfd42",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "MouseRightClick",
@@ -35,7 +38,17 @@
                     "id": "ad417137-1a9f-4dcd-b738-48fd825b61de",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DeleteLine",
+                    "type": "Button",
+                    "id": "d78a56a5-4da6-4fec-b560-e4173f845d85",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -80,6 +93,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MouseRightClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb8686fc-1bd0-432c-b0d1-df8d5ee27c5a",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DeleteLine",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

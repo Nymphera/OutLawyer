@@ -8,7 +8,8 @@ public class EvidenceDisplay : MonoBehaviour
 {
     [SerializeField]
     private MeshRenderer Renderer;
-
+    [SerializeField]
+    private GameObject Plane;
     public Evidence Evidence;
    
     private void Awake()
@@ -16,6 +17,10 @@ public class EvidenceDisplay : MonoBehaviour
         Evidence.Layer = 7;
     
             SpriteRender();
+        if (Evidence.orientation.ToString() == "Vertical")
+        {
+            Plane.transform.rotation = Quaternion.Euler(0, -90, 0);
+        }
     }
 
     void SpriteRender()

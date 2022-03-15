@@ -13,7 +13,7 @@ public class Evidence : ScriptableObject
         public string Name;
         public string Description;
     public Sprite Artwork;
-       
+    public Orientation orientation;  
     public EvidenceType evidenceType;
     
     public Evidence[] conectedEvidence = new Evidence[0];
@@ -40,6 +40,11 @@ public class Evidence : ScriptableObject
         public static string String;
       //  public Evidence conectionEvidence;
         public ConectionType conectionColor;
+    }
+    public enum Orientation
+    {
+        Vertical,
+        Horizontal
     }
 }
 

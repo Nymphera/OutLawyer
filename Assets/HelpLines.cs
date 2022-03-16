@@ -5,9 +5,12 @@ using System;
 
 public class HelpLines : MonoBehaviour
 {
-    private int childcount;
+    private int childCount,activeChildCount=0;
+    [SerializeField]
     private Transform[] childs;
+    [SerializeField]
     private Evidence[] evidences;
+    [SerializeField]
     private Vector3[] points;
 
     private Line Line;
@@ -17,25 +20,41 @@ public class HelpLines : MonoBehaviour
     private GameObject linePrefab;
     private void Start()
     {
-        childcount = transform.childCount;
-        childs = new Transform[childcount];
-        evidences = new Evidence[childcount];
-        points = new Vector3[childcount];
-        points = new Vector3[childcount];
-        
-        for(int i = 0; i < childcount; i++)
+        childCount = transform.childCount;
+        for(int i = 0; i < childCount; i++)
         {
-            childs[i]=transform.GetChild(i);
-            points[i] = childs[i].GetChild(1).position;
-            evidences[i] = childs[i].GetComponent<EvidenceDisplay>().Evidence;
+            if (transform.GetChild(i).gameObject.activeSelf)
+            {
+                activeChildCount++;
+            }
         }
-        for (int i = 0; i < childcount; i++)
+        Debug.Log("active: " + activeChildCount);
+
+        childs = new Transform[activeChildCount];
+        evidences = new Evidence[activeChildCount];
+        points = new Vector3[activeChildCount];
+        int index = 0;
+        
+        for(int  i= 0; i < childCount; i++)
+        {
+            
+            if (transform.GetChild(i).gameObject.activeSelf==true)
+            {
+                childs[index] = transform.GetChild(i);
+                points[index] = childs[index].GetChild(1).position;
+                evidences[index] = childs[index].GetComponent<EvidenceDisplay>().Evidence;
+                index++;    
+            }
+           
+        }
+        for (int i = 0; i < activeChildCount; i++)
         {
             int conectLength=evidences[i].conection.Length;
-
+            //foreach( Evidence.Conection conection in evidences[i].conection)
+          
             for (int j = 0; j < conectLength; j++)
             {
-                for(int k=0;k<childcount;k++)
+                for(int k=0;k<activeChildCount;k++)
                 if (evidences[k] == evidences[i].conection[j].ConectedEvidence)
                 {
                         

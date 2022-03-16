@@ -20,6 +20,6 @@ MonoBehaviour:
   Artwork: {fileID: 21300000, guid: d4b9b58d4cbea854aa13e6a6eff1e4fc, type: 3}
   orientation: 0
   evidenceType: 0
-  conectedEvidence:
-  - {fileID: 11400000, guid: d08a7f03284e5604387582cf887035ca, type: 2}
-  conectionType: 01000000
+  conection:
+  - ConectedEvidence: {fileID: 11400000, guid: d08a7f03284e5604387582cf887035ca, type: 2}
+    conectionColor: 1

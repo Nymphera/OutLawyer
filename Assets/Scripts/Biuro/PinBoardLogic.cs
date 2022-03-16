@@ -152,22 +152,25 @@ public class PinBoardLogic : MonoBehaviour
         }
 
     }
+   public void CreateLine()
+    {
 
+    }
 
     public void CreateLine_Yellow()
     {
-        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conectedEvidence.Length;
+        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
         int index = 0;
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectNum; i++)
         {
-            if (Evidence0 == Evidence1.conectedEvidence[i])
+            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
             {
                 index = i;
             }
         }
-        if (Evidence1.conectionType[index].ToString() == "Yellow")
+        if (Evidence1.conection[index].conectionColor.ToString() == "Yellow")
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Yellow");
@@ -187,18 +190,18 @@ public class PinBoardLogic : MonoBehaviour
     }
     public void CreateLine_Green()
     {
-        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conectedEvidence.Length;
+        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
         int index = 0;
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectNum; i++)
         {
-            if (Evidence0 == Evidence1.conectedEvidence[i])
+            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
             {
                 index = i;
             }
         }
-        if (Evidence1.conectionType[index].ToString() == "Green")
+        if (Evidence1.conection[index].conectionColor.ToString() == "Green")
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Green");
@@ -216,18 +219,18 @@ public class PinBoardLogic : MonoBehaviour
     }
     public void CreateLine_Red()
     {
-        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conectedEvidence.Length;
+        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
         int index = 0;
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectNum; i++)
         {
-            if (Evidence0 == Evidence1.conectedEvidence[i])
+            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
             {
                 index = i;
             }
         }
-            if (Evidence1.conectionType[index].ToString() == "Red")
+        if (Evidence1.conection[index].conectionColor.ToString() == "Red")
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Red");
@@ -246,18 +249,18 @@ public class PinBoardLogic : MonoBehaviour
     }
     public void CreateLine_Blue()
     {
-        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conectedEvidence.Length;
+        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
         int index = 0;
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectNum; i++)
         {
-            if (Evidence0 == Evidence1.conectedEvidence[i])
+            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
             {
                 index = i;
             }
         }
-        if (Evidence1.conectionType[index].ToString() == "Blue")
+        if (Evidence1.conection[index].conectionColor.ToString() == "Blue")
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Blue");
@@ -266,6 +269,7 @@ public class PinBoardLogic : MonoBehaviour
             {
                 Line.AddPoint(vector);
             }
+           
             //to chyba nie dzia³a
             if (Line.pointsCount != 2)
                 Destroy(LineParent.transform.GetChild(Line.pointsCount - 1).gameObject);

@@ -27,6 +27,7 @@ public class EvidenceDisplay : MonoBehaviour
     {
         Material material = new Material(Shader.Find("Standard"));
         material.mainTexture= Evidence.Artwork.texture;
+        
         Renderer.material=material;
             
         

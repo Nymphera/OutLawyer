@@ -9,11 +9,11 @@ public class Line : MonoBehaviour
  public List<Vector3> points = new List<Vector3>();
  public int pointsCount = 0;
    
-    private Vector3[] linePoints;
+ 
     [SerializeField]
     private float animationDuration;
     [SerializeField]
-    private Material Yellow, Green, Red, Blue;
+    private Material Yellow, Green, Red, Blue,White;
     public void AddPoint(Vector3 newPoint)
     {
         points.Add(newPoint);
@@ -43,7 +43,10 @@ public class Line : MonoBehaviour
         {
             lineRenderer.material = Blue;
         }
-        
+        if (color == "White")
+        {
+            lineRenderer.material = White;
+        }
     }
     public void ShowPoints()
     { foreach (Vector3 V in points)
@@ -65,8 +68,8 @@ public class Line : MonoBehaviour
         {
             float startTime = Time.time;
 
-            Vector3 startPosition = linePoints[i];
-            Vector3 endPosition = linePoints[i + 1];
+            Vector3 startPosition = points[i];
+            Vector3 endPosition = points[i + 1];
 
             Vector3 pos = startPosition;
             while (pos != endPosition)

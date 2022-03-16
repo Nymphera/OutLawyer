@@ -20,7 +20,8 @@ MonoBehaviour:
   Artwork: {fileID: 21300000, guid: 14b275f142bbff646b963a7403e7b5be, type: 3}
   orientation: 1
   evidenceType: 0
-  conectedEvidence:
-  - {fileID: 11400000, guid: 615b166ceedb57e4aaf14b65bef0e65a, type: 2}
-  - {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
-  conectionType: 0300000002000000
+  conection:
+  - ConectedEvidence: {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
+    conectionColor: 2
+  - ConectedEvidence: {fileID: 11400000, guid: 615b166ceedb57e4aaf14b65bef0e65a, type: 2}
+    conectionColor: 3

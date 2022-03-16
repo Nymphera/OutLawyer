@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {   
         Instance = this;
-        UpdateGameState(GameState.Move);
+       // UpdateGameState(GameState.Move);
     }
   
 
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
        
-        OnGameStateChanged?.Invoke(newState);
+        OnGameStateChanged(newState);
     }
 
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,9 +16,9 @@ public class Evidence : ScriptableObject
     public Sprite Artwork;
     public Orientation orientation;  
     public EvidenceType evidenceType;
-    
-    public Evidence[] conectedEvidence = new Evidence[0];
-        public ConectionType[] conectionType = new ConectionType[0];
+    public Conection[] conection = new Conection[0];
+    //public Evidence[] conectedEvidence = new Evidence[0];
+       // public ConectionType[] conectionType = new ConectionType[0];
 
  
 
@@ -34,17 +35,18 @@ public class Evidence : ScriptableObject
         Blue,
         Green
     }
-
-    public  class Conection
-    {
-        public static string String;
-      //  public Evidence conectionEvidence;
-        public ConectionType conectionColor;
-    }
+   
     public enum Orientation
     {
         Vertical,
         Horizontal
+    }
+    [Serializable]
+    public class Conection
+    {
+        public Evidence ConectedEvidence;
+        //  public Evidence conectionEvidence;
+        public ConectionType conectionColor;
     }
 }
 

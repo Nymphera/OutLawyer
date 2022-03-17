@@ -137,6 +137,8 @@ public class PinBoardLogic : MonoBehaviour
             Evidences[0] = Evidences[1];
             Evidences[1] = Object;
 
+            
+
             points[0] = points[1];
             points[1] = Object.GetChild(1).position;
         }
@@ -150,10 +152,6 @@ public class PinBoardLogic : MonoBehaviour
             }
 
         }
-
-    }
-   public void CreateLine()
-    {
 
     }
 
@@ -174,12 +172,15 @@ public class PinBoardLogic : MonoBehaviour
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Yellow");
-            Line.AnimateLine();
-            foreach (var vector in points)
+
+            foreach(Vector3 vector in points)
             {
                 Line.AddPoint(vector);
             }
-            //to chyba nie dzia³a
+           
+            Line.CreateLine();
+            Line.animationDuration = 3f;
+            Line.AnimateLine();
             if (Line.pointsCount != 2)
                 Destroy(LineParent.transform.GetChild(Line.pointsCount - 1).gameObject);
         }
@@ -188,6 +189,13 @@ public class PinBoardLogic : MonoBehaviour
         
             
     }
+
+
+
+
+
+
+
     public void CreateLine_Green()
     {
         int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
@@ -205,10 +213,10 @@ public class PinBoardLogic : MonoBehaviour
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Green");
-            Line.AnimateLine();
+          //  Line.AnimateLine();
             foreach (var vector in points)
             {
-                Line.AddPoint(vector);
+               Line.AddPoint(vector);
             }
             //to chyba nie dzia³a
             if (Line.pointsCount != 2)
@@ -234,7 +242,7 @@ public class PinBoardLogic : MonoBehaviour
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Red");
-            Line.AnimateLine();
+          //  Line.AnimateLine();
             foreach (var vector in points)
             {
                 Line.AddPoint(vector);
@@ -264,7 +272,8 @@ public class PinBoardLogic : MonoBehaviour
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Blue");
-            Line.AnimateLine();
+            
+          //  Line.AnimateLine();
             foreach (var vector in points)
             {
                 Line.AddPoint(vector);

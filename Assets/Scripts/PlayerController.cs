@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private float turnSmoothVelocity;
     private CharacterController CharacterController;
     private Camera cam;
-
+    public static event Action OnEvidenceUnlocked;
 
     private PlayerMovementActions PlayerInputActions;
     private InputAction movement;
@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
 
     private void Inspect()
     {

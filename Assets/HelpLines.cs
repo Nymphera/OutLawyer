@@ -7,7 +7,7 @@ public class HelpLines : MonoBehaviour
 {
     private int childCount,activeChildCount=0;
     [SerializeField]
-    private Transform[] childs;
+    private Transform[] childs,activeChilds;
     [SerializeField]
     private Evidence[] evidences;
     [SerializeField]
@@ -18,9 +18,34 @@ public class HelpLines : MonoBehaviour
     private Transform LineParent;
     [SerializeField]
     private GameObject linePrefab;
-    private void Start()
+    private EventTrigger EventTrigger;
+    private void Awake()
+    {
+        EventTrigger.OnEvidenceUnlocked += EventTrigger_OnEvidenceUnlocked;
+        
+    }
+   
+    private void EventTrigger_OnEvidenceUnlocked(Evidence evidence)
+    {
+        Debug.Log(evidence);
+        for(int i = 0; i < childCount; i++)
+        {
+            if (childs[i].GetComponent<EvidenceDisplay>().Evidence == evidence)
+            {
+                childs[i].gameObject.SetActive(true);
+            }
+        }
+        GameObject.Find(evidence.name.ToString()).SetActive(true);
+    }
+
+    private void OnEnable()
     {
         childCount = transform.childCount;
+        childs = new Transform[childCount];
+        for(int i = 0; i < childCount; i++)
+        {
+            childs[i] = transform.GetChild(i);
+        }
         for(int i = 0; i < childCount; i++)
         {
             if (transform.GetChild(i).gameObject.activeSelf)
@@ -28,9 +53,9 @@ public class HelpLines : MonoBehaviour
                 activeChildCount++;
             }
         }
-        Debug.Log("active: " + activeChildCount);
+        
 
-        childs = new Transform[activeChildCount];
+        activeChilds = new Transform[activeChildCount];
         evidences = new Evidence[activeChildCount];
         points = new Vector3[activeChildCount];
         int index = 0;
@@ -39,10 +64,10 @@ public class HelpLines : MonoBehaviour
         {
             
             if (transform.GetChild(i).gameObject.activeSelf==true)
-            {
-                childs[index] = transform.GetChild(i);
-                points[index] = childs[index].GetChild(1).position;
-                evidences[index] = childs[index].GetComponent<EvidenceDisplay>().Evidence;
+            { 
+                activeChilds[index] = transform.GetChild(i);
+                points[index] = activeChilds[index].GetChild(1).position;
+                evidences[index] = activeChilds[index].GetComponent<EvidenceDisplay>().Evidence;
                 index++;    
             }
            
@@ -63,6 +88,7 @@ public class HelpLines : MonoBehaviour
                         
                         Line.AddPoint(points[i]);
                         Line.AddPoint(points[k]);
+                        Line.CreateLine();
                         Line.SetColor("White");
                     }
             }

@@ -21,7 +21,18 @@ MonoBehaviour:
   orientation: 0
   evidenceType: 0
   conection:
-  - ConectedEvidence: {fileID: 11400000, guid: 74a6c70194c064346ad8507321db7c00, type: 2}
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: 74a6c70194c064346ad8507321db7c00, type: 2}
     conectionColor: 0
-  - ConectedEvidence: {fileID: 11400000, guid: 733436fcea2146f4b8bd7476289a5912, type: 2}
+    Conclusion: "Lojer mo\u017Ce udowodni\u0107 \u017Ce Hodowca przez swoj\u0105
+      niepoczytalno\u015B\u0107 zgubi\u0142 teczk\u0119 i nie pami\u0119ta\u0142,
+      \u017Ce m\xF3g\u0142 mie\u0107 tam po\u015Bwiadczenie."
+    conectNumber: 4
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: 733436fcea2146f4b8bd7476289a5912, type: 2}
     conectionColor: 3
+    Conclusion: "Lojer mo\u017Ce w s\u0105dzie pr\xF3bowa\u0107 wykaza\u0107, \u017Ce
+      zagubienie teczki dla Hodowcy by\u0142o wyj\u0105tkowo korzystne, poniewa\u017C
+      m\xF3g\u0142by jednocze\u015Bnie pobra\u0107 ubezpieczenie od kradzie\u017Cy
+      oraz odzyska\u0107 zgub\u0119, a wi\u0119c zarobi\u0142by na z\u0142odzieju."
+    conectNumber: 2

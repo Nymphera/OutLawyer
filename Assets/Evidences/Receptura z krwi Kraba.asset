@@ -21,9 +21,22 @@ MonoBehaviour:
   orientation: 0
   evidenceType: 0
   conection:
-  - ConectedEvidence: {fileID: 11400000, guid: 5b388a1d38feb2e43aab0aa49525f16c, type: 2}
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: 5b388a1d38feb2e43aab0aa49525f16c, type: 2}
     conectionColor: 1
-  - ConectedEvidence: {fileID: 11400000, guid: badd262cc4c182b41970d8a233bffdb7, type: 2}
+    Conclusion: "Chocia\u017C w barze znale\u017A\u0107 mo\u017Cna by\u0142o potraw\u0119
+      z kraba, nie jest ona nigdzie oferowana - co wi\u0119cej, bar nie ma nawet
+      na ni\u0105 koncesji."
+    conectNumber: 14
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: badd262cc4c182b41970d8a233bffdb7, type: 2}
     conectionColor: 0
-  - ConectedEvidence: {fileID: 11400000, guid: e1921b79feed6d9498882dc2d3aa4222, type: 2}
+    Conclusion: "Lojer mo\u017Ce udowodni\u0107 \u017Ce Kraba skradziono w celu wykorzystania
+      go do pokarmu z krwi dla wampir\xF3w wegan."
+    conectNumber: 11
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: e1921b79feed6d9498882dc2d3aa4222, type: 2}
     conectionColor: 3
+    Conclusion: "Wampir m\xF3g\u0142 potrzebowa\u0107 posi\u0142ku z krwi kraba przez
+      alergi\u0119 na ludzk\u0105 krew."
+    conectNumber: 16

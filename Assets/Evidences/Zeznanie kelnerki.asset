@@ -21,7 +21,16 @@ MonoBehaviour:
   orientation: 0
   evidenceType: 0
   conection:
-  - ConectedEvidence: {fileID: 11400000, guid: c7bc2e4253c905248bc81887a60559a4, type: 2}
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: c7bc2e4253c905248bc81887a60559a4, type: 2}
     conectionColor: 1
-  - ConectedEvidence: {fileID: 11400000, guid: 918345b74bd390940b301e659d30b364, type: 2}
+    Conclusion: "Opowie\u015B\u0107 kelnerki i nagranie kompletnie si\u0119 ze sob\u0105
+      nie klej\u0105, ale brak szczeg\xF3\u0142\xF3w na nagraniu powoduje, \u017Ce
+      nie mo\u017Cna jednoznacznie tego potwierdzi\u0107."
+    conectNumber: 15
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: 918345b74bd390940b301e659d30b364, type: 2}
     conectionColor: 3
+    Conclusion: "Zeznania Kelnerki jasno sugeruj\u0105, \u017Ce j\u0105 i wampira
+      musia\u0142o po\u0142\u0105czy\u0107 jakie\u015B gor\u0105ce uczucie."
+    conectNumber: 13

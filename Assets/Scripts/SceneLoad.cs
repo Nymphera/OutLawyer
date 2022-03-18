@@ -4,20 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoad : MonoBehaviour
-{[SerializeField]
-    private GameObject dontDestroyOnLoad;
-    private void Start()
-    {
-       // DontDestroyOnLoad(dontDestroyOnLoad);
-    }
+{
+    
     public void LoadGame()
     {
         SceneManager.LoadScene("Game");
     }
     public void LoadKrabiarnia()
     {
-        
+       
         SceneManager.LoadScene("Krabiarnia");
+        GameManager.Instance.UpdateGameState(GameState.Move);
     }  
     public void LoadOffice()
     {
@@ -26,6 +23,8 @@ public class SceneLoad : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        
         SceneManager.LoadScene("Biuro");
+        GameManager.Instance.UpdateGameState(GameState.Office);
     }
 }

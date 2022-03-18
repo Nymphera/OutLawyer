@@ -30,10 +30,10 @@ public class Evidence : ScriptableObject
     }
     public enum ConectionType
     {
-        Yellow,
-        Red,
-        Blue,
-        Green
+        Yellow, // Motyw
+        Red,    //Sprzecznoœæ
+        Blue,   //Relacja
+        Green   //Dowód
     }
    
     public enum Orientation
@@ -43,11 +43,38 @@ public class Evidence : ScriptableObject
     }
     [Serializable]
     public class Conection
-    {
+    { public Evidence FirstEvidence;
         public Evidence ConectedEvidence;
         //  public Evidence conectionEvidence;
         public ConectionType conectionColor;
+        public string Conclusion;
+        //public Conclusions conclusion;
+        public int conectNumber;
+
     }
 }
+public enum Conclusions
+{
+    Relacja1,
+    Motyw2,
+    Relacja3,
+    Dowod4,
+    Motyw5,
+    Relacja6,
+    Sprzecznosc79,
+    Sprzecznosc8,
+    Motyw10,
+    Relacja11,
+    Dowod12,
+    Dowod13,
+    Motyw14,
+    Sprzecznosc15,
+    Sprzecznosc16,
+    Motyw17,
+    Dowod18,
+    Motyw19,
+    Dowod20
 
+
+}
 

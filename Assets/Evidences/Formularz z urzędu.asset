@@ -21,5 +21,9 @@ MonoBehaviour:
   orientation: 0
   evidenceType: 0
   conection:
-  - ConectedEvidence: {fileID: 11400000, guid: 733436fcea2146f4b8bd7476289a5912, type: 2}
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: 733436fcea2146f4b8bd7476289a5912, type: 2}
     conectionColor: 2
+    Conclusion: "Brak po\u015Bwiadczenia kradzie\u017Cy powoduje, \u017Ce Robb nie
+      mo\u017Ce rozliczy\u0107 si\u0119  urz\u0119dem skarbowym."
+    conectNumber: 1

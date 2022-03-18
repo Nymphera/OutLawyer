@@ -14,8 +14,7 @@ public class PinBoardLogic : MonoBehaviour
     private InputAction MousePosition;
     private PinBoardControls PinBoardControls;
     private Camera Cam;
-    [SerializeField]
-    private Image SettingsPanel;
+   
     [SerializeField]
     private Text Description;
     [SerializeField]
@@ -25,22 +24,34 @@ public class PinBoardLogic : MonoBehaviour
     [SerializeField]
     private Transform LineParent;
     [SerializeField]
-    private GameObject linePrefab;
+    private GameObject linePrefab,SettingsPanel;
     [SerializeField]
     public Vector3[] points;
     [SerializeField] Transform[] Evidences;
+
+    private GameManager GameManager;
     private void Awake()
     {
-        Evidences = new Transform[2];
         points = new Vector3[2];
+        Evidences = new Transform[2];
+
+        LineParent = GameObject.Find("LineHolder").transform;
+        SettingsPanel = GameObject.Find("SettingsPanel");
+        Description = GameObject.Find("PoleTekstowe").GetComponent<Text>();
+        TeleportButton = GameObject.Find("Teleport").GetComponent<Button>();
+
+       
         
-        SettingsPanel.gameObject.SetActive(false);
+        SettingsPanel.SetActive(false);
+
         PinBoardControls = new PinBoardControls();
 
-        //PinBoardScript = GetComponent<PinBoardScript>();
         PinBoardControls.PinBoard.MouseLeftClick.performed += MouseLeftClick_performed;
         PinBoardControls.PinBoard.MouseRightClick.performed += MouseRightClick_performed;
         PinBoardControls.PinBoard.DeleteLine.performed += DeleteLine_performed;
+
+        GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+       
 
         if (Instance != null)
             Destroy(gameObject);
@@ -50,11 +61,20 @@ public class PinBoardLogic : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+   
+    private void GameManager_OnGameStateChanged(GameState state)
+    {
+        Debug.Log(state);
+        if (GameState.Office == state)
+        {
+            
+        }
+    }
 
     private void DeleteLine_performed(InputAction.CallbackContext obj)
     {
-        int childcount = LineParent.childCount - 1;
-        Destroy(LineParent.GetChild(childcount).gameObject);
+        int childcount = LineParent.childCount;
+        Destroy(LineParent.GetChild(childcount-1).gameObject);
     }
 
     private void OnEnable()
@@ -69,7 +89,7 @@ public class PinBoardLogic : MonoBehaviour
         Vector2 pos = MousePosition.ReadValue<Vector2>();
         GameObject Object = TouchedObject(pos);
 
-        SettingsPanel.gameObject.SetActive(false);
+        SettingsPanel.SetActive(false);
         if (Object?.layer == 7)
         {
             GameObject Evidence = Object.transform.parent.gameObject;
@@ -127,7 +147,7 @@ public class PinBoardLogic : MonoBehaviour
             ButtonState = true;
         }
         Description.text = Evid.Description.ToString();
-        SettingsPanel.gameObject.SetActive(true);
+        SettingsPanel.SetActive(true);
         SettingsPanel.transform.position = MousePosition;
         TeleportButton.gameObject.SetActive(ButtonState);
 
@@ -176,6 +196,7 @@ public class PinBoardLogic : MonoBehaviour
                 index = i;
             }
         }
+        
         if (Evidence1.conection[index].conectionColor.ToString() == "Yellow")
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
@@ -186,7 +207,7 @@ public class PinBoardLogic : MonoBehaviour
                 Line.AddPoint(vector);
             }
            
-            Line.CreateLine();
+           // Line.CreateLine();
             Line.SetColor("Yellow");
             Line.animationDuration = 3f;
            // Line.AnimateLine();
@@ -279,11 +300,13 @@ public class PinBoardLogic : MonoBehaviour
                 index = i;
             }
         }
+        Debug.Log("debug");
         if (Evidence1.conection[index].conectionColor.ToString() == "Blue")
         {
+            Debug.Log("blue");
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Blue");
-            Line.CreateLine();
+           // Line.CreateLine();
           //  Line.AnimateLine();
             foreach (var vector in points)
             {

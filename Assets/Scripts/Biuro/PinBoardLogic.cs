@@ -20,7 +20,7 @@ public class PinBoardLogic : MonoBehaviour
     private Text Description;
     [SerializeField]
     private Button TeleportButton;
-    public static PinBoardLogic Instance;
+    private static PinBoardLogic Instance;
     private Line Line;
     [SerializeField]
     private Transform LineParent;
@@ -33,7 +33,7 @@ public class PinBoardLogic : MonoBehaviour
     {
         Evidences = new Transform[2];
         points = new Vector3[2];
-        Instance = this;
+        
         SettingsPanel.gameObject.SetActive(false);
         PinBoardControls = new PinBoardControls();
 
@@ -41,6 +41,14 @@ public class PinBoardLogic : MonoBehaviour
         PinBoardControls.PinBoard.MouseLeftClick.performed += MouseLeftClick_performed;
         PinBoardControls.PinBoard.MouseRightClick.performed += MouseRightClick_performed;
         PinBoardControls.PinBoard.DeleteLine.performed += DeleteLine_performed;
+
+        if (Instance != null)
+            Destroy(gameObject);
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     private void DeleteLine_performed(InputAction.CallbackContext obj)
@@ -55,7 +63,7 @@ public class PinBoardLogic : MonoBehaviour
         MousePosition = PinBoardControls.PinBoard.Move;
         MousePosition.Enable();
     }
-
+   
     private void MouseLeftClick_performed(InputAction.CallbackContext context)
     {
         Vector2 pos = MousePosition.ReadValue<Vector2>();
@@ -171,7 +179,7 @@ public class PinBoardLogic : MonoBehaviour
         if (Evidence1.conection[index].conectionColor.ToString() == "Yellow")
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
-            Line.SetColor("Yellow");
+            
 
             foreach(Vector3 vector in points)
             {
@@ -179,8 +187,9 @@ public class PinBoardLogic : MonoBehaviour
             }
            
             Line.CreateLine();
+            Line.SetColor("Yellow");
             Line.animationDuration = 3f;
-            Line.AnimateLine();
+           // Line.AnimateLine();
             if (Line.pointsCount != 2)
                 Destroy(LineParent.transform.GetChild(Line.pointsCount - 1).gameObject);
         }
@@ -213,6 +222,7 @@ public class PinBoardLogic : MonoBehaviour
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Green");
+            Line.CreateLine();
           //  Line.AnimateLine();
             foreach (var vector in points)
             {
@@ -242,6 +252,7 @@ public class PinBoardLogic : MonoBehaviour
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Red");
+            Line.CreateLine();
           //  Line.AnimateLine();
             foreach (var vector in points)
             {
@@ -272,7 +283,7 @@ public class PinBoardLogic : MonoBehaviour
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Blue");
-            
+            Line.CreateLine();
           //  Line.AnimateLine();
             foreach (var vector in points)
             {

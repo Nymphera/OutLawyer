@@ -35,10 +35,10 @@ public class HelpLines : MonoBehaviour
                 childs[i].gameObject.SetActive(true);
             }
         }
-        GameObject.Find(evidence.name.ToString()).SetActive(true);
+       // GameObject.Find(evidence.name.ToString()).SetActive(true);
     }
 
-    private void OnEnable()
+    private void Start()
     {
         childCount = transform.childCount;
         childs = new Transform[childCount];

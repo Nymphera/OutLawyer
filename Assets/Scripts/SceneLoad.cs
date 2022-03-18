@@ -8,7 +8,7 @@ public class SceneLoad : MonoBehaviour
     private GameObject dontDestroyOnLoad;
     private void Start()
     {
-        DontDestroyOnLoad(dontDestroyOnLoad);
+       // DontDestroyOnLoad(dontDestroyOnLoad);
     }
     public void LoadGame()
     {

@@ -6,6 +6,7 @@ public class Line : MonoBehaviour
 {
     [SerializeField]
     private LineRenderer lineRenderer;
+    [SerializeField]
     public List<Vector3> points = new List<Vector3>();
     public int pointsCount = 0;
 
@@ -20,12 +21,13 @@ public class Line : MonoBehaviour
         pointsCount++;
         points.Add(vector);
         lineRenderer.positionCount = pointsCount;
+        lineRenderer.SetPosition(pointsCount - 1, vector);
     }
     public void CreateLine()
     { 
                 
-        lineRenderer.SetPosition(0, points[0]);
-        lineRenderer.SetPosition(1, points[1]);
+      //  lineRenderer.SetPosition(0, points[0]);
+      //  lineRenderer.SetPosition(1, points[1]);
     }
     public void AnimateLine()
     {

@@ -8,7 +8,7 @@ using System;
 public class PinBoardScript : MonoBehaviour
 {
 
-    [SerializeField]
+    
     private CinemachineVirtualCamera PinCamera;
     [SerializeField]
     private GameObject PinBoardButton,  LineButtons,SettingsPanel;
@@ -16,6 +16,10 @@ public class PinBoardScript : MonoBehaviour
    
     private void Awake()
     {
+        PinCamera = GameObject.Find("PinBoard Cam").GetComponent<CinemachineVirtualCamera>();
+        PinBoardButton = GameObject.Find("PinBoard Button");
+
+        SettingsPanel = GameObject.Find("SettingsPanel");
         PinBoardLogic = GetComponent<PinBoardLogic>();
         OfficeManager.OnStateChanged += OfficeManagerOnStateChanged;
         GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;

@@ -20,8 +20,24 @@ MonoBehaviour:
   Artwork: {fileID: 21300000, guid: 7fc50aacfc001ca40bd401a9c4068629, type: 3}
   orientation: 1
   evidenceType: 0
-  conectedEvidence:
-  - {fileID: 11400000, guid: bfb5b1fa548aa5341bed0b64b786d7f1, type: 2}
-  - {fileID: 11400000, guid: 5181a8d9fd03d8c4fada62a7f51206c6, type: 2}
-  - {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
-  conectionType: 020000000300000002000000
+  conection:
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: bfb5b1fa548aa5341bed0b64b786d7f1, type: 2}
+    conectionColor: 2
+    Conclusion: "Brak po\u015Bwiadczenia kradzie\u017Cy powoduje, \u017Ce Robb nie
+      mo\u017Ce rozliczy\u0107 si\u0119  urz\u0119dem skarbowym."
+    conectNumber: 1
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
+    conectionColor: 2
+    Conclusion: "Robb Banks nie mo\u017Ce by\u0107 chroniony prawami Karty Z\u0142odzieja
+      w przypadku braku po\u015Bwiadczenia kradzie\u017Cy."
+    conectNumber: 3
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: 5181a8d9fd03d8c4fada62a7f51206c6, type: 2}
+    conectionColor: 3
+    Conclusion: "Lojer mo\u017Ce w s\u0105dzie pr\xF3bowa\u0107 wykaza\u0107, \u017Ce
+      zagubienie teczki dla Hodowcy by\u0142o wyj\u0105tkowo korzystne, poniewa\u017C
+      m\xF3g\u0142by jednocze\u015Bnie pobra\u0107 ubezpieczenie od kradzie\u017Cy
+      oraz odzyska\u0107 zgub\u0119, a wi\u0119c zarobi\u0142by na z\u0142odzieju."
+    conectNumber: 2

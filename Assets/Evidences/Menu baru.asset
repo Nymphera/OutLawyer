@@ -20,6 +20,11 @@ MonoBehaviour:
   Artwork: {fileID: 21300000, guid: d4b9b58d4cbea854aa13e6a6eff1e4fc, type: 3}
   orientation: 0
   evidenceType: 0
-  conectedEvidence:
-  - {fileID: 11400000, guid: d08a7f03284e5604387582cf887035ca, type: 2}
-  conectionType: 01000000
+  conection:
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: d08a7f03284e5604387582cf887035ca, type: 2}
+    conectionColor: 1
+    Conclusion: "Chocia\u017C w barze znale\u017A\u0107 mo\u017Cna by\u0142o potraw\u0119
+      z kraba, nie jest ona nigdzie oferowana - co wi\u0119cej, bar nie ma nawet
+      na ni\u0105 koncesji."
+    conectNumber: 14

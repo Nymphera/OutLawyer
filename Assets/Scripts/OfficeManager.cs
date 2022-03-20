@@ -12,13 +12,14 @@ public class OfficeManager : MonoBehaviour
     public static event Action <OfficeState> OnStateChanged;
     
     public static OfficeManager Instance;
+    private HelpLines HelpLines;
 
     public OfficeState State;
     private void Awake()
     {
         Instance = this;
+
         
-      
     }
  
 

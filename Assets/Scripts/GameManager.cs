@@ -12,16 +12,23 @@ public class GameManager : MonoBehaviour
    
     public static event Action<GameState> OnGameStateChanged; 
     private void Awake()
-    {   
-        Instance = this;
-        UpdateGameState(GameState.Move);
+    {
+
+       
+        if (Instance != null)
+            Destroy(gameObject);
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        
     }
   
 
     public void UpdateGameState(GameState newState)
     {
-        State = newState;
-
+        /* switch dla jakiejœ specjalnej logiki
         switch (newState)
         {
             case GameState.Move:
@@ -30,9 +37,9 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Dialog:
                 break;
-        }
+        }*/
        
-        OnGameStateChanged?.Invoke(newState);
+        OnGameStateChanged(newState);
     }
 
 

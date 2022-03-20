@@ -20,7 +20,18 @@ MonoBehaviour:
   Artwork: {fileID: 21300000, guid: 303c3bf23df036c4c98a509bee8fef9b, type: 3}
   orientation: 1
   evidenceType: 0
-  conectedEvidence:
-  - {fileID: 11400000, guid: 74a6c70194c064346ad8507321db7c00, type: 2}
-  - {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
-  conectionType: 0300000001000000
+  conection:
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: 74a6c70194c064346ad8507321db7c00, type: 2}
+    conectionColor: 3
+    Conclusion: "Prowadzenie Hodowli okaza\u0142o si\u0119 bardzo nieop\u0142acalne,
+      a mimo to Hodowca kontynuuje swoj\u0105 pasj\u0119 \u017Cyj\u0105c w n\u0119dznych
+      warunkach. S\u0105 to samonakr\u0119caj\u0105ce si\u0119 spirale."
+    conectNumber: 9
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
+    conectionColor: 1
+    Conclusion: "Dochody Hodowcy Krab\xF3w s\u0105 zbyt niskie aby mo\u017Cna by\u0142o
+      go legalnie okra\u015B\u0107 i je\u015Bli wyjdzie to na jaw, Robb straci jedn\u0105
+      ze swoich opcji wolno\u015Bci."
+    conectNumber: 7

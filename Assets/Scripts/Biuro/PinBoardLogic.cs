@@ -14,39 +14,67 @@ public class PinBoardLogic : MonoBehaviour
     private InputAction MousePosition;
     private PinBoardControls PinBoardControls;
     private Camera Cam;
-    [SerializeField]
-    private Image SettingsPanel;
+   
     [SerializeField]
     private Text Description;
     [SerializeField]
     private Button TeleportButton;
-    public static PinBoardLogic Instance;
+    private static PinBoardLogic Instance;
     private Line Line;
     [SerializeField]
     private Transform LineParent;
     [SerializeField]
-    private GameObject linePrefab;
+    private GameObject linePrefab,SettingsPanel;
     [SerializeField]
     public Vector3[] points;
     [SerializeField] Transform[] Evidences;
+
+    private GameManager GameManager;
     private void Awake()
     {
-        Evidences = new Transform[2];
         points = new Vector3[2];
-        Instance = this;
-        SettingsPanel.gameObject.SetActive(false);
+        Evidences = new Transform[2];
+
+        LineParent = GameObject.Find("LineHolder").transform;
+        SettingsPanel = GameObject.Find("SettingsPanel");
+        Description = GameObject.Find("PoleTekstowe").GetComponent<Text>();
+        TeleportButton = GameObject.Find("Teleport").GetComponent<Button>();
+
+       
+        
+        SettingsPanel.SetActive(false);
+
         PinBoardControls = new PinBoardControls();
 
-        //PinBoardScript = GetComponent<PinBoardScript>();
         PinBoardControls.PinBoard.MouseLeftClick.performed += MouseLeftClick_performed;
         PinBoardControls.PinBoard.MouseRightClick.performed += MouseRightClick_performed;
         PinBoardControls.PinBoard.DeleteLine.performed += DeleteLine_performed;
+
+        GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+       
+
+        if (Instance != null)
+            Destroy(gameObject);
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+   
+    private void GameManager_OnGameStateChanged(GameState state)
+    {
+        Debug.Log(state);
+        if (GameState.Office == state)
+        {
+            
+        }
     }
 
     private void DeleteLine_performed(InputAction.CallbackContext obj)
     {
-        int childcount = LineParent.childCount - 1;
-        Destroy(LineParent.GetChild(childcount).gameObject);
+        int childcount = LineParent.childCount;
+        Destroy(LineParent.GetChild(childcount-1).gameObject);
     }
 
     private void OnEnable()
@@ -55,13 +83,13 @@ public class PinBoardLogic : MonoBehaviour
         MousePosition = PinBoardControls.PinBoard.Move;
         MousePosition.Enable();
     }
-
+   
     private void MouseLeftClick_performed(InputAction.CallbackContext context)
     {
         Vector2 pos = MousePosition.ReadValue<Vector2>();
         GameObject Object = TouchedObject(pos);
 
-        SettingsPanel.gameObject.SetActive(false);
+        SettingsPanel.SetActive(false);
         if (Object?.layer == 7)
         {
             GameObject Evidence = Object.transform.parent.gameObject;
@@ -119,7 +147,7 @@ public class PinBoardLogic : MonoBehaviour
             ButtonState = true;
         }
         Description.text = Evid.Description.ToString();
-        SettingsPanel.gameObject.SetActive(true);
+        SettingsPanel.SetActive(true);
         SettingsPanel.transform.position = MousePosition;
         TeleportButton.gameObject.SetActive(ButtonState);
 
@@ -137,6 +165,8 @@ public class PinBoardLogic : MonoBehaviour
             Evidences[0] = Evidences[1];
             Evidences[1] = Object;
 
+            
+
             points[0] = points[1];
             points[1] = Object.GetChild(1).position;
         }
@@ -153,30 +183,34 @@ public class PinBoardLogic : MonoBehaviour
 
     }
 
-
     public void CreateLine_Yellow()
     {
-        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conectedEvidence.Length;
+        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
         int index = 0;
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectNum; i++)
         {
-            if (Evidence0 == Evidence1.conectedEvidence[i])
+            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
             {
                 index = i;
             }
         }
-        if (Evidence1.conectionType[index].ToString() == "Yellow")
+        
+        if (Evidence1.conection[index].conectionColor.ToString() == "Yellow")
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
-            Line.SetColor("Yellow");
-            Line.AnimateLine();
-            foreach (var vector in points)
+            
+
+            foreach(Vector3 vector in points)
             {
                 Line.AddPoint(vector);
             }
-            //to chyba nie dzia³a
+           
+           // Line.CreateLine();
+            Line.SetColor("Yellow");
+            Line.animationDuration = 3f;
+           // Line.AnimateLine();
             if (Line.pointsCount != 2)
                 Destroy(LineParent.transform.GetChild(Line.pointsCount - 1).gameObject);
         }
@@ -185,27 +219,35 @@ public class PinBoardLogic : MonoBehaviour
         
             
     }
+
+
+
+
+
+
+
     public void CreateLine_Green()
     {
-        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conectedEvidence.Length;
+        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
         int index = 0;
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectNum; i++)
         {
-            if (Evidence0 == Evidence1.conectedEvidence[i])
+            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
             {
                 index = i;
             }
         }
-        if (Evidence1.conectionType[index].ToString() == "Green")
+        if (Evidence1.conection[index].conectionColor.ToString() == "Green")
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Green");
-            Line.AnimateLine();
+            Line.CreateLine();
+          //  Line.AnimateLine();
             foreach (var vector in points)
             {
-                Line.AddPoint(vector);
+               Line.AddPoint(vector);
             }
             //to chyba nie dzia³a
             if (Line.pointsCount != 2)
@@ -216,22 +258,23 @@ public class PinBoardLogic : MonoBehaviour
     }
     public void CreateLine_Red()
     {
-        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conectedEvidence.Length;
+        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
         int index = 0;
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectNum; i++)
         {
-            if (Evidence0 == Evidence1.conectedEvidence[i])
+            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
             {
                 index = i;
             }
         }
-            if (Evidence1.conectionType[index].ToString() == "Red")
+        if (Evidence1.conection[index].conectionColor.ToString() == "Red")
         {
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Red");
-            Line.AnimateLine();
+            Line.CreateLine();
+          //  Line.AnimateLine();
             foreach (var vector in points)
             {
                 Line.AddPoint(vector);
@@ -246,26 +289,30 @@ public class PinBoardLogic : MonoBehaviour
     }
     public void CreateLine_Blue()
     {
-        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conectedEvidence.Length;
+        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
         int index = 0;
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectNum; i++)
         {
-            if (Evidence0 == Evidence1.conectedEvidence[i])
+            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
             {
                 index = i;
             }
         }
-        if (Evidence1.conectionType[index].ToString() == "Blue")
+        Debug.Log("debug");
+        if (Evidence1.conection[index].conectionColor.ToString() == "Blue")
         {
+            Debug.Log("blue");
             Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
             Line.SetColor("Blue");
-            Line.AnimateLine();
+           // Line.CreateLine();
+          //  Line.AnimateLine();
             foreach (var vector in points)
             {
                 Line.AddPoint(vector);
             }
+           
             //to chyba nie dzia³a
             if (Line.pointsCount != 2)
                 Destroy(LineParent.transform.GetChild(Line.pointsCount - 1).gameObject);

@@ -12,8 +12,9 @@ public class GameManager : MonoBehaviour
    
     public static event Action<GameState> OnGameStateChanged; 
     private void Awake()
-    {   
-        
+    {
+
+       
         if (Instance != null)
             Destroy(gameObject);
         else
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        
     }
   
 

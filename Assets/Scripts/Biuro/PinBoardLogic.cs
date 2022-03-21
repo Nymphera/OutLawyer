@@ -290,8 +290,7 @@ public class PinBoardLogic : MonoBehaviour
                 else
                     Debug.Log("There is no such conection");
             }
-            else
-                Debug.Log("There is no such conection");
+           
 
 
         }
@@ -324,8 +323,7 @@ public class PinBoardLogic : MonoBehaviour
                 else
                     Debug.Log("There is no such conection");        // tu trzeba zrobiæ bool vriable i na koñcu dopiero wyœwietlaæ po wyjœciu z pêtli czy jest po³¹czenie czy nie ma
             }
-            else
-                Debug.Log("There is no such conection");
+           
 
 
         }
@@ -347,8 +345,7 @@ public class PinBoardLogic : MonoBehaviour
                 else
                     Debug.Log("There is no such conection");
             }
-            else
-                Debug.Log("There is no such conection");
+            
 
 
         }
@@ -370,8 +367,7 @@ public class PinBoardLogic : MonoBehaviour
                 else
                     Debug.Log("There is no such conection");
             }
-            else
-                Debug.Log("There is no such conection");
+           
 
 
         }

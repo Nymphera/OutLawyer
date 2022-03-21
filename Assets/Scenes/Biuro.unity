@@ -693,7 +693,7 @@ GameObject:
   - component: {fileID: 207973801}
   - component: {fileID: 207973803}
   - component: {fileID: 207973802}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -947,7 +947,7 @@ GameObject:
   - component: {fileID: 283024056}
   - component: {fileID: 283024055}
   - component: {fileID: 283024058}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Teleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1104,8 +1104,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297230056}
-  m_LocalRotation: {x: 0.00057635875, y: 0.9962663, z: -0.08607346, w: 0.006671126}
-  m_LocalPosition: {x: -1.4225999, y: 1.4223852, z: 2.4125435}
+  m_LocalRotation: {x: 0.0005763588, y: 0.9962663, z: -0.086073466, w: 0.006671126}
+  m_LocalPosition: {x: -1.3876, y: 1.4223852, z: 2.4125435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 994197088}
@@ -1390,7 +1390,7 @@ GameObject:
   - component: {fileID: 607444611}
   - component: {fileID: 607444610}
   - component: {fileID: 607444609}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Pinboard Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1535,7 +1535,7 @@ GameObject:
   - component: {fileID: 665790176}
   - component: {fileID: 665790178}
   - component: {fileID: 665790177}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PoleTekstowe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1679,7 +1679,7 @@ GameObject:
   - component: {fileID: 710918777}
   - component: {fileID: 710918779}
   - component: {fileID: 710918778}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: SettingsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1825,7 +1825,7 @@ GameObject:
   - component: {fileID: 780655358}
   - component: {fileID: 780655360}
   - component: {fileID: 780655359}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2147,7 +2147,7 @@ GameObject:
   - component: {fileID: 905333432}
   - component: {fileID: 905333434}
   - component: {fileID: 905333433}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2331,7 +2331,7 @@ GameObject:
   - component: {fileID: 969151148}
   - component: {fileID: 969151150}
   - component: {fileID: 969151149}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2514,7 +2514,7 @@ GameObject:
   - component: {fileID: 1094340236}
   - component: {fileID: 1094340238}
   - component: {fileID: 1094340237}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2646,7 +2646,7 @@ GameObject:
   - component: {fileID: 1245905770}
   - component: {fileID: 1245905769}
   - component: {fileID: 1245905768}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: ChangeSceneButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2795,7 +2795,7 @@ GameObject:
   - component: {fileID: 1309326708}
   - component: {fileID: 1309326710}
   - component: {fileID: 1309326709}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3021,7 +3021,7 @@ GameObject:
   - component: {fileID: 1658087406}
   - component: {fileID: 1658087408}
   - component: {fileID: 1658087407}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3208,7 +3208,7 @@ GameObject:
   - component: {fileID: 1691313847}
   - component: {fileID: 1691313846}
   - component: {fileID: 1691313845}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: CreateGreenLineButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3340,7 +3340,7 @@ GameObject:
   - component: {fileID: 1741332905}
   - component: {fileID: 1741332907}
   - component: {fileID: 1741332906}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: ErrorText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3433,7 +3433,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743484370}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.035, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 99360825}
@@ -3460,10 +3460,12 @@ MonoBehaviour:
   Description: {fileID: 665790177}
   TeleportButton: {fileID: 283024055}
   LineParent: {fileID: 443562534}
+  WhiteLineParent: {fileID: 0}
   linePrefab: {fileID: 8969533229563378573, guid: a94b11fe908360f40860f17a3627efe5, type: 3}
   SettingsPanel: {fileID: 710918776}
   points: []
   Evidences: []
+  whiteLines: []
 --- !u!1 &1761834665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3476,7 +3478,7 @@ GameObject:
   - component: {fileID: 1761834669}
   - component: {fileID: 1761834668}
   - component: {fileID: 1761834667}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3647,7 +3649,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1927444361}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: LineButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3824,7 +3826,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990275731}
-  m_LocalRotation: {x: 0.00057635875, y: 0.9962663, z: -0.08607346, w: 0.006671126}
+  m_LocalRotation: {x: 0.0005763588, y: 0.9962663, z: -0.086073466, w: 0.006671126}
   m_LocalPosition: {x: -1.4225999, y: 1.4223852, z: 2.4125435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3842,7 +3844,7 @@ GameObject:
   - component: {fileID: 2032519976}
   - component: {fileID: 2032519978}
   - component: {fileID: 2032519977}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3927,7 +3929,7 @@ GameObject:
   - component: {fileID: 2055587291}
   - component: {fileID: 2055587290}
   - component: {fileID: 2055587289}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: CreateYellowLineButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4060,7 +4062,7 @@ GameObject:
   - component: {fileID: 2080155204}
   - component: {fileID: 2080155203}
   - component: {fileID: 2080155202}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: CreateBlueLineButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4192,7 +4194,7 @@ GameObject:
   - component: {fileID: 2088847161}
   - component: {fileID: 2088847163}
   - component: {fileID: 2088847162}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4374,7 +4376,7 @@ GameObject:
   - component: {fileID: 2119326854}
   - component: {fileID: 2119326853}
   - component: {fileID: 2119326852}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: CreateRedLineButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4569,6 +4571,7 @@ MonoBehaviour:
   conections: []
   LineParent: {fileID: 915372126}
   linePrefab: {fileID: 8969533229563378573, guid: a94b11fe908360f40860f17a3627efe5, type: 3}
+  Instance: {fileID: 0}
 --- !u!120 &2131646442
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -4741,7 +4744,7 @@ GameObject:
   - component: {fileID: 4083501149952376325}
   - component: {fileID: 3260616446755642408}
   - component: {fileID: 7762067043965797817}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PinBoardSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

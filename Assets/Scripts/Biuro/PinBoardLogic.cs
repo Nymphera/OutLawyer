@@ -22,13 +22,14 @@ public class PinBoardLogic : MonoBehaviour
     private static PinBoardLogic Instance;
     private Line Line;
     [SerializeField]
-    private Transform LineParent;
+    private Transform LineParent,WhiteLineParent;
     [SerializeField]
     private GameObject linePrefab,SettingsPanel;
     [SerializeField]
     public Vector3[] points;
-    [SerializeField] Transform[] Evidences;
-
+    [SerializeField] Transform[] Evidences,whiteLines;
+    private HelpLines helpLines;
+    private List<Evidence.Conection> conections=new List<Evidence.Conection>();
     private GameManager GameManager;
     private void Awake()
     {
@@ -40,8 +41,9 @@ public class PinBoardLogic : MonoBehaviour
         Description = GameObject.Find("PoleTekstowe").GetComponent<Text>();
         TeleportButton = GameObject.Find("Teleport").GetComponent<Button>();
 
-       
-        
+        WhiteLineParent = GameObject.Find("WhiteLineHolder").transform;
+
+
         SettingsPanel.SetActive(false);
 
         PinBoardControls = new PinBoardControls();
@@ -60,13 +62,15 @@ public class PinBoardLogic : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        
     }
    
     private void GameManager_OnGameStateChanged(GameState state)
     {
-        Debug.Log(state);
+        
         if (GameState.Office == state)
         {
+            Debug.Log(state);
             
         }
     }
@@ -86,15 +90,22 @@ public class PinBoardLogic : MonoBehaviour
    
     private void MouseLeftClick_performed(InputAction.CallbackContext context)
     {
+        
         Vector2 pos = MousePosition.ReadValue<Vector2>();
         GameObject Object = TouchedObject(pos);
-
+       
         SettingsPanel.SetActive(false);
         if (Object?.layer == 7)
         {
+            
             GameObject Evidence = Object.transform.parent.gameObject;
-            GetPinPosition(Evidence.transform);
+            
+            
+            SetPoints(Evidence.transform);
+            SetEvidences(Evidence.transform);
         }
+     
+        
 
     }
 
@@ -105,6 +116,7 @@ public class PinBoardLogic : MonoBehaviour
 
 
         GameObject Object = TouchedObject(pos);
+        
 
         if (Object.layer == 7) //jeœli obiekt to dowód z tablicy
         {
@@ -112,6 +124,9 @@ public class PinBoardLogic : MonoBehaviour
             ShowOptions(Object, pos);
 
         }
+       
+        
+
 
     }
 
@@ -131,7 +146,7 @@ public class PinBoardLogic : MonoBehaviour
 
         if (Physics.Raycast(Ray, out Hit, 1000))
         {
-
+            
             return Hit.transform.gameObject;
         }
         else return null;
@@ -153,69 +168,120 @@ public class PinBoardLogic : MonoBehaviour
 
 
     }
-    public void GetPinPosition(Transform Object) // pobiera Transform Dowodu, mo¿na wzi¹æ Evidence Display
+    private void SetEvidences(Transform Object)     //pobiera Transform dowodu, ustala
     {
-        Transform Pin = Object.GetChild(1);
-
         if (Evidences[0] != null)
-            Evidences[0].GetChild(1).gameObject.GetComponent<Outline>().enabled = false;
+            Evidences[0].GetChild(1).gameObject.GetComponent<Outline>().enabled = false;    // na bie¿¹co usuwa outline z nieu¿ywanych dowodów
+
         if (!(Evidences[1] == Object || Evidences[0] == Object))
         {
 
             Evidences[0] = Evidences[1];
             Evidences[1] = Object;
+            MakeOutline();
+        }
+    }
+    public void SetPoints(Transform Object) // pobiera Transform Dowodu, ustala punkty pinezek
+    {
+       
 
-            
-
+        if ((Evidences[1] != Object && Evidences[0] != Object))
+        {
             points[0] = points[1];
             points[1] = Object.GetChild(1).position;
+
         }
 
-
+    }
+    private void ClearPointsEvidences()
+    {
+        Evidences[0] = null;
+        Evidences[1] = null;
+        points[0] = Vector3.zero;
+        points[1] = Vector3.zero;
+    }
+    private void MakeOutline()
+    {
         foreach (Transform obj in Evidences)
-        { if (obj != null)
+        {
+            if (obj != null)
             {
                 Transform pin = obj.GetChild(1);
                 pin.gameObject.GetComponent<Outline>().enabled = true;
             }
 
         }
-
     }
-
-    public void CreateLine_Yellow()
+    private void ClearOutline()
     {
-        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
-        int index = 0;
+        foreach (Transform obj in Evidences)
+        {
+            if (obj != null)
+            {
+                Transform pin = obj.GetChild(1);
+                pin.gameObject.GetComponent<Outline>().enabled = false;
+            }
+
+        }
+    }
+    private void CreateLine(string color)
+    {
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
-        for (int i = 0; i < conectNum; i++)
+
+        Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
+
+        Line.firstEvidence = Evidence0;
+        Line.secondEvidence = Evidence1;
+
+        foreach (Vector3 vector in points)
+        {
+            Line.AddPoint(vector);
+        }
+
+        if (color == "Yellow")
+            Line.SetColor(color);
+        else
+             if (color == "Green")
+            Line.SetColor(color);
+        else
+             if (color == "Red")
+            Line.SetColor(color);
+        else
+             if (color == "Blue")
+            Line.SetColor(color);
+        
+
+           
+
+
+        ClearOutline();
+        ClearPointsEvidences();
+    }
+    public void CreateLine_Yellow()
+    {
+        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
+        
+        Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
+        Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
+        for (int i = 0; i < conectLength; i++)
         {
             if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
             {
-                index = i;
+                if (Evidence1.conection[i].conectionColor.ToString() == "Yellow")
+                {
+                    CreateLine("Yellow");
+                }
+                else
+                    Debug.Log("There is no such conection");
             }
+            else
+                Debug.Log("There is no such conection");
+
+
         }
         
-        if (Evidence1.conection[index].conectionColor.ToString() == "Yellow")
-        {
-            Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
-            
-
-            foreach(Vector3 vector in points)
-            {
-                Line.AddPoint(vector);
-            }
-           
-           // Line.CreateLine();
-            Line.SetColor("Yellow");
-            Line.animationDuration = 3f;
-           // Line.AnimateLine();
-            if (Line.pointsCount != 2)
-                Destroy(LineParent.transform.GetChild(Line.pointsCount - 1).gameObject);
-        }
-        else
-            Debug.Log("There is no such conection");
+       
         
             
     }
@@ -228,98 +294,72 @@ public class PinBoardLogic : MonoBehaviour
 
     public void CreateLine_Green()
     {
-        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
-        int index = 0;
+        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
+        
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
-        for (int i = 0; i < conectNum; i++)
+        for (int i = 0; i < conectLength; i++)
         {
             if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
             {
-                index = i;
+                if (Evidence1.conection[i].conectionColor.ToString() == "Green")
+                {
+                    CreateLine("Green");
+                }
+                else
+                    Debug.Log("There is no such conection");        // tu trzeba zrobiæ bool vriable i na koñcu dopiero wyœwietlaæ po wyjœciu z pêtli czy jest po³¹czenie czy nie ma
             }
+            else
+                Debug.Log("There is no such conection");
+
+
         }
-        if (Evidence1.conection[index].conectionColor.ToString() == "Green")
-        {
-            Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
-            Line.SetColor("Green");
-            Line.CreateLine();
-          //  Line.AnimateLine();
-            foreach (var vector in points)
-            {
-               Line.AddPoint(vector);
-            }
-            //to chyba nie dzia³a
-            if (Line.pointsCount != 2)
-                Destroy(LineParent.transform.GetChild(Line.pointsCount - 1).gameObject);
-        }
-         else
-            Debug.Log("There is no such conection");
     }
     public void CreateLine_Red()
     {
-        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
-        int index = 0;
+        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
+        
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
-        for (int i = 0; i < conectNum; i++)
+        for (int i = 0; i < conectLength; i++)
         {
             if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
             {
-                index = i;
+                if (Evidence1.conection[i].conectionColor.ToString() == "Red")
+                {
+                    CreateLine("Red");
+                }
+                else
+                    Debug.Log("There is no such conection");
             }
-        }
-        if (Evidence1.conection[index].conectionColor.ToString() == "Red")
-        {
-            Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
-            Line.SetColor("Red");
-            Line.CreateLine();
-          //  Line.AnimateLine();
-            foreach (var vector in points)
-            {
-                Line.AddPoint(vector);
-            }
-            //to chyba nie dzia³a
-            if (Line.pointsCount != 2)
-                Destroy(LineParent.transform.GetChild(Line.pointsCount - 1).gameObject);
+            else
+                Debug.Log("There is no such conection");
+
 
         }
-         else
-            Debug.Log("There is no such conection");
     }
     public void CreateLine_Blue()
     {
-        int conectNum = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
+        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
         int index = 0;
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
-        for (int i = 0; i < conectNum; i++)
+        for (int i = 0; i < conectLength; i++)
         {
             if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
             {
-                index = i;
+                if (Evidence1.conection[index].conectionColor.ToString() == "Blue")
+                {
+                    CreateLine("Blue");
+                }
+                else
+                    Debug.Log("There is no such conection");
             }
+            else
+                Debug.Log("There is no such conection");
+
+
         }
-        Debug.Log("debug");
-        if (Evidence1.conection[index].conectionColor.ToString() == "Blue")
-        {
-            Debug.Log("blue");
-            Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
-            Line.SetColor("Blue");
-           // Line.CreateLine();
-          //  Line.AnimateLine();
-            foreach (var vector in points)
-            {
-                Line.AddPoint(vector);
-            }
-           
-            //to chyba nie dzia³a
-            if (Line.pointsCount != 2)
-                Destroy(LineParent.transform.GetChild(Line.pointsCount - 1).gameObject);
-        }
-         else
-            Debug.Log("There is no such conection");
-       
     }
 }
 

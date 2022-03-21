@@ -45,16 +45,16 @@ public class HelpLines : MonoBehaviour
 
         if (state == GameState.Office)
         {
-           
-            
+
+
             childCount = transform.childCount;
 
             Debug.Log("child Count: " + childCount);
-          
-           
+
+
             childs = new Transform[childCount];
             conections = new List<Evidence.Conection>();
-          
+
 
 
             for (int i = 0; i < childCount; i++)                // pêtla dodaj¹ca wszystkie dowody do tablicy ACTIVE
@@ -92,11 +92,11 @@ public class HelpLines : MonoBehaviour
 
 
                 for (int j = 0; j < conectLength; j++)      // tablica po³¹czeñ
-                {   
-                    conections.Add( evidences[i].conection[j]);
+                {
+                    conections.Add(evidences[i].conection[j]);
                 }
             }
-            for(int i = 0; i < conections.Count; i++)       //sortowanie i usuwanie powtarzaj¹cych siê wyrazów w tablicy po³¹czeñ
+            for (int i = 0; i < conections.Count; i++)       //sortowanie i usuwanie powtarzaj¹cych siê wyrazów w tablicy po³¹czeñ
             {
                 for (int j = 0; j < conections.Count; j++)
                 {
@@ -106,45 +106,36 @@ public class HelpLines : MonoBehaviour
                     }
                 }
             }
-           
-            for (int i = 0; i < activeChildCount; i++)      //zwraca pierwszy dowód z po³¹czenia
-            {
+
+
+
+            for (int i = 0; i < activeChildCount; i++)                 //ryswoanie linii JEŒLI
                 for (int j = 0; j < conections.Count; j++)
                 {
-                    if(evidences[i]== conections[j].ConectedEvidence)
+                    if (evidences[i] == conections[j].ConectedEvidence)
                     {
                         temporaryEvidence = conections[j].FirstEvidence;
-                    }
-                }
-            }
-            for(int i = 0; i < activeChildCount; i++)
-            {
-                if (temporaryEvidence == evidences[i])
-                {
-                    index2 = i;
-                }
-            }
 
-                for (int i=0;i<activeChildCount;i++)                 //ryswoanie linii JEŒLI
-                    for (int j = 0; j < conections.Count;j++)
-                    {
-                    if (evidences[i]==conections[j].ConectedEvidence) 
+                        for (int k = 0; k < activeChildCount; k++)
                         {
-
+                            if (evidences[k] == temporaryEvidence)
+                                index2 = k;
+                        }
                         Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
-                        //mam wzi¹æ conections.FirstEvidence i znaleŸæ jego indeks w tablicy dowodów
                         Line.AddPoint(points[i]);
-
-                        //dodaj punkt conections[j].firstEvidence here
                         Line.AddPoint(points[index2]);
                         Line.CreateLine();
                         Line.SetColor("White");
-                        }
                     }
+                }
             Debug.Log(LineParent.childCount);
         }
-
     }
+
+           
+
+
+    
     private void EventTrigger_OnEvidenceUnlocked(Evidence evidence)
     {
         Debug.Log(evidence);

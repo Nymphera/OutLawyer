@@ -170,27 +170,42 @@ public class PinBoardLogic : MonoBehaviour
     }
     private void SetEvidences(Transform Object)     //pobiera Transform dowodu, ustala
     {
-        if (Evidences[0] != null)
+        if (Evidences[0] != null) 
             Evidences[0].GetChild(1).gameObject.GetComponent<Outline>().enabled = false;    // na bie¿¹co usuwa outline z nieu¿ywanych dowodów
 
-        if (!(Evidences[1] == Object || Evidences[0] == Object))
+        if (Evidences[1] != null&& Evidences[1] != Object)
         {
-
             Evidences[0] = Evidences[1];
             Evidences[1] = Object;
-            MakeOutline();
         }
+        else if(Evidences[1] == Object)
+        {
+            Evidences[0] = Evidences[1];
+            Evidences[1] = null;
+        }    
+        else
+            Evidences[1] = Object;
+
+        MakeOutline();
     }
     public void SetPoints(Transform Object) // pobiera Transform Dowodu, ustala punkty pinezek
     {
-       
 
-        if ((Evidences[1] != Object && Evidences[0] != Object))
+        // b³¹d jest tego rodzaju ¿e 
+
+        if (Evidences[1] != null && Evidences[1] != Object)
         {
             points[0] = points[1];
             points[1] = Object.GetChild(1).position;
 
         }
+        else if (Evidences[1] == Object)
+        {
+            points[0] = points[1];
+            points[1] = Vector3.zero;
+        }
+        else
+            points[1] = Object.GetChild(1).position;
 
     }
     private void ClearPointsEvidences()

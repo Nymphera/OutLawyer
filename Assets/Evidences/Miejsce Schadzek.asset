@@ -17,7 +17,7 @@ MonoBehaviour:
     m_Bits: 7
   Name: Miejsce Schadzek
   Description: Miejsce Schadzek
-  Artwork: {fileID: 21300000, guid: 776e7e47707ea3c41a6246863786c456, type: 3}
+  Artwork: {fileID: 21300000, guid: f1a6974f9d4a19e44a60925cd5987a90, type: 3}
   orientation: 0
   evidenceType: 0
   conection:

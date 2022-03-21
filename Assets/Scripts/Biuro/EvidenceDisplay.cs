@@ -44,7 +44,10 @@ public class EvidenceDisplay : MonoBehaviour
         {
             Plane.transform.rotation = Quaternion.Euler(0, -90, 0);
         }
-
+        foreach(Evidence.Conection conection in Evidence.conection)
+        {
+            conection.FirstEvidence = Evidence;
+        }
     }
     private void ConectionRender()
     {

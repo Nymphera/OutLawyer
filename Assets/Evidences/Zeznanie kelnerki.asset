@@ -17,7 +17,7 @@ MonoBehaviour:
     m_Bits: 7
   Name: 'Zeznanie kelnerki '
   Description: 'Zeznanie kelnerki '
-  Artwork: {fileID: 21300000, guid: 26ddd3ad06834344794d2918c6ddfd93, type: 3}
+  Artwork: {fileID: 21300000, guid: 6456b7b798b07024489aef9121770107, type: 3}
   orientation: 0
   evidenceType: 0
   conection:

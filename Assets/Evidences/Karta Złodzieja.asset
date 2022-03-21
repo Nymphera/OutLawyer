@@ -17,7 +17,7 @@ MonoBehaviour:
     m_Bits: 7
   Name: "Karta Z\u0142odzieja"
   Description: "Karta Z\u0142odzieja"
-  Artwork: {fileID: 21300000, guid: e9ff357ce9fe21b449a0853ade24fa3d, type: 3}
+  Artwork: {fileID: 21300000, guid: 172564a0a0a00214b97f68852137cd6e, type: 3}
   orientation: 0
   evidenceType: 0
   conection:

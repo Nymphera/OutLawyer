@@ -17,7 +17,7 @@ MonoBehaviour:
     m_Bits: 7
   Name: Receptura z krwi Kraba
   Description: Receptura z krwi Kraba
-  Artwork: {fileID: 21300000, guid: 6ff5df4260300004ab7b11ab19b8f134, type: 3}
+  Artwork: {fileID: 21300000, guid: 44a8b045043b0ef488e503262e797a10, type: 3}
   orientation: 0
   evidenceType: 0
   conection:

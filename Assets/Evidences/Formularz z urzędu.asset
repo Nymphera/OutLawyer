@@ -17,7 +17,7 @@ MonoBehaviour:
     m_Bits: 7
   Name: "Formularz z urz\u0119du"
   Description: "Formularz z urz\u0119du"
-  Artwork: {fileID: 21300000, guid: e2b5bf2f243a1cb4c8145c445a2ac7e1, type: 3}
+  Artwork: {fileID: 21300000, guid: 93a0bf94c69dac64daaa4e3a0c400c26, type: 3}
   orientation: 0
   evidenceType: 0
   conection:

@@ -17,8 +17,8 @@ MonoBehaviour:
     m_Bits: 7
   Name: "Dochody Hodowcy Krab\xF3w"
   Description: "Dochody Hodowcy Krab\xF3w"
-  Artwork: {fileID: 21300000, guid: 303c3bf23df036c4c98a509bee8fef9b, type: 3}
-  orientation: 1
+  Artwork: {fileID: 21300000, guid: ea5007d780549c04fa368e5273c3d273, type: 3}
+  orientation: 0
   evidenceType: 0
   conection:
   - FirstEvidence: {fileID: 0}

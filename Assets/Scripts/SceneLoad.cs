@@ -14,7 +14,7 @@ public class SceneLoad : MonoBehaviour
     {
        
         SceneManager.LoadScene("Krabiarnia");
-        GameManager.Instance.UpdateGameState(GameState.Move);
+       // GameManager.Instance.UpdateGameState(GameState.Move);
     }  
     public void LoadOffice()
     {
@@ -25,6 +25,6 @@ public class SceneLoad : MonoBehaviour
     {
         
         SceneManager.LoadScene("Biuro");
-        GameManager.Instance.UpdateGameState(GameState.Office);
+      //  GameManager.Instance.UpdateGameState(GameState.Office);
     }
 }

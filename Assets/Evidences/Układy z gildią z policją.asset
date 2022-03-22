@@ -17,7 +17,7 @@ MonoBehaviour:
     m_Bits: 7
   Name: "Uk\u0142ady z gildi\u0105 z policj\u0105"
   Description: "Uk\u0142ady z gildi\u0105 z policj\u0105"
-  Artwork: {fileID: 21300000, guid: b3dc78a19e783144eb0d4fdea5a0c1e9, type: 3}
+  Artwork: {fileID: 21300000, guid: 82191ee4ddfd42f4da4d2b3887caaaf0, type: 3}
   orientation: 0
   evidenceType: 0
   conection:

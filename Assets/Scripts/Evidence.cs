@@ -17,8 +17,7 @@ public class Evidence : ScriptableObject
     public Orientation orientation;  
     public EvidenceType evidenceType;
     public Conection[] conection = new Conection[0];
-    //public Evidence[] conectedEvidence = new Evidence[0];
-       // public ConectionType[] conectionType = new ConectionType[0];
+   
 
  
 
@@ -53,28 +52,5 @@ public class Evidence : ScriptableObject
 
     }
 }
-public enum Conclusions
-{
-    Relacja1,
-    Motyw2,
-    Relacja3,
-    Dowod4,
-    Motyw5,
-    Relacja6,
-    Sprzecznosc79,
-    Sprzecznosc8,
-    Motyw10,
-    Relacja11,
-    Dowod12,
-    Dowod13,
-    Motyw14,
-    Sprzecznosc15,
-    Sprzecznosc16,
-    Motyw17,
-    Dowod18,
-    Motyw19,
-    Dowod20
 
-
-}
 

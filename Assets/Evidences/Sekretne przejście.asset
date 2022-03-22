@@ -17,7 +17,7 @@ MonoBehaviour:
     m_Bits: 7
   Name: "Sekretne przej\u015Bcie"
   Description: "Sekretne przej\u015Bcie"
-  Artwork: {fileID: 21300000, guid: 07333bba769c9fa4b9e66b2139676f57, type: 3}
+  Artwork: {fileID: 21300000, guid: a34ce4028e555a14db021ac16f5e732f, type: 3}
   orientation: 0
   evidenceType: 0
   conection:

@@ -17,8 +17,8 @@ MonoBehaviour:
     m_Bits: 7
   Name: 'Skradziony przedmiot - krab '
   Description: Skradziony przedmiot - krab
-  Artwork: {fileID: 21300000, guid: d9827bfdaa662fe4dae7e8d023c952e7, type: 3}
-  orientation: 1
+  Artwork: {fileID: 21300000, guid: 19bdea03ae4f90b49b33de9c545cf8fa, type: 3}
+  orientation: 0
   evidenceType: 0
   conection:
   - FirstEvidence: {fileID: 0}

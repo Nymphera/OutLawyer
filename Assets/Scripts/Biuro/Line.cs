@@ -9,7 +9,8 @@ public class Line : MonoBehaviour
     [SerializeField]
     public List<Vector3> points = new List<Vector3>();
     public int pointsCount = 0;
-
+    public Evidence firstEvidence;
+    public Evidence secondEvidence;
 
 
     public float animationDuration; 
@@ -35,7 +36,7 @@ public class Line : MonoBehaviour
         
         Vector3 startPosition = points[0];
         Vector3 endPosition = points[1];
-
+        lineRenderer.SetPosition(0, startPosition);
         Vector3 pos = startPosition;
         while (pos != endPosition)
         {
@@ -43,6 +44,7 @@ public class Line : MonoBehaviour
             lineRenderer.SetPosition(1, pos);
 
         }
+        lineRenderer.SetPosition(1, endPosition);
     }
 public void SetColor(string color)
     {

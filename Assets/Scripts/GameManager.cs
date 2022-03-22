@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     private GameObject PinBoard,Player;
     public GameState State;
    
-    public static event Action<GameState> OnGameStateChanged; 
+    public static event Action<GameState> OnGameStateChanged;
+    
     private void Awake()
     {
 
@@ -22,9 +23,11 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        
+
+        //OnGameStateChanged?.Invoke(GameState.Office);
     }
-  
+
+    
 
     public void UpdateGameState(GameState newState)
     {
@@ -39,7 +42,7 @@ public class GameManager : MonoBehaviour
                 break;
         }*/
        
-        OnGameStateChanged(newState);
+       // OnGameStateChanged(newState);
     }
 
 

@@ -17,8 +17,8 @@ MonoBehaviour:
     m_Bits: 7
   Name: "\u015Alady walki Kraba"
   Description: "\u015Alady walki Kraba"
-  Artwork: {fileID: 21300000, guid: 64352cae0d1eac44cbaf18aef3571993, type: 3}
-  orientation: 1
+  Artwork: {fileID: 21300000, guid: 6d66110e0d353664caae83067e75b3d7, type: 3}
+  orientation: 0
   evidenceType: 0
   conection:
   - FirstEvidence: {fileID: 0}

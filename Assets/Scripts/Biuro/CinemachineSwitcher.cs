@@ -24,7 +24,7 @@ public class CinemachineSwitcher : MonoBehaviour
    
 
     public void SwitchState(string objname)
-    { Debug.Log(objname);
+    { 
         if (objname=="Biuro")
         {
             Animator.Play("Biuro Cam");

@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class PinBoardLogic : MonoBehaviour
 {
 
-    private InputAction MousePosition;
+    
     private PinBoardControls PinBoardControls;
     private Camera Cam;
    
@@ -38,23 +38,18 @@ public class PinBoardLogic : MonoBehaviour
 
         LineParent = GameObject.Find("LineHolder").transform;
         SettingsPanel = GameObject.Find("SettingsPanel");
-        Description = GameObject.Find("PoleTekstowe").GetComponent<Text>();
+        Description = GameObject.Find("Description").GetComponent<Text>();
         TeleportButton = GameObject.Find("Teleport").GetComponent<Button>();
 
-       
 
-
-        SettingsPanel.SetActive(false);
-
-        PinBoardControls = new PinBoardControls();
+        
+         PinBoardControls = new PinBoardControls();
 
         PinBoardControls.PinBoard.MouseLeftClick.performed += MouseLeftClick_performed;
         PinBoardControls.PinBoard.MouseRightClick.performed += MouseRightClick_performed;
         PinBoardControls.PinBoard.DeleteLine.performed += DeleteLine_performed;
-        PinBoardControls.PinBoard.LeavePinBoard.performed += LeavePinBoard_performed;
 
-       
-       
+        
 
         if (Instance != null)
             Destroy(gameObject);
@@ -63,35 +58,29 @@ public class PinBoardLogic : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        
-    }
 
-    private void LeavePinBoard_performed(InputAction.CallbackContext obj)
+        SettingsPanel.SetActive(false);
+    }
+    private void OnEnable()
     {
-        CinemachineSwitcher.Instance.SwitchState();
+        PinBoardControls.Enable();
+       
     }
-
-  
-
     private void DeleteLine_performed(InputAction.CallbackContext obj)
     {
         int childcount = LineParent.childCount;
         Destroy(LineParent.GetChild(childcount-1).gameObject);
     }
 
-    private void OnEnable()
-    {
-        PinBoardControls.Enable();
-        MousePosition = PinBoardControls.PinBoard.Move;
-        MousePosition.Enable();
-    }
+    
    
     private void MouseLeftClick_performed(InputAction.CallbackContext context)
     {
         
-        Vector2 pos = MousePosition.ReadValue<Vector2>();
+
+        Vector2 pos = Input.mousePosition;
         GameObject Object = TouchedObject(pos);
-       
+        Debug.Log(Object);
         SettingsPanel.SetActive(false);
         if (Object?.layer == 7)
         {
@@ -110,8 +99,8 @@ public class PinBoardLogic : MonoBehaviour
     private void MouseRightClick_performed(InputAction.CallbackContext obj)
     {
 
-        Vector2 pos = MousePosition.ReadValue<Vector2>();
-
+        
+        Vector2 pos = Input.mousePosition;
 
         GameObject Object = TouchedObject(pos);
         
@@ -129,10 +118,7 @@ public class PinBoardLogic : MonoBehaviour
     }
 
 
-    private void OnDisable()
-    {
-        PinBoardControls.Disable();
-    }
+   
 
 
     

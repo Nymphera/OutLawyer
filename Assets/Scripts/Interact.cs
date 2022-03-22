@@ -19,8 +19,9 @@ public class Interact : MonoBehaviour
     private void OnEnable()
     {
         interactable = GameObject.FindGameObjectsWithTag("Interact");
-        CreateOutline();        
-       
+        
+        CreateOutline();
+        
     }
 
     
@@ -39,13 +40,16 @@ public class Interact : MonoBehaviour
         Ray Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if(Physics.Raycast(Ray,out hit)&&hit.transform.tag=="Interact")
-        {
-             selectedObj = hit.transform.gameObject;
-            EnableOutline(selectedObj);
+        if(Physics.Raycast(Ray,out hit))
+        {if(hit.transform.tag == "Interact")
+            {
+                selectedObj = hit.transform.gameObject;
+                EnableOutline(selectedObj);
 
 
-            selectedObject = selectedObj;
+                selectedObject = selectedObj;
+            }        
+             
         }
         
        
@@ -64,14 +68,18 @@ public class Interact : MonoBehaviour
     private void CreateOutline()
     {
         foreach (GameObject obj in interactable)
-        {
+        {if(obj.GetComponent<MeshCollider>()==null)
             obj.AddComponent<MeshCollider>();
-            obj.AddComponent<Outline>();
-            Outline outline = obj.GetComponent<Outline>();
-            outline.OutlineMode = Outline.Mode.OutlineVisible;
-            outline.OutlineColor = Color.red;
-            outline.OutlineWidth = 5f;
-            outline.enabled = false;
+            if (obj.GetComponent<Outline>() == null)
+            {
+                obj.AddComponent<Outline>();
+                Outline outline = obj.GetComponent<Outline>();
+                outline.OutlineMode = Outline.Mode.OutlineVisible;
+                outline.OutlineColor = Color.red;     //trochê nie wiem dlaczego, ale nie zapisuje siê outline.color, mo¿e dlatego ¿e za ka¿dym razem dodaje nowy outline do gry
+                outline.OutlineWidth = 5f;
+                outline.enabled = false;
+            }
+                
         }
     }
 }

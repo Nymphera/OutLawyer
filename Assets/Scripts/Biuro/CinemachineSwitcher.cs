@@ -23,30 +23,35 @@ public class CinemachineSwitcher : MonoBehaviour
 
    
 
-    public void SwitchState()
-    {
-        if (MainCameraState)
+    public void SwitchState(string objname)
+    { Debug.Log(objname);
+        if (objname=="Biuro")
         {
             Animator.Play("Biuro Cam");
             OnOfficeStateChanged(OfficeState.Overview);
             
            
         }
-        else
+        else if(objname=="PinBoardSprite")
         {
             Animator.Play("PinBoard Cam");
             OnOfficeStateChanged(OfficeState.PinBoard);
             
         }
+        else
+        {
+            Animator.Play("Desk Cam");
+            OnOfficeStateChanged(OfficeState.Desk);
+        }
+                    
         MainCameraState = !MainCameraState;
     }
 }
 public enum OfficeState
 {
     Overview, //1
-    Newspaper,
+    Desk,
     PinBoard,
-    Dialogs,
-    MovingtoLocation
+   
 
 }

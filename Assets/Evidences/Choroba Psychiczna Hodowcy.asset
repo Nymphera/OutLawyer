@@ -18,7 +18,7 @@ MonoBehaviour:
   Name: Choroba Psychiczna Hodowcy
   Description: Choroba Psychiczna Hodowcy
   Artwork: {fileID: 21300000, guid: 6c04374b7e6391a4f8887a980613c1ab, type: 3}
-  orientation: 1
+  orientation: 0
   evidenceType: 0
   conectedEvidence:
   - {fileID: 11400000, guid: 5181a8d9fd03d8c4fada62a7f51206c6, type: 2}

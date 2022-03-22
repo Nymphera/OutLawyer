@@ -49,7 +49,7 @@ public class PinBoardLogic : MonoBehaviour
         PinBoardControls.PinBoard.MouseRightClick.performed += MouseRightClick_performed;
         PinBoardControls.PinBoard.DeleteLine.performed += DeleteLine_performed;
 
-        
+        CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
 
         if (Instance != null)
             Destroy(gameObject);
@@ -61,6 +61,18 @@ public class PinBoardLogic : MonoBehaviour
 
         SettingsPanel.SetActive(false);
     }
+
+    private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
+    {
+        Debug.Log(state);
+        if (state != OfficeState.PinBoard)
+        {
+            ClearOutline();
+            ClearPointsEvidences();
+        }
+
+    }
+
     private void OnEnable()
     {
         PinBoardControls.Enable();
@@ -80,7 +92,7 @@ public class PinBoardLogic : MonoBehaviour
 
         Vector2 pos = Input.mousePosition;
         GameObject Object = TouchedObject(pos);
-        Debug.Log(Object);
+        
         SettingsPanel.SetActive(false);
         if (Object?.layer == 7)
         {
@@ -117,11 +129,6 @@ public class PinBoardLogic : MonoBehaviour
 
     }
 
-
-   
-
-
-    
     private void CreateLine(string color)
     {
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
@@ -178,6 +185,7 @@ public class PinBoardLogic : MonoBehaviour
     }
     public void CreateLine_Yellow()
     {
+
         int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
         
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
@@ -250,14 +258,14 @@ public class PinBoardLogic : MonoBehaviour
     public void CreateLine_Blue()
     {
         int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
-        int index = 0;
+        
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectLength; i++)
         {
             if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
             {
-                if (Evidence1.conection[index].conectionColor.ToString() == "Blue")
+                if (Evidence1.conection[i].conectionColor.ToString() == "Blue")
                 {
                     CreateLine("Blue");
                 }

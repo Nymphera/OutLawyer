@@ -19,7 +19,7 @@ public class OfficeManager : MonoBehaviour
     {
         Instance = this;
 
-        
+        OnStateChanged(OfficeState.Overview);
     }
  
 
@@ -31,59 +31,7 @@ public class OfficeManager : MonoBehaviour
 
     public void UpdateOfficeState(OfficeState newState)
     {
-        State = newState;
-        switch (newState)
-        {
-            case OfficeState.Overview:
-                HandleOverview();
-                break;
-            case OfficeState.Newspaper:
-                HandleNewspaper();      
-                break;
-            case OfficeState.PinBoard:
-                HandlePinBoard();
-                break;
-            case OfficeState.Dialogs:
-                break;
-            case OfficeState.MovingtoLocation:
-                HandleMovingtoLocation();
-                break;
-
-        }
-
-
         OnStateChanged?.Invoke(newState);
-    }
-
-        private async void HandleMovingtoLocation()
-        {
-        Debug.Log("Teleporting!");
-        
-        await Task.Delay(2000);
-
-        SceneManager.LoadScene("Krabiarnia");
-        }
-
-    private void HandlePinBoard()
-    {
-     
-
-
-
-    }
-
-    private void HandleNewspaper()
-    {
-       //show Newspaper
-    }
-
-    private void HandleOverview()
-    {
-     
-    }
-    public void MoveToOffice()
-    {
-        GameManager.Instance.UpdateGameState(GameState.Office);
     }
 } 
 

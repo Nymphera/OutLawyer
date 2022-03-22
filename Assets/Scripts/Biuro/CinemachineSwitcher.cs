@@ -9,7 +9,7 @@ public class CinemachineSwitcher : MonoBehaviour
     private Animator Animator;
     private bool MainCameraState = false;
     public static CinemachineSwitcher Instance;
-
+    private OfficeManager officeManager;
     
    
 
@@ -29,14 +29,14 @@ public class CinemachineSwitcher : MonoBehaviour
         if (MainCameraState)
         {
             Animator.Play("Biuro Cam");
-           // OfficeManager.Instance.UpdateOfficeState(OfficeState.Overview);
-            
 
+
+            OfficeManager.Instance.UpdateOfficeState(OfficeState.Overview);
         }
         else
         {
             Animator.Play("PinBoard Cam");
-            //OfficeManager.Instance.UpdateOfficeState(OfficeState.PinBoard);
+            OfficeManager.Instance.UpdateOfficeState(OfficeState.PinBoard);
         }
         MainCameraState = !MainCameraState;
     }

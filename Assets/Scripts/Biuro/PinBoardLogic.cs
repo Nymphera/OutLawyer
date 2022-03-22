@@ -22,15 +22,13 @@ public class PinBoardLogic : MonoBehaviour
     private static PinBoardLogic Instance;
     private Line Line;
     [SerializeField]
-    private Transform LineParent,WhiteLineParent;
+    private Transform LineParent;
     [SerializeField]
     private GameObject linePrefab,SettingsPanel;
     [SerializeField]
     public Vector3[] points;
-    [SerializeField] Transform[] Evidences,whiteLines;
-    private HelpLines helpLines;
-    private List<Evidence.Conection> conections=new List<Evidence.Conection>();
-    private GameManager GameManager;
+    [SerializeField] Transform[] Evidences;
+
     [SerializeField]
     private List<Line> lines = new List<Line>();
     private void Awake()
@@ -43,7 +41,7 @@ public class PinBoardLogic : MonoBehaviour
         Description = GameObject.Find("PoleTekstowe").GetComponent<Text>();
         TeleportButton = GameObject.Find("Teleport").GetComponent<Button>();
 
-        WhiteLineParent = GameObject.Find("WhiteLineHolder").transform;
+       
 
 
         SettingsPanel.SetActive(false);
@@ -54,7 +52,7 @@ public class PinBoardLogic : MonoBehaviour
         PinBoardControls.PinBoard.MouseRightClick.performed += MouseRightClick_performed;
         PinBoardControls.PinBoard.DeleteLine.performed += DeleteLine_performed;
 
-        GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+        OfficeManager.OnStateChanged += OfficeManager_OnStateChanged;
        
 
         if (Instance != null)
@@ -66,15 +64,10 @@ public class PinBoardLogic : MonoBehaviour
         }
         
     }
-   
-    private void GameManager_OnGameStateChanged(GameState state)
+
+    private void OfficeManager_OnStateChanged(OfficeState state)
     {
-        
-        if (GameState.Office == state)
-        {
-            Debug.Log(state);
-            
-        }
+        this.gameObject.SetActive(state == OfficeState.PinBoard);
     }
 
     private void DeleteLine_performed(InputAction.CallbackContext obj)

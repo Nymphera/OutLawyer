@@ -11,8 +11,12 @@ public class Interact : MonoBehaviour
     [SerializeField]
     GameObject[] interactable;
     private GameObject selectedObject;
-
+    public Interact Instance;
     private void Awake()
+    {
+        Instance = this;
+    }
+    private void OnEnable()
     {
         interactable = GameObject.FindGameObjectsWithTag("Interact");
         CreateOutline();        
@@ -46,7 +50,7 @@ public class Interact : MonoBehaviour
         
        
     }
-
+     
     private void EnableOutline(GameObject Object)
     {
         Outline outline = Object.GetComponent<Outline>();
@@ -64,6 +68,7 @@ public class Interact : MonoBehaviour
             obj.AddComponent<MeshCollider>();
             obj.AddComponent<Outline>();
             Outline outline = obj.GetComponent<Outline>();
+            outline.OutlineMode = Outline.Mode.OutlineVisible;
             outline.OutlineColor = Color.red;
             outline.OutlineWidth = 5f;
             outline.enabled = false;

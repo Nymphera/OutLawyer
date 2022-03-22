@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System;
 
 public class CinemachineSwitcher : MonoBehaviour
 {   [SerializeField]
     private Animator Animator;
     private bool MainCameraState = false;
     public static CinemachineSwitcher Instance;
-    private OfficeManager officeManager;
-    
-   
+
+    public OfficeState State;
+    public static event Action<OfficeState> OnOfficeStateChanged;
+
 
     private void Awake()
     {
-        
-        
-       
         Instance = this;
         
     }
@@ -29,15 +28,25 @@ public class CinemachineSwitcher : MonoBehaviour
         if (MainCameraState)
         {
             Animator.Play("Biuro Cam");
-
-
-            OfficeManager.Instance.UpdateOfficeState(OfficeState.Overview);
+            OnOfficeStateChanged(OfficeState.Overview);
+            
+           
         }
         else
         {
             Animator.Play("PinBoard Cam");
-            OfficeManager.Instance.UpdateOfficeState(OfficeState.PinBoard);
+            OnOfficeStateChanged(OfficeState.PinBoard);
+            
         }
         MainCameraState = !MainCameraState;
     }
+}
+public enum OfficeState
+{
+    Overview, //1
+    Newspaper,
+    PinBoard,
+    Dialogs,
+    MovingtoLocation
+
 }

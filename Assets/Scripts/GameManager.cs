@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-          
+        //OnGameStateChanged?.Invoke(GameState.Office);
     }
 
     
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
                 break;
         }*/
        
-        OnGameStateChanged(newState);
+       // OnGameStateChanged(newState);
     }
 
 

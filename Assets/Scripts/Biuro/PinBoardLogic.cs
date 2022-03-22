@@ -19,7 +19,7 @@ public class PinBoardLogic : MonoBehaviour
     private Text Description;
     [SerializeField]
     private Button TeleportButton;
-    private static PinBoardLogic Instance;
+    public PinBoardLogic Instance;
     private Line Line;
     [SerializeField]
     private Transform LineParent;
@@ -51,8 +51,9 @@ public class PinBoardLogic : MonoBehaviour
         PinBoardControls.PinBoard.MouseLeftClick.performed += MouseLeftClick_performed;
         PinBoardControls.PinBoard.MouseRightClick.performed += MouseRightClick_performed;
         PinBoardControls.PinBoard.DeleteLine.performed += DeleteLine_performed;
+        PinBoardControls.PinBoard.LeavePinBoard.performed += LeavePinBoard_performed;
 
-        OfficeManager.OnStateChanged += OfficeManager_OnStateChanged;
+       
        
 
         if (Instance != null)
@@ -65,10 +66,12 @@ public class PinBoardLogic : MonoBehaviour
         
     }
 
-    private void OfficeManager_OnStateChanged(OfficeState state)
+    private void LeavePinBoard_performed(InputAction.CallbackContext obj)
     {
-        this.gameObject.SetActive(state == OfficeState.PinBoard);
+        CinemachineSwitcher.Instance.SwitchState();
     }
+
+  
 
     private void DeleteLine_performed(InputAction.CallbackContext obj)
     {

@@ -31,6 +31,8 @@ public class PinBoardLogic : MonoBehaviour
     private HelpLines helpLines;
     private List<Evidence.Conection> conections=new List<Evidence.Conection>();
     private GameManager GameManager;
+    [SerializeField]
+    private List<Line> lines = new List<Line>();
     private void Awake()
     {
         points = new Vector3[2];
@@ -137,108 +139,7 @@ public class PinBoardLogic : MonoBehaviour
     }
 
 
-    public GameObject TouchedObject(Vector2 mouseposition)
-    {
-        Cam = Camera.main;
-        Ray Ray = Cam.ScreenPointToRay(mouseposition);
-        RaycastHit Hit;
-
-
-        if (Physics.Raycast(Ray, out Hit, 1000))
-        {
-            
-            return Hit.transform.gameObject;
-        }
-        else return null;
-
-    }
-    private void ShowOptions(GameObject Object, Vector2 MousePosition)
-    {
-        bool ButtonState = false;
-
-        Evidence Evid = Object.transform.GetComponentInParent<EvidenceDisplay>().Evidence;
-        if (Evid.evidenceType == Evidence.EvidenceType.Location)
-        {
-            ButtonState = true;
-        }
-        Description.text = Evid.Description.ToString();
-        SettingsPanel.SetActive(true);
-        SettingsPanel.transform.position = MousePosition;
-        TeleportButton.gameObject.SetActive(ButtonState);
-
-
-    }
-    private void SetEvidences(Transform Object)     //pobiera Transform dowodu, ustala
-    {
-        if (Evidences[0] != null) 
-            Evidences[0].GetChild(1).gameObject.GetComponent<Outline>().enabled = false;    // na bie¿¹co usuwa outline z nieu¿ywanych dowodów
-
-        if (Evidences[1] != null&& Evidences[1] != Object)
-        {
-            Evidences[0] = Evidences[1];
-            Evidences[1] = Object;
-        }
-        else if(Evidences[1] == Object)
-        {
-            Evidences[0] = Evidences[1];
-            Evidences[1] = null;
-        }    
-        else
-            Evidences[1] = Object;
-
-        MakeOutline();
-    }
-    public void SetPoints(Transform Object) // pobiera Transform Dowodu, ustala punkty pinezek
-    {
-
-        // b³¹d jest tego rodzaju ¿e 
-
-        if (Evidences[1] != null && Evidences[1] != Object)
-        {
-            points[0] = points[1];
-            points[1] = Object.GetChild(1).position;
-
-        }
-        else if (Evidences[1] == Object)
-        {
-            points[0] = points[1];
-            points[1] = Vector3.zero;
-        }
-        else
-            points[1] = Object.GetChild(1).position;
-
-    }
-    private void ClearPointsEvidences()
-    {
-        Evidences[0] = null;
-        Evidences[1] = null;
-        points[0] = Vector3.zero;
-        points[1] = Vector3.zero;
-    }
-    private void MakeOutline()
-    {
-        foreach (Transform obj in Evidences)
-        {
-            if (obj != null)
-            {
-                Transform pin = obj.GetChild(1);
-                pin.gameObject.GetComponent<Outline>().enabled = true;
-            }
-
-        }
-    }
-    private void ClearOutline()
-    {
-        foreach (Transform obj in Evidences)
-        {
-            if (obj != null)
-            {
-                Transform pin = obj.GetChild(1);
-                pin.gameObject.GetComponent<Outline>().enabled = false;
-            }
-
-        }
-    }
+    
     private void CreateLine(string color)
     {
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
@@ -254,6 +155,7 @@ public class PinBoardLogic : MonoBehaviour
             Line.AddPoint(vector);
         }
 
+
         if (color == "Yellow")
             Line.SetColor(color);
         else
@@ -265,8 +167,27 @@ public class PinBoardLogic : MonoBehaviour
         else
              if (color == "Blue")
             Line.SetColor(color);
-        
 
+        
+        if (lines.Count == 0) 
+            lines.Add(Line);
+        else
+        {
+            bool isInTable=false;
+            for (int i = 0; i < lines.Count; i++)    //sprawdza czy stworzona linia jest ju¿ na liœcie linii
+            {
+                if ((lines[i].firstEvidence == Line.firstEvidence && lines[i].secondEvidence == Line.secondEvidence) || (lines[i].firstEvidence == Line.secondEvidence && lines[i].secondEvidence == Line.firstEvidence))
+                {
+                    isInTable = true;
+                    Debug.Log("You already created such line");
+                    Destroy(Line.gameObject);
+                }
+                
+            }
+            if (!isInTable)
+                lines.Add(Line);
+        }
+           
            
 
 
@@ -299,12 +220,6 @@ public class PinBoardLogic : MonoBehaviour
         
             
     }
-
-
-
-
-
-
 
     public void CreateLine_Green()
     {
@@ -367,8 +282,109 @@ public class PinBoardLogic : MonoBehaviour
                 else
                     Debug.Log("There is no such conection");
             }
-           
 
+        }
+    }
+
+    private GameObject TouchedObject(Vector2 mouseposition)
+    {
+        Cam = Camera.main;
+        Ray Ray = Cam.ScreenPointToRay(mouseposition);
+        RaycastHit Hit;
+
+
+        if (Physics.Raycast(Ray, out Hit, 1000))
+        {
+
+            return Hit.transform.gameObject;
+        }
+        else return null;
+
+    }
+    private void ShowOptions(GameObject Object, Vector2 MousePosition)
+    {
+        bool ButtonState = false;
+
+        Evidence Evid = Object.transform.GetComponentInParent<EvidenceDisplay>().Evidence;
+        if (Evid.evidenceType == Evidence.EvidenceType.Location)
+        {
+            ButtonState = true;
+        }
+        Description.text = Evid.Description.ToString();
+        SettingsPanel.SetActive(true);
+        SettingsPanel.transform.position = MousePosition;
+        TeleportButton.gameObject.SetActive(ButtonState);
+
+
+    }
+    private void SetEvidences(Transform Object)     //pobiera Transform dowodu, ustala
+    {
+        if (Evidences[0] != null)
+            Evidences[0].GetChild(1).gameObject.GetComponent<Outline>().enabled = false;    // na bie¿¹co usuwa outline z nieu¿ywanych dowodów
+
+        if (Evidences[1] != null && Evidences[1] != Object)
+        {
+            Evidences[0] = Evidences[1];
+            Evidences[1] = Object;
+        }
+        else if (Evidences[1] == Object)
+        {
+            Evidences[0] = Evidences[1];
+            Evidences[1] = null;
+        }
+        else
+            Evidences[1] = Object;
+
+        MakeOutline();
+    }
+    public void SetPoints(Transform Object) // pobiera Transform Dowodu, ustala punkty pinezek
+    {
+
+
+
+        if (Evidences[1] != null && Evidences[1] != Object)
+        {
+            points[0] = points[1];
+            points[1] = Object.GetChild(1).position;
+
+        }
+        else if (Evidences[1] == Object)
+        {
+            points[0] = points[1];
+            points[1] = Vector3.zero;
+        }
+        else
+            points[1] = Object.GetChild(1).position;
+
+    }
+    private void ClearPointsEvidences()
+    {
+        Evidences[0] = null;
+        Evidences[1] = null;
+        points[0] = Vector3.zero;
+        points[1] = Vector3.zero;
+    }
+    private void MakeOutline()
+    {
+        foreach (Transform obj in Evidences)
+        {
+            if (obj != null)
+            {
+                Transform pin = obj.GetChild(1);
+                pin.gameObject.GetComponent<Outline>().enabled = true;
+            }
+
+        }
+    }
+    private void ClearOutline()
+    {
+        foreach (Transform obj in Evidences)
+        {
+            if (obj != null)
+            {
+                Transform pin = obj.GetChild(1);
+                pin.gameObject.GetComponent<Outline>().enabled = false;
+            }
 
         }
     }

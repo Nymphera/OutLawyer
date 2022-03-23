@@ -61,7 +61,14 @@ public class PinBoardLogic : MonoBehaviour
 
         SettingsPanel.SetActive(false);
     }
+    private void OnDestroy()
+    {
+        PinBoardControls.PinBoard.MouseLeftClick.performed -= MouseLeftClick_performed;
+        PinBoardControls.PinBoard.MouseRightClick.performed -= MouseRightClick_performed;
+        PinBoardControls.PinBoard.DeleteLine.performed -= DeleteLine_performed;
 
+        CinemachineSwitcher.OnOfficeStateChanged -= CinemachineSwitcher_OnOfficeStateChanged;
+    }
     private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
     {
        

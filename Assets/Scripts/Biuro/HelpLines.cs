@@ -49,7 +49,13 @@ public class HelpLines : MonoBehaviour
         blueText = BlueButton.transform.GetChild(1).GetComponent<Text>();
         yellowText = YellowButton.transform.GetChild(1).GetComponent<Text>();
     }
-
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= Create_HelpLines;
+        EventTrigger.OnEvidenceUnlocked -= EventTrigger_OnEvidenceUnlocked;
+        PinBoardLogic.OnLineCreated -= PinBoardLogic_OnLineCreated;
+        PinBoardLogic.OnLineDeleted -= PinBoardLogic_OnLineDeleted;
+    }
     private void PinBoardLogic_OnLineDeleted(Line.Conection conection)
     {
         for (int i = 0; i < conections.Count; i++)

@@ -23,7 +23,7 @@ public class CinemachineSwitcher : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(this.transform.parent);
         }
         else if (Instance != this)
         {

@@ -14,6 +14,8 @@ public class HelpLines : MonoBehaviour
     private Vector3[] points;
     [SerializeField]
     public List<Evidence.Conection> conections;
+    [SerializeField]
+    private List<Line> lines;
 
     private Line Line;
     [SerializeField]
@@ -29,8 +31,24 @@ public class HelpLines : MonoBehaviour
      Instance = this;
         GameManager.OnGameStateChanged += Create_HelpLines;
         EventTrigger.OnEvidenceUnlocked += EventTrigger_OnEvidenceUnlocked;
+        PinBoardLogic.OnLineCreated += PinBoardLogic_OnLineCreated;
        
     }
+
+    private void PinBoardLogic_OnLineCreated(Line.Conection conection)
+    {
+        Debug.Log(conection.FirstEvidence+" and "+conection.ConectedEvidence);
+        for(int i = 0; i < conections.Count; i++)
+        {
+            
+            if ((lines[i].conection.FirstEvidence == conection.FirstEvidence && lines[i].conection.ConectedEvidence == conection.ConectedEvidence) || (lines[i].conection.FirstEvidence == conection.ConectedEvidence && lines[i].conection.ConectedEvidence == conection.FirstEvidence))
+            {
+                lines[i].transform.GetComponent<LineRenderer>().enabled = false;
+            }
+        }
+      
+    }
+
     private void Start()
     {
         Create_HelpLines(GameState.Office);
@@ -47,6 +65,7 @@ public class HelpLines : MonoBehaviour
         if (state == GameState.Office)
         {
             SetAllTables();
+
             int index=0;
             for (int i = 0; i < activeChildCount; i++)                 //ryswoanie linii JEŒLI
                 for (int j = 0; j < conections.Count; j++)
@@ -65,8 +84,9 @@ public class HelpLines : MonoBehaviour
                         Line.AddPoint(points[i]);
 
                         Line.AddPoint(points[index]);
-                        Line.CreateLine();
+                       
                         Line.SetColor("White");
+                        lines.Add(Line);
                     }
                 }
             

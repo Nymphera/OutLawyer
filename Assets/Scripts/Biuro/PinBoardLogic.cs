@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public class PinBoardLogic : MonoBehaviour
 {
-
+    public static event Action<Line.Conection> OnLineCreated,OnLineDeleted;
     
     private PinBoardControls PinBoardControls;
     private Camera Cam;
@@ -41,7 +41,7 @@ public class PinBoardLogic : MonoBehaviour
         Description = GameObject.Find("Description").GetComponent<Text>();
         TeleportButton = GameObject.Find("Teleport").GetComponent<Button>();
 
-
+        
         
          PinBoardControls = new PinBoardControls();
 
@@ -64,7 +64,7 @@ public class PinBoardLogic : MonoBehaviour
 
     private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
     {
-        Debug.Log(state);
+       
         if (state != OfficeState.PinBoard)
         {
             ClearOutline();
@@ -81,7 +81,11 @@ public class PinBoardLogic : MonoBehaviour
     private void DeleteLine_performed(InputAction.CallbackContext obj)
     {
         int childcount = LineParent.childCount;
+        OnLineDeleted(LineParent.GetChild(childcount - 1).GetComponent<Line>().conection);
         Destroy(LineParent.GetChild(childcount-1).gameObject);
+
+       
+
     }
 
     
@@ -158,8 +162,13 @@ public class PinBoardLogic : MonoBehaviour
             Line.SetColor(color);
 
         
-        if (lines.Count == 0) 
+        if (lines.Count == 0)
+        {
             lines.Add(Line);
+            OnLineCreated(Line.conection);
+            
+        }
+            
         else
         {
             bool isInTable=false;
@@ -174,7 +183,12 @@ public class PinBoardLogic : MonoBehaviour
                 
             }
             if (!isInTable)
+            {
                 lines.Add(Line);
+                OnLineCreated(Line.conection);
+                
+            }
+                
         }
            
            

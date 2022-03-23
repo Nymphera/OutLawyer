@@ -70,6 +70,7 @@ public class OfficeManager : MonoBehaviour
 
     private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
     {
+        
         pinBoardLogic.enabled = (state == OfficeState.PinBoard);
         interact.enabled = (state == OfficeState.Overview);
         PinBoardUI.SetActive(state == OfficeState.PinBoard);

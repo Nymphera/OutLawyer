@@ -16,7 +16,7 @@ public class Evidence : ScriptableObject
     public Sprite Artwork;
     public Orientation orientation;  
     public EvidenceType evidenceType;
-    public Conection[] conection = new Conection[0];
+    public Line.Conection[] conection = new Line.Conection[0];
    
 
  

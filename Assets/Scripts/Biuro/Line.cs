@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,7 @@ public class Line : MonoBehaviour
     public int pointsCount = 0;
     public Evidence firstEvidence;
     public Evidence secondEvidence;
-
+    public Conection conection;
 
     public float animationDuration; 
     [SerializeField]
@@ -19,17 +20,20 @@ public class Line : MonoBehaviour
     
     public void AddPoint(Vector3 vector)
     {
+        SetConection();
         pointsCount++;
         points.Add(vector);
         lineRenderer.positionCount = pointsCount;
         lineRenderer.SetPosition(pointsCount - 1, vector);
     }
-    public void CreateLine()
-    { 
-                
-      //  lineRenderer.SetPosition(0, points[0]);
-      //  lineRenderer.SetPosition(1, points[1]);
+
+    private void SetConection()
+    {
+        conection.FirstEvidence = firstEvidence;
+        conection.ConectedEvidence = secondEvidence;
+        
     }
+
     public void AnimateLine()
     {
         float startTime = Time.time;
@@ -46,30 +50,62 @@ public class Line : MonoBehaviour
         }
         lineRenderer.SetPosition(1, endPosition);
     }
-public void SetColor(string color)
+    
+   
+    public void SetColor(string color)
     {
 
         if (color == "Yellow")
         {
             lineRenderer.material = Yellow;
+            conection.conectionColor = ConectionType.Yellow;
         }
         if (color == "Green")
         {
             lineRenderer.material = Green;
+            conection.conectionColor = ConectionType.Green;
         }
         if (color == "Red")
         {
             lineRenderer.material = Red;
+            conection.conectionColor = ConectionType.Red;
         }
         if (color == "Blue")
         {
             lineRenderer.material = Blue;
+            conection.conectionColor = ConectionType.Blue;
         }
         if (color == "White")
         {
             lineRenderer.material = White;
+            conection.conectionColor = ConectionType.White;
+        }
+        if (color == "Black")
+        {
+            lineRenderer.material = White;
+            conection.conectionColor = ConectionType.Black;
         }
     }
-
-}
+    [Serializable]
+    public class Conection
+    {
+        public Evidence FirstEvidence;
+        public Evidence ConectedEvidence;
         
+        public ConectionType conectionColor;
+        public string Conclusion;
+        
+        public int conectNumber;
+
+    }
+}
+public enum ConectionType
+{
+    Yellow, // Motyw
+    Red,    //Sprzecznoœæ
+    Blue,   //Relacja
+    Green,   //Dowód
+    White,
+    Black
+}
+

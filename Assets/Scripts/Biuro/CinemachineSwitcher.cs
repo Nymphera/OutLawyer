@@ -17,7 +17,23 @@ public class CinemachineSwitcher : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        Animator = transform.GetComponent<Animator>();
+              
+             
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+          
+              
+        
+        
         
     }
 

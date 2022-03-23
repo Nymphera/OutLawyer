@@ -2,25 +2,45 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class Interact : MonoBehaviour
 {
 
 
     [SerializeField]
-    GameObject[] interactable;
+    List<GameObject> interactable;
     private GameObject selectedObject;
     public Interact Instance;
     private void Awake()
     {
         Instance = this;
+        SceneManager.activeSceneChanged += SceneManager_activeSceneChanged;
     }
+    private void OnDestroy()
+    {
+        SceneManager.activeSceneChanged -= SceneManager_activeSceneChanged;
+    }
+    private void SceneManager_activeSceneChanged(Scene arg0, Scene arg1)
+    {
+        Debug.Log(arg0.name + arg1.name);
+        if (arg1.name == "Biuro")
+        {
+            interactable = new List<GameObject>();
+            interactable.AddRange(GameObject.FindGameObjectsWithTag("Interact")) ;
+            for(int i=0;i< interactable.Count;i++)
+            {
+                if(interactable[i]==null)
+                    interactable.RemoveAt(i);
+            }
+            
+            CreateOutline();
+        }
+    }
+
     private void OnEnable()
     {
-        interactable = GameObject.FindGameObjectsWithTag("Interact");
         
-        CreateOutline();
         
     }
 

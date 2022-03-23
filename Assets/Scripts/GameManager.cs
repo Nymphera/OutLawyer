@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
                 break;
         }*/
        
-       // OnGameStateChanged(newState);
+        OnGameStateChanged(newState);
     }
 
 

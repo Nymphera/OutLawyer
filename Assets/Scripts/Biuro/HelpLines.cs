@@ -92,26 +92,35 @@ public class HelpLines : MonoBehaviour
         greenCount = 0;
         yellowCount = 0;
         blueCount = 0;
-        foreach (Line.Conection conection in conections)
+        
+        for (int i=0;i<conections.Count;i++)
         {
-            if (conection.conectionColor == ConectionType.Red)
+            if (lines[i].transform.GetComponent<LineRenderer>().enabled)
             {
-                redCount++;
+                if (conections[i].conectionColor == ConectionType.Red)
+                {
+                    redCount++;
+                }
+                if (conections[i].conectionColor == ConectionType.Yellow)
+                {
+                    yellowCount++;
+                }
+                if (conections[i].conectionColor == ConectionType.Blue)
+                {
+                    blueCount++;
+                }
+                if (conections[i].conectionColor == ConectionType.Green)
+                {
+                    greenCount++;
+                }
             }
-            if (conection.conectionColor == ConectionType.Yellow)
-            {
-                yellowCount++;
-            }
-            if (conection.conectionColor == ConectionType.Blue)
-            {
-                blueCount++;
-            }
-            if (conection.conectionColor == ConectionType.Green)
-            {
-                greenCount++;
-            }
+
+            redText.text = redCount.ToString();
+            greenText.text = greenCount.ToString();
+            blueText.text = blueCount.ToString();
+            yellowText.text = yellowCount.ToString();
         }
-        Debug.Log("red " + redCount + " blue " + blueCount);
+        
     }
 
     public void Create_HelpLines(GameState state)
@@ -211,6 +220,8 @@ public class HelpLines : MonoBehaviour
                 }
             }
         }
+        //sortowanie dowodów
+        //conections.Sort();
     }
     
 

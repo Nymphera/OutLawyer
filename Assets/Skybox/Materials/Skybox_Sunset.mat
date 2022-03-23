@@ -56,7 +56,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex:
+<<<<<<< Updated upstream
         m_Texture: {fileID: 8900000, guid: 4ff75d35b3d6b154ca35faece1861031, type: 3}
+=======
+        m_Texture: {fileID: 8900000, guid: 62893534e620ae141afbc80a899ed22d, type: 3}
+>>>>>>> Stashed changes
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -70,7 +74,11 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+<<<<<<< Updated upstream
     - _Rotation: 197
+=======
+    - _Rotation: 102
+>>>>>>> Stashed changes
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1

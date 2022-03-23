@@ -17,12 +17,17 @@ MonoBehaviour:
   postProcessingProfile: {fileID: 11400000, guid: 6da86197aa457484e9c71360f2a8832e, type: 2}
   webGL_Mobile: 0
   renderPath: 2
+<<<<<<< Updated upstream
   lightingMode: 2
+=======
+  lightingMode: 1
+>>>>>>> Stashed changes
   bakedResolution: 10
   lightSettings: 2
   colorSpace: 0
   enlightenQuality: 1
   skyBox: {fileID: 2100000, guid: 4067de1a02072244798361060c5e7325, type: 2}
+<<<<<<< Updated upstream
   skyCube: {fileID: 8900000, guid: 4ff75d35b3d6b154ca35faece1861031, type: 3}
   skyBoxExposure: 1
   ambientLight: 0
@@ -34,6 +39,19 @@ MonoBehaviour:
   skyRotation: 197
   sunColor: {r: 1, g: 0.9700592, b: 0.8820755, a: 1}
   sunIntensity: 1
+=======
+  skyCube: {fileID: 8900000, guid: 62893534e620ae141afbc80a899ed22d, type: 3}
+  skyBoxExposure: 1
+  ambientLight: 0
+  ambientColor: {r: 0.3584906, g: 0.2729571, b: 0.1775543, a: 1}
+  skyColor: {r: 1, g: 1, b: 1, a: 1}
+  equatorColor: {r: 1, g: 1, b: 1, a: 1}
+  groundColor: {r: 1, g: 1, b: 1, a: 1}
+  skyIntensity: 0.3
+  skyRotation: 102
+  sunColor: {r: 0.764151, g: 0.45926785, b: 0.11894804, a: 1}
+  sunIntensity: 0.75
+>>>>>>> Stashed changes
   sunFlare: {fileID: 12100000, guid: 70ff7d98b27dd54458e51a95f7984da3, type: 2}
   indirectIntensity: 1.43
   fogMode: 0
@@ -56,7 +74,11 @@ MonoBehaviour:
   aoColor: {r: 0, g: 0, b: 0, a: 1}
   aoQuality: 3
   vLight: 0
+<<<<<<< Updated upstream
   vLightLevel: 3
+=======
+  vLightLevel: 1
+>>>>>>> Stashed changes
   lightsShadow: 2
   lightProbesMode: 0
   automaticLightmap: 0
@@ -136,11 +158,19 @@ MonoBehaviour:
   cameraState: 0
   profileState: 1
   buildState: 1
+<<<<<<< Updated upstream
   vLightState: 1
   sunShaftState: 1
   fogState: 1
   dofState: 1
   autoFocusState: 1
+=======
+  vLightState: 0
+  sunShaftState: 0
+  fogState: 0
+  dofState: 0
+  autoFocusState: 0
+>>>>>>> Stashed changes
   colorState: 1
   bloomState: 0
   aaState: 0

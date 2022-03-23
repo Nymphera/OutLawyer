@@ -23,7 +23,11 @@ MonoBehaviour:
   colorSpace: 0
   enlightenQuality: 1
   skyBox: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+<<<<<<< Updated upstream
   skyCube: {fileID: 8900000, guid: f2f911252b0532a4a9c15780bc5fb66c, type: 3}
+=======
+  skyCube: {fileID: 0}
+>>>>>>> Stashed changes
   skyBoxExposure: 1
   ambientLight: 1
   ambientColor: {r: 0.5514706, g: 0.65141994, b: 0.75, a: 1}

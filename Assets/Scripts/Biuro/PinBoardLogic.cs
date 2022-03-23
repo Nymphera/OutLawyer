@@ -19,7 +19,7 @@ public class PinBoardLogic : MonoBehaviour
     private Text Description;
     [SerializeField]
     private Button TeleportButton;
-    public PinBoardLogic Instance;
+    public static PinBoardLogic Instance;
     private Line Line;
     [SerializeField]
     private Transform LineParent;

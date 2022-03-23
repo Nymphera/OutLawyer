@@ -186,7 +186,7 @@ public class PinBoardLogic : MonoBehaviour
             {
                 lines.Add(Line);
                 OnLineCreated(Line.conection);
-                Debug.Log(Line);
+                
             }
                 
         }

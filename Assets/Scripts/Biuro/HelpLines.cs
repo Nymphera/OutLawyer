@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class HelpLines : MonoBehaviour
 {
+    private GameObject RedButton, GreenButton, YellowButton, BlueButton;
+    private Text redText, greenText, yellowText, blueText;
+    private int redCount=0, greenCount=0, yellowCount=0, blueCount=0;
+
     private int childCount,activeChildCount;
     [SerializeField]
     private Transform[] childs,activeChilds;
@@ -13,7 +18,7 @@ public class HelpLines : MonoBehaviour
     [SerializeField]
     private Vector3[] points;
     [SerializeField]
-    public List<Evidence.Conection> conections;
+    public List<Line.Conection> conections;
     [SerializeField]
     private List<Line> lines;
 
@@ -34,6 +39,15 @@ public class HelpLines : MonoBehaviour
         PinBoardLogic.OnLineCreated += PinBoardLogic_OnLineCreated;
         PinBoardLogic.OnLineDeleted += PinBoardLogic_OnLineDeleted;
 
+        RedButton = GameObject.Find("RedButton");
+        GreenButton = GameObject.Find("GreenButton");
+        BlueButton = GameObject.Find("BlueButton");
+        YellowButton = GameObject.Find("YellowButton");
+
+        redText = RedButton.transform.GetChild(1).GetComponent<Text>();
+        greenText = GreenButton.transform.GetChild(1).GetComponent<Text>();
+        blueText = BlueButton.transform.GetChild(1).GetComponent<Text>();
+        yellowText = YellowButton.transform.GetChild(1).GetComponent<Text>();
     }
 
     private void PinBoardLogic_OnLineDeleted(Line.Conection conection)
@@ -46,6 +60,7 @@ public class HelpLines : MonoBehaviour
                 lines[i].transform.GetComponent<LineRenderer>().enabled = true;
             }
         }
+        LineCounter();
     }
 
     private void PinBoardLogic_OnLineCreated(Line.Conection conection)
@@ -59,17 +74,46 @@ public class HelpLines : MonoBehaviour
                 lines[i].transform.GetComponent<LineRenderer>().enabled = false;
             }
         }
-      
+        LineCounter();
     }
 
     private void Start()
     {
         Create_HelpLines(GameState.Office);
-        
-     
+
+        LineCounter();      
   
        
     }
+
+    private void LineCounter()
+    {
+        redCount = 0;
+        greenCount = 0;
+        yellowCount = 0;
+        blueCount = 0;
+        foreach (Line.Conection conection in conections)
+        {
+            if (conection.conectionColor == ConectionType.Red)
+            {
+                redCount++;
+            }
+            if (conection.conectionColor == ConectionType.Yellow)
+            {
+                yellowCount++;
+            }
+            if (conection.conectionColor == ConectionType.Blue)
+            {
+                blueCount++;
+            }
+            if (conection.conectionColor == ConectionType.Green)
+            {
+                greenCount++;
+            }
+        }
+        Debug.Log("red " + redCount + " blue " + blueCount);
+    }
+
     public void Create_HelpLines(GameState state)
     {
        
@@ -94,11 +138,12 @@ public class HelpLines : MonoBehaviour
                         Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
                         Line.firstEvidence = evidences[i];
                         Line.secondEvidence = evidences[index];
+                        
                         Line.AddPoint(points[i]);
 
                         Line.AddPoint(points[index]);
                        
-                        Line.SetColor("White");
+                        Line.SetColor("White");     // dodaje siê jednoczeœnie line.conection.color
                         lines.Add(Line);
                     }
                 }
@@ -113,7 +158,7 @@ public class HelpLines : MonoBehaviour
 
 
         childs = new Transform[childCount];
-        conections = new List<Evidence.Conection>();
+        conections = new List<Line.Conection>();
 
 
 

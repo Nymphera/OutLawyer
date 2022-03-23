@@ -32,12 +32,25 @@ public class HelpLines : MonoBehaviour
         GameManager.OnGameStateChanged += Create_HelpLines;
         EventTrigger.OnEvidenceUnlocked += EventTrigger_OnEvidenceUnlocked;
         PinBoardLogic.OnLineCreated += PinBoardLogic_OnLineCreated;
-       
+        PinBoardLogic.OnLineDeleted += PinBoardLogic_OnLineDeleted;
+
+    }
+
+    private void PinBoardLogic_OnLineDeleted(Line.Conection conection)
+    {
+        for (int i = 0; i < conections.Count; i++)
+        {
+
+            if ((lines[i].conection.FirstEvidence == conection.FirstEvidence && lines[i].conection.ConectedEvidence == conection.ConectedEvidence) || (lines[i].conection.FirstEvidence == conection.ConectedEvidence && lines[i].conection.ConectedEvidence == conection.FirstEvidence))
+            {
+                lines[i].transform.GetComponent<LineRenderer>().enabled = true;
+            }
+        }
     }
 
     private void PinBoardLogic_OnLineCreated(Line.Conection conection)
     {
-        Debug.Log(conection.FirstEvidence+" and "+conection.ConectedEvidence);
+        
         for(int i = 0; i < conections.Count; i++)
         {
             

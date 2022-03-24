@@ -54,6 +54,10 @@ public class CinemachineSwitcher : MonoBehaviour
             OnOfficeStateChanged(OfficeState.PinBoard);
             
         }
+        else if (objname == "KOMINEK")
+        {
+            Animator.Play("Fire Cam");
+        }
         else
         {
             Animator.Play("Desk Cam");

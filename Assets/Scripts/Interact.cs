@@ -10,16 +10,25 @@ public class Interact : MonoBehaviour
 
     [SerializeField]
     List<GameObject> interactable;
+  
+    
     private GameObject selectedObject;
     public Interact Instance;
     private void Awake()
     {
         Instance = this;
         SceneManager.activeSceneChanged += SceneManager_activeSceneChanged;
+        
+
     }
+
+   
+
     private void OnDestroy()
     {
         SceneManager.activeSceneChanged -= SceneManager_activeSceneChanged;
+       
+
     }
     private void SceneManager_activeSceneChanged(Scene arg0, Scene arg1)
     {
@@ -34,19 +43,10 @@ public class Interact : MonoBehaviour
                     interactable.RemoveAt(i);
             }
             
-            CreateOutline();
+            CreateOutline(interactable);
         }
     }
 
-    private void OnEnable()
-    {
-        
-        
-    }
-
-    
-
-   
 
     private void Update()
     {
@@ -85,9 +85,9 @@ public class Interact : MonoBehaviour
         Outline outline = Object.GetComponent<Outline>();
         outline.enabled = false;
     }
-    private void CreateOutline()
+    private void CreateOutline(List<GameObject> interact)
     {
-        foreach (GameObject obj in interactable)
+        foreach (GameObject obj in interact)
         {if(obj.GetComponent<MeshCollider>()==null)
             obj.AddComponent<MeshCollider>();
             if (obj.GetComponent<Outline>() == null)

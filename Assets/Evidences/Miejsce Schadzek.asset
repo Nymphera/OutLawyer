@@ -26,3 +26,8 @@ MonoBehaviour:
     conectionColor: 0
     Conclusion: Dowod20
     conectNumber: 19
+  Conections:
+  - conected: {fileID: 11400000, guid: 918345b74bd390940b301e659d30b364, type: 2}
+    ConectionType: 0
+    Conclusion: 
+    conectNumber: 0

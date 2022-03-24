@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public class PinBoardLogic : MonoBehaviour
 {
-    public static event Action<Line.Conection> OnLineCreated,OnLineDeleted;
+    public static event Action<Line> OnLineCreated,OnLineDeleted;
     
     private PinBoardControls PinBoardControls;
     private Camera Cam;
@@ -88,7 +88,7 @@ public class PinBoardLogic : MonoBehaviour
     private void DeleteLine_performed(InputAction.CallbackContext obj)
     {
         int childcount = LineParent.childCount;
-        OnLineDeleted(LineParent.GetChild(childcount - 1).GetComponent<Line>().conection);
+        OnLineDeleted(LineParent.GetChild(childcount - 1).GetComponent<Line>());
         Destroy(LineParent.GetChild(childcount-1).gameObject);
 
        
@@ -172,7 +172,7 @@ public class PinBoardLogic : MonoBehaviour
         if (lines.Count == 0)
         {
             lines.Add(Line);
-            OnLineCreated(Line.conection);
+            OnLineCreated(Line);
             
         }
             
@@ -192,7 +192,7 @@ public class PinBoardLogic : MonoBehaviour
             if (!isInTable)
             {
                 lines.Add(Line);
-                OnLineCreated(Line.conection);
+                OnLineCreated(Line);
                 
             }
                 
@@ -206,94 +206,59 @@ public class PinBoardLogic : MonoBehaviour
     }
     public void CreateLine_Yellow()
     {
+        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.Conections.Length;
 
-        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
-        
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectLength; i++)
         {
-            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
+            if (Evidence0 == Evidence1.Conections[i].conected)
             {
-                if (Evidence1.conection[i].conectionColor.ToString() == "Yellow")
-                {
-                    CreateLine("Yellow");
-                }
-                else
-                    Debug.Log("There is no such conection");
+                CreateLine("Yellow");
             }
-           
-
-
         }
-        
-       
-        
-            
     }
 
     public void CreateLine_Green()
     {
-        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
-        
+        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.Conections.Length;
+
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectLength; i++)
         {
-            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
+            if (Evidence0 == Evidence1.Conections[i].conected)
             {
-                if (Evidence1.conection[i].conectionColor.ToString() == "Green")
-                {
-                    CreateLine("Green");
-                }
-                else
-                    Debug.Log("There is no such conection");        // tu trzeba zrobiæ bool vriable i na koñcu dopiero wyœwietlaæ po wyjœciu z pêtli czy jest po³¹czenie czy nie ma
+                CreateLine("Green");
             }
-           
-
-
         }
     }
     public void CreateLine_Red()
     {
-        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
+        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.Conections.Length;
         
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectLength; i++)
         {
-            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
+            if (Evidence0 == Evidence1.Conections[i].conected)
             {
-                if (Evidence1.conection[i].conectionColor.ToString() == "Red")
-                {
                     CreateLine("Red");
-                }
-                else
-                    Debug.Log("There is no such conection");
             }
-            
-
-
         }
     }
     public void CreateLine_Blue()
     {
-        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
-        
+        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.Conections.Length;
+
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectLength; i++)
         {
-            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
+            if (Evidence0 == Evidence1.Conections[i].conected)
             {
-                if (Evidence1.conection[i].conectionColor.ToString() == "Blue")
-                {
-                    CreateLine("Blue");
-                }
-                else
-                    Debug.Log("There is no such conection");
+                CreateLine("Red");
             }
-
         }
     }
 

@@ -33,3 +33,12 @@ MonoBehaviour:
     Conclusion: "\u015Alady walki Kraba mog\u0105 wskazywa\u0107 na porwanie - czyn
       nie jest wtedy zakwalifikowany jako kradzie\u017C."
     conectNumber: 10
+  Conections:
+  - conected: {fileID: 11400000, guid: d08a7f03284e5604387582cf887035ca, type: 2}
+    ConectionType: 0
+    Conclusion: 
+    conectNumber: 0
+  - conected: {fileID: 11400000, guid: 4259f5d0940efd8429c206d2b6d79d1c, type: 2}
+    ConectionType: 2
+    Conclusion: 
+    conectNumber: 0

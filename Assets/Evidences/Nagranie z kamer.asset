@@ -33,3 +33,12 @@ MonoBehaviour:
     Conclusion: "Wampir m\xF3g\u0142 potrzebowa\u0107 posi\u0142ku z krwi kraba przez
       alergi\u0119 na ludzk\u0105 krew."
     conectNumber: 16
+  Conections:
+  - conected: {fileID: 11400000, guid: 918345b74bd390940b301e659d30b364, type: 2}
+    ConectionType: 0
+    Conclusion: 
+    conectNumber: 0
+  - conected: {fileID: 11400000, guid: 22d820f08a219f5429cdd265ce42ca43, type: 2}
+    ConectionType: 1
+    Conclusion: 
+    conectNumber: 0

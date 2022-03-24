@@ -45,3 +45,20 @@ MonoBehaviour:
     conectionColor: 1
     Conclusion: "Karta Z\u0142odzieja nie chroni przed porwaniami."
     conectNumber: 8
+  Conections:
+  - conected: {fileID: 11400000, guid: 733436fcea2146f4b8bd7476289a5912, type: 2}
+    ConectionType: 2
+    Conclusion: 
+    conectNumber: 0
+  - conected: {fileID: 11400000, guid: 1d3f36e34a97bc44b8dcef275e5c2ad8, type: 2}
+    ConectionType: 2
+    Conclusion: 
+    conectNumber: 0
+  - conected: {fileID: 11400000, guid: 07acbc4171e05334e8b1dd9579e26d28, type: 2}
+    ConectionType: 1
+    Conclusion: 
+    conectNumber: 0
+  - conected: {fileID: 11400000, guid: 4259f5d0940efd8429c206d2b6d79d1c, type: 2}
+    ConectionType: 1
+    Conclusion: 
+    conectNumber: 0

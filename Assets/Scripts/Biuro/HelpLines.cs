@@ -56,12 +56,12 @@ public class HelpLines : MonoBehaviour
         PinBoardLogic.OnLineCreated -= PinBoardLogic_OnLineCreated;
         PinBoardLogic.OnLineDeleted -= PinBoardLogic_OnLineDeleted;
     }
-    private void PinBoardLogic_OnLineDeleted(Line.Conection conection)
+    private void PinBoardLogic_OnLineDeleted(Line line)
     {
         for (int i = 0; i < conections.Count; i++)
         {
 
-            if ((lines[i].conection.FirstEvidence == conection.FirstEvidence && lines[i].conection.ConectedEvidence == conection.ConectedEvidence) || (lines[i].conection.FirstEvidence == conection.ConectedEvidence && lines[i].conection.ConectedEvidence == conection.FirstEvidence))
+            if ((lines[i] == line))
             {
                 lines[i].transform.GetComponent<LineRenderer>().enabled = true;
             }
@@ -69,13 +69,13 @@ public class HelpLines : MonoBehaviour
         LineCounter();
     }
 
-    private void PinBoardLogic_OnLineCreated(Line.Conection conection)
+    private void PinBoardLogic_OnLineCreated(Line line)
     {
         
         for(int i = 0; i < conections.Count; i++)
         {
             
-            if ((lines[i].conection.FirstEvidence == conection.FirstEvidence && lines[i].conection.ConectedEvidence == conection.ConectedEvidence) || (lines[i].conection.FirstEvidence == conection.ConectedEvidence && lines[i].conection.ConectedEvidence == conection.FirstEvidence))
+            if ((lines[i]==line))
             {
                 lines[i].transform.GetComponent<LineRenderer>().enabled = false;
             }
@@ -138,8 +138,49 @@ public class HelpLines : MonoBehaviour
         {
             SetAllTables();
 
-            int index=0;
-            for (int i = 0; i < activeChildCount; i++)                 //ryswoanie linii JEŒLI
+            for (int i = 0; i < activeChildCount; i++)      //tablica dowodów
+            {
+
+                for (int j = 0; j < activeChildCount; j++)      // tablica po³¹czeñ
+                {
+                    int conectionsCount = evidences[j].Conections.Length;
+                    if (i < j)
+                    {
+                        for (int k = 0; k < conectionsCount; k++)
+                        {
+                            if (evidences[i] == evidences[j].Conections[k].conected)
+                            {
+                                Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
+                                Line.firstEvidence = evidences[i];
+                                Line.secondEvidence = evidences[j];
+                                Line.conectionType = evidences[j].Conections[k].ConectionType;
+                                Line.SetColor("White");
+                                Line.AddPoint(points[i]);
+                                Line.AddPoint(points[j]);
+                                lines.Add(Line);
+                                
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+         /*   for (int i = 0; i < activeChildCount; i++)                 //ryswoanie linii JEŒLI
                 for (int j = 0; j < conections.Count; j++)
                 {
                     if (evidences[i] == conections[j].ConectedEvidence)     //jeœli dowód jest w po³¹czeniach innego dowodu
@@ -150,10 +191,10 @@ public class HelpLines : MonoBehaviour
                             if (evidences[k] == conections[j].FirstEvidence)    //
                                 index = k;
                         }
-                        Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
-                        Line.firstEvidence = evidences[i];
-                        Line.secondEvidence = evidences[index];
                         
+                        
+                        
+                        Line.conection.conectNumber = conections[j].conectNumber;
                         Line.AddPoint(points[i]);
 
                         Line.AddPoint(points[index]);
@@ -162,7 +203,8 @@ public class HelpLines : MonoBehaviour
                         lines.Add(Line);
                     }
                 }
-            
+            lines.Sort((a, b) => { return a.conection.conectNumber.CompareTo(b.conection.conectNumber); });
+         */
         }
     }
         private void SetAllTables()
@@ -206,17 +248,10 @@ public class HelpLines : MonoBehaviour
         }
 
 
-        for (int i = 0; i < activeChildCount; i++)      //tablica dowodów
-        {
-            int conectLength = evidences[i].conection.Length;
+        
 
 
-            for (int j = 0; j < conectLength; j++)      // tablica po³¹czeñ
-            {
-                conections.Add(evidences[i].conection[j]);
-            }
-        }
-        for (int i = 0; i < conections.Count; i++)       //sortowanie i usuwanie powtarzaj¹cych siê wyrazów w tablicy po³¹czeñ
+        /*for (int i = 0; i < conections.Count; i++)       //sortowanie i usuwanie powtarzaj¹cych siê wyrazów w tablicy po³¹czeñ
         {
             for (int j = 0; j < conections.Count; j++)
             {
@@ -225,9 +260,10 @@ public class HelpLines : MonoBehaviour
                     conections.RemoveAt(j);
                 }
             }
-        }
+        }*/
         //sortowanie dowodów
-        //conections.Sort();
+        //conections.Sort((a, b) => { return a.conectNumber.CompareTo(b.conectNumber); });
+       
     }
     
 

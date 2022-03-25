@@ -89,6 +89,7 @@ public class PinBoardLogic : MonoBehaviour
     }
     private void DeleteLine_performed(InputAction.CallbackContext obj)
     {
+        lines.RemoveAt(lines.Count - 1);
         int childcount = LineParent.childCount;
         OnLineDeleted(LineParent.GetChild(childcount - 1).GetComponent<Line>());
         Destroy(LineParent.GetChild(childcount-1).gameObject);

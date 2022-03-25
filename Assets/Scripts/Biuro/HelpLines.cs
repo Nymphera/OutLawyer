@@ -60,7 +60,7 @@ public class HelpLines : MonoBehaviour
         for (int i = 0; i < lines.Count; i++)
         {
 
-            if ((lines[i] == line))
+            if ((lines[i].firstEvidence == line.firstEvidence && lines[i].secondEvidence == line.secondEvidence) || (lines[i].firstEvidence == line.secondEvidence && lines[i].secondEvidence == line.firstEvidence))
             {
                 lines[i].transform.GetComponent<LineRenderer>().enabled = true;
             }
@@ -75,20 +75,21 @@ public class HelpLines : MonoBehaviour
              for(int i = 0; i < lines.Count; i++)
              {
 
-                 if ((lines[i].firstEvidence==line.firstEvidence&&lines[i].secondEvidence==line.secondEvidence)||(lines[i].firstEvidence == line.secondEvidence && lines[i].secondEvidence == line.firstEvidence))
-                 {
-                     lines[i].transform.GetComponent<LineRenderer>().enabled = false;
+             if ((lines[i].firstEvidence==line.firstEvidence&&lines[i].secondEvidence==line.secondEvidence)||(lines[i].firstEvidence == line.secondEvidence && lines[i].secondEvidence == line.firstEvidence))
+             {
+                    lines[i].transform.GetComponent<LineRenderer>().enabled = false;
                 if (lines[i].conectionType == line.conectionType)
                 {
                     line.isConectionGood = true;
                     lines[i].isConectionGood = true;
                 }
-                 }
+
+             }
              }
             LineCounter(line);
         if (AreAllConectionsGood())
         {
-            Debug.Log("You did gooood");
+            Debug.Log("You did gooood");    //tutaj event w kodzie
         }
     }
 
@@ -168,6 +169,12 @@ public class HelpLines : MonoBehaviour
         greenText.text = greenCount.ToString();
         blueText.text = blueCount.ToString();
         yellowText.text = yellowCount.ToString();
+       
+            RedButton.GetComponent<Button>().enabled = (redCount != 0);
+            BlueButton.GetComponent<Button>().enabled = (blueCount != 0);
+            YellowButton.GetComponent<Button>().enabled = (yellowCount != 0);
+           GreenButton.GetComponent<Button>().enabled = (greenCount != 0);
+        
     }
 
     public void Create_HelpLines(GameState state)

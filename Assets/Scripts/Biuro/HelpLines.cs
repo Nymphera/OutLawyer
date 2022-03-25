@@ -65,67 +65,85 @@ public class HelpLines : MonoBehaviour
                 lines[i].transform.GetComponent<LineRenderer>().enabled = true;
             }
         }
-        LineCounter();
+        LineCounter(null);
     }
 
     private void PinBoardLogic_OnLineCreated(Line line)
     {
         
-        for(int i = 0; i < lines.Count; i++)
-        {
-            
-            if ((lines[i].firstEvidence==line.firstEvidence&&lines[i].secondEvidence==line.secondEvidence)||(lines[i].firstEvidence == line.secondEvidence && lines[i].secondEvidence == line.firstEvidence))
-            {
-                lines[i].transform.GetComponent<LineRenderer>().enabled = false;
-            }
-        }
-        LineCounter();
+        
+             for(int i = 0; i < lines.Count; i++)
+             {
+
+                 if ((lines[i].firstEvidence==line.firstEvidence&&lines[i].secondEvidence==line.secondEvidence)||(lines[i].firstEvidence == line.secondEvidence && lines[i].secondEvidence == line.firstEvidence))
+                 {
+                     lines[i].transform.GetComponent<LineRenderer>().enabled = false;
+                 }
+             }
+            LineCounter(line);
     }
 
     private void Start()
     {
         Create_HelpLines(GameState.Office);
-
-        LineCounter();      
+        
+        LineCounter(null);      
   
        
     }
 
-    private void LineCounter()
+    private void LineCounter(Line line)
     {
-        redCount = 0;
-        greenCount = 0;
-        yellowCount = 0;
-        blueCount = 0;
-        
-        for (int i=0;i<lines.Count;i++)
+        if (line == null)
         {
-            if (lines[i].transform.GetComponent<LineRenderer>().enabled)
+            redCount = 0;
+            greenCount = 0;
+            yellowCount = 0;
+            blueCount = 0;
+            for (int i = 0; i < lines.Count; i++)
             {
-                if (lines[i].conectionType == ConectionType.Red)
+                if (lines[i].transform.GetComponent<LineRenderer>().enabled)
                 {
-                    redCount++;
-                }
-                if (lines[i].conectionType == ConectionType.Yellow)
-                {
-                    yellowCount++;
-                }
-                if (lines[i].conectionType == ConectionType.Blue)
-                {
-                    blueCount++;
-                }
-                if (lines[i].conectionType == ConectionType.Green)
-                {
-                    greenCount++;
+                    if (lines[i].conectionType == ConectionType.Red)
+                    {
+                        redCount++;
+                    }
+                    if (lines[i].conectionType == ConectionType.Yellow)
+                    {
+                        yellowCount++;
+                    }
+                    if (lines[i].conectionType == ConectionType.Blue)
+                    {
+                        blueCount++;
+                    }
+                    if (lines[i].conectionType == ConectionType.Green)
+                    {
+                        greenCount++;
+                    }
                 }
             }
-
-            redText.text = redCount.ToString();
-            greenText.text = greenCount.ToString();
-            blueText.text = blueCount.ToString();
-            yellowText.text = yellowCount.ToString();
+            
         }
-        
+        else
+        {
+            if (line.conectionType == ConectionType.Blue)
+                blueCount--;
+            else
+            if (line.conectionType == ConectionType.Red)
+                redCount--;
+            else
+            if (line.conectionType == ConectionType.Green)
+                greenCount--;
+            else
+            if (line.conectionType == ConectionType.Yellow)
+                yellowCount--;
+        }
+
+
+        redText.text = redCount.ToString();
+        greenText.text = greenCount.ToString();
+        blueText.text = blueCount.ToString();
+        yellowText.text = yellowCount.ToString();
     }
 
     public void Create_HelpLines(GameState state)

@@ -270,7 +270,7 @@ public class PinBoardLogic : MonoBehaviour
         {
             if (Evidence0 == Evidence1.Conections[i].conected)
             {
-                CreateLine("Red");
+                CreateLine("Blue");
             }
         }
     }

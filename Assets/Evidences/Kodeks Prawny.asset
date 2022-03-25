@@ -34,3 +34,12 @@ MonoBehaviour:
       ponad prawem Gildii Z\u0142odziei i Policji mog\u0105 si\u0119 posypa\u0107,
       co by\u0142oby niekorzystne dla obu stron."
     conectNumber: 5
+  Conections:
+  - conected: {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
+    ConectionType: 2
+    Conclusion: 
+    conectNumber: 0
+  - conected: {fileID: 11400000, guid: 615b166ceedb57e4aaf14b65bef0e65a, type: 2}
+    ConectionType: 3
+    Conclusion: 
+    conectNumber: 0

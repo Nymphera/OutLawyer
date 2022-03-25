@@ -36,3 +36,12 @@ MonoBehaviour:
       m\xF3g\u0142by jednocze\u015Bnie pobra\u0107 ubezpieczenie od kradzie\u017Cy
       oraz odzyska\u0107 zgub\u0119, a wi\u0119c zarobi\u0142by na z\u0142odzieju."
     conectNumber: 2
+  Conections:
+  - conected: {fileID: 11400000, guid: 74a6c70194c064346ad8507321db7c00, type: 2}
+    ConectionType: 0
+    Conclusion: 
+    conectNumber: 0
+  - conected: {fileID: 11400000, guid: 733436fcea2146f4b8bd7476289a5912, type: 2}
+    ConectionType: 3
+    Conclusion: 
+    conectNumber: 0

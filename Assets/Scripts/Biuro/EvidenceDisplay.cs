@@ -44,10 +44,7 @@ public class EvidenceDisplay : MonoBehaviour
         {
             Plane.transform.rotation = Quaternion.Euler(0, -90, 0);
         }
-        foreach(Line.Conection conection in Evidence.conection)
-        {
-            conection.FirstEvidence = Evidence;
-        }
+       
     }
     private void ConectionRender()
     {
@@ -55,9 +52,9 @@ public class EvidenceDisplay : MonoBehaviour
     }
     void ConclusionRender()
     { 
-        foreach(Line.Conection conection in Evidence.conection)
+        foreach(Evidence.IsConectedTo conection  in Evidence.Conections)
         {
-            conection.Conclusion = conclusionStrings[conection.conectNumber-1];
+           // conection.Conclusion = conclusionStrings[conection.conectNumber-1];
         }
     }
     void SpriteRender()

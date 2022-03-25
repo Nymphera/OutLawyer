@@ -27,3 +27,8 @@ MonoBehaviour:
     Conclusion: "Brak po\u015Bwiadczenia kradzie\u017Cy powoduje, \u017Ce Robb nie
       mo\u017Ce rozliczy\u0107 si\u0119  urz\u0119dem skarbowym."
     conectNumber: 1
+  Conections:
+  - conected: {fileID: 11400000, guid: 733436fcea2146f4b8bd7476289a5912, type: 2}
+    ConectionType: 2
+    Conclusion: 
+    conectNumber: 0

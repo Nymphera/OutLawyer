@@ -216,6 +216,26 @@ public class PinBoardLogic : MonoBehaviour
        
     }
  
+    public void DeleteLine()
+    {
+        Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
+        Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
+
+        for (int i = 0; i < lines.Count; i++)
+        {
+
+            if ((lines[i].firstEvidence == Evidence0 && lines[i].secondEvidence == Evidence1) || (lines[i].firstEvidence == Evidence1 && lines[i].secondEvidence == Evidence0))
+            {
+                OnLineDeleted(lines[i]);
+                Destroy(lines[i].transform.gameObject);
+                lines.RemoveAt(i);
+                ClearOutline();
+                ClearPointsEvidences();
+                
+            }
+        }
+    }
+
     public void CreateLine_Yellow()
     {
         int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.Conections.Length;

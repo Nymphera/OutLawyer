@@ -17,8 +17,7 @@ public class HelpLines : MonoBehaviour
     private Evidence[] evidences;
     [SerializeField]
     private Vector3[] points;
-    [SerializeField]
-    public List<Line.Conection> conections;
+   
     [SerializeField]
     private List<Line> lines;
 
@@ -58,7 +57,7 @@ public class HelpLines : MonoBehaviour
     }
     private void PinBoardLogic_OnLineDeleted(Line line)
     {
-        for (int i = 0; i < conections.Count; i++)
+        for (int i = 0; i < lines.Count; i++)
         {
 
             if ((lines[i] == line))
@@ -72,10 +71,10 @@ public class HelpLines : MonoBehaviour
     private void PinBoardLogic_OnLineCreated(Line line)
     {
         
-        for(int i = 0; i < conections.Count; i++)
+        for(int i = 0; i < lines.Count; i++)
         {
             
-            if ((lines[i]==line))
+            if ((lines[i].firstEvidence==line.firstEvidence&&lines[i].secondEvidence==line.secondEvidence)||(lines[i].firstEvidence == line.secondEvidence && lines[i].secondEvidence == line.firstEvidence))
             {
                 lines[i].transform.GetComponent<LineRenderer>().enabled = false;
             }
@@ -99,23 +98,23 @@ public class HelpLines : MonoBehaviour
         yellowCount = 0;
         blueCount = 0;
         
-        for (int i=0;i<conections.Count;i++)
+        for (int i=0;i<lines.Count;i++)
         {
             if (lines[i].transform.GetComponent<LineRenderer>().enabled)
             {
-                if (conections[i].conectionColor == ConectionType.Red)
+                if (lines[i].conectionType == ConectionType.Red)
                 {
                     redCount++;
                 }
-                if (conections[i].conectionColor == ConectionType.Yellow)
+                if (lines[i].conectionType == ConectionType.Yellow)
                 {
                     yellowCount++;
                 }
-                if (conections[i].conectionColor == ConectionType.Blue)
+                if (lines[i].conectionType == ConectionType.Blue)
                 {
                     blueCount++;
                 }
-                if (conections[i].conectionColor == ConectionType.Green)
+                if (lines[i].conectionType == ConectionType.Green)
                 {
                     greenCount++;
                 }
@@ -215,7 +214,7 @@ public class HelpLines : MonoBehaviour
 
 
         childs = new Transform[childCount];
-        conections = new List<Line.Conection>();
+        
 
 
 

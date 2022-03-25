@@ -157,19 +157,39 @@ public class PinBoardLogic : MonoBehaviour
 
 
         if (color == "Yellow")
+        {
             Line.SetColor(color);
+            Line.conectionType = ConectionType.Yellow;
+        }
+            
         else
              if (color == "Green")
+        {
             Line.SetColor(color);
+            Line.conectionType = ConectionType.Green;
+        }
+            
         else
              if (color == "Red")
+        {
             Line.SetColor(color);
+            Line.conectionType = ConectionType.Red;
+        }
+            
         else
              if (color == "Blue")
+        {
             Line.SetColor(color);
+            Line.conectionType = ConectionType.Blue;
+        }
+            
 
-        
-        if (lines.Count == 0)
+
+        OnLineCreated(Line);
+        ClearOutline();
+        ClearPointsEvidences();
+
+        /*if (lines.Count == 0)
         {
             lines.Add(Line);
             OnLineCreated(Line);
@@ -194,16 +214,9 @@ public class PinBoardLogic : MonoBehaviour
                 lines.Add(Line);
                 OnLineCreated(Line);
                 
-            }
-                
-        }
-           
-           
-
-
-        ClearOutline();
-        ClearPointsEvidences();
+            */
     }
+ 
     public void CreateLine_Yellow()
     {
         int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.Conections.Length;

@@ -23,7 +23,7 @@ public class CinemachineSwitcher : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(this.transform.parent);
+         //   DontDestroyOnLoad(this.transform.parent);
         }
         else if (Instance != this)
         {
@@ -58,7 +58,12 @@ public class CinemachineSwitcher : MonoBehaviour
         {
             Animator.Play("Fire Cam");
         }
-        else
+        else if (objname=="Evidence")
+        {
+            Animator.Play("InspectCam");
+            OnOfficeStateChanged(OfficeState.Inspect);
+        }
+        else 
         {
             Animator.Play("Desk Cam");
             OnOfficeStateChanged(OfficeState.Desk);
@@ -72,6 +77,7 @@ public enum OfficeState
     Overview, //1
     Desk,
     PinBoard,
+    Inspect
    
 
 }

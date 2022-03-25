@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Cinemachine;
 
 
 
@@ -32,16 +33,19 @@ public class PinBoardLogic : MonoBehaviour
     private List<Line> lines = new List<Line>();
 
     private bool isInTable;
+
+    CinemachineVirtualCamera camera;
+    private OfficeState currentState;
     private void Awake()
     {
         points = new Vector3[2];
         Evidences = new Transform[2];
-
+        camera = GameObject.Find("InspectCam").GetComponent<CinemachineVirtualCamera>();
         LineParent = GameObject.Find("LineHolder").transform;
         SettingsPanel = GameObject.Find("SettingsPanel");
         Description = GameObject.Find("Description").GetComponent<Text>();
-        TeleportButton = GameObject.Find("Teleport").GetComponent<Button>();
-        Scissors = GameObject.Find("Scissors");
+        
+        
 
         
         
@@ -73,7 +77,8 @@ public class PinBoardLogic : MonoBehaviour
     }
     private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
     {
-       
+
+        currentState = state;
         if (state != OfficeState.PinBoard)
         {
             ClearOutline();
@@ -129,21 +134,33 @@ public class PinBoardLogic : MonoBehaviour
     private void MouseRightClick_performed(InputAction.CallbackContext obj)
     {
 
-        
-        Vector2 pos = Input.mousePosition;
-
-        GameObject Object = TouchedObject(pos);
-        
-
-        if (Object.layer == 7) //jeœli obiekt to dowód z tablicy
+        if (OfficeState.PinBoard == currentState)
         {
+            Vector2 pos = Input.mousePosition;
 
-            ShowOptions(Object, pos);
+            GameObject Object = TouchedObject(pos);
+            if (Object.layer == 7) //jeœli obiekt to dowód z tablicy
+            {
 
+                ShowOptions(Object);
+
+            }
         }
-       
-        
 
+    }
+    private async void ShowOptions(GameObject Object )
+    {
+        
+        camera.Follow = Object.transform.parent;
+        CinemachineSwitcher.Instance.SwitchState("Evidence");
+        await Task.Delay(1500);
+        SettingsPanel.SetActive(currentState==OfficeState.Inspect);
+        Evidence Evid = Object.transform.GetComponentInParent<EvidenceDisplay>().Evidence;
+       
+        Description.text = Evid.Description.ToString();
+        
+        //SettingsPanel.transform.position = Input.mousePosition;
+        //TeleportButton.gameObject.SetActive(ButtonState);
 
     }
 
@@ -309,22 +326,7 @@ public class PinBoardLogic : MonoBehaviour
         else return null;
 
     }
-    private void ShowOptions(GameObject Object, Vector2 MousePosition)
-    {
-        bool ButtonState = false;
-
-        Evidence Evid = Object.transform.GetComponentInParent<EvidenceDisplay>().Evidence;
-        if (Evid.evidenceType == Evidence.EvidenceType.Location)
-        {
-            ButtonState = true;
-        }
-        Description.text = Evid.Description.ToString();
-        SettingsPanel.SetActive(true);
-        SettingsPanel.transform.position = MousePosition;
-        TeleportButton.gameObject.SetActive(ButtonState);
-
-
-    }
+   
     private void SetEvidences(Transform Object)     //pobiera Transform dowodu, ustala
     {
         if (Evidences[0] != null)

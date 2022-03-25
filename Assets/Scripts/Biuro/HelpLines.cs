@@ -86,6 +86,25 @@ public class HelpLines : MonoBehaviour
                  }
              }
             LineCounter(line);
+        if (AreAllConectionsGood())
+        {
+            Debug.Log("You did gooood");
+        }
+    }
+
+    private bool AreAllConectionsGood()
+    { bool returnValue=true;
+        for(int i = 0; i < lines.Count; i++)
+        {
+            if (lines[i].isConectionGood != true)
+            {
+                returnValue= false;
+                Debug.Log("not yet");
+                break;
+            }
+            
+        }
+        return returnValue;
     }
 
     private void Start()

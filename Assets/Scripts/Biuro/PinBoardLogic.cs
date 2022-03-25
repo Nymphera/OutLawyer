@@ -24,13 +24,14 @@ public class PinBoardLogic : MonoBehaviour
     [SerializeField]
     private Transform LineParent;
     [SerializeField]
-    private GameObject linePrefab,SettingsPanel;
+    private GameObject linePrefab,SettingsPanel,Scissors;
     [SerializeField]
     public Vector3[] points;
     [SerializeField] Transform[] Evidences;
-
     [SerializeField]
     private List<Line> lines = new List<Line>();
+
+    private bool isInTable;
     private void Awake()
     {
         points = new Vector3[2];
@@ -40,6 +41,7 @@ public class PinBoardLogic : MonoBehaviour
         SettingsPanel = GameObject.Find("SettingsPanel");
         Description = GameObject.Find("Description").GetComponent<Text>();
         TeleportButton = GameObject.Find("Teleport").GetComponent<Button>();
+        Scissors = GameObject.Find("Scissors");
 
         
         
@@ -114,6 +116,10 @@ public class PinBoardLogic : MonoBehaviour
             SetPoints(Evidence.transform);
             SetEvidences(Evidence.transform);
         }
+        else if (Object.name == Scissors.name)
+        {
+            Scissors.GetComponent<RectTransform>().position = Input.mousePosition;
+        }
      
         
 
@@ -182,39 +188,31 @@ public class PinBoardLogic : MonoBehaviour
             Line.SetColor(color);
             Line.conectionType = ConectionType.Blue;
         }
-            
+        
+        
+            for (int i = 0; i < lines.Count; i++)
+            {
+               if((Line.firstEvidence==lines[i].firstEvidence&&Line.secondEvidence==lines[i].secondEvidence)|| (Line.secondEvidence == lines[i].firstEvidence && Line.firstEvidence == lines[i].secondEvidence))
+                {
+                    Destroy(Line.transform.gameObject);
+                    Debug.Log("You have already created line here ");
+                    isInTable = true;
+                }
+                else
+                {
+                    isInTable = false;
+                }
+            }
+        
 
-
-        OnLineCreated(Line);
-        ClearOutline();
-        ClearPointsEvidences();
-
-        /*if (lines.Count == 0)
+        if (!isInTable)
         {
             lines.Add(Line);
             OnLineCreated(Line);
-            
+            ClearOutline();
+            ClearPointsEvidences();
         }
-            
-        else
-        {
-            bool isInTable=false;
-            for (int i = 0; i < lines.Count; i++)    //sprawdza czy stworzona linia jest ju¿ na liœcie linii
-            {
-                if ((lines[i].firstEvidence == Line.firstEvidence && lines[i].secondEvidence == Line.secondEvidence) || (lines[i].firstEvidence == Line.secondEvidence && lines[i].secondEvidence == Line.firstEvidence))
-                {
-                    isInTable = true;
-                    Debug.Log("You already created such line");
-                    Destroy(Line.gameObject);
-                }
-                
-            }
-            if (!isInTable)
-            {
-                lines.Add(Line);
-                OnLineCreated(Line);
-                
-            */
+       
     }
  
     public void CreateLine_Yellow()

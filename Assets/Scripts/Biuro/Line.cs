@@ -13,7 +13,7 @@ public class Line : MonoBehaviour
     public Evidence firstEvidence;
     public Evidence secondEvidence;
     public ConectionType conectionType;
-    
+    public bool isConectionGood=false;
     
     //public Conection conection;
 

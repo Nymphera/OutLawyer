@@ -78,6 +78,11 @@ public class HelpLines : MonoBehaviour
                  if ((lines[i].firstEvidence==line.firstEvidence&&lines[i].secondEvidence==line.secondEvidence)||(lines[i].firstEvidence == line.secondEvidence && lines[i].secondEvidence == line.firstEvidence))
                  {
                      lines[i].transform.GetComponent<LineRenderer>().enabled = false;
+                if (lines[i].conectionType == line.conectionType)
+                {
+                    line.isConectionGood = true;
+                    lines[i].isConectionGood = true;
+                }
                  }
              }
             LineCounter(line);
@@ -182,46 +187,6 @@ public class HelpLines : MonoBehaviour
                 }
             }
 
-
-
-
-
-
-            
-
-
-
-
-
-
-
-
-
-         /*   for (int i = 0; i < activeChildCount; i++)                 //ryswoanie linii JEŒLI
-                for (int j = 0; j < conections.Count; j++)
-                {
-                    if (evidences[i] == conections[j].ConectedEvidence)     //jeœli dowód jest w po³¹czeniach innego dowodu
-                    {
-
-                        for (int k = 0; k < activeChildCount; k++)
-                        {
-                            if (evidences[k] == conections[j].FirstEvidence)    //
-                                index = k;
-                        }
-                        
-                        
-                        
-                        Line.conection.conectNumber = conections[j].conectNumber;
-                        Line.AddPoint(points[i]);
-
-                        Line.AddPoint(points[index]);
-                       
-                        Line.SetColor("White");     // dodaje siê jednoczeœnie line.conection.color
-                        lines.Add(Line);
-                    }
-                }
-            lines.Sort((a, b) => { return a.conection.conectNumber.CompareTo(b.conection.conectNumber); });
-         */
         }
     }
         private void SetAllTables()
@@ -264,23 +229,6 @@ public class HelpLines : MonoBehaviour
 
         }
 
-
-        
-
-
-        /*for (int i = 0; i < conections.Count; i++)       //sortowanie i usuwanie powtarzaj¹cych siê wyrazów w tablicy po³¹czeñ
-        {
-            for (int j = 0; j < conections.Count; j++)
-            {
-                if (conections[i].conectNumber == conections[j].conectNumber && i != j)
-                {
-                    conections.RemoveAt(j);
-                }
-            }
-        }*/
-        //sortowanie dowodów
-        //conections.Sort((a, b) => { return a.conectNumber.CompareTo(b.conectNumber); });
-       
     }
     
 

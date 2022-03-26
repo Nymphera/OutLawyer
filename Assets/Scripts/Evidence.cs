@@ -40,7 +40,7 @@ public class Evidence : ScriptableObject
         public Evidence conected;
         public ConectionType ConectionType;
        [HideInInspector] public string Conclusion;
-       [HideInInspector] public int conectNumber;
+        public int conectNumber;
        
     }
     

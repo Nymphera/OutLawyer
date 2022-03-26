@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class OfficeManager : MonoBehaviour
 {
-    private GameObject PinBoard,GameManager, PinBoardUI;
+    private GameObject PinBoard,GameManager, PinBoardUI,Buttons,Settings;
     
     private PinBoardLogic pinBoardLogic;
     private Interact interact;
@@ -13,11 +13,15 @@ public class OfficeManager : MonoBehaviour
 
     private InputAction MousePosition;
     private PinBoardControls PinBoardControls;
+
+    private OfficeState currentState;
     private void Awake()
     {
         PinBoardControls = new PinBoardControls();
 
         PinBoardUI = GameObject.Find("PinBoardCanvas");
+        Buttons = PinBoardUI.transform.GetChild(1).gameObject;
+        Settings= PinBoardUI.transform.GetChild(0).gameObject;
         PinBoard = GameObject.Find("PinBoard");
         GameManager = GameObject.Find("GameManager");
         
@@ -38,7 +42,12 @@ public class OfficeManager : MonoBehaviour
     }
     private void LeavePinBoard_performed(InputAction.CallbackContext obj)
     {
-        CinemachineSwitcher.Instance.SwitchState("Biuro");
+        //if(currentState!=OfficeState.Inspect)
+        Settings.SetActive(false);
+        if (currentState == OfficeState.Inspect)
+            CinemachineSwitcher.Instance.SwitchState("PinBoardSprite");
+        else
+                CinemachineSwitcher.Instance.SwitchState("Biuro");
     }
 
     private void OnEnable()
@@ -70,12 +79,14 @@ public class OfficeManager : MonoBehaviour
 
     private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
     {
-        
+        currentState = state;
         pinBoardLogic.enabled = (state == OfficeState.PinBoard);
         interact.enabled = (state == OfficeState.Overview);
-        if(PinBoardUI!=null)
-        PinBoardUI.SetActive(state == OfficeState.PinBoard);
-        
+        if (PinBoardUI != null)
+            //Buttons.SetActive(state == OfficeState.PinBoard);
+                PinBoardUI.SetActive(state == OfficeState.PinBoard||state==OfficeState.Inspect);
+
+        Buttons.SetActive(state == OfficeState.PinBoard);
     }
 
 }

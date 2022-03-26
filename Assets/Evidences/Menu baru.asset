@@ -28,3 +28,8 @@ MonoBehaviour:
       z kraba, nie jest ona nigdzie oferowana - co wi\u0119cej, bar nie ma nawet
       na ni\u0105 koncesji."
     conectNumber: 14
+  Conections:
+  - conected: {fileID: 11400000, guid: d08a7f03284e5604387582cf887035ca, type: 2}
+    ConectionType: 1
+    Conclusion: 
+    conectNumber: 0

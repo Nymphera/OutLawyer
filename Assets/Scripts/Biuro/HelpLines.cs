@@ -17,8 +17,7 @@ public class HelpLines : MonoBehaviour
     private Evidence[] evidences;
     [SerializeField]
     private Vector3[] points;
-    [SerializeField]
-    public List<Line.Conection> conections;
+   
     [SerializeField]
     private List<Line> lines;
 
@@ -49,77 +48,132 @@ public class HelpLines : MonoBehaviour
         blueText = BlueButton.transform.GetChild(1).GetComponent<Text>();
         yellowText = YellowButton.transform.GetChild(1).GetComponent<Text>();
     }
-
-    private void PinBoardLogic_OnLineDeleted(Line.Conection conection)
+    private void OnDestroy()
     {
-        for (int i = 0; i < conections.Count; i++)
+        GameManager.OnGameStateChanged -= Create_HelpLines;
+        EventTrigger.OnEvidenceUnlocked -= EventTrigger_OnEvidenceUnlocked;
+        PinBoardLogic.OnLineCreated -= PinBoardLogic_OnLineCreated;
+        PinBoardLogic.OnLineDeleted -= PinBoardLogic_OnLineDeleted;
+    }
+    private void PinBoardLogic_OnLineDeleted(Line line)
+    {
+        for (int i = 0; i < lines.Count; i++)
         {
 
-            if ((lines[i].conection.FirstEvidence == conection.FirstEvidence && lines[i].conection.ConectedEvidence == conection.ConectedEvidence) || (lines[i].conection.FirstEvidence == conection.ConectedEvidence && lines[i].conection.ConectedEvidence == conection.FirstEvidence))
+            if ((lines[i].firstEvidence == line.firstEvidence && lines[i].secondEvidence == line.secondEvidence) || (lines[i].firstEvidence == line.secondEvidence && lines[i].secondEvidence == line.firstEvidence))
             {
                 lines[i].transform.GetComponent<LineRenderer>().enabled = true;
             }
         }
-        LineCounter();
+        LineCounter(null);
     }
 
-    private void PinBoardLogic_OnLineCreated(Line.Conection conection)
+    private void PinBoardLogic_OnLineCreated(Line line)
     {
         
-        for(int i = 0; i < conections.Count; i++)
+        
+             for(int i = 0; i < lines.Count; i++)
+             {
+
+             if ((lines[i].firstEvidence==line.firstEvidence&&lines[i].secondEvidence==line.secondEvidence)||(lines[i].firstEvidence == line.secondEvidence && lines[i].secondEvidence == line.firstEvidence))
+             {
+                    lines[i].transform.GetComponent<LineRenderer>().enabled = false;
+                if (lines[i].conectionType == line.conectionType)
+                {
+                    line.isConectionGood = true;
+                    lines[i].isConectionGood = true;
+                }
+
+             }
+             }
+            LineCounter(line);
+        if (AreAllConectionsGood())
         {
-            
-            if ((lines[i].conection.FirstEvidence == conection.FirstEvidence && lines[i].conection.ConectedEvidence == conection.ConectedEvidence) || (lines[i].conection.FirstEvidence == conection.ConectedEvidence && lines[i].conection.ConectedEvidence == conection.FirstEvidence))
-            {
-                lines[i].transform.GetComponent<LineRenderer>().enabled = false;
-            }
+            Debug.Log("You did gooood");    //tutaj event w kodzie
         }
-        LineCounter();
+    }
+
+    private bool AreAllConectionsGood()
+    { bool returnValue=true;
+        for(int i = 0; i < lines.Count; i++)
+        {
+            if (lines[i].isConectionGood != true)
+            {
+                returnValue= false;
+                Debug.Log("not yet");
+                break;
+            }
+            
+        }
+        return returnValue;
     }
 
     private void Start()
     {
         Create_HelpLines(GameState.Office);
-
-        LineCounter();      
+        
+        LineCounter(null);      
   
        
     }
 
-    private void LineCounter()
+    private void LineCounter(Line line)
     {
-        redCount = 0;
-        greenCount = 0;
-        yellowCount = 0;
-        blueCount = 0;
-        
-        for (int i=0;i<conections.Count;i++)
+        if (line == null)
         {
-            if (lines[i].transform.GetComponent<LineRenderer>().enabled)
+            redCount = 0;
+            greenCount = 0;
+            yellowCount = 0;
+            blueCount = 0;
+            for (int i = 0; i < lines.Count; i++)
             {
-                if (conections[i].conectionColor == ConectionType.Red)
+                if (lines[i].transform.GetComponent<LineRenderer>().enabled)
                 {
-                    redCount++;
-                }
-                if (conections[i].conectionColor == ConectionType.Yellow)
-                {
-                    yellowCount++;
-                }
-                if (conections[i].conectionColor == ConectionType.Blue)
-                {
-                    blueCount++;
-                }
-                if (conections[i].conectionColor == ConectionType.Green)
-                {
-                    greenCount++;
+                    if (lines[i].conectionType == ConectionType.Red)
+                    {
+                        redCount++;
+                    }
+                    if (lines[i].conectionType == ConectionType.Yellow)
+                    {
+                        yellowCount++;
+                    }
+                    if (lines[i].conectionType == ConectionType.Blue)
+                    {
+                        blueCount++;
+                    }
+                    if (lines[i].conectionType == ConectionType.Green)
+                    {
+                        greenCount++;
+                    }
                 }
             }
-
-            redText.text = redCount.ToString();
-            greenText.text = greenCount.ToString();
-            blueText.text = blueCount.ToString();
-            yellowText.text = yellowCount.ToString();
+            
         }
+        else
+        {
+            if (line.conectionType == ConectionType.Blue)
+                blueCount--;
+            else
+            if (line.conectionType == ConectionType.Red)
+                redCount--;
+            else
+            if (line.conectionType == ConectionType.Green)
+                greenCount--;
+            else
+            if (line.conectionType == ConectionType.Yellow)
+                yellowCount--;
+        }
+
+
+        redText.text = redCount.ToString();
+        greenText.text = greenCount.ToString();
+        blueText.text = blueCount.ToString();
+        yellowText.text = yellowCount.ToString();
+       
+            RedButton.GetComponent<Button>().enabled = (redCount != 0);
+            BlueButton.GetComponent<Button>().enabled = (blueCount != 0);
+            YellowButton.GetComponent<Button>().enabled = (yellowCount != 0);
+           GreenButton.GetComponent<Button>().enabled = (greenCount != 0);
         
     }
 
@@ -132,31 +186,33 @@ public class HelpLines : MonoBehaviour
         {
             SetAllTables();
 
-            int index=0;
-            for (int i = 0; i < activeChildCount; i++)                 //ryswoanie linii JEŒLI
-                for (int j = 0; j < conections.Count; j++)
+            for (int i = 0; i < activeChildCount; i++)      //tablica dowodów
+            {
+
+                for (int j = 0; j < activeChildCount; j++)      // tablica po³¹czeñ
                 {
-                    if (evidences[i] == conections[j].ConectedEvidence)     //jeœli dowód jest w po³¹czeniach innego dowodu
+                    int conectionsCount = evidences[j].Conections.Length;
+                    if (i < j)
                     {
-
-                        for (int k = 0; k < activeChildCount; k++)
+                        for (int k = 0; k < conectionsCount; k++)
                         {
-                            if (evidences[k] == conections[j].FirstEvidence)    //
-                                index = k;
+                            if (evidences[i] == evidences[j].Conections[k].conected)
+                            {
+                                Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
+                                Line.firstEvidence = evidences[i];
+                                Line.secondEvidence = evidences[j];
+                                Line.conectionType = evidences[j].Conections[k].ConectionType;
+                                Line.SetColor("White");
+                                Line.AddPoint(points[i]);
+                                Line.AddPoint(points[j]);
+                                lines.Add(Line);
+                                
+                            }
                         }
-                        Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
-                        Line.firstEvidence = evidences[i];
-                        Line.secondEvidence = evidences[index];
-                        
-                        Line.AddPoint(points[i]);
-
-                        Line.AddPoint(points[index]);
-                       
-                        Line.SetColor("White");     // dodaje siê jednoczeœnie line.conection.color
-                        lines.Add(Line);
                     }
                 }
-            
+            }
+
         }
     }
         private void SetAllTables()
@@ -167,7 +223,7 @@ public class HelpLines : MonoBehaviour
 
 
         childs = new Transform[childCount];
-        conections = new List<Line.Conection>();
+        
 
 
 
@@ -199,29 +255,6 @@ public class HelpLines : MonoBehaviour
 
         }
 
-
-        for (int i = 0; i < activeChildCount; i++)      //tablica dowodów
-        {
-            int conectLength = evidences[i].conection.Length;
-
-
-            for (int j = 0; j < conectLength; j++)      // tablica po³¹czeñ
-            {
-                conections.Add(evidences[i].conection[j]);
-            }
-        }
-        for (int i = 0; i < conections.Count; i++)       //sortowanie i usuwanie powtarzaj¹cych siê wyrazów w tablicy po³¹czeñ
-        {
-            for (int j = 0; j < conections.Count; j++)
-            {
-                if (conections[i].conectNumber == conections[j].conectNumber && i != j)
-                {
-                    conections.RemoveAt(j);
-                }
-            }
-        }
-        //sortowanie dowodów
-        //conections.Sort();
     }
     
 

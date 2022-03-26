@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Cinemachine;
 
 
 
 public class PinBoardLogic : MonoBehaviour
 {
-    public static event Action<Line.Conection> OnLineCreated,OnLineDeleted;
+    public static event Action<Line> OnLineCreated,OnLineDeleted;
     
     private PinBoardControls PinBoardControls;
     private Camera Cam;
@@ -19,27 +20,32 @@ public class PinBoardLogic : MonoBehaviour
     private Text Description;
     [SerializeField]
     private Button TeleportButton;
-    public PinBoardLogic Instance;
+    public static PinBoardLogic Instance;
     private Line Line;
     [SerializeField]
     private Transform LineParent;
     [SerializeField]
-    private GameObject linePrefab,SettingsPanel;
+    private GameObject linePrefab,SettingsPanel,Scissors;
     [SerializeField]
     public Vector3[] points;
     [SerializeField] Transform[] Evidences;
-
     [SerializeField]
     private List<Line> lines = new List<Line>();
+
+    private bool isInTable;
+
+    CinemachineVirtualCamera camera;
+    private OfficeState currentState;
     private void Awake()
     {
         points = new Vector3[2];
         Evidences = new Transform[2];
-
+        camera = GameObject.Find("InspectCam").GetComponent<CinemachineVirtualCamera>();
         LineParent = GameObject.Find("LineHolder").transform;
         SettingsPanel = GameObject.Find("SettingsPanel");
         Description = GameObject.Find("Description").GetComponent<Text>();
-        TeleportButton = GameObject.Find("Teleport").GetComponent<Button>();
+        
+        
 
         
         
@@ -61,10 +67,18 @@ public class PinBoardLogic : MonoBehaviour
 
         SettingsPanel.SetActive(false);
     }
+    private void OnDestroy()
+    {
+        PinBoardControls.PinBoard.MouseLeftClick.performed -= MouseLeftClick_performed;
+        PinBoardControls.PinBoard.MouseRightClick.performed -= MouseRightClick_performed;
+        PinBoardControls.PinBoard.DeleteLine.performed -= DeleteLine_performed;
 
+        CinemachineSwitcher.OnOfficeStateChanged -= CinemachineSwitcher_OnOfficeStateChanged;
+    }
     private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
     {
-       
+
+        currentState = state;
         if (state != OfficeState.PinBoard)
         {
             ClearOutline();
@@ -80,8 +94,9 @@ public class PinBoardLogic : MonoBehaviour
     }
     private void DeleteLine_performed(InputAction.CallbackContext obj)
     {
+        lines.RemoveAt(lines.Count - 1);
         int childcount = LineParent.childCount;
-        OnLineDeleted(LineParent.GetChild(childcount - 1).GetComponent<Line>().conection);
+        OnLineDeleted(LineParent.GetChild(childcount - 1).GetComponent<Line>());
         Destroy(LineParent.GetChild(childcount-1).gameObject);
 
        
@@ -107,6 +122,10 @@ public class PinBoardLogic : MonoBehaviour
             SetPoints(Evidence.transform);
             SetEvidences(Evidence.transform);
         }
+        else if (Object.name == Scissors.name)
+        {
+            Scissors.GetComponent<RectTransform>().position = Input.mousePosition;
+        }
      
         
 
@@ -115,21 +134,33 @@ public class PinBoardLogic : MonoBehaviour
     private void MouseRightClick_performed(InputAction.CallbackContext obj)
     {
 
-        
-        Vector2 pos = Input.mousePosition;
-
-        GameObject Object = TouchedObject(pos);
-        
-
-        if (Object.layer == 7) //jeœli obiekt to dowód z tablicy
+        if (OfficeState.PinBoard == currentState)
         {
+            Vector2 pos = Input.mousePosition;
 
-            ShowOptions(Object, pos);
+            GameObject Object = TouchedObject(pos);
+            if (Object.layer == 7) //jeœli obiekt to dowód z tablicy
+            {
 
+                ShowOptions(Object);
+
+            }
         }
-       
-        
 
+    }
+    private async void ShowOptions(GameObject Object )
+    {
+        
+        camera.Follow = Object.transform.parent;
+        CinemachineSwitcher.Instance.SwitchState("Evidence");
+        await Task.Delay(1500);
+        SettingsPanel.SetActive(currentState==OfficeState.Inspect);
+        Evidence Evid = Object.transform.GetComponentInParent<EvidenceDisplay>().Evidence;
+       
+        Description.text = Evid.Description.ToString();
+        
+        //SettingsPanel.transform.position = Input.mousePosition;
+        //TeleportButton.gameObject.SetActive(ButtonState);
 
     }
 
@@ -150,143 +181,133 @@ public class PinBoardLogic : MonoBehaviour
 
 
         if (color == "Yellow")
+        {
             Line.SetColor(color);
+            Line.conectionType = ConectionType.Yellow;
+        }
+            
         else
              if (color == "Green")
+        {
             Line.SetColor(color);
+            Line.conectionType = ConectionType.Green;
+        }
+            
         else
              if (color == "Red")
+        {
             Line.SetColor(color);
+            Line.conectionType = ConectionType.Red;
+        }
+            
         else
              if (color == "Blue")
+        {
             Line.SetColor(color);
-
+            Line.conectionType = ConectionType.Blue;
+        }
         
-        if (lines.Count == 0)
+        
+            for (int i = 0; i < lines.Count; i++)
+            {
+               if((Line.firstEvidence==lines[i].firstEvidence&&Line.secondEvidence==lines[i].secondEvidence)|| (Line.secondEvidence == lines[i].firstEvidence && Line.firstEvidence == lines[i].secondEvidence))
+                {
+                    Destroy(Line.transform.gameObject);
+                    Debug.Log("You have already created line here ");
+                    isInTable = true;
+                }
+                else
+                {
+                    isInTable = false;
+                }
+            }
+        
+
+        if (!isInTable)
         {
             lines.Add(Line);
-            OnLineCreated(Line.conection);
-            
+            OnLineCreated(Line);
+            ClearOutline();
+            ClearPointsEvidences();
         }
-            
-        else
-        {
-            bool isInTable=false;
-            for (int i = 0; i < lines.Count; i++)    //sprawdza czy stworzona linia jest ju¿ na liœcie linii
-            {
-                if ((lines[i].firstEvidence == Line.firstEvidence && lines[i].secondEvidence == Line.secondEvidence) || (lines[i].firstEvidence == Line.secondEvidence && lines[i].secondEvidence == Line.firstEvidence))
-                {
-                    isInTable = true;
-                    Debug.Log("You already created such line");
-                    Destroy(Line.gameObject);
-                }
-                
-            }
-            if (!isInTable)
-            {
-                lines.Add(Line);
-                OnLineCreated(Line.conection);
-                
-            }
-                
-        }
-           
-           
-
-
-        ClearOutline();
-        ClearPointsEvidences();
+       
     }
+ 
+    public void DeleteLine()
+    {
+        Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
+        Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
+
+        for (int i = 0; i < lines.Count; i++)
+        {
+
+            if ((lines[i].firstEvidence == Evidence0 && lines[i].secondEvidence == Evidence1) || (lines[i].firstEvidence == Evidence1 && lines[i].secondEvidence == Evidence0))
+            {
+                OnLineDeleted(lines[i]);
+                Destroy(lines[i].transform.gameObject);
+                lines.RemoveAt(i);
+                ClearOutline();
+                ClearPointsEvidences();
+                
+            }
+        }
+    }
+
     public void CreateLine_Yellow()
     {
+        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.Conections.Length;
 
-        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
-        
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectLength; i++)
         {
-            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
+            if (Evidence0 == Evidence1.Conections[i].conected)
             {
-                if (Evidence1.conection[i].conectionColor.ToString() == "Yellow")
-                {
-                    CreateLine("Yellow");
-                }
-                else
-                    Debug.Log("There is no such conection");
+                CreateLine("Yellow");
             }
-           
-
-
         }
-        
-       
-        
-            
     }
 
     public void CreateLine_Green()
     {
-        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
-        
+        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.Conections.Length;
+
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectLength; i++)
         {
-            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
+            if (Evidence0 == Evidence1.Conections[i].conected)
             {
-                if (Evidence1.conection[i].conectionColor.ToString() == "Green")
-                {
-                    CreateLine("Green");
-                }
-                else
-                    Debug.Log("There is no such conection");        // tu trzeba zrobiæ bool vriable i na koñcu dopiero wyœwietlaæ po wyjœciu z pêtli czy jest po³¹czenie czy nie ma
+                CreateLine("Green");
             }
-           
-
-
         }
     }
     public void CreateLine_Red()
     {
-        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
+        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.Conections.Length;
         
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectLength; i++)
         {
-            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
+            if (Evidence0 == Evidence1.Conections[i].conected)
             {
-                if (Evidence1.conection[i].conectionColor.ToString() == "Red")
-                {
                     CreateLine("Red");
-                }
-                else
-                    Debug.Log("There is no such conection");
             }
-            
-
-
         }
     }
     public void CreateLine_Blue()
     {
-        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.conection.Length;
-        
+        int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.Conections.Length;
+
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
         for (int i = 0; i < conectLength; i++)
         {
-            if (Evidence0 == Evidence1.conection[i].ConectedEvidence)
+            if (Evidence0 == Evidence1.Conections[i].conected)
             {
-                if (Evidence1.conection[i].conectionColor.ToString() == "Blue")
-                {
-                    CreateLine("Blue");
-                }
-                else
-                    Debug.Log("There is no such conection");
+                CreateLine("Blue");
             }
-
         }
     }
 
@@ -305,22 +326,7 @@ public class PinBoardLogic : MonoBehaviour
         else return null;
 
     }
-    private void ShowOptions(GameObject Object, Vector2 MousePosition)
-    {
-        bool ButtonState = false;
-
-        Evidence Evid = Object.transform.GetComponentInParent<EvidenceDisplay>().Evidence;
-        if (Evid.evidenceType == Evidence.EvidenceType.Location)
-        {
-            ButtonState = true;
-        }
-        Description.text = Evid.Description.ToString();
-        SettingsPanel.SetActive(true);
-        SettingsPanel.transform.position = MousePosition;
-        TeleportButton.gameObject.SetActive(ButtonState);
-
-
-    }
+   
     private void SetEvidences(Transform Object)     //pobiera Transform dowodu, ustala
     {
         if (Evidences[0] != null)

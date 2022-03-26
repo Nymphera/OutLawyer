@@ -17,7 +17,23 @@ public class CinemachineSwitcher : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        Animator = transform.GetComponent<Animator>();
+              
+             
+        if (Instance == null)
+        {
+            Instance = this;
+         //   DontDestroyOnLoad(this.transform.parent);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+          
+              
+        
+        
         
     }
 
@@ -38,7 +54,16 @@ public class CinemachineSwitcher : MonoBehaviour
             OnOfficeStateChanged(OfficeState.PinBoard);
             
         }
-        else
+        else if (objname == "KOMINEK")
+        {
+            Animator.Play("Fire Cam");
+        }
+        else if (objname=="Evidence")
+        {
+            Animator.Play("InspectCam");
+            OnOfficeStateChanged(OfficeState.Inspect);
+        }
+        else 
         {
             Animator.Play("Desk Cam");
             OnOfficeStateChanged(OfficeState.Desk);
@@ -52,6 +77,7 @@ public enum OfficeState
     Overview, //1
     Desk,
     PinBoard,
+    Inspect
    
 
 }

@@ -37,17 +37,14 @@ public class EvidenceDisplay : MonoBehaviour
     {
         
         Evidence.Layer = 7;
-        ConclusionRender();
+       
             SpriteRender();
         ConectionRender();
         if (Evidence.orientation.ToString() == "Vertical")
         {
             Plane.transform.rotation = Quaternion.Euler(0, -90, 0);
         }
-        foreach(Line.Conection conection in Evidence.conection)
-        {
-            conection.FirstEvidence = Evidence;
-        }
+        ConclusionRender();
     }
     private void ConectionRender()
     {
@@ -55,7 +52,7 @@ public class EvidenceDisplay : MonoBehaviour
     }
     void ConclusionRender()
     { 
-        foreach(Line.Conection conection in Evidence.conection)
+        foreach(Evidence.IsConectedTo conection  in Evidence.Conections)
         {
             conection.Conclusion = conclusionStrings[conection.conectNumber-1];
         }

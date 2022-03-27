@@ -16,7 +16,7 @@ TagManager:
   - PinBoard
   - Evidence
   - PinBoardUI
-  - Scisors
+  - Line
   - 
   - 
   - 
@@ -42,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Line
+    uniqueID: 17149625
+    locked: 0
+  - name: PinBoard
+    uniqueID: 4075809581
     locked: 0

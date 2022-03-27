@@ -55,7 +55,11 @@ public class Line : MonoBehaviour
             yield return null;
             }
     }
-    
+    public void SetWidth(float value)
+    {
+        lineRenderer.startWidth = value;
+        lineRenderer.endWidth = value;
+    }
    
     public void SetColor(string color)
     {

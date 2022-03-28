@@ -16,18 +16,57 @@ MonoBehaviour:
   - CrossPoints:
     - {fileID: 0}
     DialogOptions:
-    - {fileID: 11400000, guid: ea01aa778a716434ebd0e3b5fac3d883, type: 2}
+    - {fileID: 11400000, guid: bff6dd25803998442afd3af6f4035c55, type: 2}
+    - {fileID: 11400000, guid: c6df83aad47ae024abf2316d37c93c6f, type: 2}
+    - {fileID: 11400000, guid: 9dde0a741a213bb42b06328faeb6c33b, type: 2}
+  - CrossPoints:
     - {fileID: 0}
     - {fileID: 0}
-  - CrossPoints: []
-    DialogOptions: []
-  - CrossPoints: []
-    DialogOptions: []
-  - CrossPoints: []
-    DialogOptions: []
-  - CrossPoints: []
-    DialogOptions: []
-  - CrossPoints: []
-    DialogOptions: []
-  - CrossPoints: []
+    DialogOptions:
+    - {fileID: 11400000, guid: fa88ff5f705b856419512587ac509781, type: 2}
+    - {fileID: 11400000, guid: c1eac434b8818924699f0fc69cea1ae0, type: 2}
+    - {fileID: 0}
+    - {fileID: 11400000, guid: 887833479da89e34bbf895c133745ffd, type: 2}
+  - CrossPoints:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    DialogOptions:
+    - {fileID: 11400000, guid: cd2ae875b91606e4383bd085b5c7651f, type: 2}
+    - {fileID: 11400000, guid: e358bde659f41eb4d85fbe07a8855d66, type: 2}
+    - {fileID: 11400000, guid: ecf5e55e25942214ab1a1c2fd9155ae9, type: 2}
+    - {fileID: 11400000, guid: c6357dee7d95efe41b28a2f3da0b1921, type: 2}
+    - {fileID: 11400000, guid: cd4bd3a15e8cfbe438222102f7fb7bc5, type: 2}
+    - {fileID: 11400000, guid: 5e396dda34168b5408981cfab8dbdda7, type: 2}
+  - CrossPoints:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    DialogOptions:
+    - {fileID: 11400000, guid: 0d52ffca569ff3a47af6c6b80bf9bae9, type: 2}
+    - {fileID: 11400000, guid: 21d1875520ccaee4b8b7f81f767fd18b, type: 2}
+    - {fileID: 11400000, guid: 21b6ca6db38421b489835596568ccb93, type: 2}
+    - {fileID: 11400000, guid: 02e9b3e9f4542814ab2e89db9f32c524, type: 2}
+    - {fileID: 11400000, guid: ef8e376d1cbe3a44893a30d2f5818361, type: 2}
+    - {fileID: 11400000, guid: d73442888a7933e4b85e5c9fabfa2166, type: 2}
+  - CrossPoints:
+    - {fileID: 0}
+    - {fileID: 0}
+    DialogOptions:
+    - {fileID: 11400000, guid: d3e53a26e344ea14db9aaeab022931e4, type: 2}
+    - {fileID: 11400000, guid: 272747c1906565e44a8242c45f38b2e5, type: 2}
+    - {fileID: 11400000, guid: bec6bd3f2ed819e4b9506304a9879b09, type: 2}
+    - {fileID: 11400000, guid: 05fb046c81f0c494eb878f4c7db4119b, type: 2}
+  - CrossPoints:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    DialogOptions:
+    - {fileID: 11400000, guid: 1c7fe869e7fe3b0419c0608a04175299, type: 2}
+    - {fileID: 11400000, guid: f66058e9187ec6d44afc3c4ce495a32d, type: 2}
+    - {fileID: 11400000, guid: 2fb10854cb9186a4bae7a18d9eb85cce, type: 2}
+    - {fileID: 11400000, guid: 70746fd174deac2429fee707a79ccec4, type: 2}
+  - CrossPoints:
+    - {fileID: 0}
+    - {fileID: 0}
     DialogOptions: []

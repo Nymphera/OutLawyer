@@ -17,20 +17,7 @@ public class Level
     public DialogOption[] DialogOptions;
    
 }
-[System.Serializable]
-[CreateAssetMenu(fileName = "DialogOption", menuName = "Dialogs/DialogOption", order = 1)]
 
-public class DialogOption : ScriptableObject
-{
-    public string text;
-    public CrossPoint nextCrossPoint; //ewentualnie Int
-    public Strategy strategy;
-}
-[System.Serializable]
-public class CrossPoint
-{
-   public DialogOption[] ConectedDialogOptions;
-}
 public enum Strategy
 {
     ZimnaKrew,

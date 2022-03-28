@@ -14,62 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - CrossPoints:
-    - ConectedDialogOptions:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
+    - {fileID: 0}
     DialogOptions:
+    - {fileID: 11400000, guid: ea01aa778a716434ebd0e3b5fac3d883, type: 2}
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
-  - CrossPoints:
-    - ConectedDialogOptions: []
-    - ConectedDialogOptions: []
-    DialogOptions:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - CrossPoints:
-    - ConectedDialogOptions: []
-    - ConectedDialogOptions: []
-    - ConectedDialogOptions: []
-    DialogOptions:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - CrossPoints:
-    - ConectedDialogOptions: []
-    - ConectedDialogOptions: []
-    - ConectedDialogOptions: []
-    DialogOptions:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - CrossPoints:
-    - ConectedDialogOptions: []
-    - ConectedDialogOptions: []
-    DialogOptions:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - CrossPoints:
-    - ConectedDialogOptions: []
-    - ConectedDialogOptions: []
-    - ConectedDialogOptions: []
-    DialogOptions:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - CrossPoints:
-    - ConectedDialogOptions: []
-    - ConectedDialogOptions: []
+  - CrossPoints: []
+    DialogOptions: []
+  - CrossPoints: []
+    DialogOptions: []
+  - CrossPoints: []
+    DialogOptions: []
+  - CrossPoints: []
+    DialogOptions: []
+  - CrossPoints: []
+    DialogOptions: []
+  - CrossPoints: []
     DialogOptions: []

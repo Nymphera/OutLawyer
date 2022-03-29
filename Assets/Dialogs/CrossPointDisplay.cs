@@ -6,6 +6,7 @@ using UnityEngine;
 public class CrossPointDisplay : MonoBehaviour
 {
     public CrossPoint crossPoint;
+    public Vector2 position;
     private void Awake()
     {
        // RenderImage();

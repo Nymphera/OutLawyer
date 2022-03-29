@@ -29,10 +29,11 @@ public class DialogTreeCreator : MonoBehaviour
     }
     public void CreateTree()
     {
+        
         SetUpCrossPoints();
-        SetUpDialogOptions();
-        
-        
+        SetUpDialogOptions();   //¿eby rysowaæ linie potrzebujemy najpierw wszystkich pozycji
+        CreateLines();
+
     }
     private void SetUpCrossPoints()
     {
@@ -52,13 +53,10 @@ public class DialogTreeCreator : MonoBehaviour
                 Image current=Instantiate(crossPointPrefab,canvas.transform.position+spawnPosition,Quaternion.Euler(0,0,45),treeParent);
                 current.gameObject.name = dialog.levels[i].CrossPoints[j].name;
                 current.gameObject.AddComponent<CrossPointDisplay>().crossPoint= dialog.levels[i].CrossPoints[j];
+                current.gameObject.GetComponent<CrossPointDisplay>().position = spawnPosition;
 
                 int conectedDialogOptionsNum= dialog.levels[i].CrossPoints[j].ConectedDialogOptions.Length;
-               for(int k = 0; k < conectedDialogOptionsNum; k++)
-                {
-                    Vector2 firstPos = current.transform.position;
-                    Vector2 secondPos;
-                }
+               
             }
         }
 
@@ -80,6 +78,7 @@ public class DialogTreeCreator : MonoBehaviour
               Image currentDialogOption=  Instantiate(dialogOptionPrefab, canvas.transform.position + spawnPosition, Quaternion.identity, treeParent);
                 currentDialogOption.gameObject.name = dialog.levels[i].DialogOptions[j].name;
                 currentDialogOption.gameObject.AddComponent<DialogOptionDisplay>().dialogOption = dialog.levels[i].DialogOptions[j];
+                currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().position = spawnPosition;
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().RenderImage();   //zmienia grafikê dialogoption na odpowiedni¹ strategiê
 
                
@@ -89,9 +88,36 @@ public class DialogTreeCreator : MonoBehaviour
             }
         }
     }
-    private void CreateLine(Vector2 a, Vector2 b)
+    private void CreateLines()
     {
+        for(int i = 0; i < dialog.levels.Length;i++)
+        {
+           Level level= dialog.levels[i];
 
+            for(int j = 0; j < level.CrossPoints.Length; j++)
+            {
+                CrossPoint crossPoint = level.CrossPoints[j];
+
+                for (int k = 0; k < crossPoint.ConectedDialogOptions.Length; k++)
+                {
+                    DialogOption dialogOption = crossPoint.ConectedDialogOptions[k];
+
+                    //¿adnych ifów !!!
+
+                    GameObject temp = GameObject.Find(crossPoint.name);
+                    GameObject temp2 = GameObject.Find(dialogOption.name);
+                    Vector2 firstPos = temp.transform.position;
+                    Vector2 secondPos = temp2.transform.position;
+                    float lineLength = Vector2.Distance(firstPos, secondPos);
+
+                  float rotation=Mathf.Atan2(secondPos.x-firstPos.x,secondPos.y-firstPos.y);    //rotacja w radianach
+                    Image image=Instantiate(linePrefab,firstPos,Quaternion.identity,treeParent);
+                    image.rectTransform.sizeDelta = new Vector2(image.rectTransform.sizeDelta.x, lineLength);
+                    image.rectTransform.rotation = Quaternion.EulerRotation(new Vector3(0,0,rotation));
+                }
+            }
+        }
     }
+
     
 }

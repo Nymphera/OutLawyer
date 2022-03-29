@@ -12,7 +12,7 @@ public class DialogOptionDisplay : MonoBehaviour
     private Sprite strategy1, strategy2, strategy3, strategy4, strategy5;
     
     private Image lawyerIcon;
-    WaitForSeconds wait = new WaitForSeconds(2f);
+    WaitForSeconds wait = new WaitForSeconds(1f);
     float animationDuration =3f;
     private void Awake()
     {

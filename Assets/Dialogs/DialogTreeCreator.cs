@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class DialogTreeCreator : MonoBehaviour
-{   
+{
     
     [SerializeField]
     private Dialog dialog;
@@ -59,6 +60,7 @@ public class DialogTreeCreator : MonoBehaviour
                 {
                     lawyerIcon=Instantiate(lawyerIcon, treeParent);
                     lawyerIcon.rectTransform.localPosition = spawnPosition;
+                    
                 }
                
             }

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 47874a62d81a0fa49aadafa62e212779
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - dialogOption: {instanceID: 0}
+  - strategy1: {fileID: 21300000, guid: 2ad3026b998be8645aece886565ed0b9, type: 3}
+  - strategy2: {fileID: 21300000, guid: 46fcee6fc4ce6f546ac83540891130f6, type: 3}
+  - strategy3: {fileID: 21300000, guid: a30eeb13ab3e56f48966c459f15f6306, type: 3}
+  - strategy4: {fileID: 21300000, guid: 6b0e6074ef6053140a6362833730e242, type: 3}
+  - strategy5: {fileID: 21300000, guid: 80e5fa485bb20bf45b41faf5f99d2f35, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

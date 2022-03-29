@@ -31,7 +31,7 @@ public class DialogTreeCreator : MonoBehaviour
     {
         SetUpCrossPoints();
         SetUpDialogOptions();
-        //Instantiate(crossPointPrefab,new Vector3(0,0,0), Quaternion.identity, canvas.transform);
+        
         
     }
     private void SetUpCrossPoints()
@@ -50,7 +50,15 @@ public class DialogTreeCreator : MonoBehaviour
                 index++;
                  spawnPosition = new Vector3 (-levelWidth/2 +(j+1)*intervalLength, -200 +i*levelHeight, 0);
                 Image current=Instantiate(crossPointPrefab,canvas.transform.position+spawnPosition,Quaternion.Euler(0,0,45),treeParent);
-                current.name = dialog.levels[i].CrossPoints[j].name; //trzeba zrobiæ tablicê
+                current.gameObject.name = dialog.levels[i].CrossPoints[j].name;
+                current.gameObject.AddComponent<CrossPointDisplay>().crossPoint= dialog.levels[i].CrossPoints[j];
+
+                int conectedDialogOptionsNum= dialog.levels[i].CrossPoints[j].ConectedDialogOptions.Length;
+               for(int k = 0; k < conectedDialogOptionsNum; k++)
+                {
+                    Vector2 firstPos = current.transform.position;
+                    Vector2 secondPos;
+                }
             }
         }
 
@@ -70,37 +78,20 @@ public class DialogTreeCreator : MonoBehaviour
 
                 spawnPosition = new Vector3(-levelWidth / 2 + (j + 1) * intervalLength, 100 + i * levelHeight, 0);
               Image currentDialogOption=  Instantiate(dialogOptionPrefab, canvas.transform.position + spawnPosition, Quaternion.identity, treeParent);
+                currentDialogOption.gameObject.name = dialog.levels[i].DialogOptions[j].name;
+                currentDialogOption.gameObject.AddComponent<DialogOptionDisplay>().dialogOption = dialog.levels[i].DialogOptions[j];
+                currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().RenderImage();   //zmienia grafikê dialogoption na odpowiedni¹ strategiê
 
-                //dodawanie odpowiedniego zdjêcia strategii
-                if (dialog.levels[i].DialogOptions[j].strategy == Strategy.ZimnaKrew)
-                {
-                    currentDialogOption.sprite = strategy1;
-                }
-                else
-                     if (dialog.levels[i].DialogOptions[j].strategy == Strategy.Podstêp)
-                {
-                    currentDialogOption.sprite = strategy2;
-                }
-                else
-                     if (dialog.levels[i].DialogOptions[j].strategy == Strategy.Profesjonalizm)
-                {
-                    currentDialogOption.sprite = strategy3;
-                }
-                else
-                     if (dialog.levels[i].DialogOptions[j].strategy == Strategy.LuŸnaGadka)
-                {
-                    currentDialogOption.sprite = strategy4;
-                }
-                else
-                     if (dialog.levels[i].DialogOptions[j].strategy == Strategy.UrokOsobisty)
-                {
-                    currentDialogOption.sprite = strategy5;
-                }
-                
+               
+
+
 
             }
         }
     }
+    private void CreateLine(Vector2 a, Vector2 b)
+    {
 
+    }
     
 }

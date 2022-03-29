@@ -15,11 +15,12 @@ public class DialogTreeCreator : MonoBehaviour
     [SerializeField]
     private Canvas canvas;
     [SerializeField]
-    Transform linesParent,dialogOptionsParent,crossPointsParent;
+    Transform linesParent,dialogOptionsParent,crossPointsParent,treeParent;
 
     float levelHeight=600;
     float levelWidth=1200;
 
+    
     private void Awake()
     {
         BackGround.rectTransform.sizeDelta = new Vector2(levelWidth,levelHeight*dialog.levels.Length);
@@ -56,7 +57,7 @@ public class DialogTreeCreator : MonoBehaviour
 
                 if (i == 0 && j == 0)
                 {
-                    lawyerIcon=Instantiate(lawyerIcon, crossPointsParent);
+                    lawyerIcon=Instantiate(lawyerIcon, treeParent);
                     lawyerIcon.rectTransform.localPosition = spawnPosition;
                 }
                
@@ -81,18 +82,17 @@ public class DialogTreeCreator : MonoBehaviour
               Image currentDialogOption=  Instantiate(dialogOptionPrefab, canvas.transform.position + spawnPosition, Quaternion.identity, dialogOptionsParent);
                 currentDialogOption.gameObject.name = dialog.levels[i].DialogOptions[j].name;
                 currentDialogOption.gameObject.AddComponent<DialogOptionDisplay>().dialogOption = dialog.levels[i].DialogOptions[j];
-                currentDialogOption.gameObject.AddComponent<BoxCollider2D>().edgeRadius=50f;
-                currentDialogOption.gameObject.GetComponent<BoxCollider2D>().isTrigger=true;
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().position = spawnPosition;
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().RenderImage();   //zmienia grafikê dialogoption na odpowiedni¹ strategiê
-
-               
-
-
-
+                currentDialogOption.gameObject.AddComponent<Button>().onClick.AddListener(currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().Click);
+                
+                  //w³¹czanie dialogu funkcji Click
+                
             }
         }
     }
+
+
     private void CreateLines()
     {
         for(int i = 0; i < dialog.levels.Length;i++)
@@ -184,5 +184,8 @@ public class DialogTreeCreator : MonoBehaviour
         }
         else return Color.white;
     }
-    
+    public void Click()
+    {
+        lawyerIcon.rectTransform.position=GetComponent<RectTransform>().position;
+    }
 }

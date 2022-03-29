@@ -11,6 +11,16 @@ public class DialogOptionDisplay : MonoBehaviour
     [SerializeField]
     private Sprite strategy1, strategy2, strategy3, strategy4, strategy5;
     
+    private Image lawyerIcon;
+    private void Awake()
+    {
+        
+    }
+    public void Click()
+    {
+        lawyerIcon = GameObject.Find("LawyerImage(Clone)").GetComponent<Image>();
+        lawyerIcon.rectTransform.localPosition = position;
+    }
 
     public void RenderImage()
     {

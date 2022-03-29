@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f355ab2e95955ca4b8301cd253d69c14, type: 3}
+  m_Name: SK_A1
+  m_EditorClassIdentifier: 
+  crossPointName: "CrossPoint_SzefKrab\xF3w_A1"
+  ConectedDialogOptions:
+  - {fileID: 11400000, guid: bff6dd25803998442afd3af6f4035c55, type: 2}
+  - {fileID: 11400000, guid: c6df83aad47ae024abf2316d37c93c6f, type: 2}
+  - {fileID: 11400000, guid: 9dde0a741a213bb42b06328faeb6c33b, type: 2}

@@ -39,7 +39,7 @@ public class DialogTreeCreator : MonoBehaviour
         int dialoglevelsNum= dialog.levels.Length;
         int crosspointNum;
         float intervalLength;
-        
+        int index = 0;
         for(int i = 0; i < dialoglevelsNum; i++)   //pêtla przez wszystkie levele
         {
             crosspointNum = dialog.levels[i].CrossPoints.Length;
@@ -47,9 +47,10 @@ public class DialogTreeCreator : MonoBehaviour
             intervalLength = levelWidth / (crosspointNum + 1);   // d³ugoœæ interwa³u pomiêdzy lewym i prawym bokiem drzewka
             for(int j = 0; j < crosspointNum; j++)
             {
-
+                index++;
                  spawnPosition = new Vector3 (-levelWidth/2 +(j+1)*intervalLength, -200 +i*levelHeight, 0);
-                Instantiate(crossPointPrefab,canvas.transform.position+spawnPosition,Quaternion.Euler(0,0,45),treeParent);
+                Image current=Instantiate(crossPointPrefab,canvas.transform.position+spawnPosition,Quaternion.Euler(0,0,45),treeParent);
+                current.name = dialog.levels[i].CrossPoints[j].name; //trzeba zrobiæ tablicê
             }
         }
 

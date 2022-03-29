@@ -9,7 +9,7 @@ public class DialogOption : ScriptableObject
 
    
         public string text;     // w to pole trzeba wpisaæ tekst który bêdzie pojawiaæ siê w dymku
-        public string nextCrossPointName; // tu wpisujemy nazwê nastêpnego crossPointa np "A2"
+        public CrossPoint nextCrossPoint; // tu wybiermay  nastêpnego crossPointa np "A2"
         public Strategy strategy;   // strategia jak¹ zawiera ten dialog
     
 

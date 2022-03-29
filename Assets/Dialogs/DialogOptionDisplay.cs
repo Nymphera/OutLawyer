@@ -12,14 +12,40 @@ public class DialogOptionDisplay : MonoBehaviour
     private Sprite strategy1, strategy2, strategy3, strategy4, strategy5;
     
     private Image lawyerIcon;
+    WaitForSeconds wait = new WaitForSeconds(2f);
+    float animationDuration =3f;
     private void Awake()
     {
         
     }
     public void Click()
     {
+        StartCoroutine(MoveLawyer());
+    }
+    private IEnumerator MoveLawyer()
+    {
+        float startTime=Time.time;
         lawyerIcon = GameObject.Find("LawyerImage(Clone)").GetComponent<Image>();
+        Vector2 pos = lawyerIcon.rectTransform.localPosition;
+        while (pos!= position)
+        {
+            pos = Vector2.Lerp(lawyerIcon.rectTransform.localPosition, position, (Time.time - startTime)/animationDuration);
+            lawyerIcon.rectTransform.localPosition = pos;
+            yield return null;
+        }
         lawyerIcon.rectTransform.localPosition = position;
+
+        yield return wait;
+        startTime = Time.time;
+        pos = lawyerIcon.rectTransform.localPosition;
+        Vector2 pos2=GameObject.Find(dialogOption.nextCrossPoint.name).GetComponent<RectTransform>().localPosition;
+         while (pos!= pos2)
+         {
+            pos = Vector2.Lerp(lawyerIcon.rectTransform.localPosition, pos2, (Time.time - startTime)/animationDuration);
+            lawyerIcon.rectTransform.localPosition = pos;
+            yield return null;
+         }
+        lawyerIcon.rectTransform.localPosition = pos2;
     }
 
     public void RenderImage()

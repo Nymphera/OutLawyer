@@ -11,12 +11,11 @@ public class DialogTreeCreator : MonoBehaviour
     private Dialog dialog;
     [SerializeField]
     private Image crossPointPrefab, dialogOptionPrefab, linePrefab, lawyerIcon, result, BackGround,checkPosition;
-    [SerializeField]
-    Sprite strategy1, strategy2, strategy3, strategy4, strategy5;
+   
     [SerializeField]
     private Canvas canvas;
     [SerializeField]
-    Transform treeParent;
+    Transform linesParent,dialogOptionsParent,crossPointsParent;
 
     float levelHeight=600;
     float levelWidth=1200;
@@ -50,12 +49,16 @@ public class DialogTreeCreator : MonoBehaviour
             {
                 index++;
                  spawnPosition = new Vector3 (-levelWidth/2 +(j+1)*intervalLength, -200 +i*levelHeight, 0);
-                Image current=Instantiate(crossPointPrefab,canvas.transform.position+spawnPosition,Quaternion.Euler(0,0,45),treeParent);
+                Image current=Instantiate(crossPointPrefab,canvas.transform.position+spawnPosition,Quaternion.Euler(0,0,45),crossPointsParent);
                 current.gameObject.name = dialog.levels[i].CrossPoints[j].name;
                 current.gameObject.AddComponent<CrossPointDisplay>().crossPoint= dialog.levels[i].CrossPoints[j];
                 current.gameObject.GetComponent<CrossPointDisplay>().position = spawnPosition;
 
-                int conectedDialogOptionsNum= dialog.levels[i].CrossPoints[j].ConectedDialogOptions.Length;
+                if (i == 0 && j == 0)
+                {
+                    lawyerIcon=Instantiate(lawyerIcon, crossPointsParent);
+                    lawyerIcon.rectTransform.localPosition = spawnPosition;
+                }
                
             }
         }
@@ -75,9 +78,11 @@ public class DialogTreeCreator : MonoBehaviour
             {
 
                 spawnPosition = new Vector3(-levelWidth / 2 + (j + 1) * intervalLength, 100 + i * levelHeight, 0);
-              Image currentDialogOption=  Instantiate(dialogOptionPrefab, canvas.transform.position + spawnPosition, Quaternion.identity, treeParent);
+              Image currentDialogOption=  Instantiate(dialogOptionPrefab, canvas.transform.position + spawnPosition, Quaternion.identity, dialogOptionsParent);
                 currentDialogOption.gameObject.name = dialog.levels[i].DialogOptions[j].name;
                 currentDialogOption.gameObject.AddComponent<DialogOptionDisplay>().dialogOption = dialog.levels[i].DialogOptions[j];
+                currentDialogOption.gameObject.AddComponent<BoxCollider2D>().edgeRadius=50f;
+                currentDialogOption.gameObject.GetComponent<BoxCollider2D>().isTrigger=true;
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().position = spawnPosition;
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().RenderImage();   //zmienia grafikê dialogoption na odpowiedni¹ strategiê
 
@@ -102,7 +107,7 @@ public class DialogTreeCreator : MonoBehaviour
                 {
                     DialogOption dialogOption = crossPoint.ConectedDialogOptions[k];
 
-                    //¿adnych ifów !!!
+                    
 
                     GameObject temp = GameObject.Find(crossPoint.name);
                     GameObject temp2 = GameObject.Find(dialogOption.name);
@@ -110,19 +115,74 @@ public class DialogTreeCreator : MonoBehaviour
                     
                     Vector2 secondPos = temp2.GetComponent<DialogOptionDisplay>().position;
 
-                    Debug.Log(temp.name + " " +(secondPos-firstPos) );
-                    Instantiate(checkPosition,secondPos,Quaternion.identity,treeParent);
+                    
                     float lineLength = Vector2.Distance(firstPos, secondPos);
 
                   float rotation=Mathf.Atan2(secondPos.x-firstPos.x,secondPos.y-firstPos.y);    //rotacja w radianach
-                    Image image=Instantiate(linePrefab,firstPos, Quaternion.EulerRotation(new Vector3(0, 0, -rotation)), treeParent);
+                    Image image=Instantiate(linePrefab,firstPos, Quaternion.EulerRotation(new Vector3(0, 0, -rotation)), linesParent);
                     image.rectTransform.sizeDelta = new Vector2(image.rectTransform.sizeDelta.x, lineLength);
                     image.rectTransform.localPosition = firstPos;
-                    
+                    image.color = SetLineColor(dialogOption.strategy);
                 }
             }
         }
-    }
 
+        for (int i = 0; i < dialog.levels.Length; i++)
+        {
+            Level level = dialog.levels[i];
+
+            for (int j = 0; j < level.DialogOptions.Length; j++)
+            {
+               
+                DialogOption dialogOption = level.DialogOptions[j];
+                CrossPoint crossPoint = dialogOption.nextCrossPoint;
+
+                GameObject temp = GameObject.Find(dialogOption.name);
+                GameObject temp2 = GameObject.Find(crossPoint.name);
+                    
+                    Vector2 firstPos = temp.GetComponent<DialogOptionDisplay>().position;
+
+                    Vector2 secondPos = temp2.GetComponent<CrossPointDisplay>().position;
+
+                    float lineLength = Vector2.Distance(firstPos, secondPos);
+
+                    float rotation = Mathf.Atan2(secondPos.x - firstPos.x, secondPos.y - firstPos.y);    //rotacja w radianach
+
+                    Image image = Instantiate(linePrefab, firstPos, Quaternion.EulerRotation(new Vector3(0, 0, -rotation)),linesParent);
+                    image.rectTransform.sizeDelta = new Vector2(image.rectTransform.sizeDelta.x, lineLength);
+                    image.rectTransform.localPosition = firstPos;
+
+                image.color = SetLineColor(dialogOption.strategy);
+            }
+        }
+    }
+    private Color SetLineColor(Strategy strategy)
+    {
+        if (strategy == Strategy.LuŸnaGadka)
+        {
+            return Color.blue;
+        }
+        else
+            if (strategy == Strategy.Podstêp)
+        {
+            return Color.magenta;
+        }
+        else
+            if (strategy == Strategy.Profesjonalizm)
+        {
+            return Color.yellow; //co to kurwa za brak fajnych kolorków
+        }
+        else
+            if (strategy == Strategy.UrokOsobisty)
+        {
+            return Color.green;
+        }
+        else
+            if (strategy == Strategy.ZimnaKrew)
+        {
+            return Color.red;
+        }
+        else return Color.white;
+    }
     
 }

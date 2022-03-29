@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - CrossPoints:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: fde64bca4ee75eb4d9bfb84e5097a9b4, type: 2}
     DialogOptions:
     - {fileID: 11400000, guid: bff6dd25803998442afd3af6f4035c55, type: 2}
     - {fileID: 11400000, guid: c6df83aad47ae024abf2316d37c93c6f, type: 2}

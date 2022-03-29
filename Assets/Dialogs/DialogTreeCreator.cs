@@ -10,7 +10,7 @@ public class DialogTreeCreator : MonoBehaviour
     [SerializeField]
     private Dialog dialog;
     [SerializeField]
-    private Image crossPointPrefab, dialogOptionPrefab, linePrefab, lawyerIcon, result, BackGround;
+    private Image crossPointPrefab, dialogOptionPrefab, linePrefab, lawyerIcon, result, BackGround,checkPosition;
     [SerializeField]
     Sprite strategy1, strategy2, strategy3, strategy4, strategy5;
     [SerializeField]
@@ -19,7 +19,7 @@ public class DialogTreeCreator : MonoBehaviour
     Transform treeParent;
 
     float levelHeight=600;
-    float levelWidth=1400;
+    float levelWidth=1200;
 
     private void Awake()
     {
@@ -106,14 +106,19 @@ public class DialogTreeCreator : MonoBehaviour
 
                     GameObject temp = GameObject.Find(crossPoint.name);
                     GameObject temp2 = GameObject.Find(dialogOption.name);
-                    Vector2 firstPos = temp.transform.position;
-                    Vector2 secondPos = temp2.transform.position;
+                    Vector2 firstPos = temp.GetComponent<CrossPointDisplay>().position;
+                    
+                    Vector2 secondPos = temp2.GetComponent<DialogOptionDisplay>().position;
+
+                    Debug.Log(temp.name + " " +(secondPos-firstPos) );
+                    Instantiate(checkPosition,secondPos,Quaternion.identity,treeParent);
                     float lineLength = Vector2.Distance(firstPos, secondPos);
 
                   float rotation=Mathf.Atan2(secondPos.x-firstPos.x,secondPos.y-firstPos.y);    //rotacja w radianach
-                    Image image=Instantiate(linePrefab,firstPos,Quaternion.identity,treeParent);
+                    Image image=Instantiate(linePrefab,firstPos, Quaternion.EulerRotation(new Vector3(0, 0, -rotation)), treeParent);
                     image.rectTransform.sizeDelta = new Vector2(image.rectTransform.sizeDelta.x, lineLength);
-                    image.rectTransform.rotation = Quaternion.EulerRotation(new Vector3(0,0,rotation));
+                    image.rectTransform.localPosition = firstPos;
+                    
                 }
             }
         }

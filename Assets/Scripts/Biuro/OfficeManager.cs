@@ -9,6 +9,7 @@ public class OfficeManager : MonoBehaviour
     
     private PinBoardLogic pinBoardLogic;
     private Interact interact;
+    private Interact2 interact2;
     
 
     private InputAction MousePosition;
@@ -23,10 +24,11 @@ public class OfficeManager : MonoBehaviour
         Buttons = PinBoardUI.transform.GetChild(1).gameObject;
         Settings= PinBoardUI.transform.GetChild(0).gameObject;
         PinBoard = GameObject.Find("PinBoard");
-        GameManager = GameObject.Find("GameManager");
-        
+
+        interact = GameObject.Find("Interact").GetComponent<Interact>();   
+        interact2= GameObject.Find("Interact2").GetComponent<Interact2>();
         pinBoardLogic = PinBoard.GetComponent<PinBoardLogic>();
-        interact = GameManager.GetComponent<Interact>();
+        
 
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
         PinBoardControls.PinBoard.MouseLeftClick.performed += MouseLeftClick_performed;
@@ -67,12 +69,14 @@ public class OfficeManager : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(Ray,out hit))
         {
-            if (hit.transform.tag == "Interact")
+            if (hit.transform.tag == "Interact"&&currentState==OfficeState.Overview)
             {
                 CinemachineSwitcher.Instance.SwitchState(hit.transform.name);
                 
-                    hit.transform.GetComponent<Outline>().enabled = false;
-                
+            }
+            if (hit.transform.tag == "Interact2"&&currentState==OfficeState.Desk)
+            {
+                Debug.Log("do sth");
             }
         }
     }
@@ -81,12 +85,17 @@ public class OfficeManager : MonoBehaviour
     {
         currentState = state;
         pinBoardLogic.enabled = (state == OfficeState.PinBoard);
-        interact.enabled = (state == OfficeState.Overview);
+        Buttons.SetActive(state == OfficeState.PinBoard);
+        interact.enabled= (OfficeState.Overview == state);
+        //interact.enabled = (state == OfficeState.Overview);
         if (PinBoardUI != null)
             //Buttons.SetActive(state == OfficeState.PinBoard);
                 PinBoardUI.SetActive(state == OfficeState.PinBoard||state==OfficeState.Inspect);
 
-        Buttons.SetActive(state == OfficeState.PinBoard);
+
+        
+        interact2.enabled = (state == OfficeState.Desk);
+
     }
 
 }

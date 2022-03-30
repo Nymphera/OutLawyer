@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interact2 : MonoBehaviour
 {[SerializeField]
-    List<GameObject> interactable;
+    List<GameObject> interactable2;
     private GameObject selectedObject;
     private void Awake()
     {
@@ -20,18 +20,20 @@ public class Interact2 : MonoBehaviour
 
         if (OfficeState.Desk == state)
         {
-            interactable = new List<GameObject>();
-            interactable.AddRange(GameObject.FindGameObjectsWithTag("Interact2"));
+            interactable2 = new List<GameObject>();
+            interactable2.AddRange(GameObject.FindGameObjectsWithTag("Interact2"));
 
-            CreateOutline(interactable);
+           
+            CreateOutline(interactable2);
+            
         }
     }
     private void CreateOutline(List<GameObject> interact)
     {
         foreach (GameObject obj in interact)
         {
-            if (obj.GetComponent<MeshCollider>() == null)
-                obj.AddComponent<MeshCollider>();
+            if (obj.gameObject.GetComponent<MeshCollider>() == null)
+                obj.gameObject.AddComponent<MeshCollider>();
             if (obj.GetComponent<Outline>() == null)
             {
                 obj.AddComponent<Outline>();
@@ -44,8 +46,9 @@ public class Interact2 : MonoBehaviour
 
         }
     }
-    void Update()
+    private void Update()
     {
+        
         if (selectedObject != null)
         {
             DisableOutline(selectedObject);
@@ -58,11 +61,11 @@ public class Interact2 : MonoBehaviour
 
         if (Physics.Raycast(Ray, out hit))
         {
-            if (hit.transform.tag == "Interact")
+            if (hit.transform.tag == "Interact2")
             {
                 selectedObj = hit.transform.gameObject;
                 EnableOutline(selectedObj);
-
+               
 
                 selectedObject = selectedObj;
             }

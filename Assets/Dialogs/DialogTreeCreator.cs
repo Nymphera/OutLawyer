@@ -84,7 +84,7 @@ public class DialogTreeCreator : MonoBehaviour
               Image currentDialogOption=  Instantiate(dialogOptionPrefab, canvas.transform.position + spawnPosition, Quaternion.identity, dialogOptionsParent);
                 currentDialogOption.gameObject.name = dialog.levels[i].DialogOptions[j].name;
                 currentDialogOption.gameObject.AddComponent<DialogOptionDisplay>().dialogOption = dialog.levels[i].DialogOptions[j];
-                currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().position = spawnPosition;
+                currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().buttonPosition = spawnPosition;
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().RenderImage();   //zmienia grafikê dialogoption na odpowiedni¹ strategiê
                 currentDialogOption.gameObject.AddComponent<Button>().onClick.AddListener(currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().Click);
                 
@@ -115,7 +115,7 @@ public class DialogTreeCreator : MonoBehaviour
                     GameObject temp2 = GameObject.Find(dialogOption.name);
                     Vector2 firstPos = temp.GetComponent<CrossPointDisplay>().position;
                     
-                    Vector2 secondPos = temp2.GetComponent<DialogOptionDisplay>().position;
+                    Vector2 secondPos = temp2.GetComponent<DialogOptionDisplay>().buttonPosition;
 
                     
                     float lineLength = Vector2.Distance(firstPos, secondPos);
@@ -142,7 +142,7 @@ public class DialogTreeCreator : MonoBehaviour
                 GameObject temp = GameObject.Find(dialogOption.name);
                 GameObject temp2 = GameObject.Find(crossPoint.name);
                     
-                    Vector2 firstPos = temp.GetComponent<DialogOptionDisplay>().position;
+                    Vector2 firstPos = temp.GetComponent<DialogOptionDisplay>().buttonPosition;
 
                     Vector2 secondPos = temp2.GetComponent<CrossPointDisplay>().position;
 

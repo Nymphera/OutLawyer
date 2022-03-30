@@ -39,7 +39,8 @@ public class DialogOptionDisplay : MonoBehaviour
             yield return null;
         }
         lawyerIcon.rectTransform.localPosition = buttonPosition;
-        yield return wait;
+        Debug.Log("Wait for dialog");
+        yield return wait;  //wait Until
         Vector3 nextCrossPointPosition = GameObject.Find(dialogOption.nextCrossPoint.name).GetComponent<RectTransform>().localPosition;
         Vector3 newTreePosition = new Vector3(tree.localPosition.x, tree.localPosition.y - 600, tree.localPosition.z);
         distanceToTarget = Vector3.Distance(lawyerIcon.rectTransform.localPosition, nextCrossPointPosition);

@@ -94,7 +94,7 @@ public class OfficeManager : MonoBehaviour
             if (name == "Phone")
         {
             Debug.Log("w³¹cza system dialogów (chocia¿ nie  powinien)");
-            
+            GameManager.Instance.UpdateGameState(GameState.Dialog);
         }
         else if (name == "Newspaper")
         {

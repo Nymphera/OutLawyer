@@ -54,7 +54,7 @@ public class EvidenceDisplay : MonoBehaviour
     { 
         foreach(Evidence.IsConectedTo conection  in Evidence.Conections)
         {
-            conection.Conclusion = conclusionStrings[conection.conectNumber-1];
+           // conection.Conclusion = conclusionStrings[conection.conectNumber-1];
         }
     }
     void SpriteRender()

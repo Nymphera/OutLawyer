@@ -115,17 +115,16 @@ public class PinBoardLogic : MonoBehaviour
         SettingsPanel.SetActive(false);
         if (Object?.layer == 7)
         {
-            
+
             GameObject Evidence = Object.transform.parent.gameObject;
-            
-            
+
+
             SetPoints(Evidence.transform);
             SetEvidences(Evidence.transform);
         }
-        else if (Object.name == Scissors.name)
-        {
-            Scissors.GetComponent<RectTransform>().position = Input.mousePosition;
-        }
+       
+        else
+            Debug.Log("Nothing to touch");  // czemu to dzia³a gdy tablica nie jest w³¹czonea?
      
         
 

@@ -13,10 +13,10 @@ public class Interact : MonoBehaviour
   
     
     private GameObject selectedObject;
-    public Interact Instance;
+    
     private void Awake()
     {
-        Instance = this;
+        
         SceneManager.activeSceneChanged += SceneManager_activeSceneChanged;
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
 

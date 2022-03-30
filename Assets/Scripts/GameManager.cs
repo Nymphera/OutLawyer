@@ -54,5 +54,6 @@ public class GameManager : MonoBehaviour
        Inspect,
         Dialog,
         Negotiations,
-        Office
+        Office,
+        Location
     }

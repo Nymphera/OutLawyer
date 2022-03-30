@@ -3347,8 +3347,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1116299832}
   - component: {fileID: 1116299831}
-  - component: {fileID: 1116299833}
-  - component: {fileID: 1116299834}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3385,33 +3383,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1116299833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116299830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a40e90753d95347b8b15dc5d834c32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactable: []
-  Instance: {fileID: 0}
---- !u!114 &1116299834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116299830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4db0d6841882e0c46b49b44078ca6f50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactable: []
 --- !u!4 &1226856155 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8744642215498789381, guid: 87e19a6400e64a04796a349b6fa6fd8b, type: 3}
@@ -3645,6 +3616,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309326707}
   m_CullTransparentMesh: 1
+--- !u!1 &1335743612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1335743614}
+  - component: {fileID: 1335743613}
+  m_Layer: 0
+  m_Name: Interact2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1335743613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335743612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db0d6841882e0c46b49b44078ca6f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable2: []
+--- !u!4 &1335743614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335743612}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7904051, y: 1.0085013, z: -0.008206904}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1456761885
 GameObject:
   m_ObjectHideFlags: 0
@@ -4140,6 +4155,10 @@ PrefabInstance:
       value: Interact
       objectReference: {fileID: 0}
     - target: {fileID: -942191461205251345, guid: 16f56ebe207009d49b99c67a23671ca2, type: 3}
+      propertyPath: m_Name
+      value: Globus
+      objectReference: {fileID: 0}
+    - target: {fileID: -942191461205251345, guid: 16f56ebe207009d49b99c67a23671ca2, type: 3}
       propertyPath: m_TagString
       value: Interact2
       objectReference: {fileID: 0}
@@ -4172,6 +4191,10 @@ PrefabInstance:
       value: biuro
       objectReference: {fileID: 0}
     - target: {fileID: 1356420118477198343, guid: 16f56ebe207009d49b99c67a23671ca2, type: 3}
+      propertyPath: m_Name
+      value: Newspaper
+      objectReference: {fileID: 0}
+    - target: {fileID: 1356420118477198343, guid: 16f56ebe207009d49b99c67a23671ca2, type: 3}
       propertyPath: m_TagString
       value: Interact2
       objectReference: {fileID: 0}
@@ -4182,6 +4205,10 @@ PrefabInstance:
     - target: {fileID: 3041186530252169948, guid: 16f56ebe207009d49b99c67a23671ca2, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812449877306207454, guid: 16f56ebe207009d49b99c67a23671ca2, type: 3}
+      propertyPath: m_Name
+      value: Revolver
       objectReference: {fileID: 0}
     - target: {fileID: 3812449877306207454, guid: 16f56ebe207009d49b99c67a23671ca2, type: 3}
       propertyPath: m_TagString
@@ -4247,6 +4274,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8891792828147989070, guid: 16f56ebe207009d49b99c67a23671ca2, type: 3}
   m_PrefabInstance: {fileID: 1681859104}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1689810417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1689810419}
+  - component: {fileID: 1689810418}
+  m_Layer: 0
+  m_Name: Interact
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1689810418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689810417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a40e90753d95347b8b15dc5d834c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable: []
+--- !u!4 &1689810419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689810417}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7904051, y: 1.0085013, z: -0.008206904}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1691313843
 GameObject:
   m_ObjectHideFlags: 0
@@ -4574,7 +4645,7 @@ Transform:
   - {fileID: 4083501149952376325}
   - {fileID: 794818752}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1743484372
 MonoBehaviour:
@@ -4593,7 +4664,6 @@ MonoBehaviour:
   LineParent: {fileID: 443562534}
   linePrefab: {fileID: 8969533229563378573, guid: a94b11fe908360f40860f17a3627efe5, type: 3}
   SettingsPanel: {fileID: 710918776}
-  Scissors: {fileID: 0}
   points: []
   Evidences: []
   lines: []
@@ -4952,7 +5022,7 @@ Transform:
   - {fileID: 1851936608}
   - {fileID: 1681859105}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1990275731
 GameObject:

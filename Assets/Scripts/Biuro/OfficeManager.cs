@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,12 @@ using UnityEngine.InputSystem;
 
 public class OfficeManager : MonoBehaviour
 {
-    private GameObject PinBoard,GameManager, PinBoardUI,Buttons,Settings;
+    private GameObject PinBoard, PinBoardUI,Buttons,Settings;
     
     private PinBoardLogic pinBoardLogic;
     private Interact interact;
     private Interact2 interact2;
+    
     
 
     private InputAction MousePosition;
@@ -76,9 +78,29 @@ public class OfficeManager : MonoBehaviour
             }
             if (hit.transform.tag == "Interact2"&&currentState==OfficeState.Desk)
             {
-                Debug.Log("do sth");
+                DeskInteractWith(hit.transform.name);
             }
         }
+    }
+
+    private void DeskInteractWith(string name)
+    {
+        if (name == "Globus")
+        {
+            Debug.Log("przenosi do nastêpnej lokacji");
+            GameManager.Instance.UpdateGameState(GameState.Location);
+        }
+        else
+            if (name == "Phone")
+        {
+            Debug.Log("w³¹cza system dialogów (chocia¿ nie  powinien)");
+            
+        }
+        else if (name == "Newspaper")
+        {
+            Debug.Log("Teraz powinien w³¹czyæ siê system gazety");
+        }
+
     }
 
     private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)

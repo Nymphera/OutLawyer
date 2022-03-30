@@ -67,7 +67,7 @@ public class PinBoardLogic : MonoBehaviour
 
         SettingsPanel.SetActive(false);
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         PinBoardControls.PinBoard.MouseLeftClick.performed -= MouseLeftClick_performed;
         PinBoardControls.PinBoard.MouseRightClick.performed -= MouseRightClick_performed;

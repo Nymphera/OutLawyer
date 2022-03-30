@@ -5,7 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoad : MonoBehaviour
 {
-    
+    private void Awake()
+    {
+        GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+    }
+
+    private void GameManager_OnGameStateChanged(GameState state)
+    {
+        if (state == GameState.Location)
+        {
+            CinemachineSwitcher.Instance.SwitchState("Biuro");
+            SceneManager.LoadScene("Krabiarnia");
+        }
+        else if (state == GameState.Dialog)
+        {
+            CinemachineSwitcher.Instance.SwitchState("Biuro");
+            SceneManager.LoadScene("Dialogs");
+        }
+    }
+
     public void LoadGame()
     {
         SceneManager.LoadScene("Game");
@@ -21,10 +39,5 @@ public class SceneLoad : MonoBehaviour
         SceneManager.LoadScene("Game");
         
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        
-        SceneManager.LoadScene("Biuro");
-      //  GameManager.Instance.UpdateGameState(GameState.Office);
-    }
+   
 }

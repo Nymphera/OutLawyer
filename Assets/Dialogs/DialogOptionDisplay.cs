@@ -16,9 +16,11 @@ public class DialogOptionDisplay : MonoBehaviour
     private Image lawyerIcon;
     WaitForSeconds wait = new WaitForSeconds(1f);
     float animationDuration =3f;
+    Coroutine moveCorountine;
    
     public void Click()
     {
+        
         StartCoroutine(MoveLawyer());
     }
     private IEnumerator MoveLawyer()    //nie wiem czy to powinno byæ tutaj
@@ -58,6 +60,7 @@ public class DialogOptionDisplay : MonoBehaviour
         }
         lawyerIcon.rectTransform.localPosition = nextCrossPointPosition;
         tree.localPosition = newTreePosition;
+
         /*Vector2 currentposition = lawyerIcon.rectTransform.position;
        
         float elapsedTime = 0;

@@ -36,7 +36,7 @@ public class SceneLoad : MonoBehaviour
     }  
     public void LoadOffice()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Biuro");
         
     }
    

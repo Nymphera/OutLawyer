@@ -4,18 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
+using System.Linq;
 
 public class DialogTreeCreator : MonoBehaviour
 {
     
     [SerializeField]
     private Dialog dialog;
+    
     [SerializeField]
-    private Image crossPointPrefab, dialogOptionPrefab, linePrefab, lawyerIcon, result, BackGround,checkPosition;
+    private Image crossPointPrefab, dialogOptionPrefab, linePrefab, lawyerIcon, BackGround;
    
-    [SerializeField]
+    
     private Canvas canvas;
-    [SerializeField]
+    
     Transform linesParent,dialogOptionsParent,crossPointsParent,treeParent;
 
     float levelHeight=600;
@@ -24,10 +26,24 @@ public class DialogTreeCreator : MonoBehaviour
     
     private void Awake()
     {
+        BackGround = GameObject.Find("BackGroundImage").GetComponent<Image>();
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        linesParent= GameObject.Find("Lines").transform;
+        dialogOptionsParent= GameObject.Find("DialogOptions").transform;
+        crossPointsParent= GameObject.Find("CrossPoints").transform;
+        treeParent= GameObject.Find("Tree").transform;
+
+       
+        dialogOptionPrefab = GameObject.Find("DialogOptionImage").GetComponent<Image>() ;
+        crossPointPrefab = GameObject.Find("CrossPointImage").GetComponent<Image>() ;
+        lawyerIcon = GameObject.Find("LawyerImage").GetComponent<Image>() ;
+        linePrefab = GameObject.Find("LineUI").GetComponent<Image>() ;
+
         BackGround.rectTransform.sizeDelta = new Vector2(levelWidth,levelHeight*dialog.levels.Length);
         CreateTree();
        
     }
+    
     public void CreateTree()
     {
         

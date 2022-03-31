@@ -9,7 +9,14 @@ public class SceneLoad : MonoBehaviour
     {
         GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
     }
-
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        LoadOffice();
+    }
     private void GameManager_OnGameStateChanged(GameState state)
     {
         if (state == GameState.Location)
@@ -39,5 +46,6 @@ public class SceneLoad : MonoBehaviour
         SceneManager.LoadScene("Biuro");
         
     }
+    
    
 }

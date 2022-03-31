@@ -40,6 +40,7 @@ public class DialogTreeCreator : MonoBehaviour
         linePrefab = GameObject.Find("LineUI").GetComponent<Image>() ;
 
         BackGround.rectTransform.sizeDelta = new Vector2(levelWidth,levelHeight*dialog.levels.Length);
+
         CreateTree();
        
     }

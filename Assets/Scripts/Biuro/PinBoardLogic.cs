@@ -57,12 +57,12 @@ public class PinBoardLogic : MonoBehaviour
 
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
 
-        if (Instance != null)
-            Destroy(gameObject);
+        if (Instance != null) ;
+        //Destroy(gameObject);
         else
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
         }
 
         SettingsPanel.SetActive(false);
@@ -122,9 +122,8 @@ public class PinBoardLogic : MonoBehaviour
             SetPoints(Evidence.transform);
             SetEvidences(Evidence.transform);
         }
-       
-        else
-            Debug.Log("Nothing to touch");  // czemu to dzia³a gdy tablica nie jest w³¹czonea?
+
+        else;
      
         
 

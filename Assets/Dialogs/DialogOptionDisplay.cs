@@ -28,15 +28,8 @@ public class DialogOptionDisplay : MonoBehaviour
 
     public void RenderImage()
     {
-        Debug.Log("Render");
-        if (dialogOption.strategy == null)
-        {
-            Debug.Log("Strategy is null");
-        }
-        if (strategy1 == null)
-        {
-            Debug.Log("Strategy sprite is null");
-        }
+        
+        
         if (dialogOption.strategy == Strategy.ZimnaKrew)
         {
             GetComponent<Image>().sprite = strategy1;

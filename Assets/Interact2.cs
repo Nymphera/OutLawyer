@@ -9,6 +9,7 @@ public class Interact2 : MonoBehaviour
     private void Awake()
     {
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
+        
     }
     private void OnDestroy()
     {
@@ -17,7 +18,7 @@ public class Interact2 : MonoBehaviour
 
     private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
     {
-
+        
         if (OfficeState.Desk == state)
         {
             interactable2 = new List<GameObject>();

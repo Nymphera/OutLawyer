@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class OfficeManager : MonoBehaviour
 {
+    [SerializeField]
     private GameObject PinBoard, PinBoardUI,Buttons,Settings;
     
     private PinBoardLogic pinBoardLogic;
@@ -21,6 +22,8 @@ public class OfficeManager : MonoBehaviour
     private void Awake()
     {
         PinBoardControls = new PinBoardControls();
+
+        
 
         PinBoardUI = GameObject.Find("PinBoardCanvas");
         Buttons = PinBoardUI.transform.GetChild(1).gameObject;
@@ -38,6 +41,12 @@ public class OfficeManager : MonoBehaviour
 
         
 
+    }
+    private void OnDestroy()
+    {
+        CinemachineSwitcher.OnOfficeStateChanged -= CinemachineSwitcher_OnOfficeStateChanged;
+        PinBoardControls.PinBoard.MouseLeftClick.performed -= MouseLeftClick_performed;
+        PinBoardControls.PinBoard.LeavePinBoard.performed -= LeavePinBoard_performed;
     }
     private void Start()
     {
@@ -88,12 +97,14 @@ public class OfficeManager : MonoBehaviour
         if (name == "Globus")
         {
             Debug.Log("przenosi do nastêpnej lokacji");
+            CinemachineSwitcher.Instance.SwitchState("Biuro");
             GameManager.Instance.UpdateGameState(GameState.Location);
         }
         else
             if (name == "Phone")
         {
             Debug.Log("w³¹cza system dialogów (chocia¿ nie  powinien)");
+            CinemachineSwitcher.Instance.SwitchState("Biuro");
             GameManager.Instance.UpdateGameState(GameState.Dialog);
         }
         else if (name == "Newspaper")
@@ -107,7 +118,9 @@ public class OfficeManager : MonoBehaviour
     {
         currentState = state;
         pinBoardLogic.enabled = (state == OfficeState.PinBoard);
+        if(Buttons!=null)
         Buttons.SetActive(state == OfficeState.PinBoard);
+        if(interact!=null)
         interact.enabled= (OfficeState.Overview == state);
         //interact.enabled = (state == OfficeState.Overview);
         if (PinBoardUI != null)
@@ -115,7 +128,7 @@ public class OfficeManager : MonoBehaviour
                 PinBoardUI.SetActive(state == OfficeState.PinBoard||state==OfficeState.Inspect);
 
 
-        
+        if(interact2!=null)
         interact2.enabled = (state == OfficeState.Desk);
 
     }

@@ -4,18 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
+using System.Linq;
 
 public class DialogTreeCreator : MonoBehaviour
 {
     
     [SerializeField]
     private Dialog dialog;
+    
     [SerializeField]
-    private Image crossPointPrefab, dialogOptionPrefab, linePrefab, lawyerIcon, result, BackGround,checkPosition;
+    private Image crossPointPrefab, dialogOptionPrefab, linePrefab, lawyerIcon, BackGround;
    
-    [SerializeField]
+    
     private Canvas canvas;
-    [SerializeField]
+    
     Transform linesParent,dialogOptionsParent,crossPointsParent,treeParent;
 
     float levelHeight=600;
@@ -24,10 +26,25 @@ public class DialogTreeCreator : MonoBehaviour
     
     private void Awake()
     {
+        BackGround = GameObject.Find("BackGroundImage").GetComponent<Image>();
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        linesParent= GameObject.Find("Lines").transform;
+        dialogOptionsParent= GameObject.Find("DialogOptions").transform;
+        crossPointsParent= GameObject.Find("CrossPoints").transform;
+        treeParent= GameObject.Find("Tree").transform;
+
+       
+        dialogOptionPrefab = GameObject.Find("DialogOptionImage").GetComponent<Image>() ;
+        crossPointPrefab = GameObject.Find("CrossPointImage").GetComponent<Image>() ;
+        lawyerIcon = GameObject.Find("LawyerImage").GetComponent<Image>() ;
+        linePrefab = GameObject.Find("LineUI").GetComponent<Image>() ;
+
         BackGround.rectTransform.sizeDelta = new Vector2(levelWidth,levelHeight*dialog.levels.Length);
+
         CreateTree();
        
     }
+    
     public void CreateTree()
     {
         
@@ -84,7 +101,7 @@ public class DialogTreeCreator : MonoBehaviour
               Image currentDialogOption=  Instantiate(dialogOptionPrefab, canvas.transform.position + spawnPosition, Quaternion.identity, dialogOptionsParent);
                 currentDialogOption.gameObject.name = dialog.levels[i].DialogOptions[j].name;
                 currentDialogOption.gameObject.AddComponent<DialogOptionDisplay>().dialogOption = dialog.levels[i].DialogOptions[j];
-                currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().position = spawnPosition;
+                currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().buttonPosition = spawnPosition;
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().RenderImage();   //zmienia grafikê dialogoption na odpowiedni¹ strategiê
                 currentDialogOption.gameObject.AddComponent<Button>().onClick.AddListener(currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().Click);
                 
@@ -115,7 +132,7 @@ public class DialogTreeCreator : MonoBehaviour
                     GameObject temp2 = GameObject.Find(dialogOption.name);
                     Vector2 firstPos = temp.GetComponent<CrossPointDisplay>().position;
                     
-                    Vector2 secondPos = temp2.GetComponent<DialogOptionDisplay>().position;
+                    Vector2 secondPos = temp2.GetComponent<DialogOptionDisplay>().buttonPosition;
 
                     
                     float lineLength = Vector2.Distance(firstPos, secondPos);
@@ -142,7 +159,7 @@ public class DialogTreeCreator : MonoBehaviour
                 GameObject temp = GameObject.Find(dialogOption.name);
                 GameObject temp2 = GameObject.Find(crossPoint.name);
                     
-                    Vector2 firstPos = temp.GetComponent<DialogOptionDisplay>().position;
+                    Vector2 firstPos = temp.GetComponent<DialogOptionDisplay>().buttonPosition;
 
                     Vector2 secondPos = temp2.GetComponent<CrossPointDisplay>().position;
 

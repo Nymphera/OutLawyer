@@ -8,61 +8,27 @@ using Cinemachine;
 public class DialogOptionDisplay : MonoBehaviour
 {
     public DialogOption dialogOption;
-    public Vector2 position;
+    public Vector3 buttonPosition;
     [SerializeField]
     private Sprite strategy1, strategy2, strategy3, strategy4, strategy5;
+    public static event Action<DialogOption, Vector3> OnDialogButtonClicked;
+
+    
+
     
     
-    private Image lawyerIcon;
-    WaitForSeconds wait = new WaitForSeconds(5f);
-    float animationDuration =3f;
+    
    
+
     public void Click()
     {
-        StartCoroutine(MoveLawyer());
+        OnDialogButtonClicked(dialogOption,buttonPosition);
     }
-    private IEnumerator MoveLawyer()
-    {
-        float startTime=Time.time;
-        lawyerIcon = GameObject.Find("LawyerImage(Clone)").GetComponent<Image>();
-        Vector2 pos = lawyerIcon.rectTransform.localPosition;
-        while (pos!= position)
-        {
-            pos = Vector2.Lerp(lawyerIcon.rectTransform.localPosition, position, (Time.time - startTime) / animationDuration);
-            lawyerIcon.rectTransform.localPosition = pos;
-            yield return null;
-        }
-        lawyerIcon.rectTransform.localPosition = position;
-
-        yield return wait;  //tu bêdzie czekanie a¿ siê zrobi dialog
-        startTime = Time.time;
-        pos = lawyerIcon.rectTransform.localPosition;
-        Vector2 pos2=GameObject.Find(dialogOption.nextCrossPoint.name).GetComponent<RectTransform>().localPosition;
-
-        Transform tree = lawyerIcon.transform.parent;
-        //tree.localPosition = new Vector3(tree.localPosition.x, tree.localPosition.y - 600, tree.localPosition.z);
-        Vector3 newTreePosition = new Vector3(tree.localPosition.x, tree.localPosition.y - 600, tree.localPosition.z);
-        Vector3 pos3;
-        while (pos!= pos2)
-         {
-            Debug.Log(Time.time);
-            pos = Vector2.Lerp(lawyerIcon.rectTransform.localPosition, pos2, (Time.time - startTime)/animationDuration);
-            lawyerIcon.rectTransform.localPosition = pos;
-
-            pos3=Vector3.Lerp(tree.localPosition,newTreePosition, (Time.time - startTime) / animationDuration);
-            tree.localPosition = pos3;
-            yield return null;
-         }
-        lawyerIcon.rectTransform.localPosition = pos2;
-        
-        
-        
-        
-        
-    }
+   
 
     public void RenderImage()
     {
+        
         
         if (dialogOption.strategy == Strategy.ZimnaKrew)
         {

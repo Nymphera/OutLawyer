@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Interact2 : MonoBehaviour
 {[SerializeField]
-    List<GameObject> interactable;
+    List<GameObject> interactable2;
     private GameObject selectedObject;
     private void Awake()
     {
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
+        
     }
     private void OnDestroy()
     {
@@ -17,26 +18,28 @@ public class Interact2 : MonoBehaviour
 
     private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
     {
-
+        
         if (OfficeState.Desk == state)
         {
-            interactable = new List<GameObject>();
-            interactable.AddRange(GameObject.FindGameObjectsWithTag("Interact2"));
+            interactable2 = new List<GameObject>();
+            interactable2.AddRange(GameObject.FindGameObjectsWithTag("Interact2"));
 
-            CreateOutline(interactable);
+           
+            CreateOutline(interactable2);
+            
         }
     }
     private void CreateOutline(List<GameObject> interact)
     {
         foreach (GameObject obj in interact)
         {
-            if (obj.GetComponent<MeshCollider>() == null)
-                obj.AddComponent<MeshCollider>();
+            if (obj.gameObject.GetComponent<MeshCollider>() == null)
+                obj.gameObject.AddComponent<MeshCollider>();
             if (obj.GetComponent<Outline>() == null)
             {
                 obj.AddComponent<Outline>();
                 Outline outline = obj.GetComponent<Outline>();
-                outline.OutlineMode = Outline.Mode.OutlineVisible;
+                outline.OutlineMode = Outline.Mode.OutlineAll;
                 outline.OutlineColor = Color.red;     //trochê nie wiem dlaczego, ale nie zapisuje siê outline.color, mo¿e dlatego ¿e za ka¿dym razem dodaje nowy outline do gry
                 outline.OutlineWidth = 5f;
                 outline.enabled = false;
@@ -44,8 +47,9 @@ public class Interact2 : MonoBehaviour
 
         }
     }
-    void Update()
+    private void Update()
     {
+        
         if (selectedObject != null)
         {
             DisableOutline(selectedObject);
@@ -58,11 +62,11 @@ public class Interact2 : MonoBehaviour
 
         if (Physics.Raycast(Ray, out hit))
         {
-            if (hit.transform.tag == "Interact")
+            if (hit.transform.tag == "Interact2")
             {
                 selectedObj = hit.transform.gameObject;
                 EnableOutline(selectedObj);
-
+               
 
                 selectedObject = selectedObj;
             }

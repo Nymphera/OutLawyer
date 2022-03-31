@@ -67,32 +67,32 @@ public class Line : MonoBehaviour
         if (color == "Yellow")
         {
             lineRenderer.material = Yellow;
-           // conection.conectionColor = ConectionType.Yellow;
+            this.conectionType = ConectionType.Yellow;
         }
         if (color == "Green")
         {
             lineRenderer.material = Green;
-          //  conection.conectionColor = ConectionType.Green;
+            this.conectionType = ConectionType.Green;
         }
         if (color == "Red")
         {
             lineRenderer.material = Red;
-          //  conection.conectionColor = ConectionType.Red;
+            this.conectionType = ConectionType.Red;
         }
         if (color == "Blue")
         {
             lineRenderer.material = Blue;
-            //conection.conectionColor = ConectionType.Blue;
+            this.conectionType = ConectionType.Blue;
         }
         if (color == "White")
         {
             lineRenderer.material = White;
-            //conection.conectionColor = ConectionType.White;
+            
         }
         if (color == "Black")
         {
             lineRenderer.material = White;
-           // conection.conectionColor = ConectionType.Black;
+            this.conectionType = ConectionType.Black;
         }
     }
     [Serializable]

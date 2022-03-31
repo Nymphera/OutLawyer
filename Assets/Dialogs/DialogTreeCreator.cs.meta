@@ -3,7 +3,20 @@ guid: 966dc35ae8a8e5141854548bf970127c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - dialog: {instanceID: 0}
+  - crossPointPrefab: {fileID: 5865365465476949972, guid: db5712d309a3972408f54edb80091b76, type: 3}
+  - dialogOptionPrefab: {fileID: 7454766132813076616, guid: 0bfd754f367f6f6499ea5517c5f4f682, type: 3}
+  - linePrefab: {fileID: 8780205358565822154, guid: 8087480d02716f0418dd617c95797427, type: 3}
+  - lawyerIcon: {fileID: 2421010591594398012, guid: f0c166b216243ce4191d5f58081e416d, type: 3}
+  - result: {instanceID: 0}
+  - BackGround: {instanceID: 0}
+  - checkPosition: {instanceID: 0}
+  - canvas: {instanceID: 0}
+  - linesParent: {instanceID: 0}
+  - dialogOptionsParent: {instanceID: 0}
+  - crossPointsParent: {instanceID: 0}
+  - treeParent: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

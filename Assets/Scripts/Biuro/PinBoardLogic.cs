@@ -25,7 +25,7 @@ public class PinBoardLogic : MonoBehaviour
     [SerializeField]
     private Transform LineParent;
     [SerializeField]
-    private GameObject linePrefab,SettingsPanel,Scissors;
+    private GameObject linePrefab,SettingsPanel;
     [SerializeField]
     public Vector3[] points;
     [SerializeField] Transform[] Evidences;
@@ -57,17 +57,17 @@ public class PinBoardLogic : MonoBehaviour
 
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
 
-        if (Instance != null)
-            Destroy(gameObject);
+        if (Instance != null) ;
+        //Destroy(gameObject);
         else
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
         }
 
         SettingsPanel.SetActive(false);
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         PinBoardControls.PinBoard.MouseLeftClick.performed -= MouseLeftClick_performed;
         PinBoardControls.PinBoard.MouseRightClick.performed -= MouseRightClick_performed;
@@ -122,9 +122,8 @@ public class PinBoardLogic : MonoBehaviour
             SetPoints(Evidence.transform);
             SetEvidences(Evidence.transform);
         }
-       
-        else
-            Debug.Log("Nothing to touch");  // czemu to dzia³a gdy tablica nie jest w³¹czonea?
+
+        else;
      
         
 
@@ -179,7 +178,7 @@ public class PinBoardLogic : MonoBehaviour
             Line.AddPoint(points[1]);
 
         StartCoroutine(Line.AnimateLine());
-
+        Line.SetColor(color);
         if (color == "Yellow")
         {
             Line.SetColor(color);
@@ -246,7 +245,7 @@ public class PinBoardLogic : MonoBehaviour
                 OnLineDeleted(lines[i]);
                 Destroy(lines[i].transform.gameObject);
                 lines.RemoveAt(i);
-                ClearOutline();
+                //ClearOutline();
                 ClearPointsEvidences();
                 
             }

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: SK_4.1
+  m_EditorClassIdentifier: 
+  text: Uroczy Gabinet
+  nextCrossPoint: {fileID: 11400000, guid: 3d12f036faf6a7647b65d20329749afb, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: e7c03c1ba7661594ba1f01b5dcc59d87, type: 2}
+  strategy: 2

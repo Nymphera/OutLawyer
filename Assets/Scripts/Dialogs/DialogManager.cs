@@ -14,11 +14,19 @@ public class DialogManager : MonoBehaviour
     Transform tree;
     [SerializeField]
     private float animationDuration=10;
+    
+    GameObject Lawyer, HandshakeResult,EvilLawyerResult,MaskResult,CrabResult,BurningChairResult;
     [SerializeField]
-    GameObject Lawyer;
+    private int handshakeScore, evilScore, maskScore, crabScore, chairScore;
     private void Awake()
     {
+        HandshakeResult = GameObject.Find("HandshakeResult");
+        EvilLawyerResult = GameObject.Find("EvilLawyerResult");
+        MaskResult = GameObject.Find("MaskResult");
+        CrabResult = GameObject.Find("CrabResult");
+        BurningChairResult = GameObject.Find("BurningChairResult");
         DialogOptionDisplay.OnDialogButtonClicked += DialogOptionDisplay_OnDialogButtonClicked;
+        
 
     }
     private void OnDestroy()
@@ -44,6 +52,7 @@ public class DialogManager : MonoBehaviour
             {
                 StartCoroutine(MoveLawyer(dialogOption, buttonPosition));
 
+                UpdateScore(dialogOption.strategy);
                 Lawyer.GetComponent<DialogLawyer>().currentCrossPoint = dialogOption.nextCrossPoint;
             }
         }
@@ -52,7 +61,10 @@ public class DialogManager : MonoBehaviour
         
     }
 
-    
+    private void UpdateScore(Strategy strategy) //jeœli chcemy dodaæ na starcie strategie to Event(strategy)+=UpdateScore
+    {
+       // HandshakeResult.GetComponent<Result>().strategy1==; i tak dalej
+    }
 
     private IEnumerator MoveLawyer(DialogOption dialogOption, Vector3 buttonPosition)
     {

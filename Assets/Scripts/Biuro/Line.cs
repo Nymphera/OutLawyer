@@ -14,46 +14,52 @@ public class Line : MonoBehaviour
     public Evidence secondEvidence;
     public ConectionType conectionType;
     public bool isConectionGood=false;
-    
-    //public Conection conection;
 
+    //public Conection conection;
+    private void Awake()
+    {
+        lineRenderer = GetComponent<LineRenderer>();
+    }
     public float animationDuration; 
     [SerializeField]
     private Material Yellow, Green, Red, Blue, White;
     
     public void AddPoint(Vector3 vector)
     {
-      //  SetConection();
-        pointsCount++;
+        
+        
         points.Add(vector);
-        lineRenderer.positionCount = pointsCount;
+        pointsCount++;
+        lineRenderer.positionCount++;
+        
         lineRenderer.SetPosition(pointsCount - 1, vector);
-    }
-
-    private void SetConection()
-    {
-      //  conection.FirstEvidence = firstEvidence;
-      //  conection.ConectedEvidence = secondEvidence;
+      
         
     }
-
-    public void AnimateLine()
+    public void Render()
     {
+        lineRenderer.SetPosition(0,points[0]);
+        lineRenderer.SetPosition(1,points[1]);
+    }
+    public IEnumerator AnimateLine()
+    {
+       // lineRenderer.SetPosition(0, points[0]);
         float startTime = Time.time;
-        
-        Vector3 startPosition = points[0];
-        Vector3 endPosition = points[1];
-        lineRenderer.SetPosition(0, startPosition);
-        Vector3 pos = startPosition;
-        while (pos != endPosition)
-        {
-            pos = Vector3.Lerp(startPosition, endPosition,(Time.time-startTime)/animationDuration);
-            lineRenderer.SetPosition(1, pos);
-
-        }
-        lineRenderer.SetPosition(1, endPosition);
+            Vector3 startPosition = points[0];
+            Vector3 endPosition = points[1];
+            Vector3 pos = startPosition;
+            while (pos != endPosition)
+            {
+                pos = Vector3.Lerp(startPosition, endPosition, (Time.time - startTime)/animationDuration );
+                lineRenderer.SetPosition(1, pos);
+            yield return null;
+            }
     }
-    
+    public void SetWidth(float value)
+    {
+        lineRenderer.startWidth = value;
+        lineRenderer.endWidth = value;
+    }
    
     public void SetColor(string color)
     {

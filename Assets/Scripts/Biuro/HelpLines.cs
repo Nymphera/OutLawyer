@@ -205,6 +205,7 @@ public class HelpLines : MonoBehaviour
                                 Line.SetColor("White");
                                 Line.AddPoint(points[i]);
                                 Line.AddPoint(points[j]);
+                               // Line.Render();
                                 lines.Add(Line);
                                 
                             }

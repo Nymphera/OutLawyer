@@ -174,11 +174,12 @@ public class PinBoardLogic : MonoBehaviour
         Line.firstEvidence = Evidence0;
         Line.secondEvidence = Evidence1;
 
-        foreach (Vector3 vector in points)
-        {
-            Line.AddPoint(vector);
-        }
+        
+        
+            Line.AddPoint(points[0]);
+            Line.AddPoint(points[1]);
 
+        StartCoroutine(Line.AnimateLine());
 
         if (color == "Yellow")
         {

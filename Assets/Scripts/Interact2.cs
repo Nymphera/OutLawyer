@@ -38,7 +38,7 @@ public class Interact2 : MonoBehaviour
                 outline.OutlineColor = Color.red;     //trochê nie wiem dlaczego, ale nie zapisuje siê outline.color, mo¿e dlatego ¿e za ka¿dym razem dodaje nowy outline do gry
                 outline.OutlineWidth = 5f;
                 outline.enabled = false;
-                outline.runInEditMode = true;
+                
             }
 
         }

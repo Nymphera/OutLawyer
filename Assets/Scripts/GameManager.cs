@@ -2,15 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-   [SerializeField]
-    private GameObject PinBoard,Player;
-    public GameState State;
+  
+    private GameState CurrentState;
    
     public static event Action<GameState> OnGameStateChanged;
+    
     
     private void Awake()
     {
@@ -31,20 +32,9 @@ public class GameManager : MonoBehaviour
 
     public void UpdateGameState(GameState newState)
     {
-        /* switch dla jakiejœ specjalnej logiki
-        switch (newState)
-        {
-            case GameState.Move:
-                break;
-            case GameState.Inspect:
-                break;
-            case GameState.Dialog:
-                break;
-        }*/
-       
         OnGameStateChanged(newState);
     }
-
+   
 
 
 }

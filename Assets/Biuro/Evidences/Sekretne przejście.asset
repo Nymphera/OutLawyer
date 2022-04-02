@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf184a4d20e59474a93529479c776419, type: 3}
+  m_Name: "Sekretne przej\u015Bcie"
+  m_EditorClassIdentifier: 
+  Layer:
+    serializedVersion: 2
+    m_Bits: 7
+  Name: "Sekretne przej\u015Bcie"
+  Description: "Sekretne przej\u015Bcie"
+  Artwork: {fileID: 21300000, guid: a34ce4028e555a14db021ac16f5e732f, type: 3}
+  orientation: 0
+  evidenceType: 0
+  conection:
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: 4259f5d0940efd8429c206d2b6d79d1c, type: 2}
+    conectionColor: 0
+    Conclusion: "\u015Alady jasno wskazuj\u0105 na to kt\xF3r\u0119dy przemycono
+      kraba i dok\u0105d, ale rysowane po drodze serduszka wskazuj\u0105 na to \u017Ce
+      krab nie czu\u0142 si\u0119 porwany."
+    conectNumber: 12
+  Conections:
+  - conected: {fileID: 11400000, guid: 4259f5d0940efd8429c206d2b6d79d1c, type: 2}
+    ConectionType: 0
+    Conclusion: 
+    conectNumber: 0

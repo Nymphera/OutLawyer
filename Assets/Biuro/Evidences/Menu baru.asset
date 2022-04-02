@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf184a4d20e59474a93529479c776419, type: 3}
+  m_Name: Menu baru
+  m_EditorClassIdentifier: 
+  Layer:
+    serializedVersion: 2
+    m_Bits: 7
+  Name: Menu baru
+  Description: Menu baru
+  Artwork: {fileID: 21300000, guid: 3b850c089a7d678459ba4e3dd8036850, type: 3}
+  orientation: 0
+  evidenceType: 0
+  conection:
+  - FirstEvidence: {fileID: 0}
+    ConectedEvidence: {fileID: 11400000, guid: d08a7f03284e5604387582cf887035ca, type: 2}
+    conectionColor: 1
+    Conclusion: "Chocia\u017C w barze znale\u017A\u0107 mo\u017Cna by\u0142o potraw\u0119
+      z kraba, nie jest ona nigdzie oferowana - co wi\u0119cej, bar nie ma nawet
+      na ni\u0105 koncesji."
+    conectNumber: 14
+  Conections:
+  - conected: {fileID: 11400000, guid: d08a7f03284e5604387582cf887035ca, type: 2}
+    ConectionType: 1
+    Conclusion: 
+    conectNumber: 0

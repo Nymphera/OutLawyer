@@ -9,7 +9,10 @@ public class Interact2 : MonoBehaviour
     private void Awake()
     {
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
-        
+        interactable2 = new List<GameObject>();
+        interactable2.AddRange(GameObject.FindGameObjectsWithTag("Interact2"));
+        CreateOutline(interactable2);
+
     }
     private void OnDestroy()
     {
@@ -19,15 +22,7 @@ public class Interact2 : MonoBehaviour
     private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
     {
         
-        if (OfficeState.Desk == state)
-        {
-            interactable2 = new List<GameObject>();
-            interactable2.AddRange(GameObject.FindGameObjectsWithTag("Interact2"));
-
-           
-            CreateOutline(interactable2);
-            
-        }
+        
     }
     private void CreateOutline(List<GameObject> interact)
     {
@@ -43,6 +38,7 @@ public class Interact2 : MonoBehaviour
                 outline.OutlineColor = Color.red;     //trochê nie wiem dlaczego, ale nie zapisuje siê outline.color, mo¿e dlatego ¿e za ka¿dym razem dodaje nowy outline do gry
                 outline.OutlineWidth = 5f;
                 outline.enabled = false;
+                outline.runInEditMode = true;
             }
 
         }

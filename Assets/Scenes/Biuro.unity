@@ -4294,7 +4294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1356420118477198343, guid: 16f56ebe207009d49b99c67a23671ca2, type: 3}
       propertyPath: m_TagString
-      value: Interact2
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2463706537061040287, guid: 16f56ebe207009d49b99c67a23671ca2, type: 3}
       propertyPath: m_Layer
@@ -4310,7 +4310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3812449877306207454, guid: 16f56ebe207009d49b99c67a23671ca2, type: 3}
       propertyPath: m_TagString
-      value: Interact2
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5828900219844517320, guid: 16f56ebe207009d49b99c67a23671ca2, type: 3}
       propertyPath: m_Materials.Array.data[0]

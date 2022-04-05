@@ -12,13 +12,14 @@ public class DialogTreeCreator : MonoBehaviour
     [SerializeField]
     private Dialog dialog;
     
+    [HideInInspector]
     [SerializeField]
     private Image crossPointPrefab, dialogOptionPrefab, linePrefab, lawyerIcon, BackGround;
    
     
     private Canvas canvas;
     
-    Transform linesParent,dialogOptionsParent,crossPointsParent,treeParent;
+    private Transform linesParent,dialogOptionsParent,crossPointsParent,treeParent;
 
     float levelHeight=600;
     float levelWidth=1200;
@@ -26,18 +27,18 @@ public class DialogTreeCreator : MonoBehaviour
     
     private void Awake()
     {
-        BackGround = GameObject.Find("BackGroundImage").GetComponent<Image>();
-        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-        linesParent= GameObject.Find("Lines").transform;
-        dialogOptionsParent= GameObject.Find("DialogOptions").transform;
-        crossPointsParent= GameObject.Find("CrossPoints").transform;
-        treeParent= GameObject.Find("Tree").transform;
+        BackGround = transform.GetChild(0).GetComponent<Image>();
+        canvas = transform.parent.GetComponent<Canvas>();
+        linesParent=transform.GetChild(1).transform;
+        dialogOptionsParent= transform.GetChild(3).transform;
+        crossPointsParent= transform.GetChild(2).transform;
+        treeParent= transform;
 
-       
+       /*
         dialogOptionPrefab = GameObject.Find("DialogOptionImage").GetComponent<Image>() ;
         crossPointPrefab = GameObject.Find("CrossPointImage").GetComponent<Image>() ;
         lawyerIcon = GameObject.Find("LawyerImage").GetComponent<Image>() ;
-        linePrefab = GameObject.Find("LineUI").GetComponent<Image>() ;
+        linePrefab = GameObject.Find("LineUI").GetComponent<Image>() ;*/
 
         BackGround.rectTransform.sizeDelta = new Vector2(levelWidth,levelHeight*dialog.levels.Length);
 

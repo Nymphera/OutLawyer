@@ -17,7 +17,7 @@ public class DialogManager : MonoBehaviour
     
     GameObject Lawyer, HandshakeResult,EvilLawyerResult,MaskResult,CrabResult,BurningChairResult;
     [SerializeField]
-    private int handshakeScore, evilScore, maskScore, crabScore, chairScore;
+    private int result1Score, result2Score, result3Score, result4Score, result5Score;
     private void Awake()
     {
         HandshakeResult = GameObject.Find("HandshakeResult");

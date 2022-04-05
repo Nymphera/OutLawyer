@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7264151, g: 0.05071197, b: 0.05071197, a: 1}
+  m_Color: {r: 0.22352943, g: 0.7137255, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7264151, g: 0.05071197, b: 0.05071197, a: 1}
+  m_Color: {r: 0.49411768, g: 0.854902, b: 0.34509805, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7264151, g: 0.05071197, b: 0.05071197, a: 1}
+  m_Color: {r: 1, g: 0.34509805, b: 0.34509805, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -972,6 +972,11 @@ MonoBehaviour:
   linePrefab: {fileID: 8780205358565822154, guid: 8087480d02716f0418dd617c95797427, type: 3}
   lawyerIcon: {fileID: 2421010591594398012, guid: f0c166b216243ce4191d5f58081e416d, type: 3}
   BackGround: {fileID: 2556843331522480565}
+  colorZimnaKrew: {r: 1, g: 0.34509805, b: 0.34509805, a: 1}
+  colorLuznaGadka: {r: 0.22352943, g: 0.7137255, b: 1, a: 1}
+  colorUrokOsobisty: {r: 0.49411768, g: 0.854902, b: 0.34509805, a: 1}
+  colorProfesjonalizm: {r: 1, g: 0.7411765, b: 0.3529412, a: 1}
+  colorPodstep: {r: 0.7960785, g: 0.41960788, b: 0.9058824, a: 1}
   level: {fileID: 9202968598062411305, guid: 9cd6c240bd3eda041bc970de4e9f1fdf, type: 3}
 --- !u!1 &2556843332706195478
 GameObject:
@@ -1160,7 +1165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7264151, g: 0.05071197, b: 0.05071197, a: 1}
+  m_Color: {r: 0.7960785, g: 0.41960788, b: 0.9058824, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1617,6 +1622,18 @@ PrefabInstance:
     - target: {fileID: 152955388287534499, guid: a60789a030e416c438e1ff4609914945, type: 3}
       propertyPath: m_Name
       value: Result4
+      objectReference: {fileID: 0}
+    - target: {fileID: 152955390094608585, guid: a60789a030e416c438e1ff4609914945, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 152955390094608585, guid: a60789a030e416c438e1ff4609914945, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 152955390094608585, guid: a60789a030e416c438e1ff4609914945, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 152955390345294722, guid: a60789a030e416c438e1ff4609914945, type: 3}
       propertyPath: m_Name

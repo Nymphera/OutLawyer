@@ -15,8 +15,8 @@ public class DialogTreeCreator : MonoBehaviour
     [HideInInspector]
     [SerializeField]
     private Image crossPointPrefab, dialogOptionPrefab, linePrefab, lawyerIcon, BackGround;
-   
-    
+    [SerializeField]
+    private Color colorZimnaKrew, colorLuznaGadka, colorUrokOsobisty, colorProfesjonalizm, colorPodstep;
     private Canvas canvas;
 
     [SerializeField]
@@ -196,27 +196,27 @@ public class DialogTreeCreator : MonoBehaviour
     {
         if (strategy == Strategy.LuŸnaGadka)
         {
-            return Color.blue;
+            return colorLuznaGadka;
         }
         else
             if (strategy == Strategy.Podstêp)
         {
-            return Color.magenta;
+            return colorPodstep;
         }
         else
             if (strategy == Strategy.Profesjonalizm)
         {
-            return Color.yellow; //co to kurwa za brak fajnych kolorków
+            return colorProfesjonalizm;
         }
         else
             if (strategy == Strategy.UrokOsobisty)
         {
-            return Color.green;
+            return colorUrokOsobisty;
         }
         else
             if (strategy == Strategy.ZimnaKrew)
         {
-            return Color.red;
+            return colorZimnaKrew;
         }
         else return Color.white;
     }

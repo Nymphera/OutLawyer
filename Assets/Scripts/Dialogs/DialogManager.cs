@@ -111,7 +111,7 @@ public class DialogManager : MonoBehaviour
         }
         lawyerIcon.rectTransform.localPosition = nextCrossPointPosition;
         yield return null;
-        DestroyLowerLevel();
+       // DestroyLowerLevel();
 
         startTime = Time.time;  
         distanceToTarget = Vector3.Distance(tree.localPosition, newTreePosition);       //przesuwanie drzewka

@@ -59,7 +59,7 @@ public class DialogManager : MonoBehaviour
             {
                 StartCoroutine(MoveLawyer(dialogOption, buttonPosition));
 
-                StartCoroutine(UpdateScore(dialogOption.strategy));
+                UpdateScore(dialogOption.strategy);
                 Lawyer.GetComponent<DialogLawyer>().currentCrossPoint = dialogOption.nextCrossPoint;
 
                 
@@ -108,48 +108,84 @@ public class DialogManager : MonoBehaviour
         Destroy(GameObject.Find("Level " + (currentLevel - 1)));
     }
 
-    private IEnumerator UpdateScore(Strategy strategy) 
+    private void UpdateScore(Strategy strategy) 
     {
+        Result[] updatedresults=new Result[2];
+        
         switch (strategy)
   
         {
             case Strategy.LuŸnaGadka:
-                break;
+                updatedresults = GetUpadatedResults(strategy);
+                StartCoroutine(AnimateResults(updatedresults));
+                        break;
             case Strategy.Podstêp:
+                updatedresults = GetUpadatedResults(strategy);
+                StartCoroutine(AnimateResults(updatedresults));
                 break;
             case Strategy.Profesjonalizm:
+                updatedresults = GetUpadatedResults(strategy);
+                StartCoroutine(AnimateResults(updatedresults));
                 break;
             case Strategy.UrokOsobisty:
+                updatedresults = GetUpadatedResults(strategy);
+                StartCoroutine(AnimateResults(updatedresults));
                 break;
             case Strategy.ZimnaKrew:
+                updatedresults = GetUpadatedResults(strategy);
+                StartCoroutine(AnimateResults(updatedresults));
                 break;
 
             default:
                 break;
         }
+       
+    }
+
+    private Result[] GetUpadatedResults(Strategy strategy)
+    {
+        Result[] updatedresults= new Result[2];
+        int index = 0;
         foreach (Result result in results)
         {
-            
+           
             if (result.strategy1 == strategy || result.strategy2 == strategy)
             {
-                float startTime = Time.time;
-
-                float startvalue= result.ResultBar.GetComponent<Image>().fillAmount;
-                float newValue = startvalue+barIncrease;
-                Debug.Log(startvalue + " " + newValue);
-                float distance = newValue-startvalue;
-                float value;
-                while (distance>0.01f)
-                {
-                    value = Mathf.Lerp(startvalue, newValue, (Time.time - startTime));
-                    
-                    distance = newValue - value;
-                    result.ResultBar.GetComponent<Image>().fillAmount = value;
-                    yield return null;
-                }
-                result.ResultBar.GetComponent<Image>().fillAmount = newValue;
+                
+                updatedresults[index] = result;
+                index++;
             }
         }
+        return updatedresults;
+    }
+
+    private IEnumerator AnimateResults(Result[] updatedresults)
+    {
+        float startTime = Time.time;
+
+        float startFirstValue= updatedresults[0].ResultBar.GetComponent<Image>().fillAmount;
+        float startSecondValue = updatedresults[1].ResultBar.GetComponent<Image>().fillAmount;
+
+
+        float newFirstValue = startFirstValue + barIncrease;
+        float newSecondValue = startSecondValue + barIncrease;
+                
+                float distance = barIncrease;
+                float value1,value2;
+                while (distance > 0.01f)
+                {
+                    value1 = Mathf.Lerp(startFirstValue, newFirstValue, (Time.time - startTime));
+                    value2 = Mathf.Lerp(startSecondValue, newSecondValue, (Time.time - startTime));
+
+                    distance = newFirstValue - value1;
+
+                    updatedresults[0].ResultBar.GetComponent<Image>().fillAmount = value1;
+                    updatedresults[1].ResultBar.GetComponent<Image>().fillAmount = value2;
+                    yield return null;
+                }
+                updatedresults[0].ResultBar.GetComponent<Image>().fillAmount = newFirstValue;   
+                updatedresults[1].ResultBar.GetComponent<Image>().fillAmount = newSecondValue;   
+        
     }
 
     private IEnumerator MoveLawyer(DialogOption dialogOption, Vector3 buttonPosition)

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7454766131697673821}
   - component: {fileID: 7454766131697673820}
   - component: {fileID: 7454766132813076616}
+  - component: {fileID: -6940858986620911125}
   m_Layer: 5
   m_Name: DialogOptionImage
   m_TagString: Untagged
@@ -75,3 +76,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-6940858986620911125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454766131697673822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47874a62d81a0fa49aadafa62e212779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogOption: {fileID: 0}
+  buttonPosition: {x: 0, y: 0, z: 0}
+  strategy1: {fileID: 21300000, guid: 2ad3026b998be8645aece886565ed0b9, type: 3}
+  strategy2: {fileID: 21300000, guid: 46fcee6fc4ce6f546ac83540891130f6, type: 3}
+  strategy3: {fileID: 21300000, guid: a30eeb13ab3e56f48966c459f15f6306, type: 3}
+  strategy4: {fileID: 21300000, guid: 6b0e6074ef6053140a6362833730e242, type: 3}
+  strategy5: {fileID: 21300000, guid: 80e5fa485bb20bf45b41faf5f99d2f35, type: 3}

@@ -7,5 +7,5 @@ public class Result : MonoBehaviour
     public Strategy strategy1, strategy2;
     [SerializeField]
     public GameObject ResultBar;
-   
+    public string ResultText;
 }

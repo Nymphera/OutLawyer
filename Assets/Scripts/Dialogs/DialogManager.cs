@@ -15,16 +15,21 @@ public class DialogManager : MonoBehaviour
     [SerializeField]
     private float animationDuration=10;
     
-    GameObject Lawyer, HandshakeResult,EvilLawyerResult,MaskResult,CrabResult,BurningChairResult;
+    private GameObject Lawyer;
 
     [SerializeField]
-    private float barIncrease = 0.5f;
+    private float barIncrease = 0.2f;
+    [HideInInspector]
     [SerializeField]
     private Result result1, result2, result3, result4, result5;
     private Result[] results;
+    [SerializeField]
+    private Image lawyerBubbleText;
+    private Text lawyerText;
+    
     private void Awake()
-    {
-        
+    {   
+        lawyerBubbleText.enabled = false;
         GetResults();
         ClearResultsBars();
         
@@ -46,6 +51,45 @@ public class DialogManager : MonoBehaviour
         lawyerIcon = Lawyer.GetComponent<Image>();
         tree = Lawyer.transform.parent;
     }
+
+    private void Update()
+    {
+        print(IsPointerOverUIElement() ? "Over UI" : "Not over UI");
+    }
+
+
+    //Returns 'true' if we touched or hovering on Unity UI element.
+    public bool IsPointerOverUIElement()
+    {
+        return IsPointerOverUIElement(GetEventSystemRaycastResults());
+    }
+
+
+    //Returns 'true' if we touched or hovering on Unity UI element.
+    private bool IsPointerOverUIElement(List<RaycastResult> eventSystemRaysastResults)
+    {
+        for (int index = 0; index < eventSystemRaysastResults.Count; index++)
+        {
+            RaycastResult curRaysastResult = eventSystemRaysastResults[index];
+            if (curRaysastResult.gameObject.layer == 10)     //10 is UI layer int
+                return true;
+        }
+        return false;
+    }
+
+
+    //Gets all event system raycast results of current mouse or touch position.
+    static List<RaycastResult> GetEventSystemRaycastResults()
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Input.mousePosition;
+        List<RaycastResult> raysastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, raysastResults);
+        return raysastResults;
+    }
+
+
+
 
     private void DialogOptionDisplay_OnDialogButtonClicked(DialogOption dialogOption, Vector3 buttonPosition)
     {
@@ -107,7 +151,10 @@ public class DialogManager : MonoBehaviour
        // Debug.Log("Current Level: " + currentLevel);
         Destroy(GameObject.Find("Level " + (currentLevel - 1)));
     }
-
+    /// <summary>
+    /// Aktualizuje wartoœci Rezultatów.
+    /// </summary>
+    /// <param name="strategy"></param>
     private void UpdateScore(Strategy strategy) 
     {
         Result[] updatedresults=new Result[2];
@@ -141,7 +188,11 @@ public class DialogManager : MonoBehaviour
         }
        
     }
-
+    /// <summary>
+    /// Zwraca tablice z aktualizowanymi paskami rezultatów.
+    /// </summary>
+    /// <param name="strategy"></param>
+    /// <returns></returns>
     private Result[] GetUpadatedResults(Strategy strategy)
     {
         Result[] updatedresults= new Result[2];
@@ -158,7 +209,11 @@ public class DialogManager : MonoBehaviour
         }
         return updatedresults;
     }
-
+    /// <summary>
+    /// Funkcja odpowiedzialna za Animowanie pasków rezultatów.
+    /// </summary>
+    /// <param name="updatedresults"></param>
+    /// <returns></returns>
     private IEnumerator AnimateResults(Result[] updatedresults)
     {
         float startTime = Time.time;
@@ -184,10 +239,28 @@ public class DialogManager : MonoBehaviour
                     yield return null;
                 }
                 updatedresults[0].ResultBar.GetComponent<Image>().fillAmount = newFirstValue;   
-                updatedresults[1].ResultBar.GetComponent<Image>().fillAmount = newSecondValue;   
+                updatedresults[1].ResultBar.GetComponent<Image>().fillAmount = newSecondValue;
+        if (newFirstValue >= 1 )
+        {
+            ShowResult(updatedresults[0]);
+        }   
+        else if (newSecondValue >= 1)
+        {
+            ShowResult(updatedresults[1]);
+        }
+    }
+
+    private void ShowResult(Result result)
+    {
         
     }
 
+    /// <summary>
+    /// Funkcja odpowiedzialna za animacjê ruchu Ikony Lawyera.
+    /// </summary>
+    /// <param name="dialogOption"></param>
+    /// <param name="buttonPosition"></param>
+    /// <returns></returns>
     private IEnumerator MoveLawyer(DialogOption dialogOption, Vector3 buttonPosition)
     {
         
@@ -208,7 +281,7 @@ public class DialogManager : MonoBehaviour
         }
         lawyerIcon.rectTransform.localPosition = buttonPosition;
 
-        //Debug.Log("Wait for dialog");
+        
         yield return wait;  //wait Until
 
 
@@ -222,7 +295,7 @@ public class DialogManager : MonoBehaviour
         }
         lawyerIcon.rectTransform.localPosition = nextCrossPointPosition;
         yield return null;
-        DestroyLowerLevel();
+       
 
         startTime = Time.time;  
         distanceToTarget = Vector3.Distance(tree.localPosition, newTreePosition);       //przesuwanie drzewka
@@ -232,6 +305,7 @@ public class DialogManager : MonoBehaviour
             tree.localPosition = Vector3.Lerp(tree.localPosition, newTreePosition, (Time.time - startTime) / animationDuration);
             yield return null;
         }
+        DestroyLowerLevel();
 
         tree.localPosition = newTreePosition;
        

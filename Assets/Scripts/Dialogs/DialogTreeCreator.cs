@@ -116,6 +116,7 @@ public class DialogTreeCreator : MonoBehaviour
                 spawnPosition = new Vector3(-levelWidth / 2 + (j + 1) * intervalLength, 100 + i * levelHeight, 0);
               Image currentDialogOption=  Instantiate(dialogOptionPrefab, canvas.transform.position + spawnPosition, Quaternion.identity, dialogOptionsParent);
                 currentDialogOption.gameObject.name = dialog.levels[i].DialogOptions[j].name;
+                
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().dialogOption = dialog.levels[i].DialogOptions[j];
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().buttonPosition = spawnPosition;
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().RenderImage();   //zmienia grafikê dialogoption na odpowiedni¹ strategiê

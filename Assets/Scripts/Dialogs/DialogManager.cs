@@ -17,18 +17,28 @@ public class DialogManager : MonoBehaviour
     
     GameObject Lawyer, HandshakeResult,EvilLawyerResult,MaskResult,CrabResult,BurningChairResult;
     [SerializeField]
-    private int result1Score, result2Score, result3Score, result4Score, result5Score;
+    private int result1Score=0, result2Score=0, result3Score=0, result4Score=0, result5Score=0;
+    [SerializeField]
+    private Result result1, result2, result3, result4, result5;
     private void Awake()
     {
-        HandshakeResult = GameObject.Find("HandshakeResult");
-        EvilLawyerResult = GameObject.Find("EvilLawyerResult");
-        MaskResult = GameObject.Find("MaskResult");
-        CrabResult = GameObject.Find("CrabResult");
-        BurningChairResult = GameObject.Find("BurningChairResult");
+        GetResults();
+        SetResultsBars();
+        
         DialogOptionDisplay.OnDialogButtonClicked += DialogOptionDisplay_OnDialogButtonClicked;
         
-
+        
     }
+
+    private void SetResultsBars()
+    {
+        result1.ResultBar.gameObject.GetComponent<Image>().fillAmount = result1Score;
+        result2.ResultBar.gameObject.GetComponent<Image>().fillAmount = result2Score;
+        result3.ResultBar.gameObject.GetComponent<Image>().fillAmount = result3Score;
+        result4.ResultBar.gameObject.GetComponent<Image>().fillAmount = result4Score;
+        result5.ResultBar.gameObject.GetComponent<Image>().fillAmount = result5Score;
+    }
+
     private void OnDestroy()
     {
         DialogOptionDisplay.OnDialogButtonClicked -= DialogOptionDisplay_OnDialogButtonClicked;
@@ -64,7 +74,22 @@ public class DialogManager : MonoBehaviour
        
         
     }
-
+    /// <summary>
+    /// <b>GetResults</b>
+    /// Przypisuje zmiennym result1,result2,...wartoœci <code>Result</code>
+    /// </summary>
+    private void GetResults()
+    {
+        Transform results = GameObject.Find("Results").transform;
+        result1 = results.GetChild(0).gameObject.GetComponent<Result>();
+        result2 = results.GetChild(1).gameObject.GetComponent<Result>();
+        result3 = results.GetChild(2).gameObject.GetComponent<Result>();
+        result4 = results.GetChild(3).gameObject.GetComponent<Result>();
+        result5 = results.GetChild(4).gameObject.GetComponent<Result>();
+    }
+    /// <summary>
+    /// Tu mo¿na zniszczyæ odpowiednie linie dialogów, mo¿na te¿ zniszczyæ opcje których ju¿ nie mo¿emy wybraæ gdyby ktoœ chcia³.
+    /// </summary>
     private void DestroyLowerLevel()
     {
         currentLevel++;
@@ -111,7 +136,7 @@ public class DialogManager : MonoBehaviour
         }
         lawyerIcon.rectTransform.localPosition = nextCrossPointPosition;
         yield return null;
-       // DestroyLowerLevel();
+        DestroyLowerLevel();
 
         startTime = Time.time;  
         distanceToTarget = Vector3.Distance(tree.localPosition, newTreePosition);       //przesuwanie drzewka

@@ -6,7 +6,7 @@ public class Result : MonoBehaviour
 {
     public Strategy strategy1, strategy2;
     [SerializeField]
-    private GameObject ResultBar;
+    public GameObject ResultBar;
     private void Awake()
     {
         ResultBar = this.transform.GetChild(1).gameObject;

@@ -15,6 +15,7 @@ public class DialogTreeCreator : MonoBehaviour
     [HideInInspector]
     [SerializeField]
     private Image crossPointPrefab, dialogOptionPrefab, linePrefab, lawyerIcon, BackGround;
+    [HideInInspector]
     [SerializeField]
     private Color colorZimnaKrew, colorLuznaGadka, colorUrokOsobisty, colorProfesjonalizm, colorPodstep;
     private Canvas canvas;

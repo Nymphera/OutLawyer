@@ -109,7 +109,24 @@ public class DialogManager : MonoBehaviour
     }
 
     private IEnumerator UpdateScore(Strategy strategy) 
-    { 
+    {
+        switch (strategy)
+  
+        {
+            case Strategy.LuŸnaGadka:
+                break;
+            case Strategy.Podstêp:
+                break;
+            case Strategy.Profesjonalizm:
+                break;
+            case Strategy.UrokOsobisty:
+                break;
+            case Strategy.ZimnaKrew:
+                break;
+
+            default:
+                break;
+        }
         foreach (Result result in results)
         {
             

@@ -16,28 +16,25 @@ public class DialogManager : MonoBehaviour
     private float animationDuration=10;
     
     GameObject Lawyer, HandshakeResult,EvilLawyerResult,MaskResult,CrabResult,BurningChairResult;
+
     [SerializeField]
-    private int result1Score=0, result2Score=0, result3Score=0, result4Score=0, result5Score=0;
+    private float barIncrease = 0.5f;
     [SerializeField]
     private Result result1, result2, result3, result4, result5;
+    private Result[] results;
     private void Awake()
     {
-        GetResults();
-        SetResultsBars();
         
+        GetResults();
+        ClearResultsBars();
+        
+
         DialogOptionDisplay.OnDialogButtonClicked += DialogOptionDisplay_OnDialogButtonClicked;
         
         
     }
 
-    private void SetResultsBars()
-    {
-        result1.ResultBar.gameObject.GetComponent<Image>().fillAmount = result1Score;
-        result2.ResultBar.gameObject.GetComponent<Image>().fillAmount = result2Score;
-        result3.ResultBar.gameObject.GetComponent<Image>().fillAmount = result3Score;
-        result4.ResultBar.gameObject.GetComponent<Image>().fillAmount = result4Score;
-        result5.ResultBar.gameObject.GetComponent<Image>().fillAmount = result5Score;
-    }
+    
 
     private void OnDestroy()
     {
@@ -62,7 +59,7 @@ public class DialogManager : MonoBehaviour
             {
                 StartCoroutine(MoveLawyer(dialogOption, buttonPosition));
 
-                UpdateScore(dialogOption.strategy);
+                StartCoroutine(UpdateScore(dialogOption.strategy));
                 Lawyer.GetComponent<DialogLawyer>().currentCrossPoint = dialogOption.nextCrossPoint;
 
                 
@@ -75,17 +72,31 @@ public class DialogManager : MonoBehaviour
         
     }
     /// <summary>
+    /// Ustawia wartoœæ <b>ResultBar</b> na 0.
+    /// </summary>
+    private void ClearResultsBars()
+    {
+
+        foreach(Result result in results)
+        {
+            result.ResultBar.gameObject.GetComponent<Image>().fillAmount = 0.1f;
+        }
+        
+    }
+    /// <summary>
     /// <b>GetResults</b>
     /// Przypisuje zmiennym result1,result2,...wartoœci <code>Result</code>
     /// </summary>
     private void GetResults()
     {
-        Transform results = GameObject.Find("Results").transform;
-        result1 = results.GetChild(0).gameObject.GetComponent<Result>();
-        result2 = results.GetChild(1).gameObject.GetComponent<Result>();
-        result3 = results.GetChild(2).gameObject.GetComponent<Result>();
-        result4 = results.GetChild(3).gameObject.GetComponent<Result>();
-        result5 = results.GetChild(4).gameObject.GetComponent<Result>();
+        Transform resultsTrans = GameObject.Find("Results").transform;
+        
+        result1 = resultsTrans.GetChild(0).gameObject.GetComponent<Result>();
+        result2 = resultsTrans.GetChild(1).gameObject.GetComponent<Result>();
+        result3 = resultsTrans.GetChild(2).gameObject.GetComponent<Result>();
+        result4 = resultsTrans.GetChild(3).gameObject.GetComponent<Result>();
+        result5 = resultsTrans.GetChild(4).gameObject.GetComponent<Result>();
+        results = new Result[] { result1, result2, result3, result4, result5 };
     }
     /// <summary>
     /// Tu mo¿na zniszczyæ odpowiednie linie dialogów, mo¿na te¿ zniszczyæ opcje których ju¿ nie mo¿emy wybraæ gdyby ktoœ chcia³.
@@ -93,13 +104,35 @@ public class DialogManager : MonoBehaviour
     private void DestroyLowerLevel()
     {
         currentLevel++;
-        Debug.Log("Current Level: " + currentLevel);
+       // Debug.Log("Current Level: " + currentLevel);
         Destroy(GameObject.Find("Level " + (currentLevel - 1)));
     }
 
-    private void UpdateScore(Strategy strategy) //jeœli chcemy dodaæ na starcie strategie to Event(strategy)+=UpdateScore
-    {
-       // HandshakeResult.GetComponent<Result>().strategy1==; i tak dalej
+    private IEnumerator UpdateScore(Strategy strategy) 
+    { 
+        foreach (Result result in results)
+        {
+            
+            if (result.strategy1 == strategy || result.strategy2 == strategy)
+            {
+                float startTime = Time.time;
+
+                float startvalue= result.ResultBar.GetComponent<Image>().fillAmount;
+                float newValue = startvalue+barIncrease;
+                Debug.Log(startvalue + " " + newValue);
+                float distance = newValue-startvalue;
+                float value;
+                while (distance>0.01f)
+                {
+                    value = Mathf.Lerp(startvalue, newValue, (Time.time - startTime));
+                    
+                    distance = newValue - value;
+                    result.ResultBar.GetComponent<Image>().fillAmount = value;
+                    yield return null;
+                }
+                result.ResultBar.GetComponent<Image>().fillAmount = newValue;
+            }
+        }
     }
 
     private IEnumerator MoveLawyer(DialogOption dialogOption, Vector3 buttonPosition)
@@ -122,7 +155,7 @@ public class DialogManager : MonoBehaviour
         }
         lawyerIcon.rectTransform.localPosition = buttonPosition;
 
-        Debug.Log("Wait for dialog");
+        //Debug.Log("Wait for dialog");
         yield return wait;  //wait Until
 
 

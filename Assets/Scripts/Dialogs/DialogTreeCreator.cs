@@ -18,7 +18,9 @@ public class DialogTreeCreator : MonoBehaviour
    
     
     private Canvas canvas;
-    
+
+    [SerializeField]
+    private GameObject level;
     private Transform linesParent,dialogOptionsParent,crossPointsParent,treeParent;
 
     float levelHeight=600;
@@ -29,10 +31,9 @@ public class DialogTreeCreator : MonoBehaviour
     {
         BackGround = transform.GetChild(0).GetComponent<Image>();
         canvas = transform.parent.GetComponent<Canvas>();
-        linesParent=transform.GetChild(1).transform;
-        dialogOptionsParent= transform.GetChild(3).transform;
-        crossPointsParent= transform.GetChild(2).transform;
+       
         treeParent= transform;
+        
 
        /*
         dialogOptionPrefab = GameObject.Find("DialogOptionImage").GetComponent<Image>() ;
@@ -48,12 +49,22 @@ public class DialogTreeCreator : MonoBehaviour
     
     public void CreateTree()
     {
-        
+        SetLevels();
         SetUpCrossPoints();
         SetUpDialogOptions();   //¿eby rysowaæ linie potrzebujemy najpierw wszystkich pozycji
         CreateLines();
 
     }
+
+    private void SetLevels()
+    {
+       int levelNum= dialog.levels.Length;
+        for(int i = 0; i < levelNum; i++)
+        {
+            Instantiate(level, treeParent).transform.name = "Level " + i;
+        }
+    }
+
     private void SetUpCrossPoints()
     {
         int dialoglevelsNum= dialog.levels.Length;
@@ -62,6 +73,7 @@ public class DialogTreeCreator : MonoBehaviour
         int index = 0;
         for(int i = 0; i < dialoglevelsNum; i++)   //pêtla przez wszystkie levele
         {
+            
             crosspointNum = dialog.levels[i].CrossPoints.Length;
             Vector3 spawnPosition;
             intervalLength = levelWidth / (crosspointNum + 1);   // d³ugoœæ interwa³u pomiêdzy lewym i prawym bokiem drzewka
@@ -69,6 +81,7 @@ public class DialogTreeCreator : MonoBehaviour
             {
                 index++;
                  spawnPosition = new Vector3 (-levelWidth/2 +(j+1)*intervalLength, -200 +i*levelHeight, 0);
+                crossPointsParent = GameObject.Find("Level " + i).transform.GetChild(1);
                 Image current=Instantiate(crossPointPrefab,canvas.transform.position+spawnPosition,Quaternion.Euler(0,0,45),crossPointsParent);
                 current.gameObject.name = dialog.levels[i].CrossPoints[j].name;
                 current.gameObject.AddComponent<CrossPointDisplay>().crossPoint= dialog.levels[i].CrossPoints[j];
@@ -98,7 +111,7 @@ public class DialogTreeCreator : MonoBehaviour
             intervalLength = levelWidth / (dialogOptionNum + 1);   // d³ugoœæ interwa³u pomiêdzy lewym i prawym bokiem drzewka
             for (int j = 0; j < dialogOptionNum; j++)
             {
-
+                dialogOptionsParent = GameObject.Find("Level " + i).transform.GetChild(2);
                 spawnPosition = new Vector3(-levelWidth / 2 + (j + 1) * intervalLength, 100 + i * levelHeight, 0);
               Image currentDialogOption=  Instantiate(dialogOptionPrefab, canvas.transform.position + spawnPosition, Quaternion.identity, dialogOptionsParent);
                 currentDialogOption.gameObject.name = dialog.levels[i].DialogOptions[j].name;
@@ -140,6 +153,8 @@ public class DialogTreeCreator : MonoBehaviour
                     float lineLength = Vector2.Distance(firstPos, secondPos);
 
                   float rotation=Mathf.Atan2(secondPos.x-firstPos.x,secondPos.y-firstPos.y);    //rotacja w radianach
+
+                    linesParent = GameObject.Find("Level " + i).transform.GetChild(0);
                     Image image=Instantiate(linePrefab,firstPos, Quaternion.EulerRotation(new Vector3(0, 0, -rotation)), linesParent);
                     image.rectTransform.sizeDelta = new Vector2(image.rectTransform.sizeDelta.x, lineLength);
                     image.rectTransform.localPosition = firstPos;
@@ -168,7 +183,7 @@ public class DialogTreeCreator : MonoBehaviour
                     float lineLength = Vector2.Distance(firstPos, secondPos);
 
                     float rotation = Mathf.Atan2(secondPos.x - firstPos.x, secondPos.y - firstPos.y);    //rotacja w radianach
-
+                    linesParent = GameObject.Find("Level " + i).transform.GetChild(0);
                     Image image = Instantiate(linePrefab, firstPos, Quaternion.EulerRotation(new Vector3(0, 0, -rotation)),linesParent);
                     image.rectTransform.sizeDelta = new Vector2(image.rectTransform.sizeDelta.x, lineLength);
                     image.rectTransform.localPosition = firstPos;

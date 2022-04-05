@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
-    
+    int currentLevel=0;
 
     private Image lawyerIcon;
     WaitForSeconds wait = new WaitForSeconds(1f);
@@ -54,11 +54,22 @@ public class DialogManager : MonoBehaviour
 
                 UpdateScore(dialogOption.strategy);
                 Lawyer.GetComponent<DialogLawyer>().currentCrossPoint = dialogOption.nextCrossPoint;
+
+                
+                
+                
             }
         }
 
+       
         
-        
+    }
+
+    private void DestroyLowerLevel()
+    {
+        currentLevel++;
+        Debug.Log("Current Level: " + currentLevel);
+        Destroy(GameObject.Find("Level " + (currentLevel - 1)));
     }
 
     private void UpdateScore(Strategy strategy) //jeœli chcemy dodaæ na starcie strategie to Event(strategy)+=UpdateScore
@@ -99,8 +110,8 @@ public class DialogManager : MonoBehaviour
             yield return null;
         }
         lawyerIcon.rectTransform.localPosition = nextCrossPointPosition;
-
-
+        yield return null;
+        DestroyLowerLevel();
 
         startTime = Time.time;  
         distanceToTarget = Vector3.Distance(tree.localPosition, newTreePosition);       //przesuwanie drzewka
@@ -111,6 +122,8 @@ public class DialogManager : MonoBehaviour
             yield return null;
         }
 
-        tree.localPosition = newTreePosition;      
+        tree.localPosition = newTreePosition;
+       
+        
     }
 }

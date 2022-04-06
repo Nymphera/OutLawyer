@@ -16,3 +16,9 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: 19d17bf13588ba649a837365674fb967, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: e7ae9dc90841061458cc96e951c91f78, type: 2}
   strategy: 1
+  sentences:
+  - "Lojer: D\u0142uga droga przed wami, ale trzymam szczypce."
+  - "Szef Krab\xF3w: Uhm\u2026dziekuj\u0119?"
+  - "Lojer: Mam nadziej\u0119, \u017Ce jako\u015B odnajd\u0119 si\u0119 w nowym porz\u0105dku
+    krab\xF3w w naszym mie\u015Bcie."
+  audioClips: []

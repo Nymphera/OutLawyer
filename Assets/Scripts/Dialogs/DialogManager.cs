@@ -9,31 +9,34 @@ using UnityEngine.UI;
 public class DialogManager : MonoBehaviour
 {
     public static event Action OnDialogEnd;
-    int currentLevel=0;
 
-    private Image lawyerIcon;
-    WaitUntil wait;
-    Transform tree;
-    [SerializeField]
-    private float animationDuration=10;
+    private Dialog dialog;
+
     
-    private GameObject Lawyer;
-    private AudioSource audioSource;
+    
+    private Transform tree;
     [SerializeField]
-    private float barIncrease = 0.2f;
+    private float animationDuration=10, dialogTime = 2f, barIncrease = 0.2f;
+    int currentLevel = 0;
+
+    private AudioSource audioSource;
+    
     [HideInInspector]
     [SerializeField]
     private Result result1, result2, result3, result4, result5;
     private Result[] results;
+    [HideInInspector]
     [SerializeField]
-    private GameObject lawyerBubbleText,dialogText,Results;
+    private GameObject lawyerBubbleText,dialogText,Results, Lawyer, currentRaycastObject, lawyerText;
+    private Image lawyerIcon;
     private GameControls GameControls;
-   
-    private GameObject currentRaycastObject,lawyerText;
 
     private bool isDialogEnded=false;
+
     private void Awake()
     {
+
+        dialog = gameObject.GetComponent<DialogTreeCreator>().dialog;
         lawyerText = lawyerBubbleText.transform.GetChild(0).gameObject;
         GameControls = new GameControls();
         audioSource = gameObject.GetComponent<AudioSource>();
@@ -43,8 +46,12 @@ public class DialogManager : MonoBehaviour
 
         DialogOptionDisplay.OnDialogButtonClicked += DialogOptionDisplay_OnDialogButtonClicked;
         GameControls.Game.MousePosition.performed += MousePosition_performed;
+
         
     }
+
+   
+
     private void OnEnable()
     {
         GameControls.Enable();
@@ -67,6 +74,8 @@ public class DialogManager : MonoBehaviour
         Lawyer = GameObject.Find("LawyerImage(Clone)");
         lawyerIcon = Lawyer.GetComponent<Image>();
         tree = Lawyer.transform.parent;
+
+        PlayIntroduction();
     }
 
     private void DialogOptionDisplay_OnDialogButtonClicked(DialogOption dialogOption, Vector3 buttonPosition)
@@ -94,7 +103,26 @@ public class DialogManager : MonoBehaviour
        
         
     }
+    private void PlayIntroduction()
+    {
+        Results.SetActive(false);
+        dialogText.SetActive(true);
+        lawyerBubbleText.SetActive(false);
+        isDialogEnded = false;
+        Queue<string> sentences = new Queue<string>();
+        Queue<AudioClip> clips = new Queue<AudioClip>();
 
+        foreach (string sentence in dialog.introductionSentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+        foreach (AudioClip clip in dialog.introductionClips)
+        {
+            clips.Enqueue(clip);
+        }
+
+        StartCoroutine(DisplaySentences(sentences, clips));
+    }
     private void StartDialog(DialogOption dialogOption)
     {
         Results.SetActive(false);
@@ -144,7 +172,7 @@ public class DialogManager : MonoBehaviour
             if (clipLength != 0)
                 yield return new WaitForSeconds(clipLength);
             else
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(dialogTime);
         }
         
             GameControls.Enable();

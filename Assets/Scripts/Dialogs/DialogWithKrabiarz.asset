@@ -70,3 +70,18 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 19d17bf13588ba649a837365674fb967, type: 2}
     - {fileID: 11400000, guid: 0009542ddff6b884fbc16509865e5adf, type: 2}
     DialogOptions: []
+  introductionSentences:
+  - "Szef Krab\xF3w: W dniu \u015Blubu mojej c\xF3rki, prosisz, bym mordowa\u0142
+    za pieni\u0105dze?"
+  - "Lojer: S\u0142ucham?"
+  - "Szef Krab\xF3w: Z kim ja tu znowu gram! Czy nikt nie jest w stanie si\u0119
+    nauczy\u0107 trzech linii dialogowych?!"
+  - 'Lojer: Prze..przepraszam?'
+  - "Szef Krab\xF3w: Chwila, ty nie jeste\u015B aktorem!"
+  - "Szef Krab\xF3w: Humanoidzie! Gadaj natychmiast co robisz w mojej posiad\u0142o\u015Bci
+    bez zaproszenia!"
+  - "Szef Krab\xF3w: Albo moje kraby wypatrosz\u0105 ci\u0119 i zrobi\u0105 z ciebie
+    naw\xF3z dla wodorost\xF3w!"
+  - "Lojer (W my\u015Blach): Musz\u0119 przesta\u0107 otwiera\u0107 wszystkie drzwi
+    jak leci\u2026\r\n"
+  introductionClips: []

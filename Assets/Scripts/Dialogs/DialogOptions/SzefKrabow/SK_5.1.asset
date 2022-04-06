@@ -16,3 +16,21 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: 04e1d128658e9714693679af5380d762, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 3d12f036faf6a7647b65d20329749afb, type: 2}
   strategy: 4
+  sentences:
+  - "Lojer: Czy taki ma\u0142y adwokat jak ja, mo\u017Ce co\u015B zrobi\u0107 dla
+    takiego znamienitego szefa?"
+  - "Szef Krab\xF3w:  Adwokat, adwokat\u2026"
+  - "Szef Krab\xF3w:  A \u017Cebym ja jeszcze wiedzia\u0142, czym si\u0119 zajmuje
+    adwokat!"
+  - "Lojer: Ach, ju\u017C t\u0142umacz\u0119, szefie."
+  - "Lojer: Dbam o to, by szef m\xF3g\u0142 spa\u0107 spokojnie."
+  - "Szef Krab\xF3w: Jeste\u015B opiekunk\u0105 do krab\xF3w? Dobrze, przydasz si\u0119
+    przy inkubatorach!"
+  - "Lojer: Uch\u2026nie do ko\u0144ca o to mi chodzi\u0142o."
+  - "Lojer: Pilnuj\u0119 interes\xF3w szefa. Za\u0142atwiam \u017Ceby problemy znika\u0142y.
+    Broni\u0119 szefa w s\u0105dzie."
+  - "Szef Krab\xF3w:  Czyli by\u0142by\u015B moim ochroniarzem?"
+  - "Lojer: Tak jakby\u2026tylko ja broni\u0119 szefa liter\u0105 prawa i sprytnym
+    s\u0142owem."
+  - "Szef Krab\xF3w:  Powiedz po prostu, \u017Ce mam ci p\u0142aci\u0107 za gadanie!"
+  audioClips: []

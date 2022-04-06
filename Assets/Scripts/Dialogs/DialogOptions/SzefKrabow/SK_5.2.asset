@@ -16,3 +16,12 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: e7ae9dc90841061458cc96e951c91f78, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 3d12f036faf6a7647b65d20329749afb, type: 2}
   strategy: 1
+  sentences:
+  - "Lojer: Czyli szef mafii ci\u0105gle ma przed sob\u0105 swoje pierwsze przest\u0119pstwo\u2026"
+  - "Lojer: Mo\u017Ce poza byciem uzurpatorem."
+  - "Szef Krab\xF3w: Co\u015B ci si\u0119 nie podoba?"
+  - 'Lojer: Mi nic, szefie.'
+  - "Lojer: Ale jeszcze wiele pracy przed krabami, \u017Ceby postawi\u0107 na swoim."
+  - "Szef Krab\xF3w: Ma\u0142o masz w nas wiary!"
+  - "Szef Krab\xF3w: Dzisiaj farma, jutro miasto, pojutrze ca\u0142y \u015Bwiat!"
+  audioClips: []

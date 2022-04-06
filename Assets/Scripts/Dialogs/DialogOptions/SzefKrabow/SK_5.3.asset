@@ -16,3 +16,13 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: e7ae9dc90841061458cc96e951c91f78, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 611965085ce4614439684358292cd3eb, type: 2}
   strategy: 0
+  sentences:
+  - "Lojer: Porywasz si\u0119 z motyk\u0105 na s\u0142o\u0144ce."
+  - "Szef Krab\xF3w: Na s\u0142o\u0144cu przecie\u017C nic nie ro\u015Bnie."
+  - "Lojer: \u2026"
+  - "Lojer: Swoimi marzeniami i durnymi gadkami nie sprostasz temu ca\u0142emu prastaremu
+    krabowi."
+  - "Lojer: Mo\u017Ce pora pozna\u0107 swoje miejsce."
+  - "Szef Krab\xF3w: Ty zdecydowanie nie wiesz gdzie twoje miejsce, humanoidzie!\r\n"
+  - "Szef Krab\xF3w: Dzisiaj farma, jutro miasto, pojutrze ca\u0142y \u015Bwiat!\r\n"
+  audioClips: []

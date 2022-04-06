@@ -10,7 +10,7 @@ public class DialogTreeCreator : MonoBehaviour
 {
     
     [SerializeField]
-    private Dialog dialog;
+    public Dialog dialog;
     
     [HideInInspector]
     [SerializeField]

@@ -8,10 +8,11 @@ using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
+    public static event Action OnDialogEnd;
     int currentLevel=0;
 
     private Image lawyerIcon;
-    WaitForSeconds wait = new WaitForSeconds(1f);
+    WaitUntil wait;
     Transform tree;
     [SerializeField]
     private float animationDuration=10;
@@ -25,10 +26,12 @@ public class DialogManager : MonoBehaviour
     private Result result1, result2, result3, result4, result5;
     private Result[] results;
     [SerializeField]
-    private GameObject lawyerBubbleText;
+    private GameObject lawyerBubbleText,dialogText,Results;
     private GameControls GameControls;
-    
+   
     private GameObject currentRaycastObject,lawyerText;
+
+    private bool isDialogEnded=false;
     private void Awake()
     {
         lawyerText = lawyerBubbleText.transform.GetChild(0).gameObject;
@@ -59,69 +62,11 @@ public class DialogManager : MonoBehaviour
     private void Start()
     {
         lawyerBubbleText.SetActive(false);
+        dialogText.SetActive(false);
         Lawyer = GameObject.Find("LawyerImage(Clone)");
         lawyerIcon = Lawyer.GetComponent<Image>();
         tree = Lawyer.transform.parent;
     }
-    private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        lawyerBubbleText.SetActive(IsPointerOverUIElement());
-        //lawyerText.enabled = (IsPointerOverUIElement()); 
-        if (IsPointerOverUIElement())
-        {
-            GameObject obj = currentRaycastObject;
-            DialogOption option = obj.GetComponent<DialogOptionDisplay>().dialogOption;
-            lawyerText.GetComponent<Text>().text = option.text;
-        };
-    }
-
-    /// <summary>
-    /// Returns 'true' if we touched or hovering on Unity UI element.
-    /// </summary>
-    /// <returns></returns>
-    public bool IsPointerOverUIElement()
-    {
-        return IsPointerOverUIElement(GetEventSystemRaycastResults());
-    }
-
-
-    /// <summary>
-    /// Returns 'true' if we touched or hovering on Unity UI element.
-    /// </summary>
-    /// <param name="eventSystemRaysastResults"></param>
-    /// <returns></returns>
-    private bool IsPointerOverUIElement(List<RaycastResult> eventSystemRaysastResults)
-    {
-        for (int index = 0; index < eventSystemRaysastResults.Count; index++)
-        {
-            RaycastResult curRaysastResult = eventSystemRaysastResults[index];
-            if (curRaysastResult.gameObject.layer == 10)
-            {
-                currentRaycastObject = curRaysastResult.gameObject;
-                return true;
-            }   //10 is UI layer int
-               
-        }
-        currentRaycastObject = null;
-        return false;
-    }
-
-
-    /// <summary>
-    /// Gets all event system raycast results of current mouse or touch position.
-    /// </summary>
-    /// <returns></returns>
-    static List<RaycastResult> GetEventSystemRaycastResults()
-    {
-        PointerEventData eventData = new PointerEventData(EventSystem.current);
-        eventData.position = Input.mousePosition;
-        List<RaycastResult> raysastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventData, raysastResults);
-        return raysastResults;
-    }
-
-
-
 
     private void DialogOptionDisplay_OnDialogButtonClicked(DialogOption dialogOption, Vector3 buttonPosition)
     {
@@ -134,8 +79,9 @@ public class DialogManager : MonoBehaviour
             if (Lawyer.GetComponent<DialogLawyer>().currentCrossPoint == dialogOption.earlierCrossPoint)
             {
                 StartCoroutine(MoveLawyer(dialogOption, buttonPosition));
+                StartDialog(dialogOption);
 
-                UpdateScore(dialogOption.strategy);
+                
                 Lawyer.GetComponent<DialogLawyer>().currentCrossPoint = dialogOption.nextCrossPoint;
 
                 
@@ -147,6 +93,99 @@ public class DialogManager : MonoBehaviour
        
         
     }
+
+    private void StartDialog(DialogOption dialogOption)
+    {
+        Results.SetActive(false);
+        dialogText.SetActive(true);
+        isDialogEnded = false;
+        Queue<string> sentences = new Queue<string>();
+        foreach(string sentence in dialogOption.sentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+        StartCoroutine(DisplaySentences(sentences));
+    }
+
+    private IEnumerator DisplaySentences(Queue<string> sentences)
+    {
+        while (sentences.Count != 0)
+        {
+            string sentence = sentences.Dequeue();
+            Debug.Log(sentence);
+            dialogText.GetComponent<Text>().text = sentence;
+            yield return new WaitForSeconds(1f);
+        }
+       
+        EndDialog();
+       
+    }
+
+    private void EndDialog()
+    {
+        dialogText.SetActive(false);
+        Results.SetActive(true);
+        isDialogEnded = true;
+    }
+
+    /// <summary>
+    /// Funkcja odpowiedzialna za animacjê ruchu Ikony Lawyera.
+    /// </summary>
+    /// <param name="dialogOption"></param>
+    /// <param name="buttonPosition"></param>
+    /// <returns></returns>
+    private IEnumerator MoveLawyer(DialogOption dialogOption, Vector3 buttonPosition)
+    {
+
+
+        Vector3 nextCrossPointPosition = GameObject.Find(dialogOption.nextCrossPoint.name).GetComponent<RectTransform>().localPosition;
+        Vector3 newTreePosition = new Vector3(tree.localPosition.x, tree.localPosition.y - 600, tree.localPosition.z);
+        float distanceToTarget = Vector3.Distance(lawyerIcon.rectTransform.localPosition, buttonPosition);
+        float startTime = Time.time;
+
+        while (distanceToTarget > 0.1f)     //move to dialog
+        {
+
+            distanceToTarget = Vector3.Distance(lawyerIcon.rectTransform.localPosition, buttonPosition);
+
+            lawyerIcon.rectTransform.localPosition = Vector3.Lerp(lawyerIcon.rectTransform.localPosition, buttonPosition, (Time.time - startTime) / animationDuration);
+
+            yield return null;
+        }
+        lawyerIcon.rectTransform.localPosition = buttonPosition;
+
+
+        yield return new WaitUntil(() => isDialogEnded == true);  //wait Until
+
+        UpdateScore(dialogOption.strategy);
+
+        startTime = Time.time;
+        distanceToTarget = Vector3.Distance(lawyerIcon.rectTransform.localPosition, nextCrossPointPosition);    //przesuwanie do crosspointa
+        while (distanceToTarget > 0.1f)
+        {
+            distanceToTarget = Vector3.Distance(lawyerIcon.rectTransform.localPosition, nextCrossPointPosition);
+            lawyerIcon.rectTransform.localPosition = Vector3.Lerp(lawyerIcon.rectTransform.localPosition, nextCrossPointPosition, (Time.time - startTime) / animationDuration);
+            yield return null;
+        }
+        lawyerIcon.rectTransform.localPosition = nextCrossPointPosition;
+        yield return null;
+
+
+        startTime = Time.time;
+        distanceToTarget = Vector3.Distance(tree.localPosition, newTreePosition);       //przesuwanie drzewka
+        while (distanceToTarget > 0.1f)
+        {
+            distanceToTarget = Vector3.Distance(tree.localPosition, newTreePosition);
+            tree.localPosition = Vector3.Lerp(tree.localPosition, newTreePosition, (Time.time - startTime) / animationDuration);
+            yield return null;
+        }
+        DestroyLowerLevel();
+
+        tree.localPosition = newTreePosition;
+
+
+    }
+
     /// <summary>
     /// Ustawia wartoœæ <b>ResultBar</b> na 0.
     /// </summary>
@@ -287,60 +326,61 @@ public class DialogManager : MonoBehaviour
         Debug.Log(result.ResultText);
     }
 
-    /// <summary>
-    /// Funkcja odpowiedzialna za animacjê ruchu Ikony Lawyera.
-    /// </summary>
-    /// <param name="dialogOption"></param>
-    /// <param name="buttonPosition"></param>
-    /// <returns></returns>
-    private IEnumerator MoveLawyer(DialogOption dialogOption, Vector3 buttonPosition)
-    {
-        
-
-        Vector3 nextCrossPointPosition = GameObject.Find(dialogOption.nextCrossPoint.name).GetComponent<RectTransform>().localPosition;
-        Vector3 newTreePosition = new Vector3(tree.localPosition.x, tree.localPosition.y - 600, tree.localPosition.z);
-        float distanceToTarget = Vector3.Distance(lawyerIcon.rectTransform.localPosition, buttonPosition);
-        float startTime = Time.time;
    
-        while (distanceToTarget > 0.1f)     //move to dialog
+    private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        lawyerBubbleText.SetActive(IsPointerOverUIElement());
+        //lawyerText.enabled = (IsPointerOverUIElement()); 
+        if (IsPointerOverUIElement())
         {
-            
-            distanceToTarget = Vector3.Distance(lawyerIcon.rectTransform.localPosition, buttonPosition);
+            GameObject obj = currentRaycastObject;
+            DialogOption option = obj.GetComponent<DialogOptionDisplay>().dialogOption;
+            lawyerText.GetComponent<Text>().text = option.text;
+        };
+    }
 
-            lawyerIcon.rectTransform.localPosition = Vector3.Lerp(lawyerIcon.rectTransform.localPosition, buttonPosition,(Time.time-startTime)/animationDuration);
+    /// <summary>
+    /// Returns 'true' if we touched or hovering on Unity UI element.
+    /// </summary>
+    /// <returns></returns>
+    public bool IsPointerOverUIElement()
+    {
+        return IsPointerOverUIElement(GetEventSystemRaycastResults());
+    }
 
-            yield return null;
-        }
-        lawyerIcon.rectTransform.localPosition = buttonPosition;
 
-        
-        yield return wait;  //wait Until
-
-
-        startTime = Time.time;
-        distanceToTarget = Vector3.Distance(lawyerIcon.rectTransform.localPosition, nextCrossPointPosition);    //przesuwanie do crosspointa
-        while (distanceToTarget > 0.1f)
+    /// <summary>
+    /// Returns 'true' if we touched or hovering on Unity UI element.
+    /// </summary>
+    /// <param name="eventSystemRaysastResults"></param>
+    /// <returns></returns>
+    private bool IsPointerOverUIElement(List<RaycastResult> eventSystemRaysastResults)
+    {
+        for (int index = 0; index < eventSystemRaysastResults.Count; index++)
         {
-            distanceToTarget = Vector3.Distance(lawyerIcon.rectTransform.localPosition, nextCrossPointPosition);
-            lawyerIcon.rectTransform.localPosition = Vector3.Lerp(lawyerIcon.rectTransform.localPosition, nextCrossPointPosition, (Time.time - startTime) / animationDuration);
-            yield return null;
-        }
-        lawyerIcon.rectTransform.localPosition = nextCrossPointPosition;
-        yield return null;
-       
+            RaycastResult curRaysastResult = eventSystemRaysastResults[index];
+            if (curRaysastResult.gameObject.layer == 10)
+            {
+                currentRaycastObject = curRaysastResult.gameObject;
+                return true;
+            }   //10 is UI layer int
 
-        startTime = Time.time;  
-        distanceToTarget = Vector3.Distance(tree.localPosition, newTreePosition);       //przesuwanie drzewka
-        while (distanceToTarget > 0.1f)
-        {            
-            distanceToTarget = Vector3.Distance(tree.localPosition, newTreePosition);
-            tree.localPosition = Vector3.Lerp(tree.localPosition, newTreePosition, (Time.time - startTime) / animationDuration);
-            yield return null;
         }
-        DestroyLowerLevel();
+        currentRaycastObject = null;
+        return false;
+    }
 
-        tree.localPosition = newTreePosition;
-       
-        
+
+    /// <summary>
+    /// Gets all event system raycast results of current mouse or touch position.
+    /// </summary>
+    /// <returns></returns>
+    static List<RaycastResult> GetEventSystemRaycastResults()
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Input.mousePosition;
+        List<RaycastResult> raysastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, raysastResults);
+        return raysastResults;
     }
 }

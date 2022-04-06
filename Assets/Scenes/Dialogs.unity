@@ -499,6 +499,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2556843331313425962, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
+      propertyPath: ResultText
+      value: " Lojer proponuje szefowi krab\xF3w wsp\xF3\u0142prac\u0119, prezentuj\u0105c
+        mu potencjalne korzy\u015Bci z posiadania prawnika w wielkim mie\u015Bcie."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556843331446960221, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
+      propertyPath: ResultText
+      value: " Lojer powstrzymuj\u0105c \u015Bmiech uznaje wy\u017Cszo\u015B\u0107
+        szefa krab\xF3w i zgadza si\u0119 odstawia\u0107 szopk\u0119 traktowania
+        go jako mafioz\u0119, aby ten w zamian mu pom\xF3g\u0142."
+      objectReference: {fileID: 0}
     - target: {fileID: 2556843332657904698, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
       propertyPath: dialog
       value: 
@@ -508,6 +519,14 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2556843332657904701, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
+      propertyPath: Results
+      value: 
+      objectReference: {fileID: 993570311}
+    - target: {fileID: 2556843332657904701, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
+      propertyPath: dialogText
+      value: 
+      objectReference: {fileID: 1388635517}
+    - target: {fileID: 2556843332657904701, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
       propertyPath: barIncrease
       value: 0.2
       objectReference: {fileID: 0}
@@ -515,6 +534,15 @@ PrefabInstance:
       propertyPath: lawyerBubbleText
       value: 
       objectReference: {fileID: 1535860187}
+    - target: {fileID: 2556843332657904701, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
+      propertyPath: animationDuration
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556843332706195476, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
+      propertyPath: ResultText
+      value: ": Lojer wmawia szefowi Krab\xF3w \u017Ce sam te\u017C jest krabem swego
+        rodzaju i dzia\u0142a w interesie szefa."
+      objectReference: {fileID: 0}
     - target: {fileID: 2556843332817340642, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
       propertyPath: m_Name
       value: TreeCanvas
@@ -606,6 +634,18 @@ PrefabInstance:
     - target: {fileID: 2556843332817340671, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556843333233896811, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
+      propertyPath: ResultText
+      value: " Lojer sugeruje Szefowi Krab\xF3w, \u017Ce jego pozycja lidera mo\u017Ce
+        nied\u0142ugo si\u0119 sko\u0144czy\u0107, chyba \u017Ce zdecyduje si\u0119
+        pom\xF3c Lojerowi."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7503844604909190701, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
+      propertyPath: ResultText
+      value: " Lojer grozi szefowi krab\xF3w swoimi kompetencjami, sugeruj\u0105c
+        \u017Ce szef powinien stara\u0107 si\u0119 mie\u0107 Lojera jako wsp\xF3lnika,
+        nie wroga."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
@@ -832,6 +872,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &993570311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2556843333001525548, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
+  m_PrefabInstance: {fileID: 380945212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1387302201
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,6 +955,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387302201}
+  m_CullTransparentMesh: 1
+--- !u!1 &1388635517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1388635518}
+  - component: {fileID: 1388635520}
+  - component: {fileID: 1388635519}
+  m_Layer: 5
+  m_Name: DialogText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1388635518
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388635517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 59400024}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -483}
+  m_SizeDelta: {x: 900, y: 90}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1388635519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388635517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &1388635520
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388635517}
   m_CullTransparentMesh: 1
 --- !u!1 &1420704941
 GameObject:

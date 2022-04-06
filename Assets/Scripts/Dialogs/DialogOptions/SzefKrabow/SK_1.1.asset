@@ -16,3 +16,10 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: 9e763dd7ea8b2f748ac68af728ad99e9, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: fde64bca4ee75eb4d9bfb84e5097a9b4, type: 2}
   strategy: 3
+  sentences:
+  - "Lojer: Zw\u0119 si\u0119 Lojer Outlawyer. Jestem adwokatem i radc\u0105 prawnym."
+  - "Lojer: Do us\u0142ug."
+  - "Szef Krab\xF3w: Phi! To mi adwokat, kt\xF3ry bez pozwolenia nachodzi mnie w
+    moim w\u0142asnym domu!"
+  - "Szef Krab\xF3w: Daj mi jeden pow\xF3d, czemu nie mam ci\u0119 rzuci\u0107 teraz
+    na po\u017Carcie."

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -24,21 +25,31 @@ public class DialogManager : MonoBehaviour
     private Result result1, result2, result3, result4, result5;
     private Result[] results;
     [SerializeField]
-    private Image lawyerBubbleText;
-    private Text lawyerText;
+    private GameObject lawyerBubbleText;
+    private GameControls GameControls;
     
+    private GameObject currentRaycastObject,lawyerText;
     private void Awake()
-    {   
-        lawyerBubbleText.enabled = false;
+    {
+        lawyerText = lawyerBubbleText.transform.GetChild(0).gameObject;
+        GameControls = new GameControls();
+       
         GetResults();
         ClearResultsBars();
         
 
         DialogOptionDisplay.OnDialogButtonClicked += DialogOptionDisplay_OnDialogButtonClicked;
-        
+        GameControls.Game.MousePosition.performed += MousePosition_performed;
         
     }
-
+    private void OnEnable()
+    {
+        GameControls.Enable();
+    }
+    private void OnDisable()
+    {
+        GameControls.Disable();
+    }
     
 
     private void OnDestroy()
@@ -47,38 +58,59 @@ public class DialogManager : MonoBehaviour
     }
     private void Start()
     {
+        lawyerBubbleText.SetActive(false);
         Lawyer = GameObject.Find("LawyerImage(Clone)");
         lawyerIcon = Lawyer.GetComponent<Image>();
         tree = Lawyer.transform.parent;
     }
-
-    private void Update()
+    private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        print(IsPointerOverUIElement() ? "Over UI" : "Not over UI");
+        lawyerBubbleText.SetActive(IsPointerOverUIElement());
+        //lawyerText.enabled = (IsPointerOverUIElement()); 
+        if (IsPointerOverUIElement())
+        {
+            GameObject obj = currentRaycastObject;
+            DialogOption option = obj.GetComponent<DialogOptionDisplay>().dialogOption;
+            lawyerText.GetComponent<Text>().text = option.text;
+        };
     }
 
-
-    //Returns 'true' if we touched or hovering on Unity UI element.
+    /// <summary>
+    /// Returns 'true' if we touched or hovering on Unity UI element.
+    /// </summary>
+    /// <returns></returns>
     public bool IsPointerOverUIElement()
     {
         return IsPointerOverUIElement(GetEventSystemRaycastResults());
     }
 
 
-    //Returns 'true' if we touched or hovering on Unity UI element.
+    /// <summary>
+    /// Returns 'true' if we touched or hovering on Unity UI element.
+    /// </summary>
+    /// <param name="eventSystemRaysastResults"></param>
+    /// <returns></returns>
     private bool IsPointerOverUIElement(List<RaycastResult> eventSystemRaysastResults)
     {
         for (int index = 0; index < eventSystemRaysastResults.Count; index++)
         {
             RaycastResult curRaysastResult = eventSystemRaysastResults[index];
-            if (curRaysastResult.gameObject.layer == 10)     //10 is UI layer int
+            if (curRaysastResult.gameObject.layer == 10)
+            {
+                currentRaycastObject = curRaysastResult.gameObject;
                 return true;
+            }   //10 is UI layer int
+               
         }
+        currentRaycastObject = null;
         return false;
     }
 
 
-    //Gets all event system raycast results of current mouse or touch position.
+    /// <summary>
+    /// Gets all event system raycast results of current mouse or touch position.
+    /// </summary>
+    /// <returns></returns>
     static List<RaycastResult> GetEventSystemRaycastResults()
     {
         PointerEventData eventData = new PointerEventData(EventSystem.current);

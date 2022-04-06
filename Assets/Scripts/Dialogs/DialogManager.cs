@@ -99,6 +99,7 @@ public class DialogManager : MonoBehaviour
     {
         Results.SetActive(false);
         dialogText.SetActive(true);
+        lawyerBubbleText.SetActive(false);
         isDialogEnded = false;
         Queue<string> sentences = new Queue<string>();
         Queue<AudioClip> clips = new Queue<AudioClip>();

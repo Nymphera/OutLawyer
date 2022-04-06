@@ -284,7 +284,7 @@ public class DialogManager : MonoBehaviour
 
     private void ShowResult(Result result)
     {
-        
+        Debug.Log(result.ResultText);
     }
 
     /// <summary>

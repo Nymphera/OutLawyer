@@ -18,7 +18,7 @@ public class DialogManager : MonoBehaviour
     private float animationDuration=10;
     
     private GameObject Lawyer;
-
+    private AudioSource audioSource;
     [SerializeField]
     private float barIncrease = 0.2f;
     [HideInInspector]
@@ -36,7 +36,7 @@ public class DialogManager : MonoBehaviour
     {
         lawyerText = lawyerBubbleText.transform.GetChild(0).gameObject;
         GameControls = new GameControls();
-       
+        audioSource = gameObject.GetComponent<AudioSource>();
         GetResults();
         ClearResultsBars();
         
@@ -58,6 +58,7 @@ public class DialogManager : MonoBehaviour
     private void OnDestroy()
     {
         DialogOptionDisplay.OnDialogButtonClicked -= DialogOptionDisplay_OnDialogButtonClicked;
+        GameControls.Game.MousePosition.performed -= MousePosition_performed;
     }
     private void Start()
     {
@@ -100,23 +101,54 @@ public class DialogManager : MonoBehaviour
         dialogText.SetActive(true);
         isDialogEnded = false;
         Queue<string> sentences = new Queue<string>();
+        Queue<AudioClip> clips = new Queue<AudioClip>();
+
         foreach(string sentence in dialogOption.sentences)
         {
             sentences.Enqueue(sentence);
         }
-        StartCoroutine(DisplaySentences(sentences));
+        foreach(AudioClip clip in dialogOption.audioClips)
+        {
+            clips.Enqueue(clip);
+        }
+        
+        StartCoroutine(DisplaySentences(sentences,clips));
+
+       
+
+       
     }
 
-    private IEnumerator DisplaySentences(Queue<string> sentences)
+    private IEnumerator DisplaySentences(Queue<string> sentences,Queue<AudioClip> clips)
     {
+        float clipLength=0;
+
+
+
         while (sentences.Count != 0)
         {
+            GameControls.Disable();
+
             string sentence = sentences.Dequeue();
-            Debug.Log(sentence);
+            if (clips.Count != 0)
+            {
+                AudioClip clip = clips.Dequeue();
+                clipLength = clip.length;
+                audioSource.clip = clip;
+                audioSource.Play();
+            }
+            
+
             dialogText.GetComponent<Text>().text = sentence;
-            yield return new WaitForSeconds(1f);
+            if (clipLength != 0)
+                yield return new WaitForSeconds(clipLength);
+            else
+                yield return new WaitForSeconds(2f);
         }
-       
+        
+            GameControls.Enable();
+        
+
         EndDialog();
        
     }
@@ -330,7 +362,7 @@ public class DialogManager : MonoBehaviour
     private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         lawyerBubbleText.SetActive(IsPointerOverUIElement());
-        //lawyerText.enabled = (IsPointerOverUIElement()); 
+        
         if (IsPointerOverUIElement())
         {
             GameObject obj = currentRaycastObject;

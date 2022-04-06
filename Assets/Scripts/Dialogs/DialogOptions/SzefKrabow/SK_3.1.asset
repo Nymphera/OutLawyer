@@ -16,3 +16,13 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: e7c03c1ba7661594ba1f01b5dcc59d87, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 08eaa5c02aff79f419e0ca6c7e30e7ef, type: 2}
   strategy: 2
+  sentences:
+  - "Lojer:  Proste. Wzi\u0119li mnie za swojego."
+  - "Szef Krab\xF3w: Co? Z ciebie taki krab jak ze mnie uczciwy podatnik."
+  - "Lojer: *Wydaje odg\u0142osy szczypiec*."
+  - "Lojer: Czyli mam rozumie\u0107, \u017Ce kreatywnej ksi\u0119gowo\u015Bci tutaj
+    nie znajd\u0119?"
+  - "Szef Krab\xF3w:  Niemo\u017Cliwe\u2026"
+  - "Szef Krab\xF3w:  Albo na staro\u015B\u0107 oczy mi zawodz\u0105, albo jeste\u015B
+    wyj\u0105tkowo wysokim i brzydkim krabem."
+  audioClips: []

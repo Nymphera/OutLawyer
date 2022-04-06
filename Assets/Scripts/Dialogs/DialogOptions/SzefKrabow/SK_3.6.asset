@@ -16,3 +16,19 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: 295550ccc06fa3947b7125e7276a4137, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: b24357a6a52226746b00440f6215b6f4, type: 2}
   strategy: 4
+  sentences:
+  - 'Lojer: Zaczekaj!'
+  - "Szef Krab\xF3w: Hm?"
+  - "Lojer: Chcia\u0142em tylko pogratulowa\u0107 wyst\u0119pu."
+  - "Lojer: Nadajesz si\u0119 do roli szefa."
+  - "Szef Krab\xF3w:  Och\u2026"
+  - "Szef Krab\xF3w:  Bo si\u0119 zarumieni\u0119\u2026"
+  - "Lojer: Zdrad\u017A mi, jak dorobi\u0142e\u015B si\u0119 swojej kariery? M\xF3g\u0142bym
+    si\u0119 od ciebie wiele nauczy\u0107."
+  - "Szef Krab\xF3w:  Wiesz, trzeba po prostu mie\u0107 w sobie \u201Cto co\u015B\u201D."
+  - "Szef Krab\xF3w:  Kraby mia\u0142y dosy\u0107 harowania dla Hodowcy na rzecz
+    jego ukochanego Aldhesta. Mia\u0142y do\u015B\u0107 wyzysku."
+  - "Szef Krab\xF3w:  I wtedy przed szereg wyszed\u0142em ja!"
+  - "Szef Krab\xF3w:  Jestem duchem nowego pokolenia krab\xF3w! Aldhest to relikt
+    starych czas\xF3w!"
+  audioClips: []

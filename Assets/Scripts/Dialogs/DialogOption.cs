@@ -14,5 +14,6 @@ public class DialogOption : ScriptableObject
     public Strategy strategy;   // strategia jak¹ zawiera ten dialog
     [TextArea(3,10)]
     public string[] sentences;
+    public AudioClip[] audioClips;
     
 }

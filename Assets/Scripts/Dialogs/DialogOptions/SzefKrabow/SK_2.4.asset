@@ -16,3 +16,15 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: b24357a6a52226746b00440f6215b6f4, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 2cc933c47648e8346a1fcdde923e8e6c, type: 2}
   strategy: 2
+  sentences:
+  - 'Lojer:  Ojciec chrzestny?'
+  - "Szef Krab\xF3w: Tak, to m\xF3j ulubiony film."
+  - "Lojer: W \u017Cyciu bym si\u0119 nie domy\u015Bli\u0142."
+  - "Lojer: Nie my\u015Bla\u0142e\u015B o tym, by spr\xF3bowa\u0107 z w\u0142asn\u0105
+    to\u017Csamo\u015Bci\u0105?"
+  - "Szef Krab\xF3w:  Ale\u017C to jest moja to\u017Csamo\u015B\u0107!"
+  - "Szef Krab\xF3w:  Powiedz, widzia\u0142e\u015B kiedy\u015B kraba mafios\u0119?"
+  - "Lojer:  S\u0142uszna uwaga\u2026"
+  - "Szef Krab\xF3w:  Dobra, i tak nie nadajesz si\u0119 do tej roli."
+  - "Szef Krab\xF3w:  NAST\u0118PNY!"
+  audioClips: []

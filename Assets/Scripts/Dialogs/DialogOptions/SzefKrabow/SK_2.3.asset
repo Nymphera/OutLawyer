@@ -16,3 +16,14 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: e718e3ab6c536894e9f6e4403c0c081a, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 2cc933c47648e8346a1fcdde923e8e6c, type: 2}
   strategy: 4
+  sentences:
+  - "Lojer:  Nie chcia\u0142em Pana urazi\u0107. Panie\u2026"
+  - "Szef Krab\xF3w: Crabfather."
+  - "Lojer: Panie Crabfather. Przyjemno\u015B\u0107 mojej stronie."
+  - "Lojer: Czy Pan Crabfather zaszczyci\u0142by mnie wiedz\u0105 o tym, z kim mam
+    do czynienia?"
+  - "Szef Krab\xF3w:  Och, z przyjemno\u015Bci\u0105!"
+  - "Szef Krab\xF3w:  Jestem szefem krab\xF3w, od kiedy uda\u0142o nam si\u0119 uniezale\u017Cni\u0107
+    od Patricka."
+  - "Szef Krab\xF3w:  Ca\u0142a ta farma jest teraz nasza. MOJA."
+  audioClips: []

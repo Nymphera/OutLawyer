@@ -23,3 +23,8 @@ MonoBehaviour:
     moim w\u0142asnym domu!"
   - "Szef Krab\xF3w: Daj mi jeden pow\xF3d, czemu nie mam ci\u0119 rzuci\u0107 teraz
     na po\u017Carcie."
+  audioClips:
+  - {fileID: 8300000, guid: 6d8fe1a3eecdc5b43839c32ac3030132, type: 3}
+  - {fileID: 8300000, guid: 3cfa9c71f76ed154da109944946347bc, type: 3}
+  - {fileID: 8300000, guid: 07b121810bb1f024cbb9046cffc85c5d, type: 3}
+  - {fileID: 8300000, guid: 342d6e62512c6de4dbb5009124d5b8da, type: 3}

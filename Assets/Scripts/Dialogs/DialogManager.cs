@@ -75,40 +75,45 @@ public class DialogManager : MonoBehaviour
         lawyerIcon = Lawyer.GetComponent<Image>();
         tree = Lawyer.transform.parent;
 
-        PlayIntroduction();
+        StartCoroutine(PlayIntroduction());
     }
 
     private void DialogOptionDisplay_OnDialogButtonClicked(DialogOption dialogOption, Vector3 buttonPosition)
     {
-       
 
-        int length=dialogOption.earlierCrossPoint.ConectedDialogOptions.Length;
-        
-       for (int i = 0; i < length; i++)
+        if (GameManager.Instance.isInputEnabled)
         {
-            if (Lawyer.GetComponent<DialogLawyer>().currentCrossPoint == dialogOption.earlierCrossPoint)
+
+            int length = dialogOption.earlierCrossPoint.ConectedDialogOptions.Length;
+
+            for (int i = 0; i < length; i++)
             {
-                StartCoroutine(MoveLawyer(dialogOption, buttonPosition));
-                StartDialog(dialogOption);
+                if (Lawyer.GetComponent<DialogLawyer>().currentCrossPoint == dialogOption.earlierCrossPoint)
+                {
+                    StartCoroutine(MoveLawyer(dialogOption, buttonPosition));
+                    StartDialog(dialogOption);
 
-                
-                Lawyer.GetComponent<DialogLawyer>().currentCrossPoint = dialogOption.nextCrossPoint;
 
-                
-                
-                
+                    Lawyer.GetComponent<DialogLawyer>().currentCrossPoint = dialogOption.nextCrossPoint;
+
+
+
+
+                }
             }
         }
-
        
         
     }
-    private void PlayIntroduction()
+    private IEnumerator PlayIntroduction()
     {
+        GameControls.Disable();
         Results.SetActive(false);
         dialogText.SetActive(true);
         lawyerBubbleText.SetActive(false);
+        GameControls.Disable();
         isDialogEnded = false;
+        GameManager.Instance.isInputEnabled = false;
         Queue<string> sentences = new Queue<string>();
         Queue<AudioClip> clips = new Queue<AudioClip>();
 
@@ -122,6 +127,9 @@ public class DialogManager : MonoBehaviour
         }
 
         StartCoroutine(DisplaySentences(sentences, clips));
+        yield return new WaitUntil(() => isDialogEnded == true);
+        GameControls.Enable();
+        GameManager.Instance.isInputEnabled = true;
     }
     private void StartDialog(DialogOption dialogOption)
     {
@@ -390,14 +398,17 @@ public class DialogManager : MonoBehaviour
    
     private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        lawyerBubbleText.SetActive(IsPointerOverUIElement());
-        
-        if (IsPointerOverUIElement())
+        if (GameManager.Instance.isInputEnabled)
         {
-            GameObject obj = currentRaycastObject;
-            DialogOption option = obj.GetComponent<DialogOptionDisplay>().dialogOption;
-            lawyerText.GetComponent<Text>().text = option.text;
-        };
+            lawyerBubbleText.SetActive(IsPointerOverUIElement());
+
+            if (IsPointerOverUIElement())
+            {
+                GameObject obj = currentRaycastObject;
+                DialogOption option = obj.GetComponent<DialogOptionDisplay>().dialogOption;
+                lawyerText.GetComponent<Text>().text = option.text;
+            }
+        }
     }
 
     /// <summary>

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-  
+    public bool isInputEnabled=true;
     private GameState CurrentState;
    
     public static event Action<GameState> OnGameStateChanged;

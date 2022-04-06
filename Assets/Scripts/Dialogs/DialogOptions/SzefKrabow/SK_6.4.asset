@@ -16,3 +16,9 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: 0009542ddff6b884fbc16509865e5adf, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: b00a1f1c550befc438520299d54a2a02, type: 2}
   strategy: 1
+  sentences:
+  - "Lojer: Niby ci szkoda hodowcy, ale chyba nie odda\u0142by\u015B tego fotela
+    bez walki."
+  - "Szef Krab\xF3w: C\xF3\u017C\u2026jest bardzo wygodny. I dodaje mi powagi."
+  - "Lojer: Oczywi\u015Bcie, \u017Ce tak."
+  audioClips: []

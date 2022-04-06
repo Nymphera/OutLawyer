@@ -16,3 +16,14 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: b00a1f1c550befc438520299d54a2a02, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 611965085ce4614439684358292cd3eb, type: 2}
   strategy: 2
+  sentences:
+  - "Lojer: Jakie s\u0105 relacje hodowcy z Aldhestem?\r\n"
+  - "Szef Krab\xF3w: Hodowca ma prze\u017Carty m\xF3zg!\r\n"
+  - "Szef Krab\xF3w: Aldhest omami\u0142 go ju\u017C wieki temu. Gdyby nie jego wp\u0142ywy,
+    Patrickowi pewnie wcale nie chcia\u0142oby si\u0119 nami zajmowa\u0107."
+  - 'Lojer: Jest tutaj niewolnikiem?'
+  - "Szef Krab\xF3w: Jego zdaniem jest tu szcz\u0119\u015Bliwy. Z reszt\u0105 gdyby
+    nie Patrick, nie by\u0142oby tu ani mnie ani ciebie."
+  - "Szef Krab\xF3w: W sumie szkoda ch\u0142opa. Ale biznes to brutalny \u015Bwiat."
+  - "Szef Krab\xF3w: Musia\u0142em przej\u0105\u0107 w\u0142adz\u0119."
+  audioClips: []

@@ -34,7 +34,7 @@ public class OfficeManager : MonoBehaviour
         interact2= GameObject.Find("Interact2").GetComponent<Interact2>();
         pinBoardLogic = PinBoard.GetComponent<PinBoardLogic>();
         
-
+        
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
         PinBoardControls.PinBoard.MouseLeftClick.performed += MouseLeftClick_performed;
         PinBoardControls.PinBoard.LeavePinBoard.performed += LeavePinBoard_performed;
@@ -66,17 +66,16 @@ public class OfficeManager : MonoBehaviour
     private void OnEnable()
     {
         PinBoardControls.Enable();
-        MousePosition = PinBoardControls.PinBoard.Move;
-        MousePosition.Enable();
+       
     }
     private void OnDisable()
     {
+     
         PinBoardControls.Disable();
-        MousePosition.Disable();
     }
     private void MouseLeftClick_performed(InputAction.CallbackContext obj)
     {
-        Ray Ray = Camera.main.ScreenPointToRay(MousePosition.ReadValue<Vector2>());
+        Ray Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if(Physics.Raycast(Ray,out hit))
         {
@@ -128,7 +127,7 @@ public class OfficeManager : MonoBehaviour
                 PinBoardUI.SetActive(state == OfficeState.PinBoard||state==OfficeState.Inspect);
 
 
-        if(interact2!=null)
+        if (interact2 != null) 
         interact2.enabled = (state == OfficeState.Desk);
 
     }

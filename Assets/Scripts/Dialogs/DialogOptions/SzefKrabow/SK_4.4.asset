@@ -16,3 +16,16 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: 611965085ce4614439684358292cd3eb, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 009a0cd5d08181243bd50f7ad3b993dd, type: 2}
   strategy: 3
+  sentences:
+  - 'Lojer: Aldhest?'
+  - "Szef Krab\xF3w:  Nie m\xF3w, \u017Ce to imi\u0119 nic ci nie m\xF3wi."
+  - "Lojer: Niestety. Ale ch\u0119tnie dowiem si\u0119 o kogo chodzi."
+  - "Szef Krab\xF3w: Aldhest to nasz praojciec. Ostatni z dawnej linii krab\xF3w."
+  - "Szef Krab\xF3w: Chce odzyska\u0107 si\u0142y i odrodzi\u0107 swoj\u0105 ras\u0119,
+    kt\xF3rej m\xF3g\u0142by przewodzi\u0107."
+  - 'Lojer: Szlachetny ojciec.'
+  - "Szef Krab\xF3w:  W \u017Cadnym razie!\r\n"
+  - "Szef Krab\xF3w:  \u017Bywi si\u0119 ludzkimi duszami, by produkowa\u0107 mutageny
+    i przemienia\u0107 kraby na swoje podobie\u0144stwo."
+  - "Szef Krab\xF3w:  Ja jestem niegodziwy, ale nie a\u017C tak!"
+  audioClips: []

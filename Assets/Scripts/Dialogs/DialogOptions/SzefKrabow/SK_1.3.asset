@@ -16,3 +16,11 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: 2cc933c47648e8346a1fcdde923e8e6c, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: fde64bca4ee75eb4d9bfb84e5097a9b4, type: 2}
   strategy: 1
+  sentences:
+  - "Lojer: Och, nie ta scena\u2026"
+  - "Szef Krab\xF3w: S\u0142ucham?"
+  - "Szef Krab\xF3w: S\u0142ucham?"
+  - "Lojer: Ekhm\u2026 ekhm\u2026"
+  - "Lojer: \u201CA wi\u0119c niech cierpi\u0105, tak jak ona. Ile mam ci zap\u0142aci\u0107?\u201D"
+  - "Szef Krab\xF3w:  \u201CBonasera, Bonasera. Co ja ci zrobi\u0142em, \u017Ce mnie
+    tak nie szanujesz?\u201D"

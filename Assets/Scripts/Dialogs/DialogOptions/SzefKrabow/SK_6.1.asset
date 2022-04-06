@@ -16,3 +16,9 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: 19d17bf13588ba649a837365674fb967, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 04e1d128658e9714693679af5380d762, type: 2}
   strategy: 2
+  sentences:
+  - "Lojer: C\xF3\u017C, czasami p\u0142ac\u0105 mi za samo gadanie."
+  - "Szef Krab\xF3w: A\u017C tak dobrze ci to idzie?"
+  - "Lojer: Och, w pleceniu trzy po trzy nie mam sobie r\xF3wnych."
+  - "Lojer: Nasza rozmowa jest doskona\u0142ym tego przyk\u0142adem."
+  audioClips: []

@@ -10,28 +10,30 @@ public class Interact : MonoBehaviour
     private OfficeState currentState;
     [SerializeField]
     List<GameObject> interactable;
-  
-    
-    private GameObject selectedObject;
+    [SerializeField]
+    private Color OutlineColor,TransparentColor;
+
+    private GameObject outlineObject;
     
     private void Awake()
     {
-
+        
         
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
         
         interactable = new List<GameObject>();
         interactable.AddRange(GameObject.FindGameObjectsWithTag("Interact"));
-        
-        
-        
+
+        TransparentColor = OutlineColor;
+        TransparentColor.a = 0;
+
         CreateOutline(interactable);
 
 
     }
     private void Start()
     {
-        foreach (GameObject obj in interactable)
+       /* foreach (GameObject obj in interactable)
         {
             if (obj != null)
             {
@@ -40,7 +42,7 @@ public class Interact : MonoBehaviour
             }
             else
                 interactable.Remove(obj);
-        }
+        }*/
     }
 
    
@@ -66,10 +68,10 @@ public class Interact : MonoBehaviour
     {
         
         
-        if (selectedObject != null)
+        if (outlineObject!=null)
         {
-            DisableOutline(selectedObject);
-            selectedObject = null;
+            DisableOutline(outlineObject);
+            outlineObject = null;
         }
 
         GameObject selectedObj;
@@ -82,8 +84,8 @@ public class Interact : MonoBehaviour
                 selectedObj = hit.transform.gameObject;
                 EnableOutline(selectedObj);
 
-
-                selectedObject = selectedObj;
+               
+                outlineObject = selectedObj;
             }        
              
         }
@@ -93,8 +95,9 @@ public class Interact : MonoBehaviour
      
     private void EnableOutline(GameObject Object)
     {
+       
         Outline outline = Object.GetComponent<Outline>();
-        outline.enabled = true;
+        outline.OutlineColor = OutlineColor;
     } 
     private void DisableAllOutlines(List<GameObject> interactable)
     {
@@ -103,7 +106,8 @@ public class Interact : MonoBehaviour
             if (obj != null)
             {
                 Outline outline = obj.GetComponent<Outline>();
-                outline.enabled = false;
+                
+                outline.OutlineColor = TransparentColor;
             }
             else
                 interactable.Remove(obj);
@@ -113,7 +117,8 @@ public class Interact : MonoBehaviour
     private void DisableOutline(GameObject Object)
     {
         Outline outline = Object.GetComponent<Outline>();
-        outline.enabled = false;
+        
+        outline.OutlineColor = TransparentColor;
     }
     private void CreateOutline(List<GameObject> interact)
     {
@@ -127,10 +132,11 @@ public class Interact : MonoBehaviour
                 obj.AddComponent<Outline>();
                 Outline outline = obj.GetComponent<Outline>();
                 outline.OutlineMode = Outline.Mode.OutlineVisible;
-                outline.OutlineColor = Color.red;     //trochê nie wiem dlaczego, ale nie zapisuje siê outline.color, mo¿e dlatego ¿e za ka¿dym razem dodaje nowy outline do gry
+                outline.OutlineColor = TransparentColor;    //trochê nie wiem dlaczego, ale nie zapisuje siê outline.color, mo¿e dlatego ¿e za ka¿dym razem dodaje nowy outline do gry
                 outline.OutlineWidth = 5f;
-                outline.enabled = false;
-                
+                outline.enabled = true;
+               
+
             }
                 
         }

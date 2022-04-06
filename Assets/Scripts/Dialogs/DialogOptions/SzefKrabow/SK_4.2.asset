@@ -16,3 +16,16 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: 3d12f036faf6a7647b65d20329749afb, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: e7c03c1ba7661594ba1f01b5dcc59d87, type: 2}
   strategy: 3
+  sentences:
+  - "Lojer: Wydajesz si\u0119 powa\u017Cnym krabem biznesu."
+  - "Lojer: Jest co\u015B, co mo\u017Cesz mi zaoferowa\u0107?"
+  - "Szef Krab\xF3w:  Pytanie, czy jest pow\xF3d \u017Cebym co\u015B Tobie oferowa\u0142!"
+  - "Szef Krab\xF3w:  Ale niestety, chwilowo nasz biznes ci\u0119\u017Cko prz\u0119dzie."
+  - "Szef Krab\xF3w: Kraby nie s\u0105 traktowane jako pe\u0142noprawni obywatele
+    miasta."
+  - "Lojer: Nie masz jak rozwija\u0107 swojej bandy?"
+  - "Szef Krab\xF3w:  Niestety."
+  - "Szef Krab\xF3w:  Ale moi poddani szykuj\u0105 ju\u017C pierwszy skok na sklep
+    meblowy!"
+  - "Szef Krab\xF3w:  B\u0119dziemy gangsterami jak z dobrego filmu!"
+  audioClips: []

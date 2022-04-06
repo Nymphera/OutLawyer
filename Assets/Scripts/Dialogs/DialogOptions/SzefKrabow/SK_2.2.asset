@@ -16,3 +16,16 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: e718e3ab6c536894e9f6e4403c0c081a, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 9e763dd7ea8b2f748ac68af728ad99e9, type: 2}
   strategy: 0
+  sentences:
+  - "Lojer:  Zaraz zaraz, to ja tu zadaj\u0119 pytania!"
+  - "Szef Krab\xF3w: S\u0141UCHAM?!"
+  - "Lojer: Kim ty w og\xF3le jeste\u015B!"
+  - "Szef Krab\xF3w: Ty chyba nie wiesz z kim\u2026"
+  - "Lojer: I jak\u0105 masz czelno\u015B\u0107 siedzie\u0107 za tym biurkiem!"
+  - "Szef Krab\xF3w:  To ja tu jestem\u2026"
+  - "Lojer: My\u015Blisz \u017Ce si\u0119 boj\u0119 twoich gr\xF3\u017Ab?!"
+  - "Szef Krab\xF3w:  DOSY\u0106!"
+  - "Szef Krab\xF3w:  To ja tu rz\u0105dz\u0119! Jestem szefem naszej krabowej mafii,
+    nie Patrick!"
+  - "Szef Krab\xF3w:  Ca\u0142a ta farma jest teraz nasza. MOJA."
+  audioClips: []

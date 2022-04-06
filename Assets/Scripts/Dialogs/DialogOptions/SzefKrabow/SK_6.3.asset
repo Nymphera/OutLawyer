@@ -16,3 +16,13 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: 0009542ddff6b884fbc16509865e5adf, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: e7ae9dc90841061458cc96e951c91f78, type: 2}
   strategy: 0
+  sentences:
+  - "Lojer: Jeste\u015B uroczy."
+  - "Szef Krab\xF3w: UROCZY?!"
+  - "Szef Krab\xF3w: TY CHYBA NAPRAWD\u0118 NIE ROZUMIESZ POWAGI SYTUACJI!"
+  - "Lojer: Ale\u017C rozumiem."
+  - "Lojer: Ma\u0142y krab, kt\xF3ry ma problemy rodzinne i postanowi\u0142 zosta\u0107
+    wielkim gangsterem."
+  - "Lojer: Ale albo sko\u0144czysz t\u0119 zabaw\u0119, albo szybko rynek zweryfikuje
+    twoje przest\u0119pcze aspiracje."
+  audioClips: []

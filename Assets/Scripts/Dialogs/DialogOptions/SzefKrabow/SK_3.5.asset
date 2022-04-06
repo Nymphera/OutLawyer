@@ -16,3 +16,19 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: 295550ccc06fa3947b7125e7276a4137, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: e718e3ab6c536894e9f6e4403c0c081a, type: 2}
   strategy: 0
+  sentences:
+  - 'Lojer: Twoja? Doprawdy?'
+  - "Szef Krab\xF3w: MOJA. Ka\u017Cdy krab jest na moje skinienie! Nie s\u0142uchamy
+    si\u0119 ju\u017C Patricka i nie zamierzamy harowa\u0107 na Aldhesta!"
+  - 'Lojer: Brzmisz na bardzo pewnego siebie.'
+  - "Lojer: Ale nie jestem pewien czy wszystkie kraby podzielaj\u0105 tw\xF3j\u2026entuzjazm."
+  - "Szef Krab\xF3w:  Co ty mi tu imputujesz, humanoidzie!"
+  - "Lojer: Cz\u0119\u015B\u0107 krab\xF3w postanowi\u0142a przeciwstawi\u0107 si\u0119
+    twoim rz\u0105dom i zabunkrowa\u0142a w magazynie."
+  - "Lojer: Chyba s\u0142ysza\u0142em nieprzychylne szczypni\u0119cie czy dwa na
+    tw\xF3j temat."
+  - "Lojer: By\u0107 mo\u017Ce tw\xF3j czas dobiega ko\u0144ca?"
+  - "Szef Krab\xF3w:  Nie my\u015Bl, \u017Ce mnie przestraszysz! Kraby mnie wielbi\u0105!"
+  - "Szef Krab\xF3w:  Jestem duchem nowego pokolenia krab\xF3w! Aldhest to relikt
+    starych czas\xF3w!"
+  audioClips: []

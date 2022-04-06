@@ -16,3 +16,22 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: 611965085ce4614439684358292cd3eb, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 295550ccc06fa3947b7125e7276a4137, type: 2}
   strategy: 2
+  sentences:
+  - "Lojer: Ty, Patrick, Aldhest\u2026"
+  - "Lojer: Zaraz si\u0119 oka\u017Ce \u017Ce \u015Brednio co tydzie\u0144 zmienia
+    si\u0119 wam lider."
+  - "Szef Krab\xF3w:  Nie, nie! To nie tak!"
+  - "Szef Krab\xF3w:  Fakt faktem, mamy tu ma\u0142y bajzel zwi\u0105zany z rz\u0105dami,
+    ale nad wszystkim zapanuj\u0119."
+  - "Szef Krab\xF3w:  Za \u017Cadne skarby nie wr\xF3cimy pod but Aldhesta!"
+  - "Lojer: Ty i Aldhest si\u0119 chyba nie lubicie\u2026"
+  - "Szef Krab\xF3w: Jak to pra-syn i pra-ojciec."
+  - "Szef Krab\xF3w: Aldhest Chce odzyska\u0107 si\u0142y i odrodzi\u0107 swoj\u0105
+    ras\u0119, kt\xF3rej m\xF3g\u0142by przewodzi\u0107."
+  - "Lojer: A tobie si\u0119 to nie podoba?"
+  - "Szef Krab\xF3w:  Nie chcemy by\u0107 trybikami w jego machinie szalonych imaginacji!"
+  - "Szef Krab\xF3w:  Aldhest jest nieobliczalny!"
+  - "Szef Krab\xF3w:  \u017Bywi si\u0119 ludzkimi duszami, by produkowa\u0107 mutageny
+    i przemienia\u0107 kraby na swoje podobie\u0144stwo."
+  - "Szef Krab\xF3w:  Ja jestem niegodziwy, ale nie a\u017C tak!"
+  audioClips: []

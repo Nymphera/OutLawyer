@@ -16,3 +16,16 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: 009a0cd5d08181243bd50f7ad3b993dd, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: e718e3ab6c536894e9f6e4403c0c081a, type: 2}
   strategy: 3
+  sentences:
+  - "Lojer:  Patrick? Pierwszy raz s\u0142ysze to imi\u0119."
+  - "Szef Krab\xF3w: Hodowca krab\xF3w. Mo\u017Cna by rzec, emerytowany."
+  - "Lojer: Z tego co wiem, hodowca dalej prowadzi tu dzia\u0142alno\u015B\u0107."
+  - "Szef Krab\xF3w:  Patrick nie jest w stanie prowadzi\u0107 w\u0142asnej dupy
+    do latryny, co dopiero tyloma krabami!"
+  - "Szef Krab\xF3w:  Dlatego w\u0142adz\u0119 przej\u0105\u0142em tu ja! A Patrick
+    dawno wyprowadzi\u0142 si\u0119 z w\u0142asnego gabinetu\u2026"
+  - "Szef Krab\xF3w:  I zaszy\u0142 na dachu. Nie ma kto ju\u017C zajmowa\u0107 si\u0119
+    Aldhestem, z reszt\u0105 ca\u0142e szcz\u0119\u015Bcie."
+  - "Lojer: Interesuj\u0105ce\u2026"
+  - "Szef Krab\xF3w:  Ale do\u015B\u0107 o nim! To ja tu jestem szefem!"
+  audioClips: []

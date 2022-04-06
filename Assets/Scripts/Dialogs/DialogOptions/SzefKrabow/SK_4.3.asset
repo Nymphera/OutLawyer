@@ -16,3 +16,16 @@ MonoBehaviour:
   nextCrossPoint: {fileID: 11400000, guid: 3d12f036faf6a7647b65d20329749afb, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 009a0cd5d08181243bd50f7ad3b993dd, type: 2}
   strategy: 4
+  sentences:
+  - "Lojer: Wygl\u0105da na to, \u017Ce nie\u017Ale si\u0119 tu urz\u0105dzi\u0142e\u015B\u2026"
+  - "Lojer: \u2026Szefie"
+  - "Szef Krab\xF3w:  Tak, \u015Bwiat krab\xF3w mam ju\u017C w ma\u0142ym palcu!"
+  - "Szef Krab\xF3w:  Ale w\u0142ada nad miastem jest ci\u0105gle przed nami."
+  - "Szef Krab\xF3w: Kraby nie s\u0105 traktowane jako pe\u0142noprawni obywatele
+    miasta"
+  - "Lojer: Nie traktuj\u0105 twojej mafii powa\u017Cnie?"
+  - "Szef Krab\xF3w:  Niestety."
+  - "Szef Krab\xF3w:  Ale moi poddani szykuj\u0105 ju\u017C pierwszy skok na sklep
+    meblowy!"
+  - "Szef Krab\xF3w:  B\u0119dziemy gangsterami jak z dobrego filmu!"
+  audioClips: []

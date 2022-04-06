@@ -12,5 +12,8 @@ public class DialogOption : ScriptableObject
     public CrossPoint nextCrossPoint; // tu wybiermay  nastêpnego crossPointa np "A2"
     public CrossPoint earlierCrossPoint;
     public Strategy strategy;   // strategia jak¹ zawiera ten dialog
-
+    [TextArea(3,10)]
+    public string[] sentences;
+    public AudioClip[] audioClips;
+    
 }

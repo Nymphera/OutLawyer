@@ -11,7 +11,7 @@ public class CinemachineSwitcher : MonoBehaviour
     private bool MainCameraState = false;
     public static CinemachineSwitcher Instance;
 
-    public OfficeState State;
+    public OfficeState CurrentState;
     public static event Action<OfficeState> OnOfficeStateChanged;
 
 
@@ -23,21 +23,24 @@ public class CinemachineSwitcher : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-         //   DontDestroyOnLoad(this.transform.parent);
+         
         }
         else if (Instance != this)
         {
             Destroy(gameObject);
         }
 
-          
+        OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged; 
               
         
         
         
     }
 
-   
+    private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
+    {
+        CurrentState = state;
+    }
 
     public void SwitchState(string objname)
     { 

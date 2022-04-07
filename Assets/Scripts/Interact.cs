@@ -142,7 +142,7 @@ public class Interact : MonoBehaviour
             {
                 obj.AddComponent<Outline>();
                 yield return null;
-                obj.GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineVisible;
+                obj.GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineAll;
                 obj.GetComponent<Outline>().OutlineColor = OutlineColor;    
                 obj.GetComponent<Outline>().OutlineWidth = 5f;
                 obj.GetComponent<Outline>().enabled = false;

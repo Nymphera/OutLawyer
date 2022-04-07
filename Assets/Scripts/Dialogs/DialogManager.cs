@@ -74,7 +74,7 @@ public class DialogManager : MonoBehaviour
         Lawyer = GameObject.Find("LawyerImage(Clone)");
         lawyerIcon = Lawyer.GetComponent<Image>();
         tree = Lawyer.transform.parent;
-
+       
         StartCoroutine(PlayIntroduction());
     }
 
@@ -112,6 +112,7 @@ public class DialogManager : MonoBehaviour
         dialogText.SetActive(true);
         lawyerBubbleText.SetActive(false);
         GameControls.Disable();
+        
         isDialogEnded = false;
         GameManager.Instance.isInputEnabled = false;
         Queue<string> sentences = new Queue<string>();
@@ -184,10 +185,10 @@ public class DialogManager : MonoBehaviour
         }
         
             GameControls.Enable();
-        
 
+        
         EndDialog();
-       
+        
     }
 
     private void EndDialog()

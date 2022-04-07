@@ -4452,7 +4452,7 @@ MonoBehaviour:
   currentState: 0
   interactable: []
   interactable2: []
-  OutlineColor: {r: 1, g: 0, b: 0, a: 1}
+  OutlineColor: {r: 1, g: 1, b: 1, a: 1}
   TransparentColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1689810419
 Transform:
@@ -6267,7 +6267,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145575658}
-  m_LocalRotation: {x: -0.000000001444721, y: 0.9857992, z: -0.16792853, w: -0.000000008481018}
+  m_LocalRotation: {x: 0.0000000014447209, y: 0.9857992, z: -0.16792852, w: 0.000000008481018}
   m_LocalPosition: {x: -1.2238271, y: 0.940531, z: -0.25924444}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

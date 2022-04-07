@@ -635,6 +635,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 2556843333176621928, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a8676137260aed4ca868cf18946555e, type: 3}
     - target: {fileID: 2556843333233896811, guid: c8c505bf88dec4b45bcbb34e9718739a, type: 3}
       propertyPath: ResultText
       value: " Lojer sugeruje Szefowi Krab\xF3w, \u017Ce jego pozycja lidera mo\u017Ce

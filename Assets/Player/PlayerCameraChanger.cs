@@ -27,7 +27,7 @@ using UnityEngine;
     }
     private void SwitchState(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        if (switchState)
+        if (!switchState)
         {
             Animator.Play("FirstPerson");
         }

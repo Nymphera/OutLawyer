@@ -11,18 +11,19 @@ public class OfficeManager : MonoBehaviour
     
     private PinBoardLogic pinBoardLogic;
     private Interact interact;
-    private Interact2 interact2;
-    
-    
+    private GameControls gameControls;
 
-    private InputAction MousePosition;
+
+
+
+
     private PinBoardControls PinBoardControls;
 
     private OfficeState currentState;
     private void Awake()
     {
         PinBoardControls = new PinBoardControls();
-
+        gameControls = new GameControls();
         
 
         PinBoardUI = GameObject.Find("PinBoardCanvas");
@@ -31,14 +32,14 @@ public class OfficeManager : MonoBehaviour
         PinBoard = GameObject.Find("PinBoard");
 
         interact = GameObject.Find("Interact").GetComponent<Interact>();   
-        interact2= GameObject.Find("Interact2").GetComponent<Interact2>();
+       
         pinBoardLogic = PinBoard.GetComponent<PinBoardLogic>();
         
         
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
-        PinBoardControls.PinBoard.MouseLeftClick.performed += MouseLeftClick_performed;
-        PinBoardControls.PinBoard.LeavePinBoard.performed += LeavePinBoard_performed;
-
+        gameControls.Game.MouseLeftClick.performed += MouseLeftClick_performed;
+        gameControls.Game.GoBack.performed += LeavePinBoard_performed;
+        
         
 
     }
@@ -47,6 +48,8 @@ public class OfficeManager : MonoBehaviour
         CinemachineSwitcher.OnOfficeStateChanged -= CinemachineSwitcher_OnOfficeStateChanged;
         PinBoardControls.PinBoard.MouseLeftClick.performed -= MouseLeftClick_performed;
         PinBoardControls.PinBoard.LeavePinBoard.performed -= LeavePinBoard_performed;
+        gameControls.Game.MouseLeftClick.performed -= MouseLeftClick_performed;
+        gameControls.Game.GoBack.performed -= LeavePinBoard_performed;
     }
     private void Start()
     {
@@ -66,11 +69,11 @@ public class OfficeManager : MonoBehaviour
     private void OnEnable()
     {
         PinBoardControls.Enable();
-       
+        gameControls.Enable();
     }
     private void OnDisable()
     {
-     
+        gameControls.Disable();
         PinBoardControls.Disable();
     }
     private void MouseLeftClick_performed(InputAction.CallbackContext obj)
@@ -119,16 +122,15 @@ public class OfficeManager : MonoBehaviour
         pinBoardLogic.enabled = (state == OfficeState.PinBoard);
         if(Buttons!=null)
         Buttons.SetActive(state == OfficeState.PinBoard);
-        if(interact!=null)
-        interact.enabled= (OfficeState.Overview == state);
+        if (interact != null) ;
+        //interact.enabled= (OfficeState.Overview == state||state==OfficeState.Desk);
         //interact.enabled = (state == OfficeState.Overview);
         if (PinBoardUI != null)
             //Buttons.SetActive(state == OfficeState.PinBoard);
                 PinBoardUI.SetActive(state == OfficeState.PinBoard||state==OfficeState.Inspect);
 
 
-        if (interact2 != null) 
-        interact2.enabled = (state == OfficeState.Desk);
+       
 
     }
 

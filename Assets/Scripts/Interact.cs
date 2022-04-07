@@ -20,6 +20,8 @@ public class Interact : MonoBehaviour
 
     private void Awake()
     {
+       
+
 
         gameControls = new GameControls();
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
@@ -58,10 +60,10 @@ public class Interact : MonoBehaviour
         GameObject selectedObj;
         Ray Ray = Camera.main.ScreenPointToRay(mouseMove.ReadValue<Vector2>());
         RaycastHit hit;
-
+        
         if (Physics.Raycast(Ray, out hit))
         {
-            if (currentState==OfficeState.Overview)
+            if (currentState == OfficeState.Overview)
             {
                 if (hit.transform.tag == "Interact")
                 {
@@ -83,6 +85,7 @@ public class Interact : MonoBehaviour
                     outlineObject = selectedObj;
                 }
             }
+
 
         }
     }
@@ -116,19 +119,21 @@ public class Interact : MonoBehaviour
     }
 
     private void EnableOutline(GameObject Object)
-    {
+    {   
        Object.GetComponent<Outline>().enabled=true;  
     } 
     private void DisableAllOutlines(List<GameObject> interactable)
     {
-        foreach(GameObject obj in interactable)
+        
+            foreach (GameObject obj in interactable)
         {
             obj.GetComponent<Outline>().enabled = false;
         }
     }
     private void DisableOutline(GameObject Object)
     {
-        Object.GetComponent<Outline>().enabled=false;
+        
+            Object.GetComponent<Outline>().enabled=false;
     }
     private IEnumerator CreateOutline(List<GameObject> interact)
     {
@@ -149,7 +154,9 @@ public class Interact : MonoBehaviour
                 
 
             }
-            yield return null; 
+            yield return null;
+            
         }
+        
     }
 }

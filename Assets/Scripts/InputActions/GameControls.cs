@@ -53,6 +53,15 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangePlayerCamera"",
+                    ""type"": ""Button"",
+                    ""id"": ""9c90c2ac-5648-4130-af5b-495bf330c29d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -88,6 +97,17 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""action"": ""MouseLeftClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a829457f-8e82-40be-ab59-b4b98819f87e"",
+                    ""path"": ""<Keyboard>/f5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangePlayerCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -99,6 +119,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         m_Game_GoBack = m_Game.FindAction("GoBack", throwIfNotFound: true);
         m_Game_MousePosition = m_Game.FindAction("MousePosition", throwIfNotFound: true);
         m_Game_MouseLeftClick = m_Game.FindAction("MouseLeftClick", throwIfNotFound: true);
+        m_Game_ChangePlayerCamera = m_Game.FindAction("ChangePlayerCamera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -161,6 +182,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_GoBack;
     private readonly InputAction m_Game_MousePosition;
     private readonly InputAction m_Game_MouseLeftClick;
+    private readonly InputAction m_Game_ChangePlayerCamera;
     public struct GameActions
     {
         private @GameControls m_Wrapper;
@@ -168,6 +190,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         public InputAction @GoBack => m_Wrapper.m_Game_GoBack;
         public InputAction @MousePosition => m_Wrapper.m_Game_MousePosition;
         public InputAction @MouseLeftClick => m_Wrapper.m_Game_MouseLeftClick;
+        public InputAction @ChangePlayerCamera => m_Wrapper.m_Game_ChangePlayerCamera;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -186,6 +209,9 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 @MouseLeftClick.started -= m_Wrapper.m_GameActionsCallbackInterface.OnMouseLeftClick;
                 @MouseLeftClick.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnMouseLeftClick;
                 @MouseLeftClick.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnMouseLeftClick;
+                @ChangePlayerCamera.started -= m_Wrapper.m_GameActionsCallbackInterface.OnChangePlayerCamera;
+                @ChangePlayerCamera.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnChangePlayerCamera;
+                @ChangePlayerCamera.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnChangePlayerCamera;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -199,6 +225,9 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 @MouseLeftClick.started += instance.OnMouseLeftClick;
                 @MouseLeftClick.performed += instance.OnMouseLeftClick;
                 @MouseLeftClick.canceled += instance.OnMouseLeftClick;
+                @ChangePlayerCamera.started += instance.OnChangePlayerCamera;
+                @ChangePlayerCamera.performed += instance.OnChangePlayerCamera;
+                @ChangePlayerCamera.canceled += instance.OnChangePlayerCamera;
             }
         }
     }
@@ -208,5 +237,6 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         void OnGoBack(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
         void OnMouseLeftClick(InputAction.CallbackContext context);
+        void OnChangePlayerCamera(InputAction.CallbackContext context);
     }
 }

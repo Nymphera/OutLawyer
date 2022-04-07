@@ -12,7 +12,9 @@ public class Interact : MonoBehaviour
     [SerializeField]
     List<GameObject> interactable, interactable2;
     [SerializeField]
-    private Color OutlineColor,TransparentColor;
+    private Color OutlineColor;
+    [SerializeField]
+    private float outlineWidth=3f;
 
     private GameObject outlineObject;
     private GameControls gameControls;
@@ -32,8 +34,7 @@ public class Interact : MonoBehaviour
         interactable2 = new List<GameObject>();
         interactable2.AddRange(GameObject.FindGameObjectsWithTag("Interact2"));
 
-        TransparentColor = OutlineColor;
-        TransparentColor.a = 0;
+        
 
         StartCoroutine(CreateOutline(interactable));
         StartCoroutine(CreateOutline(interactable2));
@@ -144,16 +145,17 @@ public class Interact : MonoBehaviour
             obj.AddComponent<MeshCollider>();
             yield return null;
             if (obj.GetComponent<Outline>() == null)
-            {
                 obj.AddComponent<Outline>();
+            
+                
                 yield return null;
-                obj.GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineAll;
+                obj.GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineVisible;
                 obj.GetComponent<Outline>().OutlineColor = OutlineColor;    
-                obj.GetComponent<Outline>().OutlineWidth = 5f;
+                obj.GetComponent<Outline>().OutlineWidth = outlineWidth;
                 obj.GetComponent<Outline>().enabled = false;
                 
 
-            }
+            
             yield return null;
             
         }

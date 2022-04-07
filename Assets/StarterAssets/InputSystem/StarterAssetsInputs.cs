@@ -7,6 +7,9 @@ namespace StarterAssets
 {
 	public class StarterAssetsInputs : MonoBehaviour
 	{
+		[SerializeField]
+		private Animator Animator;
+
 		[Header("Character Input Values")]
 		public Vector2 move;
 		public Vector2 look;
@@ -26,6 +29,7 @@ namespace StarterAssets
 		public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
+			
 		}
 
 		public void OnLook(InputValue value)
@@ -44,6 +48,7 @@ namespace StarterAssets
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
+			
 		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
@@ -53,6 +58,14 @@ namespace StarterAssets
 		public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
+            if (move != Vector2.zero)
+            {
+				Animator.SetBool("isWalking", true);
+			}
+            else
+            {
+				Animator.SetBool("isWalking", false);
+			}
 		} 
 
 		public void LookInput(Vector2 newLookDirection)
@@ -68,6 +81,14 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
+            if (sprint)
+            {
+				Animator.SetBool("isRunning", true);
+			}
+            else
+            {
+				Animator.SetBool("isRunning", false);
+			}
 		}
 
 #if !UNITY_IOS || !UNITY_ANDROID

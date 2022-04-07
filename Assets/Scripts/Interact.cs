@@ -2,143 +2,154 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Interact : MonoBehaviour
 {
-
+    [SerializeField]
     private OfficeState currentState;
     [SerializeField]
-    List<GameObject> interactable;
+    List<GameObject> interactable, interactable2;
     [SerializeField]
     private Color OutlineColor,TransparentColor;
 
     private GameObject outlineObject;
-    
+    private GameControls gameControls;
+    private InputAction mouseMove;
+
     private void Awake()
     {
-        
-        
+
+        gameControls = new GameControls();
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
         
         interactable = new List<GameObject>();
         interactable.AddRange(GameObject.FindGameObjectsWithTag("Interact"));
 
+        interactable2 = new List<GameObject>();
+        interactable2.AddRange(GameObject.FindGameObjectsWithTag("Interact2"));
+
         TransparentColor = OutlineColor;
         TransparentColor.a = 0;
 
-        CreateOutline(interactable);
-
-
+        StartCoroutine(CreateOutline(interactable));
+        StartCoroutine(CreateOutline(interactable2));
+        gameControls.Game.MousePosition.performed += MousePosition_performed;
+        mouseMove = gameControls.Game.MousePosition;
     }
-    private void Start()
+    private void OnEnable()
     {
-       /* foreach (GameObject obj in interactable)
-        {
-            if (obj != null)
-            {
-                Outline outline = obj.GetComponent<Outline>();
-                outline.enabled = false;
-            }
-            else
-                interactable.Remove(obj);
-        }*/
+        gameControls.Enable();
+    }
+    private void OnDisable()
+    {
+        gameControls.Disable();
     }
 
-   
-
-    private void OnDestroy()
+    private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-       
-        CinemachineSwitcher.OnOfficeStateChanged -= CinemachineSwitcher_OnOfficeStateChanged;
-
-    }
-
-    private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
-    {
-        currentState = state;
-        DisableAllOutlines(interactable);
-            this.enabled = (OfficeState.Overview == state);
-        
-    }
-
-
-
-    private void Update()
-    {
-        
-        
-        if (outlineObject!=null)
+        if (outlineObject != null)
         {
             DisableOutline(outlineObject);
             outlineObject = null;
         }
 
         GameObject selectedObj;
-        Ray Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray Ray = Camera.main.ScreenPointToRay(mouseMove.ReadValue<Vector2>());
         RaycastHit hit;
 
-        if(Physics.Raycast(Ray,out hit))
-        {if(hit.transform.tag == "Interact")
+        if (Physics.Raycast(Ray, out hit))
+        {
+            if (currentState==OfficeState.Overview)
             {
-                selectedObj = hit.transform.gameObject;
-                EnableOutline(selectedObj);
+                if (hit.transform.tag == "Interact")
+                {
+                    selectedObj = hit.transform.gameObject;
+                    EnableOutline(selectedObj);
 
-               
-                outlineObject = selectedObj;
-            }        
-             
+
+                    outlineObject = selectedObj;
+                }
+            }
+            if (currentState == OfficeState.Desk)
+            {
+                if (hit.transform.tag == "Interact2")
+                {
+                    selectedObj = hit.transform.gameObject;
+                    EnableOutline(selectedObj);
+
+
+                    outlineObject = selectedObj;
+                }
+            }
+
         }
-        
-       
     }
-     
+
+    private void OnDestroy()
+    {
+        CinemachineSwitcher.OnOfficeStateChanged -= CinemachineSwitcher_OnOfficeStateChanged;
+        gameControls.Game.MousePosition.performed -= MousePosition_performed;
+    }
+
+    private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
+    {
+        currentState = state;
+        
+        
+        
+        if (state == OfficeState.Desk)
+        {
+            DisableAllOutlines(interactable);
+            
+        }
+        else if (state == OfficeState.Overview)
+        {
+            DisableAllOutlines(interactable2);
+        }
+        else
+        {
+            DisableAllOutlines(interactable2);
+            DisableAllOutlines(interactable);
+        }
+    }
+
     private void EnableOutline(GameObject Object)
     {
-       
-        Outline outline = Object.GetComponent<Outline>();
-        outline.OutlineColor = OutlineColor;
+       Object.GetComponent<Outline>().enabled=true;  
     } 
     private void DisableAllOutlines(List<GameObject> interactable)
     {
         foreach(GameObject obj in interactable)
         {
-            if (obj != null)
-            {
-                Outline outline = obj.GetComponent<Outline>();
-                
-                outline.OutlineColor = TransparentColor;
-            }
-            else
-                interactable.Remove(obj);
-           
+            obj.GetComponent<Outline>().enabled = false;
         }
     }
     private void DisableOutline(GameObject Object)
     {
-        Outline outline = Object.GetComponent<Outline>();
-        
-        outline.OutlineColor = TransparentColor;
+        Object.GetComponent<Outline>().enabled=false;
     }
-    private void CreateOutline(List<GameObject> interact)
+    private IEnumerator CreateOutline(List<GameObject> interact)
     {
         foreach (GameObject obj in interact)
         {
             
             if(obj.GetComponent<MeshCollider>()==null)
             obj.AddComponent<MeshCollider>();
+            yield return null;
             if (obj.GetComponent<Outline>() == null)
             {
                 obj.AddComponent<Outline>();
-                Outline outline = obj.GetComponent<Outline>();
-                outline.OutlineMode = Outline.Mode.OutlineVisible;
-                outline.OutlineColor = TransparentColor;    //trochê nie wiem dlaczego, ale nie zapisuje siê outline.color, mo¿e dlatego ¿e za ka¿dym razem dodaje nowy outline do gry
-                outline.OutlineWidth = 5f;
-                outline.enabled = true;
-               
+                yield return null;
+                obj.GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineVisible;
+                obj.GetComponent<Outline>().OutlineColor = OutlineColor;    
+                obj.GetComponent<Outline>().OutlineWidth = 5f;
+                obj.GetComponent<Outline>().enabled = false;
+                
 
             }
-                
+            yield return null; 
         }
     }
 }

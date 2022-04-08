@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Interact : MonoBehaviour
 {
@@ -15,15 +17,16 @@ public class Interact : MonoBehaviour
     private Color OutlineColor;
     [SerializeField]
     private float outlineWidth=3f;
-
+    [SerializeField]
+    private TextMeshProUGUI actionDescription;
     private GameObject outlineObject;
     private GameControls gameControls;
     private InputAction mouseMove;
 
     private void Awake()
     {
-       
 
+        HideActionDescription();
 
         gameControls = new GameControls();
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
@@ -70,7 +73,7 @@ public class Interact : MonoBehaviour
                 {
                     selectedObj = hit.transform.gameObject;
                     EnableOutline(selectedObj);
-
+                    //ShowActionDescription(selectedObj.GetComponent<Outline>());
 
                     outlineObject = selectedObj;
                 }
@@ -81,7 +84,7 @@ public class Interact : MonoBehaviour
                 {
                     selectedObj = hit.transform.gameObject;
                     EnableOutline(selectedObj);
-
+                    ShowActionDescription(selectedObj.GetComponent<Outline>());
 
                     outlineObject = selectedObj;
                 }
@@ -120,9 +123,42 @@ public class Interact : MonoBehaviour
     }
 
     private void EnableOutline(GameObject Object)
-    {   
-       Object.GetComponent<Outline>().enabled=true;  
-    } 
+    {
+        Outline outline = Object.GetComponent<Outline>();
+       Object.GetComponent<Outline>().enabled=true;
+        
+    }
+
+    private void ShowActionDescription(Outline outline)
+    {
+        string actionText;
+        actionDescription.enabled = true;
+        Vector2 mousePos=gameControls.Game.MousePosition.ReadValue<Vector2>();
+        if (outline.ActionDescription != null)
+            actionText = outline.ActionDescription;
+        else
+            actionText = "Inspect";
+        
+        if(mousePos.x> Screen.width / 2)
+        {
+            Vector2 textPosition = new Vector2(mousePos.x - 300,mousePos.y);
+            actionDescription.rectTransform.position = textPosition;
+            actionDescription.text = actionText+"   \u2022";
+        }
+        
+        else if(mousePos.x <= Screen.width / 2)
+        {
+            Vector2 textPosition = new Vector2(mousePos.x+300, mousePos.y);
+            actionDescription.rectTransform.position = textPosition;
+            actionDescription.text = "\u2022   "+actionText;
+        }
+        //actionDescription.text = "\u2022<indent=3em>The text that will be indented.</indent>";
+    }
+    private void HideActionDescription()
+    {
+        actionDescription.enabled = false;
+    }
+
     private void DisableAllOutlines(List<GameObject> interactable)
     {
         
@@ -133,8 +169,9 @@ public class Interact : MonoBehaviour
     }
     private void DisableOutline(GameObject Object)
     {
-        
-            Object.GetComponent<Outline>().enabled=false;
+        HideActionDescription();
+        Object.GetComponent<Outline>().enabled=false;
+       
     }
     private IEnumerator CreateOutline(List<GameObject> interact)
     {

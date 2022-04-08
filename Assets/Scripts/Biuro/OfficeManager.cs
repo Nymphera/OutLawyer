@@ -31,7 +31,7 @@ public class OfficeManager : MonoBehaviour
         Settings= PinBoardUI.transform.GetChild(0).gameObject;
         PinBoard = GameObject.Find("PinBoard");
 
-        interact = GameObject.Find("Interact").GetComponent<Interact>();   
+        interact = GameObject.Find("InteractManager").GetComponent<Interact>();   
        
         pinBoardLogic = PinBoard.GetComponent<PinBoardLogic>();
         

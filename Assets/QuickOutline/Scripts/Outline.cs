@@ -62,7 +62,10 @@ public class Outline : MonoBehaviour {
   [SerializeField, Range(0f, 10f)]
   private float outlineWidth = 2f;
 
-  [Header("Optional")]
+    [Header("Optional")]
+
+    [SerializeField,Tooltip("Jeśli ActionDescription pozostanie wartością null, gra będzie wyświetlać napis Inspect ")]
+    public string ActionDescription;
 
   [SerializeField, Tooltip("Precompute enabled: Per-vertex calculations are performed in the editor and serialized with the object. "
   + "Precompute disabled: Per-vertex calculations are performed at runtime in Awake(). This may cause a pause for large meshes.")]

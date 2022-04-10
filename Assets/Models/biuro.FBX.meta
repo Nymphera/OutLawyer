@@ -3,7 +3,47 @@ guid: 16f56ebe207009d49b99c67a23671ca2
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Campfire_MAT_BaseColor_00
+    second: {fileID: 2800000, guid: 793781e7d6a12434aa17f55655204191, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DM_Table_Chair
+    second: {fileID: 2800000, guid: c3b4aab3f2d4991489081b495183e54c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Diffuse
+    second: {fileID: 2800000, guid: feb8d2ed55bd0a849befc01cdcd0cf11, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Phone_DefaultMaterial_AlbedoTransparency_1
+    second: {fileID: 2800000, guid: f74698f69b0f19c408827ed89525779b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_WallpaperForties0083_seamless_S
+    second: {fileID: 2800000, guid: 5576b0edac924ee42989d729486addca, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wingback_chair_Base_Color
+    second: {fileID: 2800000, guid: 6f0775a0601ebea498b29832e79a9c3b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: colored_door_D
+    second: {fileID: 2800000, guid: 034d8b0d9d6d773449189ed15646c73c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: newspaper
+    second: {fileID: 2800000, guid: 86fbce4016e255f43a10ce0a1df98ec0, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

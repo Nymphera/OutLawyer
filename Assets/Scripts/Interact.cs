@@ -65,10 +65,11 @@ public class Interact : MonoBehaviour
         Ray Ray = Camera.main.ScreenPointToRay(mouseMove.ReadValue<Vector2>());
         RaycastHit hit;
         
+        
         if (Physics.Raycast(Ray, out hit))
         {
-            if (currentState == OfficeState.Overview)
-            {
+           // if (currentState == OfficeState.Overview)
+            //{
                 if (hit.transform.tag == "Interact")
                 {
                     selectedObj = hit.transform.gameObject;
@@ -77,9 +78,9 @@ public class Interact : MonoBehaviour
 
                     outlineObject = selectedObj;
                 }
-            }
-            if (currentState == OfficeState.Desk)
-            {
+           // }
+            //if (currentState == OfficeState.Desk)
+            //{
                 if (hit.transform.tag == "Interact2")
                 {
                     selectedObj = hit.transform.gameObject;
@@ -88,7 +89,7 @@ public class Interact : MonoBehaviour
 
                     outlineObject = selectedObj;
                 }
-            }
+           // }
 
 
         }

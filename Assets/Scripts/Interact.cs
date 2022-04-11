@@ -10,40 +10,44 @@ using TMPro;
 public class Interact : MonoBehaviour
 {
     [SerializeField]
-    private OfficeState currentState;
+    private GameState currentState;
+    
+   
+    public string actionDescription;
     [SerializeField]
-    List<GameObject> interactable, interactable2;
-    [SerializeField]
-    private Color OutlineColor;
-    [SerializeField]
-    private float outlineWidth=3f;
-    [SerializeField]
-    private TextMeshProUGUI actionDescription;
+    private TextMeshProUGUI actionTextField;
     private GameObject outlineObject;
     private GameControls gameControls;
     private InputAction mouseMove;
 
     private void Awake()
     {
-
-        HideActionDescription();
-
+        
         gameControls = new GameControls();
-        CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
-        
-        interactable = new List<GameObject>();
-        interactable.AddRange(GameObject.FindGameObjectsWithTag("Interact"));
-
-        interactable2 = new List<GameObject>();
-        interactable2.AddRange(GameObject.FindGameObjectsWithTag("Interact2"));
-
-        
-
-        StartCoroutine(CreateOutline(interactable));
-        StartCoroutine(CreateOutline(interactable2));
+       
+        GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+      
         gameControls.Game.MousePosition.performed += MousePosition_performed;
         mouseMove = gameControls.Game.MousePosition;
+
+        actionTextField = GameObject.Find("InteractText").GetComponent<TextMeshProUGUI>();
     }
+    private void Start()
+    {
+        AddRenderer();
+
+        HideActionDescription();
+        SetOutline();
+    }
+    private void GameManager_OnGameStateChanged(GameState state)
+    {
+        if (state == GameState.Interact)
+        {
+            DisableOutline(outlineObject);
+            currentState = state;
+        }
+    }
+
     private void OnEnable()
     {
         gameControls.Enable();
@@ -51,6 +55,11 @@ public class Interact : MonoBehaviour
     private void OnDisable()
     {
         gameControls.Disable();
+    }
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
+        gameControls.Game.MousePosition.performed -= MousePosition_performed;
     }
 
     private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -68,8 +77,8 @@ public class Interact : MonoBehaviour
         
         if (Physics.Raycast(Ray, out hit))
         {
-           // if (currentState == OfficeState.Overview)
-            //{
+            if (currentState != GameState.Interact)
+            {
                 if (hit.transform.tag == "Interact")
                 {
                     selectedObj = hit.transform.gameObject;
@@ -78,125 +87,96 @@ public class Interact : MonoBehaviour
 
                     outlineObject = selectedObj;
                 }
-           // }
-            //if (currentState == OfficeState.Desk)
-            //{
+            }
+            if (currentState == GameState.Interact)
+            {
                 if (hit.transform.tag == "Interact2")
                 {
                     selectedObj = hit.transform.gameObject;
                     EnableOutline(selectedObj);
-                    ShowActionDescription(selectedObj.GetComponent<Outline>());
+                   // ShowActionDescription(selectedObj.GetComponent<Outline>());
 
                     outlineObject = selectedObj;
                 }
-           // }
+            }
 
 
         }
     }
-
-    private void OnDestroy()
+    private void AddRenderer()
     {
-        CinemachineSwitcher.OnOfficeStateChanged -= CinemachineSwitcher_OnOfficeStateChanged;
-        gameControls.Game.MousePosition.performed -= MousePosition_performed;
-    }
-
-    private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
-    {
-        currentState = state;
-        
-        
-        
-        if (state == OfficeState.Desk)
+        if (gameObject.GetComponent<MeshCollider>() == null)
         {
-            DisableAllOutlines(interactable);
-            
-        }
-        else if (state == OfficeState.Overview)
-        {
-            DisableAllOutlines(interactable2);
+            gameObject.AddComponent<MeshCollider>();
         }
         else
         {
-            DisableAllOutlines(interactable2);
-            DisableAllOutlines(interactable);
+            Debug.Log(transform.name + " has already collider");
         }
     }
+    public void SetOutline()
+    {
+        if (gameObject.GetComponent<Outline>() == null)
+        {
+            Debug.Log("You have to add Outline Component to " + transform.name);
+        }
+        else
+        {
+            DisableOutline(gameObject);
+        }
+    }
+ 
 
     private void EnableOutline(GameObject Object)
     {
-        Outline outline = Object.GetComponent<Outline>();
-       Object.GetComponent<Outline>().enabled=true;
-        
+        Color color = Object.GetComponent<Outline>().OutlineColor;
+        color.a = 1;
+        Object.GetComponent<Outline>().OutlineColor=color;
+        Object.GetComponent<Outline>().enabled = true;
+
+
     }
 
     private void ShowActionDescription(Outline outline)
     {
         string actionText;
-        actionDescription.enabled = true;
+        actionTextField.enabled = true;
         Vector2 mousePos=gameControls.Game.MousePosition.ReadValue<Vector2>();
-        if (outline.ActionDescription != null)
-            actionText = outline.ActionDescription;
+        if (this.actionTextField != null)
+            actionText = actionDescription;
         else
             actionText = "Inspect";
         
         if(mousePos.x> Screen.width / 2)
         {
             Vector2 textPosition = new Vector2(mousePos.x - 300,mousePos.y);
-            actionDescription.rectTransform.position = textPosition;
-            actionDescription.text = actionText+"   \u2022";
+           actionTextField.rectTransform.position = textPosition;
+            actionTextField.text = actionText+"   \u2022";
         }
         
         else if(mousePos.x <= Screen.width / 2)
         {
             Vector2 textPosition = new Vector2(mousePos.x+300, mousePos.y);
-            actionDescription.rectTransform.position = textPosition;
-            actionDescription.text = "\u2022   "+actionText;
+            actionTextField.rectTransform.position = textPosition;
+            actionTextField.text = "\u2022   "+actionText;
         }
         //actionDescription.text = "\u2022<indent=3em>The text that will be indented.</indent>";
     }
     private void HideActionDescription()
     {
-        actionDescription.enabled = false;
+       // actionTextField.enabled = false;
     }
 
-    private void DisableAllOutlines(List<GameObject> interactable)
-    {
-        
-            foreach (GameObject obj in interactable)
-        {
-            obj.GetComponent<Outline>().enabled = false;
-        }
-    }
+  
     private void DisableOutline(GameObject Object)
     {
-        HideActionDescription();
-        Object.GetComponent<Outline>().enabled=false;
-       
+       // HideActionDescription();
+        Color color = Object.GetComponent<Outline>().OutlineColor;
+        color.a = 0;
+        Object.GetComponent<Outline>().OutlineColor = color;
+        Object.GetComponent<Outline>().enabled = false;
     }
-    private IEnumerator CreateOutline(List<GameObject> interact)
-    {
-        foreach (GameObject obj in interact)
-        {
-            
-            if(obj.GetComponent<MeshCollider>()==null)
-            obj.AddComponent<MeshCollider>();
-            yield return null;
-            if (obj.GetComponent<Outline>() == null)
-                obj.AddComponent<Outline>();
-            
-                
-                yield return null;
-                obj.GetComponent<Outline>().OutlineMode = Outline.Mode.OutlineVisible;
-                obj.GetComponent<Outline>().OutlineColor = OutlineColor;    
-                obj.GetComponent<Outline>().OutlineWidth = outlineWidth;
-                obj.GetComponent<Outline>().enabled = false;
-                
-
-            
-            yield return null;
-            
-        }
+  
         
-    }
+    
 }

@@ -48,8 +48,9 @@ public class CinemachineSwitcher : MonoBehaviour
         {
             Animator.Play("Biuro Cam");
             OnOfficeStateChanged(OfficeState.Overview);
-            
-           
+            GameManager.Instance.UpdateGameState(GameState.Move);
+
+
         }
         else if(objname=="PinBoardSprite")
         {
@@ -65,11 +66,13 @@ public class CinemachineSwitcher : MonoBehaviour
         {
             Animator.Play("InspectCam");
             OnOfficeStateChanged(OfficeState.Inspect);
+            
         }
         else 
         {
             Animator.Play("Desk Cam");
             OnOfficeStateChanged(OfficeState.Desk);
+            GameManager.Instance.UpdateGameState(GameState.Interact);
         }
                     
         MainCameraState = !MainCameraState;

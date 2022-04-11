@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public bool isInputEnabled=true;
+    [SerializeField]
     private GameState CurrentState;
    
     public static event Action<GameState> OnGameStateChanged;
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
        Move,
-       Inspect,
+       Interact,
         Dialog,
         Negotiations,
         Office,

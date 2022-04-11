@@ -41,10 +41,10 @@ public class Interact : MonoBehaviour
     }
     private void GameManager_OnGameStateChanged(GameState state)
     {
+        currentState = state;
         if (state == GameState.Interact)
         {
             DisableOutline(outlineObject);
-            currentState = state;
         }
     }
 
@@ -77,7 +77,7 @@ public class Interact : MonoBehaviour
         
         if (Physics.Raycast(Ray, out hit))
         {
-            if (currentState != GameState.Interact)
+            if (currentState == GameState.Move)
             {
                 if (hit.transform.tag == "Interact")
                 {

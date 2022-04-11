@@ -63,7 +63,10 @@ public class OfficeManager : MonoBehaviour
         if (currentState == OfficeState.Inspect)
             CinemachineSwitcher.Instance.SwitchState("PinBoardSprite");
         else
-                CinemachineSwitcher.Instance.SwitchState("Biuro");
+        {
+            CinemachineSwitcher.Instance.SwitchState("Biuro");
+        }
+               
     }
 
     private void OnEnable()

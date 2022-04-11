@@ -31,10 +31,6 @@ public class SceneLoad : MonoBehaviour
         }
     }
 
-    public void LoadGame()
-    {
-        SceneManager.LoadScene("Game");
-    }
     public void LoadKrabiarnia()
     {
         CinemachineSwitcher.Instance.SwitchState("Biuro");

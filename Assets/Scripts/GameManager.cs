@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateGameState(GameState newState)
     {
+        CurrentState = newState;
         OnGameStateChanged(newState);
     }
    
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
     {
        Move,
        Interact,
+       LockInteract,
         Dialog,
         Negotiations,
         Office,

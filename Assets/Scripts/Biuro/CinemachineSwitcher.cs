@@ -48,7 +48,7 @@ public class CinemachineSwitcher : MonoBehaviour
         {
             Animator.Play("Biuro Cam");
             OnOfficeStateChanged(OfficeState.Overview);
-            GameManager.Instance.UpdateGameState(GameState.Move);
+            GameManager.Instance.UpdateGameState(GameState.Office);
 
 
         }

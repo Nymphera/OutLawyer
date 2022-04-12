@@ -103,14 +103,14 @@ public class OfficeManager : MonoBehaviour
         {
             Debug.Log("przenosi do nastêpnej lokacji");
             CinemachineSwitcher.Instance.SwitchState("Biuro");
-            GameManager.Instance.UpdateGameState(GameState.Location);
+            GameManager.Instance.UpdateGameState(GameState.Move);
         }
         else
             if (name == "Phone")
         {
             Debug.Log("w³¹cza system dialogów (chocia¿ nie  powinien)");
             CinemachineSwitcher.Instance.SwitchState("Biuro");
-            GameManager.Instance.UpdateGameState(GameState.Dialog);
+            GameManager.Instance.UpdateGameState(GameState.LockInteract);
         }
         else if (name == "Newspaper")
         {

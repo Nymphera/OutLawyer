@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public bool isInputEnabled=true;
+    public bool isInputEnabled,isMoveEnabled,isPauseEnabled;
     [SerializeField]
     private GameState CurrentState;
    
@@ -35,10 +35,45 @@ public class GameManager : MonoBehaviour
     {
         CurrentState = newState;
         OnGameStateChanged(newState);
-        if (newState == GameState.Location)
+        switch (newState)
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            case GameState.Office:
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    isMoveEnabled = false;
+                    isInputEnabled = true;
+                }
+                break;
+            case GameState.Move:
+                {
+                    isMoveEnabled = true;
+                    isInputEnabled = true;
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+                break;
+            case GameState.Interact:
+                {
+                    isMoveEnabled = false;
+                    isInputEnabled = true;
+                }
+                break;
+            case GameState.LockInteract:
+                {
+                    isMoveEnabled = false;
+                    isInputEnabled = false;
+                }
+                break;
+            case GameState.CutScene:
+                {
+                    isPauseEnabled = false;
+                }
+                break;
+
         }
+
+
+
+
     }
    
 
@@ -50,8 +85,9 @@ public class GameManager : MonoBehaviour
        Move,        //move and interact enable
        Interact,    //move disable interact enable
        LockInteract,    
-        Dialog,     //move diable interact disable
-        Negotiations,   
+       
+      
         Office,
-        Location
+       
+        CutScene
     }

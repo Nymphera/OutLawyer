@@ -35,18 +35,23 @@ public class GameManager : MonoBehaviour
     {
         CurrentState = newState;
         OnGameStateChanged(newState);
+        if (newState == GameState.Location)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
    
 
+   
 
 }
     public enum GameState
     {
-       Move,
-       Interact,
-       LockInteract,
-        Dialog,
-        Negotiations,
+       Move,        //move and interact enable
+       Interact,    //move disable interact enable
+       LockInteract,    
+        Dialog,     //move diable interact disable
+        Negotiations,   
         Office,
         Location
     }

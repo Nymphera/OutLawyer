@@ -30,7 +30,7 @@ public class Interact : MonoBehaviour
         gameControls.Game.MousePosition.performed += MousePosition_performed;
         mouseMove = gameControls.Game.MousePosition;
 
-        actionTextField = GameObject.Find("InteractText").GetComponent<TextMeshProUGUI>();
+      //  actionTextField = GameObject.Find("InteractText").GetComponent<TextMeshProUGUI>();
     }
     private void Start()
     {

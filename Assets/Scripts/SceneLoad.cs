@@ -35,7 +35,7 @@ public class SceneLoad : MonoBehaviour
     {
         CinemachineSwitcher.Instance.SwitchState("Biuro");
         SceneManager.LoadScene("Krabiarnia");
-       // GameManager.Instance.UpdateGameState(GameState.Move);
+        GameManager.Instance.UpdateGameState(GameState.Location);
     }  
     public void LoadOffice()
     {

@@ -125,11 +125,9 @@ public class OfficeManager : MonoBehaviour
         pinBoardLogic.enabled = (state == OfficeState.PinBoard);
         if(Buttons!=null)
         Buttons.SetActive(state == OfficeState.PinBoard);
-        if (interact != null) ;
-        //interact.enabled= (OfficeState.Overview == state||state==OfficeState.Desk);
-        //interact.enabled = (state == OfficeState.Overview);
+       
         if (PinBoardUI != null)
-            //Buttons.SetActive(state == OfficeState.PinBoard);
+            
                 PinBoardUI.SetActive(state == OfficeState.PinBoard||state==OfficeState.Inspect);
 
 

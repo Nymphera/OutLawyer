@@ -55,17 +55,22 @@ public class GameManager : MonoBehaviour
                 {
                     isMoveEnabled = false;
                     isInputEnabled = true;
+                    Cursor.lockState = CursorLockMode.None;
                 }
                 break;
             case GameState.LockInteract:
                 {
                     isMoveEnabled = false;
                     isInputEnabled = false;
+                    Cursor.lockState = CursorLockMode.None;
                 }
                 break;
             case GameState.CutScene:
                 {
+                    isMoveEnabled = false;
+                    isInputEnabled = false;
                     isPauseEnabled = false;
+                    Cursor.lockState = CursorLockMode.None;
                 }
                 break;
 

@@ -215,6 +215,7 @@ public class DialogManager : MonoBehaviour
         dialogText.SetActive(false);
         //Results.SetActive(true);
         isDialogEnded = true;
+        
     }
 
     /// <summary>

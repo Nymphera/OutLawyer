@@ -21,7 +21,9 @@ public class TriggerDialog : MonoBehaviour
         
         if (startDialog)
         {
+            
             startDialog = false;
+            GameManager.Instance.UpdateGameState(GameState.LockInteract);
             GameObject dialogTree = GameObject.Find("DialogTree");
             dialogTree.GetComponent<DialogTreeCreator>().dialog = dialogToTrigger;
             dialogTree.GetComponent<DialogTreeCreator>().CreateTree();

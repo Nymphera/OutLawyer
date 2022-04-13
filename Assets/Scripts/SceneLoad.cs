@@ -21,13 +21,13 @@ public class SceneLoad : MonoBehaviour
     {
         if (state == GameState.Move)
         {
-            CinemachineSwitcher.Instance.SwitchState("Biuro");
-            SceneManager.LoadScene("Krabiarnia");
+           // CinemachineSwitcher.Instance.SwitchState("Biuro");
+            //SceneManager.LoadScene("Krabiarnia");
         }
         else if (state == GameState.LockInteract)
         {
-            CinemachineSwitcher.Instance.SwitchState("Biuro");
-            SceneManager.LoadScene("Dialogs");
+            //CinemachineSwitcher.Instance.SwitchState("Biuro");
+           // SceneManager.LoadScene("Dialogs");
         }
     }
 

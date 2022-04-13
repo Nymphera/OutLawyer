@@ -28,7 +28,8 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		public void OnMove(InputValue value)
 		{
-			MoveInput(value.Get<Vector2>());
+			if (GameManager.Instance.isMoveEnabled)
+				MoveInput(value.Get<Vector2>());
 			
 		}
 
@@ -36,6 +37,7 @@ namespace StarterAssets
 		{
 			if(cursorInputForLook)
 			{
+				if(GameManager.Instance.isInputEnabled)
 				LookInput(value.Get<Vector2>());
 			}
 		}

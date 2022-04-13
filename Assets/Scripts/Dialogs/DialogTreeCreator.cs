@@ -237,8 +237,5 @@ public class DialogTreeCreator : MonoBehaviour
         }
         else return Color.white;
     }
-    public void Click()
-    {
-       // lawyerIcon.rectTransform.position=GetComponent<RectTransform>().position;
-    }
+
 }

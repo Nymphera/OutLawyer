@@ -12,6 +12,7 @@ public class Dialog : ScriptableObject
     [TextArea(3,10)]
     public string[] introductionSentences;
     public AudioClip[] introductionClips;
+    public Result[] results;
 }
 [System.Serializable]
 public class Level

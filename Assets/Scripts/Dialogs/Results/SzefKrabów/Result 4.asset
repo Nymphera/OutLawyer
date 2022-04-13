@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f193a960434c12444b4d5ba58c3d80b1, type: 3}
+  m_Name: Result 4
+  m_EditorClassIdentifier: 
+  resultNumber: 4
+  strategy1: 2
+  strategy2: 4
+  ResultBarColor: {r: 1, g: 0.7411765, b: 0.3529412, a: 1}
+  ResultText: "Lojer powstrzymuj\u0105c \u015Bmiech uznaje wy\u017Cszo\u015B\u0107
+    szefa krab\xF3w i zgadza si\u0119 odstawia\u0107 szopk\u0119 traktowania go jako
+    mafioz\u0119, aby ten w zamian mu pom\xF3g\u0142. "
+  resultImage: {fileID: 21300000, guid: 9085da4db39dd484183d340cb24795a3, type: 3}

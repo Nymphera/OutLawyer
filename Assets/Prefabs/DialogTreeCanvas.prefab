@@ -84,7 +84,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2556843331313425963}
-  - component: {fileID: 2556843331313425962}
   m_Layer: 5
   m_Name: Result1
   m_TagString: Untagged
@@ -114,22 +113,6 @@ RectTransform:
   m_AnchoredPosition: {x: -400, y: -461}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2556843331313425962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2556843331313425964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f193a960434c12444b4d5ba58c3d80b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strategy1: 4
-  strategy2: 3
-  ResultBar: {fileID: 2556843331621514693}
-  ResultText: 
 --- !u!1 &2556843331446960223
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +122,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2556843331446960222}
-  - component: {fileID: 2556843331446960221}
   m_Layer: 5
   m_Name: Result5
   m_TagString: Untagged
@@ -169,22 +151,6 @@ RectTransform:
   m_AnchoredPosition: {x: 400, y: -461}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2556843331446960221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2556843331446960223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f193a960434c12444b4d5ba58c3d80b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strategy1: 2
-  strategy2: 4
-  ResultBar: {fileID: 2556843332764926812}
-  ResultText: 
 --- !u!1 &2556843331520642556
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,16 +878,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0431c30a740111d45961368915b70825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogToCreate: {fileID: 0}
   animationDuration: 6
   dialogTime: 2
   barIncrease: 0.2
-  treeToSpawn: {fileID: 0}
-  result1: {fileID: 2556843331313425962}
-  result2: {fileID: 2556843332706195476}
-  result3: {fileID: 2556843333233896811}
-  result4: {fileID: 7503844604909190701}
-  result5: {fileID: 2556843331446960221}
+  result1: {fileID: 0}
+  result2: {fileID: 0}
+  result3: {fileID: 0}
+  result4: {fileID: 0}
+  result5: {fileID: 0}
   lawyerBubbleText: {fileID: 0}
   dialogText: {fileID: 0}
   Results: {fileID: 0}
@@ -990,12 +954,6 @@ MonoBehaviour:
   colorProfesjonalizm: {r: 1, g: 0.7411765, b: 0.3529412, a: 1}
   colorPodstep: {r: 0.7960785, g: 0.41960788, b: 0.9058824, a: 1}
   level: {fileID: 9202968598062411305, guid: 9cd6c240bd3eda041bc970de4e9f1fdf, type: 3}
-  lawyerBubbleText: {fileID: 0}
-  dialogText: {fileID: 0}
-  Results: {fileID: 0}
-  Lawyer: {fileID: 0}
-  currentRaycastObject: {fileID: 0}
-  lawyerText: {fileID: 0}
 --- !u!1 &2556843332706195478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +963,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2556843332706195477}
-  - component: {fileID: 2556843332706195476}
   m_Layer: 5
   m_Name: Result2
   m_TagString: Untagged
@@ -1035,22 +992,6 @@ RectTransform:
   m_AnchoredPosition: {x: -200, y: -461}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2556843332706195476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2556843332706195478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f193a960434c12444b4d5ba58c3d80b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strategy1: 1
-  strategy2: 2
-  ResultBar: {fileID: 2556843331520642556}
-  ResultText: 
 --- !u!1 &2556843332732078132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,7 +1443,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2556843333233896812}
-  - component: {fileID: 2556843333233896811}
   m_Layer: 5
   m_Name: Result3
   m_TagString: Untagged
@@ -1532,22 +1472,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -461}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2556843333233896811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2556843333233896813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f193a960434c12444b4d5ba58c3d80b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strategy1: 0
-  strategy2: 1
-  ResultBar: {fileID: 2556843331620144066}
-  ResultText: 
 --- !u!1001 &2406280558790101414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1670,14 +1594,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 152955388287534498, guid: a60789a030e416c438e1ff4609914945, type: 3}
   m_PrefabInstance: {fileID: 2406280558790101414}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7503844604909190701 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5280419446233184139, guid: a60789a030e416c438e1ff4609914945, type: 3}
-  m_PrefabInstance: {fileID: 2406280558790101414}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f193a960434c12444b4d5ba58c3d80b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

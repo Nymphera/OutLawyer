@@ -12,7 +12,7 @@ public class DialogTreeCreator : MonoBehaviour
     [SerializeField]
     public Dialog dialog;
     
-    [HideInInspector]
+
     [SerializeField]
     private Image crossPointPrefab, dialogOptionPrefab, linePrefab, lawyerIcon, BackGround;
     [HideInInspector]
@@ -21,7 +21,8 @@ public class DialogTreeCreator : MonoBehaviour
     private Canvas canvas;
 
     [SerializeField]
-    private GameObject level;
+    private GameObject levelPrefab,resultPrefab,talkingImagesPrefab;
+
     private Transform linesParent,dialogOptionsParent,crossPointsParent,treeParent;
 
     float levelHeight=600;
@@ -34,38 +35,48 @@ public class DialogTreeCreator : MonoBehaviour
         canvas = transform.parent.GetComponent<Canvas>();
        
         treeParent= transform;
-        
 
-       /*
-        dialogOptionPrefab = GameObject.Find("DialogOptionImage").GetComponent<Image>() ;
-        crossPointPrefab = GameObject.Find("CrossPointImage").GetComponent<Image>() ;
-        lawyerIcon = GameObject.Find("LawyerImage").GetComponent<Image>() ;
-        linePrefab = GameObject.Find("LineUI").GetComponent<Image>() ;*/
-
-        BackGround.rectTransform.sizeDelta = new Vector2(levelWidth,levelHeight*dialog.levels.Length);
-
-        CreateTree();
-       
     }
     
     public void CreateTree()
     {
         SetLevels();
+       
         SetUpCrossPoints();
-        SetUpDialogOptions();   //¿eby rysowaæ linie potrzebujemy najpierw wszystkich pozycji
+        SetUpDialogOptions();
+        SetTalkingImages();
+        SetResults();
+        //¿eby rysowaæ linie potrzebujemy najpierw wszystkich pozycji
         CreateLines();
 
     }
+
+    
 
     private void SetLevels()
     {
        int levelNum= dialog.levels.Length;
         for(int i = 0; i < levelNum; i++)
         {
-            Instantiate(level, treeParent).transform.name = "Level " + i;
+            Instantiate(levelPrefab, treeParent).transform.name = "Level " + i;
         }
     }
-
+    private void SetResults()
+    {   
+        int resultNum = dialog.results.Length;
+        float intervalLength = levelWidth / (resultNum + 1);
+        Vector3 spawnPosition;
+        Transform parent = GameObject.Find("TalkingImages").transform.GetChild(0);
+        for (int i = 0; i < resultNum; i++)
+        {
+            spawnPosition = new Vector3(-levelWidth / 2 + (i + 1) * intervalLength, -450, 0);
+            GameObject obj =Instantiate(resultPrefab, parent);
+            obj.transform.localPosition = spawnPosition;
+            obj.transform.GetChild(2).GetComponent<Image>().sprite = dialog.results[i].resultImage;
+            obj.transform.GetChild(1).GetComponent<Image>().color = dialog.results[i].ResultBarColor;
+            obj.name = "Result " + i;
+        }
+    }
     private void SetUpCrossPoints()
     {
         int dialoglevelsNum= dialog.levels.Length;
@@ -93,7 +104,7 @@ public class DialogTreeCreator : MonoBehaviour
                     lawyerIcon=Instantiate(lawyerIcon, treeParent);
                     lawyerIcon.gameObject.AddComponent<DialogLawyer>().currentCrossPoint=dialog.levels[i].CrossPoints[j];
                     lawyerIcon.rectTransform.localPosition = spawnPosition;
-                    
+                    lawyerIcon.name = "lawyerIcon";
                 }
                
             }
@@ -128,7 +139,11 @@ public class DialogTreeCreator : MonoBehaviour
         }
     }
 
-
+    private void SetTalkingImages()
+    {
+        GameObject obj=Instantiate(talkingImagesPrefab, treeParent.parent);
+        obj.name = "TalkingImages";
+    }
     private void CreateLines()
     {
         for(int i = 0; i < dialog.levels.Length;i++)
@@ -224,6 +239,6 @@ public class DialogTreeCreator : MonoBehaviour
     }
     public void Click()
     {
-        lawyerIcon.rectTransform.position=GetComponent<RectTransform>().position;
+       // lawyerIcon.rectTransform.position=GetComponent<RectTransform>().position;
     }
 }

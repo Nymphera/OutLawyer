@@ -10,7 +10,7 @@ public class DialogManager : MonoBehaviour
 {
     public static event Action OnDialogEnd;
 
-    private Dialog dialog;
+    public Dialog dialog;
 
     
     
@@ -20,41 +20,29 @@ public class DialogManager : MonoBehaviour
     int currentLevel = 0;
 
     private AudioSource audioSource;
+   
     
-    [HideInInspector]
-    [SerializeField]
-    private Result result1, result2, result3, result4, result5;
-    private Result[] results;
-    [HideInInspector]
-    [SerializeField]
-    private GameObject lawyerBubbleText,dialogText,Results, Lawyer, currentRaycastObject, lawyerText;
-    private Image lawyerIcon;
+    private GameObject lawyerBubble,dialogText,Results, treeLawyer,Lawyer, currentRaycastObject, lawyerText;
+    private GameObject result1, result2, result3, result4, result5;
+
+    private GameObject[] bars;
     private GameControls GameControls;
 
     private bool isDialogEnded=false;
 
     private void Awake()
-    {
-
-        dialog = gameObject.GetComponent<DialogTreeCreator>().dialog;
-        lawyerText = lawyerBubbleText.transform.GetChild(0).gameObject;
+    {   
         GameControls = new GameControls();
-        audioSource = gameObject.GetComponent<AudioSource>();
-        GetResults();
-        ClearResultsBars();
-        
-
         DialogOptionDisplay.OnDialogButtonClicked += DialogOptionDisplay_OnDialogButtonClicked;
-        GameControls.Game.MousePosition.performed += MousePosition_performed;
+        GameControls.Game.MousePosition.performed += MousePosition_performed;   
 
-        
     }
 
    
 
     private void OnEnable()
     {
-        GameControls.Enable();
+        
     }
     private void OnDisable()
     {
@@ -67,15 +55,46 @@ public class DialogManager : MonoBehaviour
         DialogOptionDisplay.OnDialogButtonClicked -= DialogOptionDisplay_OnDialogButtonClicked;
         GameControls.Game.MousePosition.performed -= MousePosition_performed;
     }
-    private void Start()
+  
+    public void StartDialog()
     {
-        lawyerBubbleText.SetActive(false);
+        GameControls.Enable();
+        treeLawyer = GameObject.Find("lawyerIcon");
+        Lawyer = GameObject.Find("LawyerImage");
+        lawyerBubble = Lawyer.transform.GetChild(0).gameObject;
+        dialogText = GameObject.Find("DialogText");
+        lawyerText = lawyerBubble.transform.GetChild(0).gameObject;
+        
+        audioSource = gameObject.GetComponent<AudioSource>();
+        
+        tree = treeLawyer.transform.parent;
+        Results = GameObject.Find("Results");
+        lawyerBubble.SetActive(false);
         dialogText.SetActive(false);
-        Lawyer = GameObject.Find("LawyerImage(Clone)");
-        lawyerIcon = Lawyer.GetComponent<Image>();
-        tree = Lawyer.transform.parent;
        
+        
+        ClearResultsBars();
         StartCoroutine(PlayIntroduction());
+    }
+
+    private void ClearResultsBars()
+    {
+        result1 = Results.transform.GetChild(0).gameObject;
+        result2 = Results.transform.GetChild(1).gameObject;
+        result3 = Results.transform.GetChild(2).gameObject;
+        result4 = Results.transform.GetChild(3).gameObject;
+        result5 = Results.transform.GetChild(4).gameObject;
+
+        GameObject[] res  = new GameObject[] { result1, result2, result3, result4, result5 };
+        bars = new GameObject[5];
+        for(int i = 0; i < 5; i++)
+        {
+           bars[i] = res[i].transform.GetChild(1).gameObject;
+        }
+        for(int i = 0; i < 5; i++)
+        {
+            bars[i].GetComponent<Image>().fillAmount = 0.1f;
+        }
     }
 
     private void DialogOptionDisplay_OnDialogButtonClicked(DialogOption dialogOption, Vector3 buttonPosition)
@@ -88,13 +107,13 @@ public class DialogManager : MonoBehaviour
 
             for (int i = 0; i < length; i++)
             {
-                if (Lawyer.GetComponent<DialogLawyer>().currentCrossPoint == dialogOption.earlierCrossPoint)
+                if (treeLawyer.GetComponent<DialogLawyer>().currentCrossPoint == dialogOption.earlierCrossPoint)
                 {
                     StartCoroutine(MoveLawyer(dialogOption, buttonPosition));
                     StartDialog(dialogOption);
 
 
-                    Lawyer.GetComponent<DialogLawyer>().currentCrossPoint = dialogOption.nextCrossPoint;
+                    treeLawyer.GetComponent<DialogLawyer>().currentCrossPoint = dialogOption.nextCrossPoint;
 
 
 
@@ -108,9 +127,9 @@ public class DialogManager : MonoBehaviour
     private IEnumerator PlayIntroduction()
     {
         GameControls.Disable();
-        Results.SetActive(false);
+       // Results.SetActive(false);
         dialogText.SetActive(true);
-        lawyerBubbleText.SetActive(false);
+        lawyerBubble.SetActive(false);
         GameControls.Disable();
         
         isDialogEnded = false;
@@ -134,9 +153,9 @@ public class DialogManager : MonoBehaviour
     }
     private void StartDialog(DialogOption dialogOption)
     {
-        Results.SetActive(false);
+        //Results.SetActive(false);
         dialogText.SetActive(true);
-        lawyerBubbleText.SetActive(false);
+        lawyerBubble.SetActive(false);
         isDialogEnded = false;
         Queue<string> sentences = new Queue<string>();
         Queue<AudioClip> clips = new Queue<AudioClip>();
@@ -194,7 +213,7 @@ public class DialogManager : MonoBehaviour
     private void EndDialog()
     {
         dialogText.SetActive(false);
-        Results.SetActive(true);
+        //Results.SetActive(true);
         isDialogEnded = true;
     }
 
@@ -210,19 +229,19 @@ public class DialogManager : MonoBehaviour
 
         Vector3 nextCrossPointPosition = GameObject.Find(dialogOption.nextCrossPoint.name).GetComponent<RectTransform>().localPosition;
         Vector3 newTreePosition = new Vector3(tree.localPosition.x, tree.localPosition.y - 600, tree.localPosition.z);
-        float distanceToTarget = Vector3.Distance(lawyerIcon.rectTransform.localPosition, buttonPosition);
+        float distanceToTarget = Vector3.Distance(treeLawyer.transform.localPosition, buttonPosition);
         float startTime = Time.time;
 
         while (distanceToTarget > 0.1f)     //move to dialog
         {
 
-            distanceToTarget = Vector3.Distance(lawyerIcon.rectTransform.localPosition, buttonPosition);
+            distanceToTarget = Vector3.Distance(treeLawyer.transform.localPosition, buttonPosition);
 
-            lawyerIcon.rectTransform.localPosition = Vector3.Lerp(lawyerIcon.rectTransform.localPosition, buttonPosition, (Time.time - startTime) / animationDuration);
+            treeLawyer.transform.localPosition = Vector3.Lerp(treeLawyer.transform.localPosition, buttonPosition, (Time.time - startTime) / animationDuration);
 
             yield return null;
         }
-        lawyerIcon.rectTransform.localPosition = buttonPosition;
+        treeLawyer.transform.localPosition = buttonPosition;
 
 
         yield return new WaitUntil(() => isDialogEnded == true);  //wait Until
@@ -230,14 +249,14 @@ public class DialogManager : MonoBehaviour
         UpdateScore(dialogOption.strategy);
 
         startTime = Time.time;
-        distanceToTarget = Vector3.Distance(lawyerIcon.rectTransform.localPosition, nextCrossPointPosition);    //przesuwanie do crosspointa
+        distanceToTarget = Vector3.Distance(treeLawyer.transform.localPosition, nextCrossPointPosition);    //przesuwanie do crosspointa
         while (distanceToTarget > 0.1f)
         {
-            distanceToTarget = Vector3.Distance(lawyerIcon.rectTransform.localPosition, nextCrossPointPosition);
-            lawyerIcon.rectTransform.localPosition = Vector3.Lerp(lawyerIcon.rectTransform.localPosition, nextCrossPointPosition, (Time.time - startTime) / animationDuration);
+            distanceToTarget = Vector3.Distance(treeLawyer.transform.localPosition, nextCrossPointPosition);
+            treeLawyer.transform.localPosition = Vector3.Lerp(treeLawyer.transform.localPosition, nextCrossPointPosition, (Time.time - startTime) / animationDuration);
             yield return null;
         }
-        lawyerIcon.rectTransform.localPosition = nextCrossPointPosition;
+        treeLawyer.transform.localPosition = nextCrossPointPosition;
         yield return null;
 
 
@@ -259,30 +278,12 @@ public class DialogManager : MonoBehaviour
     /// <summary>
     /// Ustawia wartoœæ <b>ResultBar</b> na 0.
     /// </summary>
-    private void ClearResultsBars()
-    {
-
-        foreach(Result result in results)
-        {
-            result.ResultBar.gameObject.GetComponent<Image>().fillAmount = 0.1f;
-        }
-        
-    }
+    
     /// <summary>
     /// <b>GetResults</b>
     /// Przypisuje zmiennym result1,result2,...wartoœci <code>Result</code>
     /// </summary>
-    private void GetResults()
-    {
-        Transform resultsTrans = GameObject.Find("Results").transform;
-        
-        result1 = resultsTrans.GetChild(0).gameObject.GetComponent<Result>();
-        result2 = resultsTrans.GetChild(1).gameObject.GetComponent<Result>();
-        result3 = resultsTrans.GetChild(2).gameObject.GetComponent<Result>();
-        result4 = resultsTrans.GetChild(3).gameObject.GetComponent<Result>();
-        result5 = resultsTrans.GetChild(4).gameObject.GetComponent<Result>();
-        results = new Result[] { result1, result2, result3, result4, result5 };
-    }
+    
     /// <summary>
     /// Tu mo¿na zniszczyæ odpowiednie linie dialogów, mo¿na te¿ zniszczyæ opcje których ju¿ nie mo¿emy wybraæ gdyby ktoœ chcia³.
     /// </summary>
@@ -338,7 +339,7 @@ public class DialogManager : MonoBehaviour
     {
         Result[] updatedresults= new Result[2];
         int index = 0;
-        foreach (Result result in results)
+        foreach (Result result in dialog.results)
         {
            
             if (result.strategy1 == strategy || result.strategy2 == strategy)
@@ -358,37 +359,39 @@ public class DialogManager : MonoBehaviour
     private IEnumerator AnimateResults(Result[] updatedresults)
     {
         float startTime = Time.time;
+        float firstBarValue = bars[updatedresults[0].resultNumber-1].GetComponent<Image>().fillAmount;
+        float secondBarValue = bars[updatedresults[1].resultNumber - 1].GetComponent<Image>().fillAmount;
+       
 
-        float startFirstValue= updatedresults[0].ResultBar.GetComponent<Image>().fillAmount;
-        float startSecondValue = updatedresults[1].ResultBar.GetComponent<Image>().fillAmount;
 
+                float newFirstValue = firstBarValue + barIncrease;
+                float newSecondValue = secondBarValue + barIncrease;
 
-        float newFirstValue = startFirstValue + barIncrease;
-        float newSecondValue = startSecondValue + barIncrease;
-                
-                float distance = barIncrease;
-                float value1,value2;
-                while (distance > 0.01f)
+                        float distance = barIncrease;
+                        float value1,value2;
+                        while (distance > 0.01f)
+                        {
+                            value1 = Mathf.Lerp(firstBarValue, newFirstValue, (Time.time - startTime));
+                            value2 = Mathf.Lerp(secondBarValue, newSecondValue, (Time.time - startTime));
+
+                            distance = newFirstValue - value1;
+
+            bars[updatedresults[0].resultNumber - 1].GetComponent<Image>().fillAmount = value1;
+            bars[updatedresults[1].resultNumber - 1].GetComponent<Image>().fillAmount = value2;
+                            yield return null;
+                        }
+        bars[updatedresults[0].resultNumber - 1].GetComponent<Image>().fillAmount = newFirstValue;
+        bars[updatedresults[1].resultNumber - 1].GetComponent<Image>().fillAmount = newSecondValue;
+        
+                if (newFirstValue >= 1 )
                 {
-                    value1 = Mathf.Lerp(startFirstValue, newFirstValue, (Time.time - startTime));
-                    value2 = Mathf.Lerp(startSecondValue, newSecondValue, (Time.time - startTime));
-
-                    distance = newFirstValue - value1;
-
-                    updatedresults[0].ResultBar.GetComponent<Image>().fillAmount = value1;
-                    updatedresults[1].ResultBar.GetComponent<Image>().fillAmount = value2;
-                    yield return null;
+                    ShowResult(updatedresults[0]);
+                }   
+                else if (newSecondValue >= 1)
+                {
+                    ShowResult(updatedresults[1]);
                 }
-                updatedresults[0].ResultBar.GetComponent<Image>().fillAmount = newFirstValue;   
-                updatedresults[1].ResultBar.GetComponent<Image>().fillAmount = newSecondValue;
-        if (newFirstValue >= 1 )
-        {
-            ShowResult(updatedresults[0]);
-        }   
-        else if (newSecondValue >= 1)
-        {
-            ShowResult(updatedresults[1]);
-        }
+        yield return null;
     }
 
     private void ShowResult(Result result)
@@ -401,7 +404,7 @@ public class DialogManager : MonoBehaviour
     {
         if (GameManager.Instance.isInputEnabled)
         {
-            lawyerBubbleText.SetActive(IsPointerOverUIElement());
+            lawyerBubble.SetActive(IsPointerOverUIElement());
 
             if (IsPointerOverUIElement())
             {

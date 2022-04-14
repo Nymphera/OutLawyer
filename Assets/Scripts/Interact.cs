@@ -14,8 +14,10 @@ public class Interact : MonoBehaviour
     
    
     public string actionDescription;
-    [SerializeField]
+    
+    
     private TextMeshProUGUI actionTextField;
+    public  GameObject specialLogicOnClick;
     private GameObject outlineObject;
     private GameControls gameControls;
     private InputAction mouseMove;
@@ -61,7 +63,10 @@ public class Interact : MonoBehaviour
         GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
         gameControls.Game.MousePosition.performed -= MousePosition_performed;
     }
-
+    private void OnMouseDown()
+    {
+        specialLogicOnClick.SetActive(true);
+    }
     private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         if (outlineObject != null)

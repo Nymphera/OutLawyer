@@ -30,7 +30,10 @@ namespace StarterAssets
 		{
 			if (GameManager.Instance.isMoveEnabled)
 				MoveInput(value.Get<Vector2>());
-			
+            else
+            {
+				MoveInput(Vector2.zero);
+            }
 		}
 
 		public void OnLook(InputValue value)
@@ -39,6 +42,10 @@ namespace StarterAssets
 			{
 				if(GameManager.Instance.isInputEnabled)
 				LookInput(value.Get<Vector2>());
+                else
+                {
+					LookInput(Vector2.zero);
+                }
 			}
 		}
 

@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
                     isMoveEnabled = false;
                     isInputEnabled = false;
                     Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                 }
                 break;
             case GameState.CutScene:

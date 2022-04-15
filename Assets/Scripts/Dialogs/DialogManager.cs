@@ -100,8 +100,7 @@ public class DialogManager : MonoBehaviour
     private void DialogOptionDisplay_OnDialogButtonClicked(DialogOption dialogOption, Vector3 buttonPosition)
     {
 
-        if (GameManager.Instance.isInputEnabled)
-        {
+        
 
             int length = dialogOption.earlierCrossPoint.ConectedDialogOptions.Length;
 
@@ -120,7 +119,7 @@ public class DialogManager : MonoBehaviour
 
                 }
             }
-        }
+        
        
         
     }
@@ -133,7 +132,7 @@ public class DialogManager : MonoBehaviour
         GameControls.Disable();
         
         isDialogEnded = false;
-        GameManager.Instance.isInputEnabled = false;
+        
         Queue<string> sentences = new Queue<string>();
         Queue<AudioClip> clips = new Queue<AudioClip>();
 
@@ -149,7 +148,7 @@ public class DialogManager : MonoBehaviour
         StartCoroutine(DisplaySentences(sentences, clips));
         yield return new WaitUntil(() => isDialogEnded == true);
         GameControls.Enable();
-        GameManager.Instance.isInputEnabled = true;
+        
     }
     private void StartDialog(DialogOption dialogOption)
     {

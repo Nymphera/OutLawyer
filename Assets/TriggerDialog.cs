@@ -14,7 +14,7 @@ public class TriggerDialog : MonoBehaviour
     {
         Debug.Log(dialogToTrigger.name);
 
-        
+        startDialog = true;
     }
     private void Update()
     {

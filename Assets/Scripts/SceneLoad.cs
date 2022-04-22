@@ -19,32 +19,28 @@ public class SceneLoad : MonoBehaviour
     }
     private void GameManager_OnGameStateChanged(GameState state)
     {
-        if (state == GameState.Location)
+        if (state == GameState.Move)
         {
-            CinemachineSwitcher.Instance.SwitchState("Biuro");
-            SceneManager.LoadScene("Krabiarnia");
+           // CinemachineSwitcher.Instance.SwitchState("Biuro");
+            //SceneManager.LoadScene("Krabiarnia");
         }
-        else if (state == GameState.Dialog)
+        else if (state == GameState.LockInteract)
         {
-            CinemachineSwitcher.Instance.SwitchState("Biuro");
-            SceneManager.LoadScene("Dialogs");
+            //CinemachineSwitcher.Instance.SwitchState("Biuro");
+           // SceneManager.LoadScene("Dialogs");
         }
     }
 
-    public void LoadGame()
-    {
-        SceneManager.LoadScene("Game");
-    }
     public void LoadKrabiarnia()
     {
         CinemachineSwitcher.Instance.SwitchState("Biuro");
         SceneManager.LoadScene("Krabiarnia");
-       // GameManager.Instance.UpdateGameState(GameState.Move);
+        GameManager.Instance.UpdateGameState(GameState.Move);
     }  
     public void LoadOffice()
     {
         SceneManager.LoadScene("Biuro");
-        
+        GameManager.Instance.UpdateGameState(GameState.Office);
     }
     
    

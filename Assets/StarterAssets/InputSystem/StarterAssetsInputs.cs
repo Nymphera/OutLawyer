@@ -28,15 +28,24 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		public void OnMove(InputValue value)
 		{
-			MoveInput(value.Get<Vector2>());
-			
+			if (GameManager.Instance.isMoveEnabled)
+				MoveInput(value.Get<Vector2>());
+            else
+            {
+				MoveInput(Vector2.zero);
+            }
 		}
 
 		public void OnLook(InputValue value)
 		{
 			if(cursorInputForLook)
 			{
+				if(GameManager.Instance.isInputEnabled)
 				LookInput(value.Get<Vector2>());
+                else
+                {
+					LookInput(Vector2.zero);
+                }
 			}
 		}
 
@@ -101,6 +110,7 @@ namespace StarterAssets
 		private void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+			
 		}
 
 #endif

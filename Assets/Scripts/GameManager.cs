@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public bool isInputEnabled=true;
+    public bool isInputEnabled,isMoveEnabled,isPauseEnabled;
+    [SerializeField]
     private GameState CurrentState;
    
     public static event Action<GameState> OnGameStateChanged;
@@ -32,18 +33,67 @@ public class GameManager : MonoBehaviour
 
     public void UpdateGameState(GameState newState)
     {
+        CurrentState = newState;
         OnGameStateChanged(newState);
+        switch (newState)
+        {
+            case GameState.Office:
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    isMoveEnabled = false;
+                    isInputEnabled = true;
+                }
+                break;
+            case GameState.Move:
+                {
+                    isMoveEnabled = true;
+                    isInputEnabled = true;
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+                break;
+            case GameState.Interact:
+                {
+                    isMoveEnabled = false;
+                    isInputEnabled = true;
+                    Cursor.lockState = CursorLockMode.None;
+                }
+                break;
+            case GameState.LockInteract:
+                {
+                    isMoveEnabled = false;
+                    isInputEnabled = false;
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
+                break;
+            case GameState.CutScene:
+                {
+                    isMoveEnabled = false;
+                    isInputEnabled = false;
+                    isPauseEnabled = false;
+                    Cursor.lockState = CursorLockMode.None;
+                }
+                break;
+
+        }
+
+
+
+
     }
    
 
+   
 
 }
     public enum GameState
     {
-       Move,
-       Inspect,
-        Dialog,
-        Negotiations,
+       Move,        //move and interact enable
+       Interact,    //move disable interact enable
+       LockInteract,    
+       
+      
         Office,
-        Location
+       
+        CutScene
     }

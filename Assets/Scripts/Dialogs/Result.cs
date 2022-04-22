@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Result : MonoBehaviour
+[CreateAssetMenu(fileName = "NewResult", menuName = "Dialogs/Results", order = 0)]
+[System.Serializable]
+public class Result : ScriptableObject
 {
+    public int resultNumber;
     public Strategy strategy1, strategy2;
-    [SerializeField]
-    public GameObject ResultBar;
+    
+    public Color ResultBarColor;
     public string ResultText;
+    public Sprite resultImage;
 }

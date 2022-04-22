@@ -85,3 +85,9 @@ MonoBehaviour:
   - "Lojer (W my\u015Blach): Musz\u0119 przesta\u0107 otwiera\u0107 wszystkie drzwi
     jak leci\u2026\r\n"
   introductionClips: []
+  results:
+  - {fileID: 11400000, guid: c74d5ba5d3125e14fa45c605c99e5a51, type: 2}
+  - {fileID: 11400000, guid: 42688589772493747a1384ccc75dda8d, type: 2}
+  - {fileID: 11400000, guid: 43f0e81c7bdd67e4b8a683c190ce6f6f, type: 2}
+  - {fileID: 11400000, guid: 0b76bb60bbca5194e850cd970d6e75fd, type: 2}
+  - {fileID: 11400000, guid: bd4a2665f86267844a9796e96ecc2775, type: 2}

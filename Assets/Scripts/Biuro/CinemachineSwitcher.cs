@@ -48,28 +48,34 @@ public class CinemachineSwitcher : MonoBehaviour
         {
             Animator.Play("Biuro Cam");
             OnOfficeStateChanged(OfficeState.Overview);
-            
-           
+            GameManager.Instance.UpdateGameState(GameState.Office);
+
+
         }
         else if(objname=="PinBoardSprite")
         {
             Animator.Play("PinBoard Cam");
             OnOfficeStateChanged(OfficeState.PinBoard);
-            
+            GameManager.Instance.UpdateGameState(GameState.LockInteract);
+
         }
         else if (objname == "KOMINEK")
         {
             Animator.Play("Fire Cam");
+            GameManager.Instance.UpdateGameState(GameState.LockInteract);
         }
         else if (objname=="Evidence")
         {
             Animator.Play("InspectCam");
             OnOfficeStateChanged(OfficeState.Inspect);
+            GameManager.Instance.UpdateGameState(GameState.LockInteract);
+
         }
         else 
         {
             Animator.Play("Desk Cam");
             OnOfficeStateChanged(OfficeState.Desk);
+            GameManager.Instance.UpdateGameState(GameState.Interact);
         }
                     
         MainCameraState = !MainCameraState;

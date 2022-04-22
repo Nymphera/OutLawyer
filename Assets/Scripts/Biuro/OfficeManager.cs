@@ -63,7 +63,10 @@ public class OfficeManager : MonoBehaviour
         if (currentState == OfficeState.Inspect)
             CinemachineSwitcher.Instance.SwitchState("PinBoardSprite");
         else
-                CinemachineSwitcher.Instance.SwitchState("Biuro");
+        {
+            CinemachineSwitcher.Instance.SwitchState("Biuro");
+        }
+               
     }
 
     private void OnEnable()
@@ -87,10 +90,10 @@ public class OfficeManager : MonoBehaviour
                 CinemachineSwitcher.Instance.SwitchState(hit.transform.name);
                 
             }
-            if (hit.transform.tag == "Interact2"&&currentState==OfficeState.Desk)
+            /*if (hit.transform.tag == "Interact2"&&currentState==OfficeState.Desk)
             {
                 DeskInteractWith(hit.transform.name);
-            }
+            }*/
         }
     }
 
@@ -100,14 +103,14 @@ public class OfficeManager : MonoBehaviour
         {
             Debug.Log("przenosi do nastêpnej lokacji");
             CinemachineSwitcher.Instance.SwitchState("Biuro");
-            GameManager.Instance.UpdateGameState(GameState.Location);
+            GameManager.Instance.UpdateGameState(GameState.Move);
         }
         else
             if (name == "Phone")
         {
             Debug.Log("w³¹cza system dialogów (chocia¿ nie  powinien)");
             CinemachineSwitcher.Instance.SwitchState("Biuro");
-            GameManager.Instance.UpdateGameState(GameState.Dialog);
+            GameManager.Instance.UpdateGameState(GameState.LockInteract);
         }
         else if (name == "Newspaper")
         {
@@ -122,11 +125,9 @@ public class OfficeManager : MonoBehaviour
         pinBoardLogic.enabled = (state == OfficeState.PinBoard);
         if(Buttons!=null)
         Buttons.SetActive(state == OfficeState.PinBoard);
-        if (interact != null) ;
-        //interact.enabled= (OfficeState.Overview == state||state==OfficeState.Desk);
-        //interact.enabled = (state == OfficeState.Overview);
+       
         if (PinBoardUI != null)
-            //Buttons.SetActive(state == OfficeState.PinBoard);
+            
                 PinBoardUI.SetActive(state == OfficeState.PinBoard||state==OfficeState.Inspect);
 
 

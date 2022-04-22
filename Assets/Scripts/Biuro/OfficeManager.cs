@@ -90,10 +90,10 @@ public class OfficeManager : MonoBehaviour
                 CinemachineSwitcher.Instance.SwitchState(hit.transform.name);
                 
             }
-            if (hit.transform.tag == "Interact2"&&currentState==OfficeState.Desk)
+            /*if (hit.transform.tag == "Interact2"&&currentState==OfficeState.Desk)
             {
-                //DeskInteractWith(hit.transform.name);
-            }
+                DeskInteractWith(hit.transform.name);
+            }*/
         }
     }
 

@@ -92,7 +92,7 @@ public class OfficeManager : MonoBehaviour
             }
             if (hit.transform.tag == "Interact2"&&currentState==OfficeState.Desk)
             {
-                DeskInteractWith(hit.transform.name);
+                //DeskInteractWith(hit.transform.name);
             }
         }
     }

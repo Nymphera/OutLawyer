@@ -65,6 +65,8 @@ public class Interact : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        Debug.Log("Special Logic");
+        if(specialLogicOnClick!=null)
         specialLogicOnClick.SetActive(true);
     }
     private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -82,7 +84,7 @@ public class Interact : MonoBehaviour
         
         if (Physics.Raycast(Ray, out hit))
         {
-            if (currentState == GameState.Move)
+            if (currentState == GameState.Move || currentState == GameState.Office)
             {
                 if (hit.transform.tag == "Interact")
                 {

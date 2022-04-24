@@ -12,6 +12,7 @@ public class PinBoardManager : MonoBehaviour
     Texture2D greenWoolTexture, redWoolTexture, yellowWoolTexture, blueWoolTexture,scissorsTexture;
    [SerializeField]
     PinBoardState currentState=PinBoardState.Neutral;
+    [SerializeField]
     GameObject[] evidences = new GameObject[2];
     [SerializeField]
     GameObject currentEvidence;
@@ -48,6 +49,7 @@ public class PinBoardManager : MonoBehaviour
         GameControls.Game.MousePosition.performed -= OnMouseMove;
         GameControls.Game.MouseLeftClick.performed -= OnMouseClick;
     }
+    
     private void OnMouseMove(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         
@@ -80,6 +82,8 @@ public class PinBoardManager : MonoBehaviour
             if (Hit.transform.gameObject.layer == 7)
             {
                 currentEvidence = Hit.transform.parent.gameObject;
+                if (currentEvidence.name == "Pin")
+                    currentEvidence = currentEvidence.transform.parent.gameObject;
                 if (evidences[0] == null)
                 {
                     evidences[0] = currentEvidence;
@@ -91,8 +95,9 @@ public class PinBoardManager : MonoBehaviour
                     evidences[1] = currentEvidence;
                     EndLine();
                 }
-                Debug.Log(evidences[0].name);
+               
             }
+            
         }
     }
 
@@ -136,12 +141,31 @@ public class PinBoardManager : MonoBehaviour
         isLineCreated = false;
 
         Debug.Log("EndLine");
-        Evidence evidence = currentEvidence.GetComponent<EvidenceDisplay>().Evidence;
-        Line.secondEvidence = evidence;
+        Evidence evidence0 = evidences[0].GetComponent<EvidenceDisplay>().Evidence;
+        Evidence evidence1 = evidences[1].GetComponent<EvidenceDisplay>().Evidence;
+
+        Line.secondEvidence = evidence1;
         Vector3 secondPoint = currentEvidence.transform.GetChild(1).position;
         Line.SetPoint(1, secondPoint);
+
+        int length=Line.firstEvidence.Conections.Length; 
+        for (int i = 0; i < length; i++)
+        {
+            if (evidence1 == evidence0.Conections[i].conected)
+            {
+                Line.isConectionGood = true;
+                
+            }
+            else
+            {
+               // Destroy(Line.gameObject);
+                Debug.Log("Should be destroyed");
+            }
+                
+        }        
         evidences[0] = null;
         evidences[1] = null;
+
     }
 
     public void CursorToYellow()

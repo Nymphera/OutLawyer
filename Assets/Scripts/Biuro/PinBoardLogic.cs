@@ -15,7 +15,8 @@ public class PinBoardLogic : MonoBehaviour
     
     private PinBoardControls PinBoardControls;
     private Camera Cam;
-   
+    [SerializeField]
+    Texture2D texture;
     [SerializeField]
     private Text Description;
     [SerializeField]
@@ -269,18 +270,37 @@ public class PinBoardLogic : MonoBehaviour
 
     public void CreateLine_Green()
     {
+        
+        Cursor.SetCursor(texture,Vector2.zero,CursorMode.Auto);
+        
+        
         int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.Conections.Length;
 
         Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
+
+        StartLine();
         for (int i = 0; i < conectLength; i++)
         {
             if (Evidence0 == Evidence1.Conections[i].conected)
             {
-                CreateLine("Green");
+               // CreateLine("Green");
             }
         }
     }
+
+    private void StartLine()
+    {
+        Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
+        Evidence Evidence0 = Evidences[0].GetComponent<EvidenceDisplay>().Evidence;
+        Evidence Evidence1 = Evidences[1].GetComponent<EvidenceDisplay>().Evidence;
+        Line.firstEvidence = Evidence0;
+        Line.AddPoint(points[0]);
+        Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y,0);
+        Line.AddPoint(mousePosition);
+
+    }
+
     public void CreateLine_Red()
     {
         int conectLength = Evidences[1].GetComponent<EvidenceDisplay>().Evidence.Conections.Length;

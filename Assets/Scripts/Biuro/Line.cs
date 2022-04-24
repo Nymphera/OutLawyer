@@ -36,6 +36,10 @@ public class Line : MonoBehaviour
       
         
     }
+    public void SetPoint(int index,Vector3 position)
+    {
+        lineRenderer.SetPosition(index, position);
+    }
     public void Render()
     {
         lineRenderer.SetPosition(0,points[0]);

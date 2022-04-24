@@ -13,7 +13,7 @@ public class PinBoardManager : MonoBehaviour
    [SerializeField]
     PinBoardState currentState=PinBoardState.Neutral;
     GameObject[] evidences = new GameObject[2];
-    
+    [SerializeField]
     GameObject currentEvidence;
     
    
@@ -27,9 +27,9 @@ public class PinBoardManager : MonoBehaviour
     private void Awake()
     {
         GameControls = new GameControls();
-        GameControls.Game.MousePosition.performed += MousePosition_performed;
-        GameControls.Game.MouseLeftClick.performed += MouseLeftClick_performed;
-        
+        GameControls.Game.MousePosition.performed += OnMouseMove;
+        GameControls.Game.MouseLeftClick.performed += OnMouseClick;
+
 
     }
 
@@ -45,10 +45,10 @@ public class PinBoardManager : MonoBehaviour
     }
     private void OnDestroy()
     {
-        GameControls.Game.MousePosition.performed -= MousePosition_performed;
-        GameControls.Game.MouseLeftClick.performed -= MouseLeftClick_performed;
+        GameControls.Game.MousePosition.performed -= OnMouseMove;
+        GameControls.Game.MouseLeftClick.performed -= OnMouseClick;
     }
-    private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    private void OnMouseMove(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         
         if (currentState != PinBoardState.Neutral)
@@ -57,22 +57,18 @@ public class PinBoardManager : MonoBehaviour
         }
         if (isLineCreated)
         {   
-            Vector3 linePositionOnScreen = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x,mousePosition.y, Camera.main.nearClipPlane));
-            Debug.Log(linePositionOnScreen);
-            
-
             Ray ray = Camera.main.ScreenPointToRay(mousePosition);
             RaycastHit hitData;
             if (Physics.Raycast(ray, out hitData, 1000))
             {
-                linePositionOnScreen = hitData.point;
+                Vector3 linePositionOnScreen = hitData.point;
+                Vector3 linePosition = new Vector3(Line.points[0].x, linePositionOnScreen.y, linePositionOnScreen.z);
+                EditLine(Line, linePosition);
             }
-            Vector3 linePosition = new Vector3(Line.points[0].x, linePositionOnScreen.y, linePositionOnScreen.z);
-            EditLine(Line,linePosition);
         }
        
     }
-    private void MouseLeftClick_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    private void OnMouseClick(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         
         Ray Ray = Camera.main.ScreenPointToRay(mousePosition);
@@ -140,6 +136,10 @@ public class PinBoardManager : MonoBehaviour
         isLineCreated = false;
 
         Debug.Log("EndLine");
+        Evidence evidence = currentEvidence.GetComponent<EvidenceDisplay>().Evidence;
+        Line.secondEvidence = evidence;
+        Vector3 secondPoint = currentEvidence.transform.GetChild(1).position;
+        Line.SetPoint(1, secondPoint);
         evidences[0] = null;
         evidences[1] = null;
     }

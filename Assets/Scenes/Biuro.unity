@@ -3369,7 +3369,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879535897}
-  m_LocalRotation: {x: -0.000000004562658, y: 0.96420103, z: -0.26517242, w: -0.000000016590405}
+  m_LocalRotation: {x: 0.0000000045626596, y: 0.96420103, z: -0.26517245, w: 0.000000016590416}
   m_LocalPosition: {x: -1.3576, y: 1.6323853, z: 1.3825437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -17489,8 +17489,9 @@ MonoBehaviour:
   - {fileID: 0}
   currentEvidence: {fileID: 0}
   audioSource: {fileID: 1743484374}
+  scissorsClip: {fileID: 8300000, guid: d8f7b2a1134b6d0409e8c880535f77b9, type: 3}
+  stringClip: {fileID: 8300000, guid: 47715a4792b3c384988f11c845fc1ecb, type: 3}
   linePrefab: {fileID: 8969533229563378573, guid: a94b11fe908360f40860f17a3627efe5, type: 3}
-  SettingsPanel: {fileID: 0}
   lineParent: {fileID: 443562534}
 --- !u!82 &1743484374
 AudioSource:
@@ -35584,7 +35585,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145575658}
-  m_LocalRotation: {x: 0.0000000014447209, y: 0.9857992, z: -0.16792852, w: 0.000000008481018}
+  m_LocalRotation: {x: -0.000000001444721, y: 0.9857992, z: -0.16792853, w: -0.000000008481018}
   m_LocalPosition: {x: -1.2238271, y: 0.940531, z: -0.25924444}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

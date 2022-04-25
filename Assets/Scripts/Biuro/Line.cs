@@ -65,7 +65,8 @@ public class Line : MonoBehaviour
         
        Vector3 start = lineRenderer.GetPosition(0);
        Vector3 end = lineRenderer.GetPosition(1);
-
+        Debug.Log(lineRenderer.GetPosition(0));
+        Debug.Log(lineRenderer.GetPosition(1));
         gameObject.tag= "ColliderLine";
         var startPos = start;
         var endPos = end;
@@ -79,12 +80,13 @@ public class Line : MonoBehaviour
         col.size = new Vector3(lineLength, 0.1f, 0.04f);
         Vector3 midPoint = (startPos + endPos) / 2;
         col.transform.position = midPoint;
-        float angle = (Mathf.Abs(startPos.y - endPos.y) / Mathf.Abs(startPos.x - endPos.x));
-        if ((startPos.y < endPos.y && startPos.x > endPos.x) || (endPos.y < startPos.y && endPos.x > startPos.x))
+        float tangent = Mathf.Abs(startPos.z - endPos.z) / Mathf.Abs(startPos.y - endPos.y);
+        if ((startPos.y < endPos.y && startPos.x > endPos.x) )
         {
-            angle *= -1;
+            tangent *= -1;
         }
-        angle = Mathf.Rad2Deg * Mathf.Atan(angle);
+        Debug.Log(tangent);
+        float angle = Mathf.Rad2Deg*Mathf.Atan(tangent);
         col.transform.Rotate(angle, 0, 90);
     }
     public void SetWidth(float value)

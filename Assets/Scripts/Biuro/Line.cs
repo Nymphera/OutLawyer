@@ -77,11 +77,11 @@ public class Line : MonoBehaviour
 
         col.tag = "ColliderLine";
         float lineLength = Vector3.Distance(startPos, endPos);
-        col.size = new Vector3(lineLength, 0.1f, 0.04f);
+        col.size = new Vector3(lineLength, 0.04f, 0.04f);
         Vector3 midPoint = (startPos + endPos) / 2;
         col.transform.position = midPoint;
         float tangent = Mathf.Abs(startPos.z - endPos.z) / Mathf.Abs(startPos.y - endPos.y);
-        if ((startPos.y < endPos.y && startPos.x > endPos.x) )
+        if ((startPos.y < endPos.y && startPos.z > endPos.z) || (endPos.y < startPos.y && endPos.z > startPos.z))
         {
             tangent *= -1;
         }

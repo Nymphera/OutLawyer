@@ -17,7 +17,9 @@ public class PinBoardManager : MonoBehaviour
     GameObject[] evidences = new GameObject[2];
     [SerializeField]
     GameObject currentEvidence;
-    
+    [SerializeField]
+    AudioSource audioSource;
+
    
     [SerializeField]
     private GameObject linePrefab;
@@ -111,8 +113,10 @@ public class PinBoardManager : MonoBehaviour
         Debug.Log("Destroy");
         if (Hit.transform.gameObject.tag == "ColliderLine")
         {
+            GameObject lineToDestroy = Hit.transform.parent.gameObject;
+            OnLineDeleted(lineToDestroy.GetComponent<Line>());
+            Destroy(lineToDestroy);
             
-            Destroy(Hit.transform.parent.gameObject);
         }
     }
 

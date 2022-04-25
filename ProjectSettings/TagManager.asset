@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interact
   - Interact2
+  - ColliderLine
   layers:
   - Default
   - TransparentFX

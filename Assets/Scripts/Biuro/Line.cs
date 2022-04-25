@@ -14,7 +14,7 @@ public class Line : MonoBehaviour
     public Evidence secondEvidence;
     public ConectionType conectionType;
     public bool isConectionGood=false;
-
+    public bool isAnimationDone=false;
     //public Conection conection;
     private void Awake()
     {
@@ -36,6 +36,10 @@ public class Line : MonoBehaviour
       
         
     }
+    public void SetPoint(int index,Vector3 position)
+    {
+        lineRenderer.SetPosition(index, position);
+    }
     public void Render()
     {
         lineRenderer.SetPosition(0,points[0]);
@@ -45,8 +49,9 @@ public class Line : MonoBehaviour
     {
        // lineRenderer.SetPosition(0, points[0]);
         float startTime = Time.time;
-            Vector3 startPosition = points[0];
-            Vector3 endPosition = points[1];
+        
+            Vector3 startPosition = lineRenderer.GetPosition(0);
+            Vector3 endPosition = lineRenderer.GetPosition(1);
             Vector3 pos = startPosition;
             while (pos != endPosition)
             {
@@ -54,6 +59,35 @@ public class Line : MonoBehaviour
                 lineRenderer.SetPosition(1, pos);
             yield return null;
             }
+        isAnimationDone = true;
+    }
+    public void AddColliderToLine()
+    {
+        
+       Vector3 start = lineRenderer.GetPosition(0);
+       Vector3 end = lineRenderer.GetPosition(1);
+        
+        gameObject.tag= "ColliderLine";
+        var startPos = start;
+        var endPos = end;
+        BoxCollider col = new GameObject("Collider").AddComponent<BoxCollider>();
+        //col.isTrigger = true;
+        
+        col.transform.parent =transform;
+
+        col.tag = "ColliderLine";
+        float lineLength = Vector3.Distance(startPos, endPos);
+        col.size = new Vector3(lineLength, 0.04f, 0.04f);
+        Vector3 midPoint = (startPos + endPos) / 2;
+        col.transform.position = midPoint;
+        float tangent = Mathf.Abs(startPos.z - endPos.z) / Mathf.Abs(startPos.y - endPos.y);
+        if ((startPos.y < endPos.y && startPos.z > endPos.z) || (endPos.y < startPos.y && endPos.z > startPos.z))
+        {
+            tangent *= -1;
+        }
+        
+        float angle = Mathf.Rad2Deg*Mathf.Atan(tangent);
+        col.transform.Rotate(angle, 0, 90);
     }
     public void SetWidth(float value)
     {

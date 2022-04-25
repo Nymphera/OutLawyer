@@ -20,6 +20,8 @@ public class HelpLines : MonoBehaviour
    
     [SerializeField]
     private List<Line> lines;
+    [SerializeField]
+    private List<Line> createdLines;
 
     private Line Line;
     [SerializeField]
@@ -35,8 +37,8 @@ public class HelpLines : MonoBehaviour
      Instance = this;
         GameManager.OnGameStateChanged += Create_HelpLines;
         EventTrigger.OnEvidenceUnlocked += EventTrigger_OnEvidenceUnlocked;
-        PinBoardLogic.OnLineCreated += PinBoardLogic_OnLineCreated;
-        PinBoardLogic.OnLineDeleted += PinBoardLogic_OnLineDeleted;
+        PinBoardManager.OnLineCreated += OnLineCreated;
+        PinBoardManager.OnLineDeleted += OnLineDeleted;
 
         RedButton = GameObject.Find("RedButton");
         GreenButton = GameObject.Find("GreenButton");
@@ -52,11 +54,12 @@ public class HelpLines : MonoBehaviour
     {
         GameManager.OnGameStateChanged -= Create_HelpLines;
         EventTrigger.OnEvidenceUnlocked -= EventTrigger_OnEvidenceUnlocked;
-        PinBoardLogic.OnLineCreated -= PinBoardLogic_OnLineCreated;
-        PinBoardLogic.OnLineDeleted -= PinBoardLogic_OnLineDeleted;
+        PinBoardManager.OnLineCreated -= OnLineCreated;
+        PinBoardManager.OnLineDeleted -= OnLineDeleted;
     }
-    private void PinBoardLogic_OnLineDeleted(Line line)
+    private void OnLineDeleted(Line line)
     {
+        createdLines.Remove(line);
         for (int i = 0; i < lines.Count; i++)
         {
 
@@ -68,9 +71,9 @@ public class HelpLines : MonoBehaviour
         LineCounter(null);
     }
 
-    private void PinBoardLogic_OnLineCreated(Line line)
+    private void OnLineCreated(Line line)
     {
-        
+        createdLines.Add(line);
         
              for(int i = 0; i < lines.Count; i++)
              {
@@ -146,6 +149,21 @@ public class HelpLines : MonoBehaviour
                         greenCount++;
                     }
                 }
+
+            }
+            for(int i=0;i< createdLines.Count; i++)
+            {
+                if (createdLines[i].conectionType == ConectionType.Blue)
+                    blueCount--;
+                else
+            if (createdLines[i].conectionType == ConectionType.Red)
+                    redCount--;
+                else
+            if (createdLines[i].conectionType == ConectionType.Green)
+                    greenCount--;
+                else
+            if (createdLines[i].conectionType == ConectionType.Yellow)
+                    yellowCount--;
             }
             
         }

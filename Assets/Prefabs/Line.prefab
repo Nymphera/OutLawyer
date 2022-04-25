@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8969533229563378572}
   - component: {fileID: 8969533229563378570}
   - component: {fileID: 8969533229563378571}
-  - component: {fileID: 443099938648033580}
   m_Layer: 0
   m_Name: Line
   m_TagString: Untagged
@@ -52,6 +51,7 @@ MonoBehaviour:
   secondEvidence: {fileID: 0}
   conectionType: 0
   isConectionGood: 0
+  isAnimationDone: 0
   animationDuration: 1
   Yellow: {fileID: 2100000, guid: 86d33a708e0548d42a313570136d61df, type: 2}
   Green: {fileID: 2100000, guid: 5ddd7de6d9d343442baa15921abe0b8a, type: 2}
@@ -154,17 +154,3 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
---- !u!64 &443099938648033580
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8969533229563378573}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}

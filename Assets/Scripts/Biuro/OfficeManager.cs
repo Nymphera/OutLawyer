@@ -9,7 +9,7 @@ public class OfficeManager : MonoBehaviour
     [SerializeField]
     private GameObject PinBoard, PinBoardUI,Buttons,Settings;
     
-    private PinBoardLogic pinBoardLogic;
+    private PinBoardManager pinBoardLogic;
     private Interact interact;
     private GameControls gameControls;
 
@@ -33,7 +33,7 @@ public class OfficeManager : MonoBehaviour
 
         interact = GameObject.Find("InteractManager").GetComponent<Interact>();   
        
-        pinBoardLogic = PinBoard.GetComponent<PinBoardLogic>();
+        pinBoardLogic = PinBoard.GetComponent<PinBoardManager>();
         
         
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;

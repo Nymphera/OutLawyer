@@ -2721,9 +2721,9 @@ RectTransform:
   m_Father: {fileID: 656148999}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 500, y: -470}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 550, y: -520}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &695861137
@@ -2770,9 +2770,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1743484372}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PinBoardLogic, Assembly-CSharp
         m_MethodName: DeleteLine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1743484373}
+        m_TargetAssemblyTypeName: PinBoardManager, Assembly-CSharp
+        m_MethodName: CursorToScisors
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3357,7 +3369,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879535897}
-  m_LocalRotation: {x: 0.0000000045626614, y: 0.96420103, z: -0.26517245, w: 0.000000016590421}
+  m_LocalRotation: {x: 0.0000000045626596, y: 0.96420103, z: -0.26517245, w: 0.000000016590416}
   m_LocalPosition: {x: -1.3576, y: 1.6323853, z: 1.3825437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4400,7 +4412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1245905767
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17202,9 +17214,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1743484372}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PinBoardLogic, Assembly-CSharp
         m_MethodName: CreateLine_Green
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1743484373}
+        m_TargetAssemblyTypeName: PinBoardManager, Assembly-CSharp
+        m_MethodName: CursorToGreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17419,7 +17443,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1743484371}
-  - component: {fileID: 1743484372}
+  - component: {fileID: 1743484373}
+  - component: {fileID: 1743484374}
   m_Layer: 6
   m_Name: PinBoard
   m_TagString: Untagged
@@ -17446,26 +17471,124 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1743484372
+--- !u!114 &1743484373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743484370}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42f3b3a5a0654574fbb8377874c2389e, type: 3}
+  m_Script: {fileID: 11500000, guid: b2416a67f51e5464685adbd674ea321d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Description: {fileID: 665790177}
-  TeleportButton: {fileID: 0}
-  LineParent: {fileID: 443562534}
+  currentState: 5
+  evidences:
+  - {fileID: 0}
+  - {fileID: 0}
+  currentEvidence: {fileID: 0}
+  audioSource: {fileID: 1743484374}
+  scissorsClip: {fileID: 8300000, guid: d8f7b2a1134b6d0409e8c880535f77b9, type: 3}
+  stringClip: {fileID: 8300000, guid: 47715a4792b3c384988f11c845fc1ecb, type: 3}
   linePrefab: {fileID: 8969533229563378573, guid: a94b11fe908360f40860f17a3627efe5, type: 3}
-  SettingsPanel: {fileID: 710918776}
-  points: []
-  Evidences: []
-  lines: []
+  lineParent: {fileID: 443562534}
+--- !u!82 &1743484374
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743484370}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1761834665
 GameObject:
   m_ObjectHideFlags: 0
@@ -17770,7 +17893,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927444360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 411}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2055587288}
@@ -34804,9 +34927,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1743484372}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PinBoardLogic, Assembly-CSharp
         m_MethodName: CreateLine_Yellow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1743484373}
+        m_TargetAssemblyTypeName: PinBoardManager, Assembly-CSharp
+        m_MethodName: CursorToYellow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34938,9 +35073,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1743484372}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PinBoardLogic, Assembly-CSharp
         m_MethodName: CreateLine_Blue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1743484373}
+        m_TargetAssemblyTypeName: PinBoardManager, Assembly-CSharp
+        m_MethodName: CursorToBlue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35253,9 +35400,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1743484372}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PinBoardLogic, Assembly-CSharp
         m_MethodName: CreateLine_Red
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1743484373}
+        m_TargetAssemblyTypeName: PinBoardManager, Assembly-CSharp
+        m_MethodName: CursorToRed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35374,6 +35533,7 @@ MonoBehaviour:
   evidences: []
   points: []
   lines: []
+  createdLines: []
   LineParent: {fileID: 915372126}
   linePrefab: {fileID: 8969533229563378573, guid: a94b11fe908360f40860f17a3627efe5, type: 3}
   Instance: {fileID: 0}

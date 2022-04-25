@@ -97,7 +97,7 @@ public class PinBoardManager : MonoBehaviour
               else if(currentState == PinBoardState.Delete)
             {
                 //delete Line
-                Debug.Log(Hit.transform.name);
+                
                 DeleteLine(Hit);
             }
             else
@@ -110,7 +110,7 @@ public class PinBoardManager : MonoBehaviour
 
     private void DeleteLine(RaycastHit Hit)
     {
-        Debug.Log("Destroy");
+        
         if (Hit.transform.gameObject.tag == "ColliderLine")
         {
             GameObject lineToDestroy = Hit.transform.parent.gameObject;
@@ -144,7 +144,7 @@ public class PinBoardManager : MonoBehaviour
     {
         isLineCreated = true;
         evidences[0] = currentEvidence;
-        Debug.Log("CreateLine");
+        
         Line = Instantiate(linePrefab, lineParent).GetComponent<Line>();
         Evidence evidence = currentEvidence.GetComponent<EvidenceDisplay>().Evidence;
         Line.firstEvidence = evidence;
@@ -180,7 +180,7 @@ public class PinBoardManager : MonoBehaviour
         isLineCreated = false;
         evidences[1] = currentEvidence;
         OnLineCreated(Line);
-        Debug.Log("EndLine");
+        
         Evidence evidence0 = evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence evidence1 = evidences[1].GetComponent<EvidenceDisplay>().Evidence;
 
@@ -193,7 +193,7 @@ public class PinBoardManager : MonoBehaviour
         {
             if (evidence1 == evidence0.Conections[i].conected)
             {
-                Line.isConectionGood = true;
+             //   Line.isConectionGood = true;
                 
             }
             else

@@ -65,8 +65,7 @@ public class Line : MonoBehaviour
         
        Vector3 start = lineRenderer.GetPosition(0);
        Vector3 end = lineRenderer.GetPosition(1);
-        Debug.Log(lineRenderer.GetPosition(0));
-        Debug.Log(lineRenderer.GetPosition(1));
+        
         gameObject.tag= "ColliderLine";
         var startPos = start;
         var endPos = end;
@@ -85,7 +84,7 @@ public class Line : MonoBehaviour
         {
             tangent *= -1;
         }
-        Debug.Log(tangent);
+        
         float angle = Mathf.Rad2Deg*Mathf.Atan(tangent);
         col.transform.Rotate(angle, 0, 90);
     }

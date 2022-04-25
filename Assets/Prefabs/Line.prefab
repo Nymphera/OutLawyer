@@ -51,7 +51,8 @@ MonoBehaviour:
   secondEvidence: {fileID: 0}
   conectionType: 0
   isConectionGood: 0
-  animationDuration: 1
+  isAnimationDone: 0
+  animationDuration: 2
   Yellow: {fileID: 2100000, guid: 86d33a708e0548d42a313570136d61df, type: 2}
   Green: {fileID: 2100000, guid: 5ddd7de6d9d343442baa15921abe0b8a, type: 2}
   Red: {fileID: 2100000, guid: 86fe40e452003aa4c9a896b6b687f85c, type: 2}

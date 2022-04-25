@@ -20,6 +20,8 @@ public class PinBoardManager : MonoBehaviour
     GameObject currentEvidence;
     [SerializeField]
     AudioSource audioSource;
+    [SerializeField]
+    AudioClip scissorsClip,stringClip;
 
    
     [SerializeField]
@@ -113,7 +115,7 @@ public class PinBoardManager : MonoBehaviour
     {
         if (lineToDestroy.tag == "ColliderLine")
         {
-            
+            audioSource.PlayOneShot(scissorsClip);
             OnLineDeleted(lineToDestroy.GetComponent<Line>());
             Destroy(lineToDestroy);
 
@@ -208,13 +210,16 @@ public class PinBoardManager : MonoBehaviour
         else
         {
             OnLineCreated(Line);
+            audioSource.PlayOneShot(stringClip);
+            Line.AddColliderToLine();
+            StartCoroutine(Line.AnimateLine());
         }
+       
+       
+        
 
-        Line.AddColliderToLine();
-        StartCoroutine(Line.AnimateLine());
         evidences[0] = null;
         evidences[1] = null;
-
         isLineOverWhiteLine = false;
     }
 

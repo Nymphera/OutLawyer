@@ -14,7 +14,7 @@ public class Line : MonoBehaviour
     public Evidence secondEvidence;
     public ConectionType conectionType;
     public bool isConectionGood=false;
-
+    public bool isAnimationDone=false;
     //public Conection conection;
     private void Awake()
     {
@@ -59,6 +59,7 @@ public class Line : MonoBehaviour
                 lineRenderer.SetPosition(1, pos);
             yield return null;
             }
+        isAnimationDone = true;
     }
     public void AddColliderToLine()
     {

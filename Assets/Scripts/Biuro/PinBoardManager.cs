@@ -13,6 +13,7 @@ public class PinBoardManager : MonoBehaviour
     Texture2D greenWoolTexture, redWoolTexture, yellowWoolTexture, blueWoolTexture,scissorsTexture;
    [SerializeField]
     PinBoardState currentState=PinBoardState.Neutral;
+    OfficeState currentOfficeState=OfficeState.Overview;
     [SerializeField]
     GameObject[] evidences = new GameObject[2];
     [SerializeField]
@@ -28,17 +29,20 @@ public class PinBoardManager : MonoBehaviour
     Line Line;
 
     private bool isLineCreated=false;
+    private bool isLineOverWhiteLine=false;
     private void Awake()
     {
         Instance = this;
         GameControls = new GameControls();
         GameControls.Game.MousePosition.performed += OnMouseMove;
         GameControls.Game.MouseLeftClick.performed += OnMouseClick;
+       
 
-
+        
     }
 
     
+
     private void OnEnable()
     {
         GameControls.Enable();
@@ -51,11 +55,9 @@ public class PinBoardManager : MonoBehaviour
     {
         GameControls.Game.MousePosition.performed -= OnMouseMove;
         GameControls.Game.MouseLeftClick.performed -= OnMouseClick;
+       
     }
-    private void OnMouseDown()
-    {
-        
-    }
+    
     private void OnMouseMove(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
 
@@ -98,7 +100,7 @@ public class PinBoardManager : MonoBehaviour
             {
                 //delete Line
                 
-                DeleteLine(Hit);
+                DeleteLine(Hit.transform.parent.gameObject);
             }
             else
             {
@@ -107,19 +109,16 @@ public class PinBoardManager : MonoBehaviour
    
         }
     }
-
-    private void DeleteLine(RaycastHit Hit)
+    private void DeleteLine(GameObject lineToDestroy)
     {
-        
-        if (Hit.transform.gameObject.tag == "ColliderLine")
+        if (lineToDestroy.tag == "ColliderLine")
         {
-            GameObject lineToDestroy = Hit.transform.parent.gameObject;
+            
             OnLineDeleted(lineToDestroy.GetComponent<Line>());
             Destroy(lineToDestroy);
-            
+
         }
     }
-
     private void CreateLine(RaycastHit Hit)
     {
         if (Hit.transform.gameObject.layer == 7)
@@ -179,7 +178,7 @@ public class PinBoardManager : MonoBehaviour
     {
         isLineCreated = false;
         evidences[1] = currentEvidence;
-        OnLineCreated(Line);
+       
         
         Evidence evidence0 = evidences[0].GetComponent<EvidenceDisplay>().Evidence;
         Evidence evidence1 = evidences[1].GetComponent<EvidenceDisplay>().Evidence;
@@ -188,26 +187,35 @@ public class PinBoardManager : MonoBehaviour
         Vector3 secondPoint = currentEvidence.transform.GetChild(1).position;
         Line.SetPoint(1, secondPoint);
 
-        int length=Line.firstEvidence.Conections.Length; 
+        int length=Line.firstEvidence.Conections.Length;
+        int length2 = Line.secondEvidence.Conections.Length;
         for (int i = 0; i < length; i++)
         {
-            if (evidence1 == evidence0.Conections[i].conected)
+            for(int j = 0; j < length2; j++)
             {
-             //   Line.isConectionGood = true;
-                
-            }
-            else
-            {
-               // Destroy(Line.gameObject);
-                Debug.Log("Should be destroyed?");
-            }
-                
+                if (evidence1 == evidence0.Conections[i].conected || evidence0 == evidence1.Conections[j].conected)
+                {
+                    isLineOverWhiteLine = true;
+                }
+            }    
         }
+        if (!isLineOverWhiteLine)
+        {
+            Debug.Log("Should be destroyed?");
+     
+            Destroy(Line.gameObject);
+        }
+        else
+        {
+            OnLineCreated(Line);
+        }
+
         Line.AddColliderToLine();
         StartCoroutine(Line.AnimateLine());
         evidences[0] = null;
         evidences[1] = null;
-       
+
+        isLineOverWhiteLine = false;
     }
 
     public void CursorToYellow()

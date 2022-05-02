@@ -62,8 +62,9 @@ public class GameManager : MonoBehaviour
                 {
                     isMoveEnabled = false;
                     isInputEnabled = false;
-                    Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    
                 }
                 break;
             case GameState.CutScene:
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour
                     Cursor.lockState = CursorLockMode.None;
                 }
                 break;
+            
 
         }
 
@@ -91,7 +93,7 @@ public class GameManager : MonoBehaviour
        Move,        //move and interact enable
        Interact,    //move disable interact enable
        LockInteract,    
-       
+       Dialog,
       
         Office,
        

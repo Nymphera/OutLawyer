@@ -2,17 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PinBoardManager : MonoBehaviour
 {
     public static event Action<Line> OnLineCreated, OnLineDeleted;
+  
     public static PinBoardManager Instance;
     private GameControls GameControls;
     Vector2 mousePosition;
-
-    Texture2D greenWoolTexture, redWoolTexture, yellowWoolTexture, blueWoolTexture,scissorsTexture;
+    [SerializeField]
+    Texture2D greenWoolTexture, redWoolTexture, yellowWoolTexture, blueWoolTexture,scissorsTextureOpen, scissorsTextureClosed, neutralTexture;
    [SerializeField]
-    PinBoardState currentState=PinBoardState.Neutral;
+    public PinBoardState currentState=PinBoardState.Neutral;
     OfficeState currentOfficeState=OfficeState.Overview;
     [SerializeField]
     GameObject[] evidences = new GameObject[2];
@@ -38,12 +40,11 @@ public class PinBoardManager : MonoBehaviour
         GameControls = new GameControls();
         GameControls.Game.MousePosition.performed += OnMouseMove;
         GameControls.Game.MouseLeftClick.performed += OnMouseClick;
-       
+        GameControls.Game.GoBack.performed += CursorToNeutral;
 
         
     }
 
-    
 
     private void OnEnable()
     {
@@ -57,7 +58,8 @@ public class PinBoardManager : MonoBehaviour
     {
         GameControls.Game.MousePosition.performed -= OnMouseMove;
         GameControls.Game.MouseLeftClick.performed -= OnMouseClick;
-       
+        GameControls.Game.GoBack.performed -= CursorToNeutral;
+
     }
     
     private void OnMouseMove(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -84,7 +86,7 @@ public class PinBoardManager : MonoBehaviour
         }
 
     }
-    private void OnMouseClick(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    private void OnMouseClick(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         
         Ray Ray = Camera.main.ScreenPointToRay(mousePosition);
@@ -101,6 +103,9 @@ public class PinBoardManager : MonoBehaviour
               else if(currentState == PinBoardState.Delete)
             {
                 //delete Line
+                Debug.Log(context);
+                if(context.phase==InputActionPhase.Performed)
+                    Cursor.SetCursor(scissorsTextureClosed, Vector2.zero, CursorMode.Auto);
                 
                 DeleteLine(Hit.transform.parent.gameObject);
             }
@@ -115,7 +120,10 @@ public class PinBoardManager : MonoBehaviour
     {
         if (lineToDestroy.tag == "ColliderLine")
         {
+           
             audioSource.PlayOneShot(scissorsClip);
+            
+            Cursor.SetCursor(scissorsTextureOpen, Vector2.zero, CursorMode.Auto);
             OnLineDeleted(lineToDestroy.GetComponent<Line>());
             Destroy(lineToDestroy);
 
@@ -222,39 +230,44 @@ public class PinBoardManager : MonoBehaviour
         evidences[1] = null;
         isLineOverWhiteLine = false;
     }
-
+    private void CursorToNeutral(InputAction.CallbackContext obj)
+    {
+        Cursor.SetCursor(neutralTexture, Vector2.zero, CursorMode.Auto);
+        currentState = PinBoardState.Neutral;
+        
+    }
     public void CursorToYellow()
     {
         Cursor.SetCursor(yellowWoolTexture, Vector2.zero, CursorMode.Auto);
         currentState = PinBoardState.CreateYellow;
-        Debug.Log("ChangeCursor");
+       
     }
 
     public void CursorToBlue()
     {
         Cursor.SetCursor(blueWoolTexture, Vector2.zero, CursorMode.Auto);
         currentState = PinBoardState.CreateBlue;
-        Debug.Log("ChangeCursor");
+       
     }
 
     public void CursorToRed()
     {
         Cursor.SetCursor(redWoolTexture, Vector2.zero, CursorMode.Auto);
         currentState = PinBoardState.CreateRed;
-        Debug.Log("ChangeCursor");
+       
     }
 
     public void CursorToGreen()
     {
         Cursor.SetCursor(greenWoolTexture, Vector2.zero, CursorMode.Auto);
         currentState = PinBoardState.CreateGreen;
-        Debug.Log("ChangeCursor");
+        
     }
     public void CursorToScisors()
     {
-       // Cursor.SetCursor(scissorsTexture, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(scissorsTextureOpen, Vector2.zero, CursorMode.Auto);
         currentState = PinBoardState.Delete;
-        Debug.Log("ChangeCursor");
+        
     }
 }
 public enum PinBoardState

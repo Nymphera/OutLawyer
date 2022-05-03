@@ -11,7 +11,12 @@ public class IconGenerator : MonoBehaviour
     private string pathFolder;
 
     [ContextMenu("Screenshot")]
-    private void ProvideScreenshot()
+    private void TakeScreenshot()
+    {
+        ScreenCapture.CaptureScreenshot(iconName);
+        Debug.Log("123");
+    }
+    public void ProvideScreenshot()
     {
         StartCoroutine(Screenshot());
     }

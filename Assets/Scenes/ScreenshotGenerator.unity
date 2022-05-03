@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconName: Test
-  pathFolder: Inventory\Icons
+  pathFolder: Inventory/Icons
 --- !u!1 &1943209722
 GameObject:
   m_ObjectHideFlags: 0

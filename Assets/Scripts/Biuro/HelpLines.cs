@@ -45,10 +45,10 @@ public class HelpLines : MonoBehaviour
         BlueButton = GameObject.Find("BlueButton");
         YellowButton = GameObject.Find("YellowButton");
 
-        redText = RedButton.transform.GetChild(1).GetComponent<Text>();
-        greenText = GreenButton.transform.GetChild(1).GetComponent<Text>();
-        blueText = BlueButton.transform.GetChild(1).GetComponent<Text>();
-        yellowText = YellowButton.transform.GetChild(1).GetComponent<Text>();
+        redText = RedButton.transform.GetChild(0).GetComponent<Text>();
+        greenText = GreenButton.transform.GetChild(0).GetComponent<Text>();
+        blueText = BlueButton.transform.GetChild(0).GetComponent<Text>();
+        yellowText = YellowButton.transform.GetChild(0).GetComponent<Text>();
     }
     private void OnDestroy()
     {

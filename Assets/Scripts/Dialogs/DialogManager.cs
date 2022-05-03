@@ -163,6 +163,7 @@ public class DialogManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
+        if(dialogOption.audioClips!=null)
         foreach(AudioClip clip in dialogOption.audioClips)
         {
             clips.Enqueue(clip);

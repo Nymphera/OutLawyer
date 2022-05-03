@@ -20,6 +20,7 @@ public class OfficeManager : MonoBehaviour
     private PinBoardControls PinBoardControls;
 
     private OfficeState currentState;
+    private PinBoardState currentPinBoardState;
     private void Awake()
     {
         PinBoardControls = new PinBoardControls();
@@ -47,7 +48,7 @@ public class OfficeManager : MonoBehaviour
     {
         CinemachineSwitcher.OnOfficeStateChanged -= CinemachineSwitcher_OnOfficeStateChanged;
         PinBoardControls.PinBoard.MouseLeftClick.performed -= MouseLeftClick_performed;
-        PinBoardControls.PinBoard.LeavePinBoard.performed -= LeavePinBoard_performed;
+       
         gameControls.Game.MouseLeftClick.performed -= MouseLeftClick_performed;
         gameControls.Game.GoBack.performed -= LeavePinBoard_performed;
     }
@@ -60,9 +61,9 @@ public class OfficeManager : MonoBehaviour
     {
         //if(currentState!=OfficeState.Inspect)
         Settings.SetActive(false);
-        if (currentState == OfficeState.Inspect)
-            CinemachineSwitcher.Instance.SwitchState("PinBoardSprite");
-        else
+        
+            
+        if (PinBoardManager.Instance.currentState == PinBoardState.Neutral)
         {
             CinemachineSwitcher.Instance.SwitchState("Biuro");
         }

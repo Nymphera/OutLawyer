@@ -62,6 +62,15 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Scroll"",
+                    ""type"": ""Value"",
+                    ""id"": ""04dc5bc3-6b12-40a8-806a-e0162a6e5be2"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -108,6 +117,17 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""action"": ""ChangePlayerCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""611ea79c-9899-46ac-bf6e-f66852792716"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -120,6 +140,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         m_Game_MousePosition = m_Game.FindAction("MousePosition", throwIfNotFound: true);
         m_Game_MouseLeftClick = m_Game.FindAction("MouseLeftClick", throwIfNotFound: true);
         m_Game_ChangePlayerCamera = m_Game.FindAction("ChangePlayerCamera", throwIfNotFound: true);
+        m_Game_Scroll = m_Game.FindAction("Scroll", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -183,6 +204,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_MousePosition;
     private readonly InputAction m_Game_MouseLeftClick;
     private readonly InputAction m_Game_ChangePlayerCamera;
+    private readonly InputAction m_Game_Scroll;
     public struct GameActions
     {
         private @GameControls m_Wrapper;
@@ -191,6 +213,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         public InputAction @MousePosition => m_Wrapper.m_Game_MousePosition;
         public InputAction @MouseLeftClick => m_Wrapper.m_Game_MouseLeftClick;
         public InputAction @ChangePlayerCamera => m_Wrapper.m_Game_ChangePlayerCamera;
+        public InputAction @Scroll => m_Wrapper.m_Game_Scroll;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -212,6 +235,9 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 @ChangePlayerCamera.started -= m_Wrapper.m_GameActionsCallbackInterface.OnChangePlayerCamera;
                 @ChangePlayerCamera.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnChangePlayerCamera;
                 @ChangePlayerCamera.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnChangePlayerCamera;
+                @Scroll.started -= m_Wrapper.m_GameActionsCallbackInterface.OnScroll;
+                @Scroll.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnScroll;
+                @Scroll.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnScroll;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -228,6 +254,9 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 @ChangePlayerCamera.started += instance.OnChangePlayerCamera;
                 @ChangePlayerCamera.performed += instance.OnChangePlayerCamera;
                 @ChangePlayerCamera.canceled += instance.OnChangePlayerCamera;
+                @Scroll.started += instance.OnScroll;
+                @Scroll.performed += instance.OnScroll;
+                @Scroll.canceled += instance.OnScroll;
             }
         }
     }
@@ -238,5 +267,6 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         void OnMousePosition(InputAction.CallbackContext context);
         void OnMouseLeftClick(InputAction.CallbackContext context);
         void OnChangePlayerCamera(InputAction.CallbackContext context);
+        void OnScroll(InputAction.CallbackContext context);
     }
 }

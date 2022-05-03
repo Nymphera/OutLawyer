@@ -17327,8 +17327,9 @@ MonoBehaviour:
   redWoolTexture: {fileID: 2800000, guid: de53a133ab77a76409c69c3359013781, type: 3}
   yellowWoolTexture: {fileID: 2800000, guid: 1d698a88f0978d844ae59a86ebb6ac41, type: 3}
   blueWoolTexture: {fileID: 2800000, guid: 679b48f6edb7bf44f9af8e3962a676e4, type: 3}
-  scissorsTexture: {fileID: 2800000, guid: 570b91919d053744297af7b5d98663b9, type: 3}
-  neutralTexture: {fileID: 0}
+  scissorsTextureOpen: {fileID: 2800000, guid: 570b91919d053744297af7b5d98663b9, type: 3}
+  scissorsTextureClosed: {fileID: 2800000, guid: 5332a554c4b944c4c87ab8a535cc81a6, type: 3}
+  neutralTexture: {fileID: 2800000, guid: 1c9ef8e6af130b14bb9463d504c79fa0, type: 3}
   currentState: 5
   evidences:
   - {fileID: 0}

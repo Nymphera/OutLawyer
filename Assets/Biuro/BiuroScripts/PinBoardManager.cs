@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PinBoardManager : MonoBehaviour
 {
@@ -23,17 +24,25 @@ public class PinBoardManager : MonoBehaviour
     [SerializeField]
     AudioSource audioSource;
     [SerializeField]
-    AudioClip scissorsClip,stringClip;
-
+    AudioClip scissorsClip,stringClip,wrongConectionClip;
+    
    
     [SerializeField]
     private GameObject linePrefab;
     [SerializeField]
     private Transform lineParent;
-    Line Line;
+    private Line Line;
+    private List<Line> lines = new List<Line>();
 
     private bool isLineCreated=false;
+    private bool isLineOverOtherLine=false;
     private bool isLineOverWhiteLine=false;
+
+
+    private GameObject RedButton, GreenButton, YellowButton, BlueButton;
+    private Text redText, greenText, yellowText, blueText;
+    private int redCount = 0, greenCount = 0, yellowCount = 0, blueCount = 0;
+    private bool redButtonState, greenButtonState, yellowButtonState, blueButtonState;
     private void Awake()
     {
         Instance = this;
@@ -42,10 +51,21 @@ public class PinBoardManager : MonoBehaviour
         GameControls.Game.MouseLeftClick.performed += OnMouseClick;
         GameControls.Game.GoBack.performed += CursorToNeutral;
 
+        RedButton = GameObject.Find("RedButton");
+        GreenButton = GameObject.Find("GreenButton");
+        BlueButton = GameObject.Find("BlueButton");
+        YellowButton = GameObject.Find("YellowButton");
+
+        redText = RedButton.transform.GetChild(0).GetComponent<Text>();
+        greenText = GreenButton.transform.GetChild(0).GetComponent<Text>();
+        blueText = BlueButton.transform.GetChild(0).GetComponent<Text>();
+        yellowText = YellowButton.transform.GetChild(0).GetComponent<Text>();
+
+       
         
     }
 
-
+    
     private void OnEnable()
     {
         GameControls.Enable();
@@ -98,16 +118,14 @@ public class PinBoardManager : MonoBehaviour
             if (currentState != PinBoardState.Delete && currentState != PinBoardState.Neutral)
             {
                 //createLine
+                
                 CreateLine(Hit);
             }
               else if(currentState == PinBoardState.Delete)
             {
                 //delete Line
-                Debug.Log(context);
-                if(context.phase==InputActionPhase.Performed)
-                    Cursor.SetCursor(scissorsTextureClosed, Vector2.zero, CursorMode.Auto);
-                
-                DeleteLine(Hit.transform.parent.gameObject);
+
+                StartCoroutine(DeleteLine(Hit.transform.parent.gameObject));
             }
             else
             {
@@ -116,17 +134,110 @@ public class PinBoardManager : MonoBehaviour
    
         }
     }
-    private void DeleteLine(GameObject lineToDestroy)
+    private void CountLines(Line line,bool isLineCreated)
     {
+        redCount = Int32.Parse(redText.text);
+        yellowCount = Int32.Parse(yellowText.text);
+        blueCount = Int32.Parse(blueText.text);
+        greenCount = Int32.Parse(greenText.text);
+        if (!isLineCreated)
+        {
+            if (line.conectionType == ConectionType.Blue)
+                blueCount++;
+            else
+             if (line.conectionType == ConectionType.Red)
+                redCount++;
+            else
+             if (line.conectionType == ConectionType.Green)
+                greenCount++;
+            else
+             if (line.conectionType == ConectionType.Yellow)
+                yellowCount++;
+        }
+        else
+        {
+            if (line.conectionType == ConectionType.Blue)
+                blueCount--;
+            else
+            if (line.conectionType == ConectionType.Red)
+                redCount--;
+            else
+            if (line.conectionType == ConectionType.Green)
+                greenCount--;
+            else
+            if (line.conectionType == ConectionType.Yellow)
+                yellowCount--;
+        }
+        OverWriteButtons();
+        redButtonState = RedButton.GetComponent<Button>().enabled;
+        greenButtonState = GreenButton.GetComponent<Button>().enabled;
+        yellowButtonState = YellowButton.GetComponent<Button>().enabled;
+        blueButtonState = BlueButton.GetComponent<Button>().enabled;
+
+        RedButton.GetComponent<Button>().enabled = (redCount > 0);
+        BlueButton.GetComponent<Button>().enabled = (blueCount > 0);
+        YellowButton.GetComponent<Button>().enabled = (yellowCount > 0);
+        GreenButton.GetComponent<Button>().enabled = (greenCount > 0);
+
+        if (redButtonState != RedButton.GetComponent<Button>().enabled)
+        {
+            DeactiveButton(RedButton);
+        }
+        if (greenButtonState != GreenButton.GetComponent<Button>().enabled)
+        {
+            DeactiveButton(GreenButton);
+        }
+        if (yellowButtonState != YellowButton.GetComponent<Button>().enabled)
+        {
+            DeactiveButton(YellowButton);
+        }
+        if (blueButtonState != BlueButton.GetComponent<Button>().enabled)
+        {
+            DeactiveButton(BlueButton);
+        }
+    }
+
+    private void DeactiveButton(GameObject button)
+    {
+        Color color = button.GetComponent<Image>().color;
+        if (color.a > 0.5f)
+        {
+            color.a = 0.3f;
+            //cursor tu neutral
+            Cursor.SetCursor(neutralTexture, Vector2.zero, CursorMode.Auto);
+            currentState = PinBoardState.Neutral;
+        }
+        else
+        {
+            color.a = 1;
+        }
+        button.GetComponent<Image>().color = color;
+    }
+
+    private void OverWriteButtons()
+    {
+        redText.text = redCount.ToString();
+        greenText.text = greenCount.ToString();
+        blueText.text = blueCount.ToString();
+        yellowText.text = yellowCount.ToString();
+    }
+
+    private IEnumerator DeleteLine(GameObject lineToDestroy)
+    {
+
         if (lineToDestroy.tag == "ColliderLine")
         {
-           
-            audioSource.PlayOneShot(scissorsClip);
-            
-            Cursor.SetCursor(scissorsTextureOpen, Vector2.zero, CursorMode.Auto);
             OnLineDeleted(lineToDestroy.GetComponent<Line>());
+            Cursor.SetCursor(scissorsTextureClosed, new Vector2(30, 30), CursorMode.Auto);
+            audioSource.PlayOneShot(scissorsClip);
+            lines.Remove(lineToDestroy.GetComponent<Line>());
+            CountLines(lineToDestroy.GetComponent<Line>(), false);
             Destroy(lineToDestroy);
 
+            yield return new WaitForSeconds(0.5f);
+
+            Cursor.SetCursor(scissorsTextureOpen, new Vector2(30, 30), CursorMode.Auto);
+            
         }
     }
     private void CreateLine(RaycastHit Hit)
@@ -144,7 +255,9 @@ public class PinBoardManager : MonoBehaviour
             }
             else
             {
+                
                 EndLine();
+                
             }
         }
     }
@@ -199,7 +312,7 @@ public class PinBoardManager : MonoBehaviour
 
         int length=Line.firstEvidence.Conections.Length;
         int length2 = Line.secondEvidence.Conections.Length;
-        for (int i = 0; i < length; i++)
+        for (int i = 0; i < length; i++) 
         {
             for(int j = 0; j < length2; j++)
             {
@@ -209,14 +322,27 @@ public class PinBoardManager : MonoBehaviour
                 }
             }    
         }
-        if (!isLineOverWhiteLine)
+
+        length = lines.Count;
+        for(int i = 0; i < length; i++)
         {
+            if((lines[i].firstEvidence==Line.firstEvidence&&lines[i].secondEvidence==Line.secondEvidence)|| (lines[i].secondEvidence == Line.firstEvidence && lines[i].firstEvidence == Line.secondEvidence))
+            {
+                isLineOverOtherLine = true;
+            }
+        }
+
+        if (!isLineOverWhiteLine||isLineOverOtherLine)
+        {
+            audioSource.PlayOneShot(wrongConectionClip);
             Debug.Log("Should be destroyed?");
      
             Destroy(Line.gameObject);
         }
         else
         {
+            CountLines(Line, true);
+            lines.Add(Line);
             OnLineCreated(Line);
             audioSource.PlayOneShot(stringClip);
             Line.AddColliderToLine();
@@ -228,7 +354,9 @@ public class PinBoardManager : MonoBehaviour
 
         evidences[0] = null;
         evidences[1] = null;
+        isLineOverOtherLine = false;
         isLineOverWhiteLine = false;
+
     }
     private void CursorToNeutral(InputAction.CallbackContext obj)
     {
@@ -265,7 +393,7 @@ public class PinBoardManager : MonoBehaviour
     }
     public void CursorToScisors()
     {
-        Cursor.SetCursor(scissorsTextureOpen, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(scissorsTextureOpen, new Vector2(30,30), CursorMode.Auto);
         currentState = PinBoardState.Delete;
         
     }

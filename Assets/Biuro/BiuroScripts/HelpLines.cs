@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class HelpLines : MonoBehaviour
 {
+    [SerializeField]
     private GameObject RedButton, GreenButton, YellowButton, BlueButton;
     private Text redText, greenText, yellowText, blueText;
     private int redCount=0, greenCount=0, yellowCount=0, blueCount=0;
-
+    private bool redButtonState, greenButtonState, yellowButtonState, blueButtonState;
     private int childCount,activeChildCount;
     [SerializeField]
     private Transform[] childs,activeChilds;
@@ -68,7 +69,7 @@ public class HelpLines : MonoBehaviour
                 lines[i].transform.GetComponent<LineRenderer>().enabled = true;
             }
         }
-        LineCounter(null);
+       // LineCounter(null);
     }
 
     private void OnLineCreated(Line line)
@@ -89,7 +90,7 @@ public class HelpLines : MonoBehaviour
 
              }
              }
-            LineCounter(line);
+         //   LineCounter(line);
         if (AreAllConectionsGood())
         {
             Debug.Log("You did gooood");    //tutaj event w kodzie
@@ -187,12 +188,48 @@ public class HelpLines : MonoBehaviour
         greenText.text = greenCount.ToString();
         blueText.text = blueCount.ToString();
         yellowText.text = yellowCount.ToString();
+
+        redButtonState = RedButton.GetComponent<Button>().enabled;
+        greenButtonState = GreenButton.GetComponent<Button>().enabled;
+        yellowButtonState = YellowButton.GetComponent<Button>().enabled;
+        blueButtonState = BlueButton.GetComponent<Button>().enabled;
+
+        RedButton.GetComponent<Button>().enabled = (redCount > 0);
+            BlueButton.GetComponent<Button>().enabled = (blueCount > 0);
+            YellowButton.GetComponent<Button>().enabled = (yellowCount > 0);
+           GreenButton.GetComponent<Button>().enabled = (greenCount > 0);
        
-            RedButton.GetComponent<Button>().enabled = (redCount != 0);
-            BlueButton.GetComponent<Button>().enabled = (blueCount != 0);
-            YellowButton.GetComponent<Button>().enabled = (yellowCount != 0);
-           GreenButton.GetComponent<Button>().enabled = (greenCount != 0);
-        
+         if(redButtonState != RedButton.GetComponent<Button>().enabled)
+        {
+            DeactiveButton(RedButton);
+        }
+        if (greenButtonState != GreenButton.GetComponent<Button>().enabled)
+        {
+            DeactiveButton(GreenButton);
+        }
+        if (yellowButtonState != YellowButton.GetComponent<Button>().enabled)
+        {
+            DeactiveButton(YellowButton);
+        }
+        if (blueButtonState != BlueButton.GetComponent<Button>().enabled)
+        {
+            DeactiveButton(BlueButton);
+        }
+
+    }
+
+    private void DeactiveButton(GameObject button)
+    {
+        Color color=button.GetComponent<Image>().color;
+        if (color.a > 0.5f)
+        {
+            color.a = 0.3f;
+        }
+        else
+        {
+            color.a = 1;
+        }
+         button.GetComponent<Image>().color=color;
     }
 
     public void Create_HelpLines(GameState state)

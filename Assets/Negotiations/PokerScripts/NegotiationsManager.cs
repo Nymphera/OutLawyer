@@ -6,9 +6,7 @@ using UnityEngine.InputSystem;
 
 public class NegotiationsManager : MonoBehaviour
 {
-    GameControls gameControls;
-
-    Vector2 mousePosition;
+    DealCards deal = new DealCards();
     private void Awake()
     {
         NegotiationsActivator.OnNegotiationsStarted += StartNegotiations;
@@ -18,6 +16,7 @@ public class NegotiationsManager : MonoBehaviour
     void StartNegotiations()
     {
         CameraControllerKrabiarnia.Instance.SwitchState("Negotiations");
+        deal.Deal();
     }
- 
+    
 }

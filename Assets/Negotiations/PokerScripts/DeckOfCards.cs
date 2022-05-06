@@ -24,7 +24,8 @@ public class DeckOfCards : Card
                 
                 //{ MySuit = suit, MyValue = value };
             }
-        }   
+        }
+        ShuffleCards();
     }
     void ShuffleCards()
     {

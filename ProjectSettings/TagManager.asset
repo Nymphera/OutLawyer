@@ -7,6 +7,8 @@ TagManager:
   - Interact
   - Interact2
   - ColliderLine
+  - CinemachineTarget
+  - Negotiations
   layers:
   - Default
   - TransparentFX

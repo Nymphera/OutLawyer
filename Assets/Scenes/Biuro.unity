@@ -3368,7 +3368,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879535897}
-  m_LocalRotation: {x: 0.0000000045626596, y: 0.96420103, z: -0.26517245, w: 0.000000016590416}
+  m_LocalRotation: {x: -0.000000004562658, y: 0.96420103, z: -0.26517242, w: -0.000000016590405}
   m_LocalPosition: {x: -1.3576, y: 1.6323853, z: 1.3825437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -17091,7 +17091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.08468914, a: 1}
+  m_Color: {r: 0.49411768, g: 0.854902, b: 0.34509805, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17323,12 +17323,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2416a67f51e5464685adbd674ea321d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenWoolTexture: {fileID: 2800000, guid: df46cde14a4021d4db4c60c25a22fd68, type: 3}
-  redWoolTexture: {fileID: 2800000, guid: de53a133ab77a76409c69c3359013781, type: 3}
-  yellowWoolTexture: {fileID: 2800000, guid: 1d698a88f0978d844ae59a86ebb6ac41, type: 3}
-  blueWoolTexture: {fileID: 2800000, guid: 679b48f6edb7bf44f9af8e3962a676e4, type: 3}
-  scissorsTextureOpen: {fileID: 2800000, guid: 570b91919d053744297af7b5d98663b9, type: 3}
-  scissorsTextureClosed: {fileID: 2800000, guid: 5332a554c4b944c4c87ab8a535cc81a6, type: 3}
+  greenWoolTexture: {fileID: 2800000, guid: 518bad23fc8000e4ba9277b39df7a2cc, type: 3}
+  redWoolTexture: {fileID: 2800000, guid: 97bb4e95863013949a2662df14c8f241, type: 3}
+  yellowWoolTexture: {fileID: 2800000, guid: e3b945b9bd8c59e4bafa434b76d64621, type: 3}
+  blueWoolTexture: {fileID: 2800000, guid: f576094f9b065354fb3bd609c2b44d48, type: 3}
+  scissorsTextureOpen: {fileID: 2800000, guid: 0dd4fcd8e2fc66346b4392ad126a7821, type: 3}
+  scissorsTextureClosed: {fileID: 2800000, guid: 41d1607ab06026944a35e5b742660ea2, type: 3}
   neutralTexture: {fileID: 2800000, guid: 1c9ef8e6af130b14bb9463d504c79fa0, type: 3}
   currentState: 5
   evidences:
@@ -17338,6 +17338,7 @@ MonoBehaviour:
   audioSource: {fileID: 1743484374}
   scissorsClip: {fileID: 8300000, guid: d8f7b2a1134b6d0409e8c880535f77b9, type: 3}
   stringClip: {fileID: 8300000, guid: 47715a4792b3c384988f11c845fc1ecb, type: 3}
+  wrongConectionClip: {fileID: 8300000, guid: 15f11835d9b0cde4794161fc03a6ccdf, type: 3}
   linePrefab: {fileID: 8969533229563378573, guid: a94b11fe908360f40860f17a3627efe5, type: 3}
   lineParent: {fileID: 443562534}
 --- !u!82 &1743484374
@@ -34732,7 +34733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.96787465, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.7411765, b: 0.3529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -34877,7 +34878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.8936908, b: 1, a: 1}
+  m_Color: {r: 0.22352943, g: 0.7137255, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -35124,7 +35125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.11054215, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.34509805, b: 0.34509805, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -35215,6 +35216,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe89409272abdf4b9ed75e05c553284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RedButton: {fileID: 0}
+  GreenButton: {fileID: 0}
+  YellowButton: {fileID: 0}
+  BlueButton: {fileID: 0}
   childs: []
   activeChilds: []
   evidences: []
@@ -35272,7 +35277,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145575658}
-  m_LocalRotation: {x: -0.000000001444721, y: 0.9857992, z: -0.16792853, w: -0.000000008481018}
+  m_LocalRotation: {x: 0.0000000014447209, y: 0.9857992, z: -0.16792852, w: 0.000000008481018}
   m_LocalPosition: {x: -1.2238271, y: 0.940531, z: -0.25924444}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

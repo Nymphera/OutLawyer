@@ -24,7 +24,13 @@ public class DealCards : DeckOfCards
 
     private void EvaluateHands()
     {
-        
+
+        HandEvaluator playerHandEvaluator = new HandEvaluator(playerHand, tableCards);
+        HandEvaluator computerHandEvaluator = new HandEvaluator(computerHand, tableCards);
+        Hand playerHandValue=playerHandEvaluator.EvaluateHand();
+        Hand computerHandValue=computerHandEvaluator.EvaluateHand();
+        Debug.Log("Player has" + playerHandValue.ToString());
+        Debug.Log("Computer has" + computerHandValue.ToString());
     }
 
     private void DisplayCards()

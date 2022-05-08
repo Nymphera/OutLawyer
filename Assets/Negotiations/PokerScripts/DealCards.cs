@@ -29,8 +29,36 @@ public class DealCards : DeckOfCards
         HandEvaluator computerHandEvaluator = new HandEvaluator(computerHand, tableCards);
         Hand playerHandValue=playerHandEvaluator.EvaluateHand();
         Hand computerHandValue=computerHandEvaluator.EvaluateHand();
+        Card playerHighCard = getHighCard(playerHand);
+        Card computerHighCard = getHighCard(computerHand);
         Debug.Log("Player has" + playerHandValue.ToString());
         Debug.Log("Computer has" + computerHandValue.ToString());
+        if (playerHandValue > computerHandValue)
+        {
+            Debug.Log("Player wins");
+        }
+        else if (playerHandValue < computerHandValue)
+        {
+            Debug.Log("Computer wins");
+        }else if (playerHandValue == computerHandValue)
+        {
+            if (playerHighCard.MyValue > computerHighCard.MyValue)
+            {
+                Debug.Log("Player wins");
+            }
+            else
+                Debug.Log("Computer wins");
+
+
+        }
+    }
+
+    private Card getHighCard(Card[] Hand)
+    {
+        if (Hand[0].MyValue < Hand[1].MyValue)
+            return Hand[1];
+        else
+            return Hand[0];
     }
 
     private void DisplayCards()

@@ -19,7 +19,8 @@ public class DeckOfCards : Card
         {
             foreach(Value value in Enum.GetValues(typeof(Value)))
             {
-                deck[i] = new Card { MySuit = suit,MyValue=value };
+                deck[i] = new Card { MySuit = suit,MyValue=value,material=Resources.Load<Material>("Materials/BackColor_Black/"+suit+"/"+value) };
+                
                 i++;
                 
                 //{ MySuit = suit, MyValue = value };

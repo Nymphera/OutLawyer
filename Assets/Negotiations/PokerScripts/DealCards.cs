@@ -67,16 +67,22 @@ public class DealCards : DeckOfCards
         for (int i = 0; i < 2; i++)
         {
            Debug.Log(playerHand[i].MySuit + " " + (playerHand[i].MyValue));
+            if (playerHand[i].material != null)
+                Debug.Log(playerHand[i].material);
         }
         Debug.Log("Computer cards:");
         for (int j = 0; j < 2; j++)
         {
             Debug.Log(computerHand[j].MySuit+" "+ computerHand[j].MyValue);
+            if (computerHand[j].material != null)
+                Debug.Log(computerHand[j].material);
         }
         Debug.Log("Table Cards:");
         for (int k = 0; k < 5; k++)
         {
             Debug.Log(tableCards[k].MySuit+" "+ tableCards[k].MyValue);
+            if (tableCards[k].material != null)
+                Debug.Log(tableCards[k].material);
         }
     }
 
@@ -95,4 +101,17 @@ public class DealCards : DeckOfCards
             tableCards[k-4] = getDeck[k];
         }
     }
+    public Card[] GetPlayerHand()
+    {
+        return playerHand;
+    }
+    public Card[] GetComputerHand()
+    {
+        return computerHand;
+    }
+    public Card[] GetTableCards()
+    {
+        return tableCards;
+    }
+
 }

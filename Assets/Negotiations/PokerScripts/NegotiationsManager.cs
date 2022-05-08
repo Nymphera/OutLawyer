@@ -20,6 +20,7 @@ public class NegotiationsManager : MonoBehaviour
     {
         CameraControllerKrabiarnia.Instance.SwitchState("Negotiations");
         deal.Deal();
+        
     }
     
 }

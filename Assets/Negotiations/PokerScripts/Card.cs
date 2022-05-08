@@ -7,10 +7,11 @@ public class Card
     
     public enum Suit
     {
+        Clubs,
         Hearts,
         Spades,
-        Diamonds,
-        Clubs
+        Diamonds
+        
     }
     public enum Value
     {
@@ -19,4 +20,5 @@ public class Card
     }
     public Suit MySuit { get; set; }
     public Value MyValue { get; set; }
+    public Material material;
 }

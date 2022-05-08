@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class NegotiationsManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject cardPrefab;
+
     DealCards deal = new DealCards();
     private void Awake()
     {

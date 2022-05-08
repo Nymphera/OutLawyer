@@ -66,7 +66,7 @@ public class DealCards : DeckOfCards
         Debug.Log("Player Hand:");
         for (int i = 0; i < 2; i++)
         {
-           Debug.Log(playerHand[i].MySuit + " " + ((int)playerHand[i].MyValue));
+           Debug.Log(playerHand[i].MySuit + " " + (playerHand[i].MyValue));
         }
         Debug.Log("Computer cards:");
         for (int j = 0; j < 2; j++)

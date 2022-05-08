@@ -31,8 +31,9 @@ public class Interact : MonoBehaviour
       
         gameControls.Game.MousePosition.performed += MousePosition_performed;
         mouseMove = gameControls.Game.MousePosition;
-
-      //  actionTextField = GameObject.Find("InteractText").GetComponent<TextMeshProUGUI>();
+        if(specialLogicOnClick!=null)
+        specialLogicOnClick.SetActive(false);
+        //  actionTextField = GameObject.Find("InteractText").GetComponent<TextMeshProUGUI>();
     }
     private void Start()
     {
@@ -174,14 +175,17 @@ public class Interact : MonoBehaviour
        // actionTextField.enabled = false;
     }
 
-  
+
     private void DisableOutline(GameObject Object)
     {
-       // HideActionDescription();
+        // HideActionDescription();
+        if (Object.GetComponent<Outline>()!=null) 
+        {
         Color color = Object.GetComponent<Outline>().OutlineColor;
         color.a = 0;
         Object.GetComponent<Outline>().OutlineColor = color;
         Object.GetComponent<Outline>().enabled = false;
+        }
     }
   
         

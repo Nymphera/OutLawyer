@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardSpawner : DealCards
+public class CardSpawner : MonoBehaviour
 { private GameObject cardPrefab;
     private Transform playerParent,computerParent,tableParent;
     private Card[] playerCards, computerCards, tableCards;
@@ -19,11 +20,31 @@ public class CardSpawner : DealCards
         computerCards = new Card[2];
         tableCards = new Card[5];
     }
-    private void spawnCards()
+    public void spawnCards()
     {
-       
+        DealCards();
+
+        spawnCards(playerCards,playerParent);
+        spawnCards(computerCards,computerParent);
+        spawnCards(tableCards,tableParent);
+
+         
         
     }
+
+    private void spawnCards(Card[] Cards,Transform parent)
+    {
+        Vector3 v=Vector3.zero;
+        foreach(Card card in Cards)
+        {
+            GameObject cardObject = Instantiate(cardPrefab,parent.position+v,Quaternion.identity, parent).gameObject;
+            cardObject.name = card.MySuit.ToString() + card.MyValue;
+            cardObject.GetComponent<MeshRenderer>().material = card.material;
+            v.x += 0.1f;
+        }
+        
+    }
+
     private void DealCards()
     {
         deal.Deal();

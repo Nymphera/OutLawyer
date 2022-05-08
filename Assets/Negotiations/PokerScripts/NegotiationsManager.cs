@@ -7,9 +7,11 @@ using UnityEngine.InputSystem;
 public class NegotiationsManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject cardPrefab;
-
-    DealCards deal = new DealCards();
+    private GameObject cardPrefab;
+    [SerializeField]
+    private Transform playerParent, computerParent, tableParent;
+    private CardSpawner cardSpawner;
+    private DealCards deal = new DealCards();
     private void Awake()
     {
         NegotiationsActivator.OnNegotiationsStarted += StartNegotiations;
@@ -19,8 +21,9 @@ public class NegotiationsManager : MonoBehaviour
     void StartNegotiations()
     {
         CameraControllerKrabiarnia.Instance.SwitchState("Negotiations");
-        deal.Deal();
-        
+        //deal.Deal();
+        cardSpawner = new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
+        cardSpawner.spawnCards();
     }
     
 }

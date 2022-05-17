@@ -15,25 +15,69 @@ public class NegotiationsManager : MonoBehaviour
     
     private void Awake()
     {
-        NegotiationsActivator.OnNegotiationsStarted += StartNegotiations;
+        NegotiationsActivator.OnNegotiationsStarted += startNegotiations;
        
     }
- 
-    void StartNegotiations()
+    private void Update()
+    {       
+
+    }
+    private void startNegotiations()
+    {
+        StartCoroutine(StartNegotiations());
+    }
+    private IEnumerator StartNegotiations()
     {
         CameraControllerKrabiarnia.Instance.SwitchState("Negotiations");
+
+        cardSpawner = 
+           new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
         
-        cardSpawner = new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
         cardSpawner.spawnCards();
         GetCards();
+        StartCoroutine(AnimateDealing());
+        yield return new WaitForSeconds(2f);
         RotatePlayerCards();
+    }
+
+    private IEnumerator AnimateDealing()
+    {
+        Vector3 v = Vector3.zero;
+       
+        foreach (Card card in computerCards)
+        {
+            StartCoroutine(card.Deal(computerParent.position + v));
+            v.x += 0.05f;
+            yield return new WaitForSeconds(0.3f);
+
+        }
+        yield return null;
+        v = Vector3.zero;
+
+        foreach (Card card in playerCards)
+        {
+            StartCoroutine(card.Deal(playerParent.position + v));
+            yield return new WaitForSeconds(0.3f);
+            v.x += 0.05f;
+        }
+        yield return null;
+        
+
+        v = Vector3.zero;
+        foreach (Card card in tableCards)
+        {
+            StartCoroutine(card.Deal(tableParent.position + v));
+            v.x += 0.05f;
+            yield return new WaitForSeconds(0.3f);
+
+        }
     }
 
     private void RotatePlayerCards()
     {
         foreach(Card card in playerCards)
         {
-            card.Rotate();
+           StartCoroutine( card.Rotate());
         }
     }
 

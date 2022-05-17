@@ -66,9 +66,17 @@ public class Interact : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Debug.Log("Special Logic");
-        if(specialLogicOnClick!=null)
-        specialLogicOnClick.SetActive(true);
+        
+        if (specialLogicOnClick != null)
+        {
+            if (!specialLogicOnClick.activeSelf)
+            {
+                Debug.Log("Special Logic");
+                specialLogicOnClick.SetActive(true);
+            }
+           
+        }
+        
     }
     private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {

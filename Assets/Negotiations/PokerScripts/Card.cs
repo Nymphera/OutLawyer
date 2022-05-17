@@ -22,4 +22,9 @@ public class Card
     public Value MyValue { get; set; }
     public bool isFronted { get; set; }
     public Material material;
+    public void Rotate()
+    {
+        isFronted = !isFronted;
+        GameObject.Find(MySuit.ToString() + MyValue.ToString()).transform.Rotate(0, 0, 180);
+    }
 }

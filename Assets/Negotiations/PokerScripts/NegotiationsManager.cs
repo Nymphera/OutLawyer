@@ -26,6 +26,15 @@ public class NegotiationsManager : MonoBehaviour
         cardSpawner = new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
         cardSpawner.spawnCards();
         GetCards();
+        RotatePlayerCards();
+    }
+
+    private void RotatePlayerCards()
+    {
+        foreach(Card card in playerCards)
+        {
+            card.Rotate();
+        }
     }
 
     private void GetCards()

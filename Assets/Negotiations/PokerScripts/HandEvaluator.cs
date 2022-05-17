@@ -28,8 +28,9 @@ public class HandEvaluator : Card
     {
         SortCards();
         GetNumberOfSuits();
-        
-        if (Poker())
+        if (KingPoker())
+            return Hand.KingPoker;
+        else if (Poker())
             return Hand.Poker;
         else if (FourKind())
             return Hand.FourKind;
@@ -89,6 +90,13 @@ public class HandEvaluator : Card
                 spadesSum++;
             }
         } 
+    }
+    private bool KingPoker()
+    {
+        if (cards[0].MyValue == Value.ACE && Flush() && Straight())
+            return true;
+
+        else return false;
     }
     private bool Poker()
     {
@@ -191,7 +199,7 @@ public class HandEvaluator : Card
 
 public enum Hand
 {
-    Nothing=0,
+    Nothing=1,
     OnePair,
     TwoPairs,
     ThreeKind,
@@ -199,7 +207,8 @@ public enum Hand
     Flush,   //kolor
     FullHouse,
     FourKind,
-    Poker
+    Poker,
+    KingPoker
 }
 public struct HandValue
 {

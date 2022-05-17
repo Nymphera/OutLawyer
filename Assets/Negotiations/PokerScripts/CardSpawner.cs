@@ -7,9 +7,10 @@ public class CardSpawner : MonoBehaviour
 { private GameObject cardPrefab;
     private Transform playerParent,computerParent,tableParent;
     private Card[] playerCards, computerCards, tableCards;
-    private DealCards deal;
+    public DealCards deal;
 
-    public CardSpawner(GameObject cardPrefab,Transform playerCardsParent, Transform computerCardsParent, Transform tableCardsParent)
+    public CardSpawner(GameObject cardPrefab,Transform playerCardsParent, Transform computerCardsParent,
+        Transform tableCardsParent)
     {
         this.cardPrefab = cardPrefab;
         playerParent = playerCardsParent;
@@ -19,6 +20,7 @@ public class CardSpawner : MonoBehaviour
         playerCards = new Card[2];
         computerCards = new Card[2];
         tableCards = new Card[5];
+        
     }
     public void spawnCards()
     {
@@ -50,7 +52,7 @@ public class CardSpawner : MonoBehaviour
             GameObject cardObject = Instantiate(cardPrefab,parent.position+v,rotation, parent).gameObject;
             cardObject.name = card.MySuit.ToString() + card.MyValue;
             cardObject.GetComponent<MeshRenderer>().material = card.material;
-            v.x += 0.1f;
+            v.x += 0.05f;
         }
         
     }

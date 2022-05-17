@@ -10,8 +10,9 @@ public class NegotiationsManager : MonoBehaviour
     private GameObject cardPrefab;
     [SerializeField]
     private Transform playerParent, computerParent, tableParent;
+    private Card[] playerCards, computerCards, tableCards;
     private CardSpawner cardSpawner;
-    private DealCards deal = new DealCards();
+    
     private void Awake()
     {
         NegotiationsActivator.OnNegotiationsStarted += StartNegotiations;
@@ -21,9 +22,19 @@ public class NegotiationsManager : MonoBehaviour
     void StartNegotiations()
     {
         CameraControllerKrabiarnia.Instance.SwitchState("Negotiations");
-        //deal.Deal();
+        
         cardSpawner = new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
         cardSpawner.spawnCards();
+        GetCards();
     }
-    
+
+    private void GetCards()
+    {
+        playerCards = new Card[2];
+        computerCards = new Card[2];
+        tableCards = new Card[5];
+        computerCards =cardSpawner.deal.GetComputerHand();
+        playerCards = cardSpawner.deal.GetPlayerHand();
+        tableCards = cardSpawner.deal.GetTableCards();
+    }
 }

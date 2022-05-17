@@ -20,5 +20,6 @@ public class Card
     }
     public Suit MySuit { get; set; }
     public Value MyValue { get; set; }
+    public bool isFronted { get; set; }
     public Material material;
 }

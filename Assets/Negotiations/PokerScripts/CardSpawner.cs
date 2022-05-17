@@ -35,9 +35,19 @@ public class CardSpawner : MonoBehaviour
     private void spawnCards(Card[] Cards,Transform parent)
     {
         Vector3 v=Vector3.zero;
+        Quaternion rotation;
+        
         foreach(Card card in Cards)
         {
-            GameObject cardObject = Instantiate(cardPrefab,parent.position+v,Quaternion.identity, parent).gameObject;
+            if (card.isFronted == false) 
+            {
+                rotation = Quaternion.Euler(0, 0, 180);
+            }
+                else
+            {
+                rotation = Quaternion.identity;
+            }    
+            GameObject cardObject = Instantiate(cardPrefab,parent.position+v,rotation, parent).gameObject;
             cardObject.name = card.MySuit.ToString() + card.MyValue;
             cardObject.GetComponent<MeshRenderer>().material = card.material;
             v.x += 0.1f;

@@ -12,11 +12,13 @@ public class NegotiationsManager : MonoBehaviour
     private Transform playerParent, computerParent, tableParent;
     private Card[] playerCards, computerCards, tableCards;
     private CardSpawner cardSpawner;
-    
+    private int animationCount=0;
+    private GameObject canvas;
     private void Awake()
     {
         NegotiationsActivator.OnNegotiationsStarted += startNegotiations;
-       
+         canvas = GameObject.Find("NegotiationsCanvas");
+            canvas.SetActive(false);
     }
     private void Update()
     {       
@@ -30,55 +32,48 @@ public class NegotiationsManager : MonoBehaviour
     {
         CameraControllerKrabiarnia.Instance.SwitchState("Negotiations");
 
-        cardSpawner = 
-           new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
+        cardSpawner =  new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
         
         cardSpawner.spawnCards();
         GetCards();
-        StartCoroutine(AnimateDealing());
-        yield return new WaitForSeconds(2f);
-        RotatePlayerCards();
+
+        StartCoroutine(AnimateDealing(computerCards,computerParent));
+        yield return new WaitUntil(()=>animationCount>0);
+        
+        StartCoroutine(AnimateDealing(playerCards,playerParent));
+        yield return new WaitUntil(() => animationCount>1);
+
+        StartCoroutine(AnimateDealing(tableCards,tableParent));
+        yield return new WaitUntil(() => animationCount>2);
+       
+        StartCoroutine(RotatePlayerCards());
+        yield return new WaitUntil(() => animationCount>3);
+        canvas.SetActive(true);
     }
 
-    private IEnumerator AnimateDealing()
+    private IEnumerator AnimateDealing(Card[] cards,Transform parent)
     {
         Vector3 v = Vector3.zero;
        
-        foreach (Card card in computerCards)
+        foreach (Card card in cards)
         {
-            StartCoroutine(card.Deal(computerParent.position + v));
+            StartCoroutine(card.Deal(parent.position + v));
             v.x += 0.05f;
             yield return new WaitForSeconds(0.3f);
 
         }
-        yield return null;
-        v = Vector3.zero;
-
-        foreach (Card card in playerCards)
-        {
-            StartCoroutine(card.Deal(playerParent.position + v));
-            yield return new WaitForSeconds(0.3f);
-            v.x += 0.05f;
-        }
-        yield return null;
-        
-
-        v = Vector3.zero;
-        foreach (Card card in tableCards)
-        {
-            StartCoroutine(card.Deal(tableParent.position + v));
-            v.x += 0.05f;
-            yield return new WaitForSeconds(0.3f);
-
-        }
+        animationCount++;
     }
 
-    private void RotatePlayerCards()
+    private IEnumerator RotatePlayerCards()
     {
         foreach(Card card in playerCards)
         {
            StartCoroutine( card.Rotate());
+            yield return new WaitForSeconds(0.3f);
         }
+        animationCount++;
+
     }
 
     private void GetCards()

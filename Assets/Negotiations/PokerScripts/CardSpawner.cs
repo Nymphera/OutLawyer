@@ -46,6 +46,7 @@ public class CardSpawner : MonoBehaviour
         Vector3 v=Vector3.zero;
         Quaternion rotation;
         Vector3 spawnPosition = deckOfCards.transform.position;
+        spawnPosition.y += 0.01f;
         Vector3 endPosition;
         foreach (Card card in Cards)
         {

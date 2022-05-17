@@ -28,9 +28,6 @@ public class Card
         isFronted = !isFronted;
         GameObject cardObject = GameObject.Find(MySuit.ToString() + MyValue.ToString());
        float rotationZ;
-
-        
-        yield return new WaitForSeconds(1f);
         
         float animationTime = 0.5f;
         float startTime = Time.time;

@@ -9,7 +9,7 @@ public class CardSpawner : MonoBehaviour
     [SerializeField]
     private Transform playerParent,computerParent,tableParent;
     private Card[] playerCards, computerCards, tableCards;
-    public DealCards deal;
+    public DealCards dealCards;
     private GameObject deckOfCards;
     public CardSpawner(GameObject cardPrefab,Transform playerCardsParent, Transform computerCardsParent,
         Transform tableCardsParent)
@@ -19,7 +19,7 @@ public class CardSpawner : MonoBehaviour
         computerParent=computerCardsParent;
         tableParent = tableCardsParent;
 
-        deal = new DealCards();
+        dealCards = new DealCards();
         playerCards = new Card[2];
         computerCards = new Card[2];
         tableCards = new Card[5];
@@ -63,11 +63,6 @@ public class CardSpawner : MonoBehaviour
             GameObject cardObject = Instantiate(cardPrefab,spawnPosition,rotation, parent).gameObject;
             cardObject.name = card.MySuit.ToString() + card.MyValue;
             cardObject.GetComponent<MeshRenderer>().material = card.material;
-            
-           // StartCoroutine(card.Deal(endPosition));
-           // card.Deal(endPosition);
-
-
 
             v.x += 0.05f;
         }
@@ -76,9 +71,9 @@ public class CardSpawner : MonoBehaviour
 
     private void DealCards()
     {
-        deal.Deal();
-        playerCards = deal.GetPlayerHand();
-        computerCards = deal.GetComputerHand();
-        tableCards = deal.GetTableCards();
+        dealCards.Deal();
+        playerCards = dealCards.GetPlayerHand();
+        computerCards = dealCards.GetComputerHand();
+        tableCards = dealCards.GetTableCards();
     }
 }

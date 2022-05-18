@@ -2919,7 +2919,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048687239}
-  m_LocalRotation: {x: 0.40770984, y: 0.000000015711349, z: -0.0000000070152115, w: 0.91311157}
+  m_LocalRotation: {x: 0.4077098, y: -0.000000015711343, z: 0.000000007015211, w: 0.9131116}
   m_LocalPosition: {x: -0.23077583, y: 0.8840003, z: -0.70947933}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4251,7 +4251,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1585416804}
   - component: {fileID: 1585416803}
-  - component: {fileID: 1585416805}
   m_Layer: 0
   m_Name: NegotiationsManager
   m_TagString: Untagged
@@ -4289,22 +4288,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1585416805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585416802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d152230982d8e174eadc25b031e889f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardPrefab: {fileID: -927199367670048503, guid: 0464afc39207ab540b94807b2273e3e5, type: 3}
-  playerParent: {fileID: 731416628}
-  computerParent: {fileID: 1116181988}
-  tableParent: {fileID: 1962987043}
 --- !u!1 &1622893822
 GameObject:
   m_ObjectHideFlags: 0

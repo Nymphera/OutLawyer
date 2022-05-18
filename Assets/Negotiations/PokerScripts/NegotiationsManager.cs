@@ -12,6 +12,7 @@ public class NegotiationsManager : MonoBehaviour
     private Transform playerParent, computerParent, tableParent;
     private Card[] playerCards, computerCards, tableCards;
     private CardSpawner cardSpawner;
+    private Negotiations negotiations;
     private int animationCount=0;
     private GameObject canvas;
     private void Awake()
@@ -32,9 +33,9 @@ public class NegotiationsManager : MonoBehaviour
     {
         CameraControllerKrabiarnia.Instance.SwitchState("Negotiations");
 
-        cardSpawner =  new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
-        
-        cardSpawner.spawnCards();
+        negotiations = new Negotiations(cardPrefab, playerParent, computerParent, tableParent);
+       // cardSpawner = new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
+       negotiations.cardSpawner.spawnCards();
         GetCards();
 
         StartCoroutine(AnimateDealing(computerCards,computerParent));
@@ -49,6 +50,9 @@ public class NegotiationsManager : MonoBehaviour
         StartCoroutine(RotatePlayerCards());
         yield return new WaitUntil(() => animationCount>3);
         canvas.SetActive(true);
+        yield return null;
+        negotiations.ChooseNegotiationsType();
+        negotiations.PlayerTurn();
     }
 
     private IEnumerator AnimateDealing(Card[] cards,Transform parent)
@@ -81,8 +85,8 @@ public class NegotiationsManager : MonoBehaviour
         playerCards = new Card[2];
         computerCards = new Card[2];
         tableCards = new Card[5];
-        computerCards =cardSpawner.deal.GetComputerHand();
-        playerCards = cardSpawner.deal.GetPlayerHand();
-        tableCards = cardSpawner.deal.GetTableCards();
+        computerCards =negotiations.cardSpawner.dealCards.GetComputerHand();
+        playerCards = negotiations.cardSpawner.dealCards.GetPlayerHand();
+        tableCards = negotiations.cardSpawner.dealCards.GetTableCards();
     }
 }

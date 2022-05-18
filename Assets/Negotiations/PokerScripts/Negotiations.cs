@@ -21,7 +21,7 @@ public class Negotiations :MonoBehaviour
     }
     private void OnStateChanged(NegotiationState obj)
     {
-        
+        Debug.Log("im listening");
     }
 
     public Negotiations(GameObject cardPrefab, Transform playerParent, 

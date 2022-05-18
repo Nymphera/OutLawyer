@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class NegotiationsManager : MonoBehaviour
 {
+    public NegotiationState currentState;
+
+    public static event Action<NegotiationState> OnStateChanged;
     [SerializeField]
     private GameObject cardPrefab;
     [SerializeField]
@@ -22,13 +25,78 @@ public class NegotiationsManager : MonoBehaviour
          canvas = GameObject.Find("NegotiationsCanvas");
             canvas.SetActive(false);
     }
-    private void Update()
-    {       
+    
+    public void UpdateNegotiationState(NegotiationState newState)
+    {
 
+        switch (newState)
+        {
+            case NegotiationState.SelectType:
+                HandleSelectType();
+                break;
+            case NegotiationState.DealCards:
+                HandleDealCards();
+                break;
+            case NegotiationState.PlayerTurn:
+                HandlePlayerTurn();
+                break;
+            case NegotiationState.ComputerTurn:
+                HandleComputerTurn();
+                break;
+            case NegotiationState.Decide:
+                HandleDecide();
+                break;
+            case NegotiationState.Victory:
+                HandleVictory();
+                break;
+            case NegotiationState.Lose:
+                HandleLose();
+                break;
+        }
+        currentState = newState;
+        OnStateChanged?.Invoke(newState);
     }
+
+    private void HandleLose()
+    {
+        
+    }
+
+    private void HandleVictory()
+    {
+        
+    }
+
+    private void HandleDecide()
+    {
+      
+    }
+
+    private void HandleComputerTurn()
+    {
+        
+    }
+
+    private void HandlePlayerTurn()
+    {
+       
+    }
+
+    private void HandleDealCards()
+    {
+        startNegotiations();
+    }
+
+    private void HandleSelectType()
+    {
+        
+    }
+
     private void startNegotiations()
     {
         StartCoroutine(StartNegotiations());
+
+        UpdateNegotiationState(NegotiationState.PlayerTurn);
     }
     private IEnumerator StartNegotiations()
     {
@@ -94,4 +162,15 @@ public class NegotiationsManager : MonoBehaviour
         playerCards = negotiations.cardSpawner.dealCards.GetPlayerHand();
         tableCards = negotiations.cardSpawner.dealCards.GetTableCards();
     }
+}
+public enum NegotiationState
+{
+    SelectType,
+    DealCards,
+    PlayerTurn,
+    ComputerTurn,
+    Decide,
+    Victory,
+    Lose
+
 }

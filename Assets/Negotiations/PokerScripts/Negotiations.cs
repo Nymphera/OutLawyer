@@ -11,6 +11,19 @@ public class Negotiations :MonoBehaviour
     public CardSpawner cardSpawner;
     private Card[] playerCards, computerCards, tableCards;
 
+    private void Awake()
+    {
+        NegotiationsManager.OnStateChanged += OnStateChanged;
+    }
+    private void OnDestroy()
+    {
+        NegotiationsManager.OnStateChanged -= OnStateChanged;
+    }
+    private void OnStateChanged(NegotiationState obj)
+    {
+        
+    }
+
     public Negotiations(GameObject cardPrefab, Transform playerParent, 
                          Transform computerParent,    Transform tableParent)
     {

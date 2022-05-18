@@ -15,6 +15,7 @@ public class NegotiationsManager : MonoBehaviour
     private Negotiations negotiations;
     private int animationCount=0;
     private GameObject canvas;
+    private int cardNumber = 0;
     private void Awake()
     {
         NegotiationsActivator.OnNegotiationsStarted += startNegotiations;
@@ -79,7 +80,11 @@ public class NegotiationsManager : MonoBehaviour
         animationCount++;
 
     }
-
+    public void RotateTableCard()
+    {
+        StartCoroutine(tableCards[cardNumber].Rotate());
+        cardNumber++;
+    }
     private void GetCards()
     {
         playerCards = new Card[2];

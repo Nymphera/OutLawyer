@@ -72,8 +72,8 @@ public class DialogTreeCreator : MonoBehaviour
             spawnPosition = new Vector3(-levelWidth / 2 + (i + 1) * intervalLength, -450, 0);
             GameObject obj =Instantiate(resultPrefab, parent);
             obj.transform.localPosition = spawnPosition;
-            obj.transform.GetChild(2).GetComponent<Image>().sprite = dialog.results[i].resultImage;
-            obj.transform.GetChild(1).GetComponent<Image>().color = dialog.results[i].ResultBarColor;
+            obj.transform.GetChild(3).GetComponent<Image>().sprite = dialog.results[i].resultImage;
+            obj.transform.GetChild(2).GetComponent<Image>().color = dialog.results[i].ResultBarColor;
             obj.name = "Result " + i;
         }
     }
@@ -131,7 +131,7 @@ public class DialogTreeCreator : MonoBehaviour
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().dialogOption = dialog.levels[i].DialogOptions[j];
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().buttonPosition = spawnPosition;
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().RenderImage();   //zmienia grafikê dialogoption na odpowiedni¹ strategiê
-                currentDialogOption.gameObject.AddComponent<Button>().onClick.AddListener(currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().Click);
+                //currentDialogOption.gameObject.AddComponent<Button>().onClick.AddListener(currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().Click);
                 
                   //w³¹czanie dialogu funkcji Click
                 

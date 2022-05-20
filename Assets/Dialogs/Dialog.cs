@@ -13,6 +13,7 @@ public class Dialog : ScriptableObject
     public string[] introductionSentences;
     public AudioClip[] introductionClips;
     public Result[] results;
+    
 }
 [System.Serializable]
 public class Level

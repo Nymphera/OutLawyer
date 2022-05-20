@@ -9,10 +9,11 @@ using UnityEngine.UI;
 public class DialogManager : MonoBehaviour
 {
     public static event Action OnDialogEnd;
-
+    public static DialogManager Instance;
     public Dialog dialog;
-
-    
+    public DialogState currentState;
+    [SerializeField]
+    private GameObject backGround;
     
     private Transform tree;
     [SerializeField]
@@ -22,27 +23,30 @@ public class DialogManager : MonoBehaviour
     private AudioSource audioSource;
    
     
-    private GameObject lawyerBubble,dialogText,Results, treeLawyer,Lawyer, currentRaycastObject, lawyerText;
+    private GameObject dialogText,Results, treeLawyer;
     private GameObject result1, result2, result3, result4, result5;
 
-    private GameObject[] bars;
+    public GameObject[] bars,predictedBars;
     private GameControls GameControls;
 
     private bool isDialogEnded=false;
 
     private void Awake()
-    {   
+    {
+        Instance = this;
         GameControls = new GameControls();
         DialogOptionDisplay.OnDialogButtonClicked += DialogOptionDisplay_OnDialogButtonClicked;
-        GameControls.Game.MousePosition.performed += MousePosition_performed;   
+      
 
+
+        backGround.SetActive(false);
     }
 
    
 
     private void OnEnable()
     {
-        
+        GameControls.Enable();
     }
     private void OnDisable()
     {
@@ -53,29 +57,46 @@ public class DialogManager : MonoBehaviour
     private void OnDestroy()
     {
         DialogOptionDisplay.OnDialogButtonClicked -= DialogOptionDisplay_OnDialogButtonClicked;
-        GameControls.Game.MousePosition.performed -= MousePosition_performed;
+       
     }
-  
+  public void UpdateDialogState(DialogState newState)
+    {
+        switch(newState)
+        {
+            case DialogState.introduction:                
+                break;
+            case DialogState.playerTurn:
+                break;
+            case DialogState.displaySentences:
+                break;
+            case DialogState.victory:
+                break;
+            case DialogState.lose:
+                break;
+            case DialogState.valuate:
+                break;
+
+        }
+        currentState = newState;
+    }
     public void StartDialog()
     {
-        GameControls.Enable();
-        treeLawyer = GameObject.Find("lawyerIcon");
-        Lawyer = GameObject.Find("LawyerImage");
-        lawyerBubble = Lawyer.transform.GetChild(0).gameObject;
-        dialogText = GameObject.Find("DialogText");
-        lawyerText = lawyerBubble.transform.GetChild(0).gameObject;
         
+        treeLawyer = GameObject.Find("lawyerIcon");     
+        dialogText = GameObject.Find("DialogText");        
+        backGround.SetActive(true);
         audioSource = gameObject.GetComponent<AudioSource>();
-        
         tree = treeLawyer.transform.parent;
         Results = GameObject.Find("Results");
-        lawyerBubble.SetActive(false);
-        dialogText.SetActive(false);
-       
-        
+      
+
         ClearResultsBars();
+
+
         StartCoroutine(PlayIntroduction());
     }
+
+    
 
     private void ClearResultsBars()
     {
@@ -87,13 +108,18 @@ public class DialogManager : MonoBehaviour
 
         GameObject[] res  = new GameObject[] { result1, result2, result3, result4, result5 };
         bars = new GameObject[5];
+        predictedBars = new GameObject[5];
         for(int i = 0; i < 5; i++)
         {
-           bars[i] = res[i].transform.GetChild(1).gameObject;
+           bars[i] = res[i].transform.GetChild(2).gameObject;
+           predictedBars[i] = res[i].transform.GetChild(1).gameObject;
+
+
         }
         for(int i = 0; i < 5; i++)
         {
             bars[i].GetComponent<Image>().fillAmount = 0.1f;
+            predictedBars[i].GetComponent<Image>().fillAmount = 0.1f;
         }
     }
 
@@ -111,11 +137,7 @@ public class DialogManager : MonoBehaviour
                     StartCoroutine(MoveLawyer(dialogOption, buttonPosition));
                     StartDialog(dialogOption);
 
-
                     treeLawyer.GetComponent<DialogLawyer>().currentCrossPoint = dialogOption.nextCrossPoint;
-
-
-
 
                 }
             }
@@ -125,11 +147,10 @@ public class DialogManager : MonoBehaviour
     }
     private IEnumerator PlayIntroduction()
     {
-        GameControls.Disable();
-       // Results.SetActive(false);
-        dialogText.SetActive(true);
-        lawyerBubble.SetActive(false);
-        GameControls.Disable();
+        UpdateDialogState(DialogState.introduction);
+       
+        
+        
         
         isDialogEnded = false;
         
@@ -147,14 +168,15 @@ public class DialogManager : MonoBehaviour
 
         StartCoroutine(DisplaySentences(sentences, clips));
         yield return new WaitUntil(() => isDialogEnded == true);
-        GameControls.Enable();
+       
         
     }
     private void StartDialog(DialogOption dialogOption)
     {
-        //Results.SetActive(false);
-        dialogText.SetActive(true);
-        lawyerBubble.SetActive(false);
+        UpdateDialogState(DialogState.displaySentences);
+
+        
+
         isDialogEnded = false;
         Queue<string> sentences = new Queue<string>();
         Queue<AudioClip> clips = new Queue<AudioClip>();
@@ -184,15 +206,19 @@ public class DialogManager : MonoBehaviour
 
         while (sentences.Count != 0)
         {
-            GameControls.Disable();
+           
 
             string sentence = sentences.Dequeue();
             if (clips.Count != 0)
             {
                 AudioClip clip = clips.Dequeue();
                 clipLength = clip.length;
-                audioSource.clip = clip;
-                audioSource.Play();
+                if (audioSource != null)
+                {
+                    audioSource.clip = clip;
+                    audioSource.Play();
+                }
+                
             }
             
 
@@ -203,7 +229,7 @@ public class DialogManager : MonoBehaviour
                 yield return new WaitForSeconds(dialogTime);
         }
         
-            GameControls.Enable();
+           
 
         
         EndDialog();
@@ -212,10 +238,10 @@ public class DialogManager : MonoBehaviour
 
     private void EndDialog()
     {
-        dialogText.SetActive(false);
+        dialogText.GetComponent<Text>().text = "";
         //Results.SetActive(true);
         isDialogEnded = true;
-        
+        UpdateDialogState(DialogState.playerTurn);
     }
 
     /// <summary>
@@ -226,7 +252,7 @@ public class DialogManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator MoveLawyer(DialogOption dialogOption, Vector3 buttonPosition)
     {
-
+        UpdateScore(dialogOption.strategy);
 
         Vector3 nextCrossPointPosition = GameObject.Find(dialogOption.nextCrossPoint.name).GetComponent<RectTransform>().localPosition;
         Vector3 newTreePosition = new Vector3(tree.localPosition.x, tree.localPosition.y - 600, tree.localPosition.z);
@@ -247,7 +273,7 @@ public class DialogManager : MonoBehaviour
 
         yield return new WaitUntil(() => isDialogEnded == true);  //wait Until
 
-        UpdateScore(dialogOption.strategy);
+        
 
         startTime = Time.time;
         distanceToTarget = Vector3.Distance(treeLawyer.transform.localPosition, nextCrossPointPosition);    //przesuwanie do crosspointa
@@ -276,18 +302,7 @@ public class DialogManager : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// Ustawia wartoœæ <b>ResultBar</b> na 0.
-    /// </summary>
-    
-    /// <summary>
-    /// <b>GetResults</b>
-    /// Przypisuje zmiennym result1,result2,...wartoœci <code>Result</code>
-    /// </summary>
-    
-    /// <summary>
-    /// Tu mo¿na zniszczyæ odpowiednie linie dialogów, mo¿na te¿ zniszczyæ opcje których ju¿ nie mo¿emy wybraæ gdyby ktoœ chcia³.
-    /// </summary>
+   
     private void DestroyLowerLevel()
     {
         currentLevel++;
@@ -301,42 +316,15 @@ public class DialogManager : MonoBehaviour
     private void UpdateScore(Strategy strategy) 
     {
         Result[] updatedresults=new Result[2];
-        
-        switch (strategy)
-  
-        {
-            case Strategy.LuŸnaGadka:
-                updatedresults = GetUpadatedResults(strategy);
-                StartCoroutine(AnimateResults(updatedresults));
-                        break;
-            case Strategy.Podstêp:
-                updatedresults = GetUpadatedResults(strategy);
-                StartCoroutine(AnimateResults(updatedresults));
-                break;
-            case Strategy.Profesjonalizm:
-                updatedresults = GetUpadatedResults(strategy);
-                StartCoroutine(AnimateResults(updatedresults));
-                break;
-            case Strategy.UrokOsobisty:
-                updatedresults = GetUpadatedResults(strategy);
-                StartCoroutine(AnimateResults(updatedresults));
-                break;
-            case Strategy.ZimnaKrew:
-                updatedresults = GetUpadatedResults(strategy);
-                StartCoroutine(AnimateResults(updatedresults));
-                break;
 
-            default:
-                break;
-        }
+        updatedresults = GetUpadatedResults(strategy);
+        StartCoroutine(AnimateResults(updatedresults));
+        
+        
        
     }
-    /// <summary>
-    /// Zwraca tablice z aktualizowanymi paskami rezultatów.
-    /// </summary>
-    /// <param name="strategy"></param>
-    /// <returns></returns>
-    private Result[] GetUpadatedResults(Strategy strategy)
+  
+    public Result[] GetUpadatedResults(Strategy strategy)
     {
         Result[] updatedresults= new Result[2];
         int index = 0;
@@ -379,12 +367,17 @@ public class DialogManager : MonoBehaviour
 
             bars[updatedresults[0].resultNumber - 1].GetComponent<Image>().fillAmount = value1;
             bars[updatedresults[1].resultNumber - 1].GetComponent<Image>().fillAmount = value2;
-                            yield return null;
+            predictedBars[updatedresults[0].resultNumber - 1].GetComponent<Image>().fillAmount = value1;
+            predictedBars[updatedresults[1].resultNumber - 1].GetComponent<Image>().fillAmount = value2;
+            yield return null;
                         }
         bars[updatedresults[0].resultNumber - 1].GetComponent<Image>().fillAmount = newFirstValue;
         bars[updatedresults[1].resultNumber - 1].GetComponent<Image>().fillAmount = newSecondValue;
-        
-                if (newFirstValue >= 1 )
+        predictedBars[updatedresults[0].resultNumber - 1].GetComponent<Image>().fillAmount = newFirstValue;
+        predictedBars[updatedresults[1].resultNumber - 1].GetComponent<Image>().fillAmount = newSecondValue;
+
+
+        if (newFirstValue >= 1 )
                 {
                     ShowResult(updatedresults[0]);
                 }   
@@ -400,64 +393,13 @@ public class DialogManager : MonoBehaviour
         Debug.Log(result.ResultText);
     }
 
-   
-    private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        if (GameManager.Instance.isInputEnabled)
-        {
-            lawyerBubble.SetActive(IsPointerOverUIElement());
-
-            if (IsPointerOverUIElement())
-            {
-                GameObject obj = currentRaycastObject;
-                DialogOption option = obj.GetComponent<DialogOptionDisplay>().dialogOption;
-                lawyerText.GetComponent<Text>().text = option.text;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Returns 'true' if we touched or hovering on Unity UI element.
-    /// </summary>
-    /// <returns></returns>
-    public bool IsPointerOverUIElement()
-    {
-        return IsPointerOverUIElement(GetEventSystemRaycastResults());
-    }
-
-
-    /// <summary>
-    /// Returns 'true' if we touched or hovering on Unity UI element.
-    /// </summary>
-    /// <param name="eventSystemRaysastResults"></param>
-    /// <returns></returns>
-    private bool IsPointerOverUIElement(List<RaycastResult> eventSystemRaysastResults)
-    {
-        for (int index = 0; index < eventSystemRaysastResults.Count; index++)
-        {
-            RaycastResult curRaysastResult = eventSystemRaysastResults[index];
-            if (curRaysastResult.gameObject.layer == 10)
-            {
-                currentRaycastObject = curRaysastResult.gameObject;
-                return true;
-            }   //10 is UI layer int
-
-        }
-        currentRaycastObject = null;
-        return false;
-    }
-
-
-    /// <summary>
-    /// Gets all event system raycast results of current mouse or touch position.
-    /// </summary>
-    /// <returns></returns>
-    static List<RaycastResult> GetEventSystemRaycastResults()
-    {
-        PointerEventData eventData = new PointerEventData(EventSystem.current);
-        eventData.position = Input.mousePosition;
-        List<RaycastResult> raysastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventData, raysastResults);
-        return raysastResults;
-    }
+}
+public enum DialogState
+{
+    introduction,
+    playerTurn,
+    displaySentences,
+    valuate,
+    victory,
+    lose
 }

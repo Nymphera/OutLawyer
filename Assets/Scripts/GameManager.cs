@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public bool isInputEnabled,isMoveEnabled,isPauseEnabled;
-    [SerializeField]
-    private GameState CurrentState;
+    
+    public GameState CurrentState;
    
     public static event Action<GameState> OnGameStateChanged;
     
@@ -28,8 +28,11 @@ public class GameManager : MonoBehaviour
 
         //OnGameStateChanged?.Invoke(GameState.Office);
     }
+    private void Update()
+    {
 
-    
+    }
+
 
     public void UpdateGameState(GameState newState)
     {
@@ -55,6 +58,7 @@ public class GameManager : MonoBehaviour
                 {
                     isMoveEnabled = false;
                     isInputEnabled = true;
+                    Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                 }
                 break;

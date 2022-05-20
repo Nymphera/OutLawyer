@@ -19,7 +19,7 @@ public class DealCards : DeckOfCards
         setUpDeck();
         getHand();
         DisplayCards();
-        EvaluateHands();
+        //EvaluateHands();
     }
 
     private void EvaluateHands()

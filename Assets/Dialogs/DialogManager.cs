@@ -36,7 +36,7 @@ public class DialogManager : MonoBehaviour
         Instance = this;
         GameControls = new GameControls();
         DialogOptionDisplay.OnDialogButtonClicked += DialogOptionDisplay_OnDialogButtonClicked;
-        GameControls.Game.MousePosition.performed += MousePosition_performed;
+      
 
 
         backGround.SetActive(false);
@@ -57,14 +57,14 @@ public class DialogManager : MonoBehaviour
     private void OnDestroy()
     {
         DialogOptionDisplay.OnDialogButtonClicked -= DialogOptionDisplay_OnDialogButtonClicked;
-        GameControls.Game.MousePosition.performed -= MousePosition_performed;
+       
     }
   public void UpdateDialogState(DialogState newState)
     {
         switch(newState)
         {
             case DialogState.introduction:
-                StartDialog();
+                
                 break;
             case DialogState.playerTurn:
                 break;
@@ -149,7 +149,7 @@ public class DialogManager : MonoBehaviour
     {
         UpdateDialogState(DialogState.introduction);
        
-        lawyerBubble.SetActive(false);
+        
         GameControls.Disable();
         
         isDialogEnded = false;
@@ -175,7 +175,8 @@ public class DialogManager : MonoBehaviour
     {
         UpdateDialogState(DialogState.displaySentences);
 
-        lawyerBubble.SetActive(false);
+        
+
         isDialogEnded = false;
         Queue<string> sentences = new Queue<string>();
         Queue<AudioClip> clips = new Queue<AudioClip>();
@@ -422,20 +423,7 @@ public class DialogManager : MonoBehaviour
     }
 
    
-    private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        if (GameManager.Instance.isInputEnabled)
-        {
-            lawyerBubble.SetActive(IsPointerOverUIElement());
-
-            if (IsPointerOverUIElement())
-            {
-                GameObject obj = currentRaycastObject;
-                DialogOption option = obj.GetComponent<DialogOptionDisplay>().dialogOption;
-                lawyerText.GetComponent<Text>().text = option.text;
-            }
-        }
-    }
+  
 
     /// <summary>
     /// Returns 'true' if we touched or hovering on Unity UI element.

@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DialogwithKrabiarz
+  m_Name: DialogWithKrabiarz
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -91,7 +91,7 @@ AnimatorStateMachine:
     m_Position: {x: 373.3778, y: 129.75287, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7933135893354249913}
-    m_Position: {x: 392.91724, y: 346.8573, z: 0}
+    m_Position: {x: 390, y: 350, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

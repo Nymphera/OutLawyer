@@ -12,6 +12,7 @@ public class TriggerDialog : MonoBehaviour
     private Dialog dialogToTrigger;
     private void OnTriggerEnter(Collider other)
     {
+        
         Debug.Log(dialogToTrigger.name);
 
         startDialog = true;
@@ -21,8 +22,9 @@ public class TriggerDialog : MonoBehaviour
         
         if (startDialog)
         {
-            
             startDialog = false;
+            CameraControllerKrabiarnia.Instance.SwitchState("DialogWithKrabiarz");
+            
             GameManager.Instance.UpdateGameState(GameState.LockInteract);
             GameObject dialogTree = GameObject.Find("DialogTree");
             dialogTree.GetComponent<DialogTreeCreator>().dialog = dialogToTrigger;

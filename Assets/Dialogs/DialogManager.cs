@@ -12,7 +12,8 @@ public class DialogManager : MonoBehaviour
 
     public Dialog dialog;
 
-    
+    [SerializeField]
+    private GameObject backGround;
     
     private Transform tree;
     [SerializeField]
@@ -34,8 +35,10 @@ public class DialogManager : MonoBehaviour
     {   
         GameControls = new GameControls();
         DialogOptionDisplay.OnDialogButtonClicked += DialogOptionDisplay_OnDialogButtonClicked;
-        GameControls.Game.MousePosition.performed += MousePosition_performed;   
+        GameControls.Game.MousePosition.performed += MousePosition_performed;
 
+
+        backGround.SetActive(false);
     }
 
    
@@ -64,7 +67,8 @@ public class DialogManager : MonoBehaviour
         lawyerBubble = Lawyer.transform.GetChild(0).gameObject;
         dialogText = GameObject.Find("DialogText");
         lawyerText = lawyerBubble.transform.GetChild(0).gameObject;
-        
+        backGround.SetActive(true);        
+
         audioSource = gameObject.GetComponent<AudioSource>();
         
         tree = treeLawyer.transform.parent;

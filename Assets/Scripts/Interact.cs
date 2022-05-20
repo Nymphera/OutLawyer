@@ -47,6 +47,7 @@ public class Interact : MonoBehaviour
         currentState = state;
         if (state == GameState.Interact)
         {
+            if(outlineObject!=null)
             DisableOutline(outlineObject);
         }
     }

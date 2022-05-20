@@ -131,7 +131,7 @@ public class DialogTreeCreator : MonoBehaviour
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().dialogOption = dialog.levels[i].DialogOptions[j];
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().buttonPosition = spawnPosition;
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().RenderImage();   //zmienia grafikê dialogoption na odpowiedni¹ strategiê
-                currentDialogOption.gameObject.AddComponent<Button>().onClick.AddListener(currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().Click);
+                //currentDialogOption.gameObject.AddComponent<Button>().onClick.AddListener(currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().Click);
                 
                   //w³¹czanie dialogu funkcji Click
                 

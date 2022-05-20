@@ -74,7 +74,7 @@ public class DialogManager : MonoBehaviour
         tree = treeLawyer.transform.parent;
         Results = GameObject.Find("Results");
         lawyerBubble.SetActive(false);
-        dialogText.SetActive(false);
+        //dialogText.SetActive(false);
        
         
         ClearResultsBars();
@@ -131,7 +131,7 @@ public class DialogManager : MonoBehaviour
     {
         GameControls.Disable();
        // Results.SetActive(false);
-        dialogText.SetActive(true);
+       // dialogText.SetActive(true);
         lawyerBubble.SetActive(false);
         GameControls.Disable();
         
@@ -157,7 +157,7 @@ public class DialogManager : MonoBehaviour
     private void StartDialog(DialogOption dialogOption)
     {
         //Results.SetActive(false);
-        dialogText.SetActive(true);
+       // dialogText.SetActive(true);
         lawyerBubble.SetActive(false);
         isDialogEnded = false;
         Queue<string> sentences = new Queue<string>();
@@ -216,7 +216,7 @@ public class DialogManager : MonoBehaviour
 
     private void EndDialog()
     {
-        dialogText.SetActive(false);
+        dialogText.GetComponent<Text>().text = "";
         //Results.SetActive(true);
         isDialogEnded = true;
         
@@ -451,7 +451,7 @@ public class DialogManager : MonoBehaviour
         return false;
     }
 
-
+    
     /// <summary>
     /// Gets all event system raycast results of current mouse or touch position.
     /// </summary>

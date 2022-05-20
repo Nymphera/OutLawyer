@@ -13,13 +13,26 @@ public class DialogOptionDisplay : MonoBehaviour
     [SerializeField]
     private Sprite strategy1, strategy2, strategy3, strategy4, strategy5;
     public static event Action<DialogOption, Vector3> OnDialogButtonClicked;
+    private GameObject dialogText;
 
-    
+    private void Awake()
+    {
+       
+    }
 
-    
-    
-    
-   
+
+    public void ShowButtonText()
+    {
+        dialogText = GameObject.Find("DialogText");
+        dialogText.GetComponent<Text>().text = GetComponent<DialogOptionDisplay>().dialogOption.text;
+    }
+    public void HideButtonText()
+    {
+        dialogText = GameObject.Find("DialogText");
+        dialogText.GetComponent<Text>().text = "";
+    }
+
+
 
     public void Click()
     {

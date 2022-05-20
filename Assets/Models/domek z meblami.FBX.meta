@@ -3,7 +3,117 @@ guid: eb987dd029e12e9428da9519012bc087
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 1001
+    second: {instanceID: 0}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 1002
+    second: {fileID: 2100000, guid: 7c5dc585f4e2b4d4ea4333b698250b52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blu_Ardesia
+    second: {fileID: 2100000, guid: 70f3aa51e75d1534a8c8f80cd3b19b6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Case_material
+    second: {fileID: 2100000, guid: 572e9e4dd41f9514db1c1421828e9b0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #1032
+    second: {fileID: 2100000, guid: 9ccedef2d78d6514ab4d09f575c57c85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #1033
+    second: {fileID: 2100000, guid: 527112bc7c7d35f4c92366e3f32bc0ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #2145967572
+    second: {fileID: 2100000, guid: 66b6e3db1b22e574c99a0cf4d7c31fed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #2145967589
+    second: {fileID: 2100000, guid: cb9f57ae49c63a842bad64c9e1997674, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #2145967681
+    second: {fileID: 2100000, guid: f6c75d31776dfbb42912e402ec28323c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #25
+    second: {fileID: 2100000, guid: 06b9acff5c87eda4594c309bb52b15bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #54
+    second: {fileID: 2100000, guid: 38580542507510a41b8575912f4284a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #56
+    second: {fileID: 2100000, guid: 7f23400aa65241e4fbeddcfe397a17a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: candle
+    second: {fileID: 2100000, guid: dfa7384c29e7ea44c88ae1eaf08630f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gold_
+    second: {fileID: 2100000, guid: 93848e7e76963484fabfe43d5d12b0e6, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: abandoned_shelter_1001_BaseColor
+    second: {fileID: 2800000, guid: 10dfcd816e497ee47aa7fcf8193b015e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: abandoned_shelter_1001_Metallic
+    second: {fileID: 2800000, guid: 3e6877554e044fc458623477cd8ab984, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: abandoned_shelter_1001_Normal
+    second: {fileID: 2800000, guid: 0c26560fb67b4fb408a8f76f17c1b7fc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: abandoned_shelter_1001_Roughness
+    second: {fileID: 2800000, guid: 3fdc4f69ff3edd240b59ac2eadf37c26, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: abandoned_shelter_1002_BaseColor
+    second: {fileID: 2800000, guid: 636052828a895a448948d4b56447bf71, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: abandoned_shelter_1002_Metallic
+    second: {fileID: 2800000, guid: e69f28c252d0f224a867ddb615d041cb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: abandoned_shelter_1002_Normal
+    second: {fileID: 2800000, guid: 6c8895e1318449e4f8030118121e7bd7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: abandoned_shelter_1002_Roughness
+    second: {fileID: 2800000, guid: ad52c0a50268a2844a8d294c80977d7b, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -23,10 +23,10 @@ public class DialogManager : MonoBehaviour
     private AudioSource audioSource;
    
     
-    private GameObject lawyerBubble,dialogText,Results, treeLawyer,Lawyer, currentRaycastObject, lawyerText;
+    private GameObject dialogText,Results, treeLawyer;
     private GameObject result1, result2, result3, result4, result5;
 
-    private GameObject[] bars;
+    public GameObject[] bars,predictedBars;
     private GameControls GameControls;
 
     private bool isDialogEnded=false;
@@ -46,7 +46,7 @@ public class DialogManager : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        GameControls.Enable();
     }
     private void OnDisable()
     {
@@ -63,8 +63,7 @@ public class DialogManager : MonoBehaviour
     {
         switch(newState)
         {
-            case DialogState.introduction:
-                
+            case DialogState.introduction:                
                 break;
             case DialogState.playerTurn:
                 break;
@@ -82,7 +81,7 @@ public class DialogManager : MonoBehaviour
     }
     public void StartDialog()
     {
-        GameControls.Enable();
+        
         treeLawyer = GameObject.Find("lawyerIcon");     
         dialogText = GameObject.Find("DialogText");        
         backGround.SetActive(true);
@@ -109,13 +108,18 @@ public class DialogManager : MonoBehaviour
 
         GameObject[] res  = new GameObject[] { result1, result2, result3, result4, result5 };
         bars = new GameObject[5];
+        predictedBars = new GameObject[5];
         for(int i = 0; i < 5; i++)
         {
-           bars[i] = res[i].transform.GetChild(1).gameObject;
+           bars[i] = res[i].transform.GetChild(2).gameObject;
+           predictedBars[i] = res[i].transform.GetChild(1).gameObject;
+
+
         }
         for(int i = 0; i < 5; i++)
         {
             bars[i].GetComponent<Image>().fillAmount = 0.1f;
+            predictedBars[i].GetComponent<Image>().fillAmount = 0.1f;
         }
     }
 
@@ -133,11 +137,7 @@ public class DialogManager : MonoBehaviour
                     StartCoroutine(MoveLawyer(dialogOption, buttonPosition));
                     StartDialog(dialogOption);
 
-
                     treeLawyer.GetComponent<DialogLawyer>().currentCrossPoint = dialogOption.nextCrossPoint;
-
-
-
 
                 }
             }
@@ -150,7 +150,7 @@ public class DialogManager : MonoBehaviour
         UpdateDialogState(DialogState.introduction);
        
         
-        GameControls.Disable();
+        
         
         isDialogEnded = false;
         
@@ -168,7 +168,7 @@ public class DialogManager : MonoBehaviour
 
         StartCoroutine(DisplaySentences(sentences, clips));
         yield return new WaitUntil(() => isDialogEnded == true);
-        GameControls.Enable();
+       
         
     }
     private void StartDialog(DialogOption dialogOption)
@@ -206,7 +206,7 @@ public class DialogManager : MonoBehaviour
 
         while (sentences.Count != 0)
         {
-            GameControls.Disable();
+           
 
             string sentence = sentences.Dequeue();
             if (clips.Count != 0)
@@ -298,18 +298,7 @@ public class DialogManager : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// Ustawia wartoœæ <b>ResultBar</b> na 0.
-    /// </summary>
-    
-    /// <summary>
-    /// <b>GetResults</b>
-    /// Przypisuje zmiennym result1,result2,...wartoœci <code>Result</code>
-    /// </summary>
-    
-    /// <summary>
-    /// Tu mo¿na zniszczyæ odpowiednie linie dialogów, mo¿na te¿ zniszczyæ opcje których ju¿ nie mo¿emy wybraæ gdyby ktoœ chcia³.
-    /// </summary>
+   
     private void DestroyLowerLevel()
     {
         currentLevel++;
@@ -323,42 +312,15 @@ public class DialogManager : MonoBehaviour
     private void UpdateScore(Strategy strategy) 
     {
         Result[] updatedresults=new Result[2];
-        
-        switch (strategy)
-  
-        {
-            case Strategy.LuŸnaGadka:
-                updatedresults = GetUpadatedResults(strategy);
-                StartCoroutine(AnimateResults(updatedresults));
-                        break;
-            case Strategy.Podstêp:
-                updatedresults = GetUpadatedResults(strategy);
-                StartCoroutine(AnimateResults(updatedresults));
-                break;
-            case Strategy.Profesjonalizm:
-                updatedresults = GetUpadatedResults(strategy);
-                StartCoroutine(AnimateResults(updatedresults));
-                break;
-            case Strategy.UrokOsobisty:
-                updatedresults = GetUpadatedResults(strategy);
-                StartCoroutine(AnimateResults(updatedresults));
-                break;
-            case Strategy.ZimnaKrew:
-                updatedresults = GetUpadatedResults(strategy);
-                StartCoroutine(AnimateResults(updatedresults));
-                break;
 
-            default:
-                break;
-        }
+        updatedresults = GetUpadatedResults(strategy);
+        StartCoroutine(AnimateResults(updatedresults));
+        
+        
        
     }
-    /// <summary>
-    /// Zwraca tablice z aktualizowanymi paskami rezultatów.
-    /// </summary>
-    /// <param name="strategy"></param>
-    /// <returns></returns>
-    private Result[] GetUpadatedResults(Strategy strategy)
+  
+    public Result[] GetUpadatedResults(Strategy strategy)
     {
         Result[] updatedresults= new Result[2];
         int index = 0;
@@ -401,12 +363,17 @@ public class DialogManager : MonoBehaviour
 
             bars[updatedresults[0].resultNumber - 1].GetComponent<Image>().fillAmount = value1;
             bars[updatedresults[1].resultNumber - 1].GetComponent<Image>().fillAmount = value2;
-                            yield return null;
+            predictedBars[updatedresults[0].resultNumber - 1].GetComponent<Image>().fillAmount = value1;
+            predictedBars[updatedresults[1].resultNumber - 1].GetComponent<Image>().fillAmount = value2;
+            yield return null;
                         }
         bars[updatedresults[0].resultNumber - 1].GetComponent<Image>().fillAmount = newFirstValue;
         bars[updatedresults[1].resultNumber - 1].GetComponent<Image>().fillAmount = newSecondValue;
-        
-                if (newFirstValue >= 1 )
+        predictedBars[updatedresults[0].resultNumber - 1].GetComponent<Image>().fillAmount = newFirstValue;
+        predictedBars[updatedresults[1].resultNumber - 1].GetComponent<Image>().fillAmount = newSecondValue;
+
+
+        if (newFirstValue >= 1 )
                 {
                     ShowResult(updatedresults[0]);
                 }   
@@ -422,53 +389,6 @@ public class DialogManager : MonoBehaviour
         Debug.Log(result.ResultText);
     }
 
-   
-  
-
-    /// <summary>
-    /// Returns 'true' if we touched or hovering on Unity UI element.
-    /// </summary>
-    /// <returns></returns>
-    public bool IsPointerOverUIElement()
-    {
-        return IsPointerOverUIElement(GetEventSystemRaycastResults());
-    }
-
-
-    /// <summary>
-    /// Returns 'true' if we touched or hovering on Unity UI element.
-    /// </summary>
-    /// <param name="eventSystemRaysastResults"></param>
-    /// <returns></returns>
-    private bool IsPointerOverUIElement(List<RaycastResult> eventSystemRaysastResults)
-    {
-        for (int index = 0; index < eventSystemRaysastResults.Count; index++)
-        {
-            RaycastResult curRaysastResult = eventSystemRaysastResults[index];
-            if (curRaysastResult.gameObject.layer == 10)
-            {
-                currentRaycastObject = curRaysastResult.gameObject;
-                return true;
-            }   //10 is UI layer int
-
-        }
-        currentRaycastObject = null;
-        return false;
-    }
-
-    
-    /// <summary>
-    /// Gets all event system raycast results of current mouse or touch position.
-    /// </summary>
-    /// <returns></returns>
-    static List<RaycastResult> GetEventSystemRaycastResults()
-    {
-        PointerEventData eventData = new PointerEventData(EventSystem.current);
-        eventData.position = Input.mousePosition;
-        List<RaycastResult> raysastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventData, raysastResults);
-        return raysastResults;
-    }
 }
 public enum DialogState
 {

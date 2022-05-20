@@ -14,7 +14,7 @@ public class DialogOptionDisplay : MonoBehaviour
     private Sprite strategy1, strategy2, strategy3, strategy4, strategy5;
     public static event Action<DialogOption, Vector3> OnDialogButtonClicked;
     private GameObject dialogText;
-
+    private float barIncrease = 0.2f;
     private void Awake()
     {
        
@@ -50,7 +50,12 @@ public class DialogOptionDisplay : MonoBehaviour
         OnDialogButtonClicked(dialogOption,buttonPosition);
     }
    
+    public void UpdatePredictedScore()
+    {
+        Result[] updatedResults = new Result[2];
+        updatedResults=DialogManager.Instance.GetUpadatedResults(dialogOption.strategy);
 
+    }
     public void RenderImage()
     {
         

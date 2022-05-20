@@ -213,8 +213,12 @@ public class DialogManager : MonoBehaviour
             {
                 AudioClip clip = clips.Dequeue();
                 clipLength = clip.length;
-                audioSource.clip = clip;
-                audioSource.Play();
+                if (audioSource != null)
+                {
+                    audioSource.clip = clip;
+                    audioSource.Play();
+                }
+                
             }
             
 
@@ -225,7 +229,7 @@ public class DialogManager : MonoBehaviour
                 yield return new WaitForSeconds(dialogTime);
         }
         
-            GameControls.Enable();
+           
 
         
         EndDialog();
@@ -248,7 +252,7 @@ public class DialogManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator MoveLawyer(DialogOption dialogOption, Vector3 buttonPosition)
     {
-
+        UpdateScore(dialogOption.strategy);
 
         Vector3 nextCrossPointPosition = GameObject.Find(dialogOption.nextCrossPoint.name).GetComponent<RectTransform>().localPosition;
         Vector3 newTreePosition = new Vector3(tree.localPosition.x, tree.localPosition.y - 600, tree.localPosition.z);
@@ -269,7 +273,7 @@ public class DialogManager : MonoBehaviour
 
         yield return new WaitUntil(() => isDialogEnded == true);  //wait Until
 
-        UpdateScore(dialogOption.strategy);
+        
 
         startTime = Time.time;
         distanceToTarget = Vector3.Distance(treeLawyer.transform.localPosition, nextCrossPointPosition);    //przesuwanie do crosspointa

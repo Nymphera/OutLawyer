@@ -72,8 +72,8 @@ public class DialogTreeCreator : MonoBehaviour
             spawnPosition = new Vector3(-levelWidth / 2 + (i + 1) * intervalLength, -450, 0);
             GameObject obj =Instantiate(resultPrefab, parent);
             obj.transform.localPosition = spawnPosition;
-            obj.transform.GetChild(2).GetComponent<Image>().sprite = dialog.results[i].resultImage;
-            obj.transform.GetChild(1).GetComponent<Image>().color = dialog.results[i].ResultBarColor;
+            obj.transform.GetChild(3).GetComponent<Image>().sprite = dialog.results[i].resultImage;
+            obj.transform.GetChild(2).GetComponent<Image>().color = dialog.results[i].ResultBarColor;
             obj.name = "Result " + i;
         }
     }

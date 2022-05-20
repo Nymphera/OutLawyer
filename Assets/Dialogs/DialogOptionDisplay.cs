@@ -23,16 +23,27 @@ public class DialogOptionDisplay : MonoBehaviour
 
     public void ShowButtonText()
     {
-        dialogText = GameObject.Find("DialogText");
-        dialogText.GetComponent<Text>().text = GetComponent<DialogOptionDisplay>().dialogOption.text;
+        if (DialogManager.Instance.currentState == DialogState.playerTurn)
+        {
+            dialogText = GameObject.Find("DialogText");
+            dialogText.GetComponent<Text>().text = GetComponent<DialogOptionDisplay>().dialogOption.text;
+        }
     }
+       
     public void HideButtonText()
     {
-        dialogText = GameObject.Find("DialogText");
-        dialogText.GetComponent<Text>().text = "";
+        if (DialogManager.Instance.currentState == DialogState.playerTurn)
+        {
+            dialogText = GameObject.Find("DialogText");
+            dialogText.GetComponent<Text>().text = "";
+        }
+        
     }
 
-
+    private void Update()
+    {
+        GetComponent<Button>().enabled = DialogManager.Instance.currentState == DialogState.playerTurn;        
+    }
 
     public void Click()
     {

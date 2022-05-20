@@ -9,9 +9,9 @@ using UnityEngine.UI;
 public class DialogManager : MonoBehaviour
 {
     public static event Action OnDialogEnd;
-
+    public static DialogManager Instance;
     public Dialog dialog;
-
+    public DialogState currentState;
     [SerializeField]
     private GameObject backGround;
     
@@ -32,7 +32,8 @@ public class DialogManager : MonoBehaviour
     private bool isDialogEnded=false;
 
     private void Awake()
-    {   
+    {
+        Instance = this;
         GameControls = new GameControls();
         DialogOptionDisplay.OnDialogButtonClicked += DialogOptionDisplay_OnDialogButtonClicked;
         GameControls.Game.MousePosition.performed += MousePosition_performed;
@@ -58,28 +59,45 @@ public class DialogManager : MonoBehaviour
         DialogOptionDisplay.OnDialogButtonClicked -= DialogOptionDisplay_OnDialogButtonClicked;
         GameControls.Game.MousePosition.performed -= MousePosition_performed;
     }
-  
+  public void UpdateDialogState(DialogState newState)
+    {
+        switch(newState)
+        {
+            case DialogState.introduction:
+                StartDialog();
+                break;
+            case DialogState.playerTurn:
+                break;
+            case DialogState.displaySentences:
+                break;
+            case DialogState.victory:
+                break;
+            case DialogState.lose:
+                break;
+            case DialogState.valuate:
+                break;
+
+        }
+        currentState = newState;
+    }
     public void StartDialog()
     {
         GameControls.Enable();
-        treeLawyer = GameObject.Find("lawyerIcon");
-        Lawyer = GameObject.Find("LawyerImage");
-        lawyerBubble = Lawyer.transform.GetChild(0).gameObject;
-        dialogText = GameObject.Find("DialogText");
-        lawyerText = lawyerBubble.transform.GetChild(0).gameObject;
-        backGround.SetActive(true);        
-
+        treeLawyer = GameObject.Find("lawyerIcon");     
+        dialogText = GameObject.Find("DialogText");        
+        backGround.SetActive(true);
         audioSource = gameObject.GetComponent<AudioSource>();
-        
         tree = treeLawyer.transform.parent;
         Results = GameObject.Find("Results");
-        lawyerBubble.SetActive(false);
-        //dialogText.SetActive(false);
-       
-        
+      
+
         ClearResultsBars();
+
+
         StartCoroutine(PlayIntroduction());
     }
+
+    
 
     private void ClearResultsBars()
     {
@@ -129,9 +147,8 @@ public class DialogManager : MonoBehaviour
     }
     private IEnumerator PlayIntroduction()
     {
-        GameControls.Disable();
-       // Results.SetActive(false);
-       // dialogText.SetActive(true);
+        UpdateDialogState(DialogState.introduction);
+       
         lawyerBubble.SetActive(false);
         GameControls.Disable();
         
@@ -156,8 +173,8 @@ public class DialogManager : MonoBehaviour
     }
     private void StartDialog(DialogOption dialogOption)
     {
-        //Results.SetActive(false);
-       // dialogText.SetActive(true);
+        UpdateDialogState(DialogState.displaySentences);
+
         lawyerBubble.SetActive(false);
         isDialogEnded = false;
         Queue<string> sentences = new Queue<string>();
@@ -219,7 +236,7 @@ public class DialogManager : MonoBehaviour
         dialogText.GetComponent<Text>().text = "";
         //Results.SetActive(true);
         isDialogEnded = true;
-        
+        UpdateDialogState(DialogState.playerTurn);
     }
 
     /// <summary>
@@ -464,4 +481,13 @@ public class DialogManager : MonoBehaviour
         EventSystem.current.RaycastAll(eventData, raysastResults);
         return raysastResults;
     }
+}
+public enum DialogState
+{
+    introduction,
+    playerTurn,
+    displaySentences,
+    valuate,
+    victory,
+    lose
 }

@@ -9,6 +9,7 @@ TagManager:
   - ColliderLine
   - CinemachineTarget
   - Negotiations
+  - Doors
   layers:
   - Default
   - TransparentFX

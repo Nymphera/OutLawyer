@@ -31,8 +31,8 @@ public class Interact : MonoBehaviour
       
         gameControls.Game.MousePosition.performed += MousePosition_performed;
         mouseMove = gameControls.Game.MousePosition;
-        if(specialLogicOnClick!=null)
-        specialLogicOnClick.SetActive(false);
+       // if(specialLogicOnClick!=null)
+       // specialLogicOnClick.SetActive(false);
         //  actionTextField = GameObject.Find("InteractText").GetComponent<TextMeshProUGUI>();
     }
     private void Start()
@@ -42,6 +42,7 @@ public class Interact : MonoBehaviour
         HideActionDescription();
         SetOutline();
     }
+    
     private void GameManager_OnGameStateChanged(GameState state)
     {
         currentState = state;
@@ -65,20 +66,7 @@ public class Interact : MonoBehaviour
         GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
         gameControls.Game.MousePosition.performed -= MousePosition_performed;
     }
-    private void OnMouseDown()
-    {
-        
-        if (specialLogicOnClick != null)
-        {
-            if (!specialLogicOnClick.activeSelf)
-            {
-                Debug.Log("Special Logic");
-                specialLogicOnClick.SetActive(true);
-            }
-           
-        }
-        
-    }
+    
     private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         if (outlineObject != null)
@@ -96,7 +84,7 @@ public class Interact : MonoBehaviour
         {
             if (currentState == GameState.Move || currentState == GameState.Office)
             {
-                if (hit.transform.tag == "Interact")
+                if (hit.transform.GetComponent<Outline>() != null)
                 {
                     selectedObj = hit.transform.gameObject;
                     EnableOutline(selectedObj);
@@ -107,7 +95,7 @@ public class Interact : MonoBehaviour
             }
             if (currentState == GameState.Interact)
             {
-                if (hit.transform.tag == "Interact2")
+                if (hit.transform.GetComponent<Outline>() != null)
                 {
                     selectedObj = hit.transform.gameObject;
                     EnableOutline(selectedObj);
@@ -122,7 +110,7 @@ public class Interact : MonoBehaviour
     }
     private void AddRenderer()
     {
-        if (gameObject.GetComponent<MeshCollider>() == null)
+        if (gameObject.GetComponent<MeshCollider>() == null&&gameObject.GetComponent<BoxCollider>()==null)
         {
             gameObject.AddComponent<MeshCollider>();
         }
@@ -144,7 +132,7 @@ public class Interact : MonoBehaviour
     }
  
 
-    private void EnableOutline(GameObject Object)
+    public void EnableOutline(GameObject Object)
     {
         Color color = Object.GetComponent<Outline>().OutlineColor;
         color.a = 1;
@@ -185,7 +173,7 @@ public class Interact : MonoBehaviour
     }
 
 
-    private void DisableOutline(GameObject Object)
+    public void DisableOutline(GameObject Object)
     {
         // HideActionDescription();
         if (Object.GetComponent<Outline>()!=null) 

@@ -9,7 +9,7 @@ public class MoveOffer : MonoBehaviour
     private void Awake()
     {
         startPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
-        Debug.Log(startPosition);
+        
     }
     public void moveUp()
     {

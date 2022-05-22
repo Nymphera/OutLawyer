@@ -10,9 +10,10 @@ public class GameEvents : MonoBehaviour
     {
         current = this;
     }
-    public event Action<int> onDoorTriggerEnter;
-    public void DoorTriggerEnter(int id)
+    public event Action<int> onDoorMouseClick;
+    public void DoorMouseClick(int id)
     {
-        onDoorTriggerEnter(id);
+        onDoorMouseClick(id);
     }
+    
 }

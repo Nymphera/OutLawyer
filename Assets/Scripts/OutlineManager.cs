@@ -7,17 +7,17 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class Interact : MonoBehaviour
+public class OutlineManager : MonoBehaviour
 {
     [SerializeField]
     private GameState currentState;
     
    
-    public string actionDescription;
     
     
-    private TextMeshProUGUI actionTextField;
-    public  GameObject specialLogicOnClick;
+    
+ 
+    
     private GameObject outlineObject;
     private GameControls gameControls;
     private InputAction mouseMove;
@@ -34,14 +34,7 @@ public class Interact : MonoBehaviour
        // if(specialLogicOnClick!=null)
        // specialLogicOnClick.SetActive(false);
         //  actionTextField = GameObject.Find("InteractText").GetComponent<TextMeshProUGUI>();
-    }
-    private void Start()
-    {
-        AddRenderer();
-
-        HideActionDescription();
-        SetOutline();
-    }
+    }  
     
     private void GameManager_OnGameStateChanged(GameState state)
     {
@@ -88,7 +81,6 @@ public class Interact : MonoBehaviour
                 {
                     selectedObj = hit.transform.gameObject;
                     EnableOutline(selectedObj);
-                    //ShowActionDescription(selectedObj.GetComponent<Outline>());
 
                     outlineObject = selectedObj;
                 }
@@ -98,8 +90,7 @@ public class Interact : MonoBehaviour
                 if (hit.transform.GetComponent<Outline>() != null)
                 {
                     selectedObj = hit.transform.gameObject;
-                    EnableOutline(selectedObj);
-                   // ShowActionDescription(selectedObj.GetComponent<Outline>());
+                    EnableOutline(selectedObj);                 
 
                     outlineObject = selectedObj;
                 }
@@ -108,29 +99,7 @@ public class Interact : MonoBehaviour
 
         }
     }
-    private void AddRenderer()
-    {
-        if (gameObject.GetComponent<MeshCollider>() == null&&gameObject.GetComponent<BoxCollider>()==null)
-        {
-            gameObject.AddComponent<MeshCollider>();
-        }
-        else
-        {
-            Debug.Log(transform.name + " has already collider");
-        }
-    }
-    public void SetOutline()
-    {
-        if (gameObject.GetComponent<Outline>() == null)
-        {
-            Debug.Log("You have to add Outline Component to " + transform.name);
-        }
-        else
-        {
-            DisableOutline(gameObject);
-        }
-    }
- 
+
 
     public void EnableOutline(GameObject Object)
     {
@@ -141,37 +110,6 @@ public class Interact : MonoBehaviour
 
 
     }
-
-    private void ShowActionDescription(Outline outline)
-    {
-        string actionText;
-        actionTextField.enabled = true;
-        Vector2 mousePos=gameControls.Game.MousePosition.ReadValue<Vector2>();
-        if (this.actionTextField != null)
-            actionText = actionDescription;
-        else
-            actionText = "Inspect";
-        
-        if(mousePos.x> Screen.width / 2)
-        {
-            Vector2 textPosition = new Vector2(mousePos.x - 300,mousePos.y);
-           actionTextField.rectTransform.position = textPosition;
-            actionTextField.text = actionText+"   \u2022";
-        }
-        
-        else if(mousePos.x <= Screen.width / 2)
-        {
-            Vector2 textPosition = new Vector2(mousePos.x+300, mousePos.y);
-            actionTextField.rectTransform.position = textPosition;
-            actionTextField.text = "\u2022   "+actionText;
-        }
-        //actionDescription.text = "\u2022<indent=3em>The text that will be indented.</indent>";
-    }
-    private void HideActionDescription()
-    {
-       // actionTextField.enabled = false;
-    }
-
 
     public void DisableOutline(GameObject Object)
     {

@@ -10,7 +10,7 @@ public class OfficeManager : MonoBehaviour
     private GameObject PinBoard, PinBoardUI,Buttons,Settings;
     
     private PinBoardManager pinBoardLogic;
-    private Interact interact;
+   
     private GameControls gameControls;
 
 
@@ -32,7 +32,7 @@ public class OfficeManager : MonoBehaviour
         Settings= PinBoardUI.transform.GetChild(0).gameObject;
         PinBoard = GameObject.Find("PinBoard");
 
-        interact = GameObject.Find("InteractManager").GetComponent<Interact>();   
+        
        
         pinBoardLogic = PinBoard.GetComponent<PinBoardManager>();
         

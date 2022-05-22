@@ -13,7 +13,12 @@ public class OpenDoorsScript : MonoBehaviour
         GameEvents.current.onDoorMouseClick+= MoveDoors;
         
     }
-    public void MoveDoors(int id)
+    private void OnDestroy()
+    {
+        GameEvents.current.onDoorMouseClick-= MoveDoors;
+
+    }
+    private void MoveDoors(int id)
     {
         if (isDoorOpened)
             CloseDoors(id);
@@ -22,7 +27,7 @@ public class OpenDoorsScript : MonoBehaviour
 
         isDoorOpened =! isDoorOpened;
     }
-    public void OpenDoors(int id)
+    private void OpenDoors(int id)
     {
         if (this.id== id)
             {
@@ -33,7 +38,7 @@ public class OpenDoorsScript : MonoBehaviour
             }
         
     }
-    public void CloseDoors(int id)
+    private void CloseDoors(int id)
     {
         if (this.id == id)
         {

@@ -151,7 +151,7 @@ public class PinBoardLogic : MonoBehaviour
     {
         
         camera.Follow = Object.transform.parent;
-        CinemachineSwitcher.Instance.SwitchState("Evidence");
+        GameEvents.current.OfficeClick(4);
         await Task.Delay(1500);
         SettingsPanel.SetActive(currentState==OfficeState.Inspect);
         Evidence Evid = Object.transform.GetComponentInParent<EvidenceDisplay>().Evidence;

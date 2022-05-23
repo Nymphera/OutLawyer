@@ -7,17 +7,17 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class Interact : MonoBehaviour
+public class OutlineManager : MonoBehaviour
 {
     [SerializeField]
     private GameState currentState;
     
    
-    public string actionDescription;
     
     
-    private TextMeshProUGUI actionTextField;
-    public  GameObject specialLogicOnClick;
+    
+ 
+    
     private GameObject outlineObject;
     private GameControls gameControls;
     private InputAction mouseMove;
@@ -31,17 +31,11 @@ public class Interact : MonoBehaviour
       
         gameControls.Game.MousePosition.performed += MousePosition_performed;
         mouseMove = gameControls.Game.MousePosition;
-        if(specialLogicOnClick!=null)
-        specialLogicOnClick.SetActive(false);
+       // if(specialLogicOnClick!=null)
+       // specialLogicOnClick.SetActive(false);
         //  actionTextField = GameObject.Find("InteractText").GetComponent<TextMeshProUGUI>();
-    }
-    private void Start()
-    {
-        AddRenderer();
-
-        HideActionDescription();
-        SetOutline();
-    }
+    }  
+    
     private void GameManager_OnGameStateChanged(GameState state)
     {
         currentState = state;
@@ -65,22 +59,10 @@ public class Interact : MonoBehaviour
         GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
         gameControls.Game.MousePosition.performed -= MousePosition_performed;
     }
-    private void OnMouseDown()
-    {
-        
-        if (specialLogicOnClick != null)
-        {
-            if (!specialLogicOnClick.activeSelf)
-            {
-                Debug.Log("Special Logic");
-                specialLogicOnClick.SetActive(true);
-            }
-           
-        }
-        
-    }
+    
     private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
+        
         if (outlineObject != null)
         {
             DisableOutline(outlineObject);
@@ -92,26 +74,24 @@ public class Interact : MonoBehaviour
         RaycastHit hit;
         
         
-        if (Physics.Raycast(Ray, out hit))
+        if (Physics.Raycast(Ray, out hit,10f))
         {
             if (currentState == GameState.Move || currentState == GameState.Office)
             {
-                if (hit.transform.tag == "Interact")
+                if (hit.transform.GetComponent<Outline>() != null)
                 {
                     selectedObj = hit.transform.gameObject;
                     EnableOutline(selectedObj);
-                    //ShowActionDescription(selectedObj.GetComponent<Outline>());
 
                     outlineObject = selectedObj;
                 }
             }
             if (currentState == GameState.Interact)
             {
-                if (hit.transform.tag == "Interact2")
+                if (hit.transform.GetComponent<Outline>() != null)
                 {
                     selectedObj = hit.transform.gameObject;
-                    EnableOutline(selectedObj);
-                   // ShowActionDescription(selectedObj.GetComponent<Outline>());
+                    EnableOutline(selectedObj);                 
 
                     outlineObject = selectedObj;
                 }
@@ -120,31 +100,9 @@ public class Interact : MonoBehaviour
 
         }
     }
-    private void AddRenderer()
-    {
-        if (gameObject.GetComponent<MeshCollider>() == null)
-        {
-            gameObject.AddComponent<MeshCollider>();
-        }
-        else
-        {
-            Debug.Log(transform.name + " has already collider");
-        }
-    }
-    public void SetOutline()
-    {
-        if (gameObject.GetComponent<Outline>() == null)
-        {
-            Debug.Log("You have to add Outline Component to " + transform.name);
-        }
-        else
-        {
-            DisableOutline(gameObject);
-        }
-    }
- 
 
-    private void EnableOutline(GameObject Object)
+
+    public void EnableOutline(GameObject Object)
     {
         Color color = Object.GetComponent<Outline>().OutlineColor;
         color.a = 1;
@@ -154,38 +112,7 @@ public class Interact : MonoBehaviour
 
     }
 
-    private void ShowActionDescription(Outline outline)
-    {
-        string actionText;
-        actionTextField.enabled = true;
-        Vector2 mousePos=gameControls.Game.MousePosition.ReadValue<Vector2>();
-        if (this.actionTextField != null)
-            actionText = actionDescription;
-        else
-            actionText = "Inspect";
-        
-        if(mousePos.x> Screen.width / 2)
-        {
-            Vector2 textPosition = new Vector2(mousePos.x - 300,mousePos.y);
-           actionTextField.rectTransform.position = textPosition;
-            actionTextField.text = actionText+"   \u2022";
-        }
-        
-        else if(mousePos.x <= Screen.width / 2)
-        {
-            Vector2 textPosition = new Vector2(mousePos.x+300, mousePos.y);
-            actionTextField.rectTransform.position = textPosition;
-            actionTextField.text = "\u2022   "+actionText;
-        }
-        //actionDescription.text = "\u2022<indent=3em>The text that will be indented.</indent>";
-    }
-    private void HideActionDescription()
-    {
-       // actionTextField.enabled = false;
-    }
-
-
-    private void DisableOutline(GameObject Object)
+    public void DisableOutline(GameObject Object)
     {
         // HideActionDescription();
         if (Object.GetComponent<Outline>()!=null) 

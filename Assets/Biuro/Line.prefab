@@ -58,6 +58,8 @@ MonoBehaviour:
   Red: {fileID: 2100000, guid: 86fe40e452003aa4c9a896b6b687f85c, type: 2}
   Blue: {fileID: 2100000, guid: 6ca8e41d9f04b7c42a42311570f76c4c, type: 2}
   White: {fileID: 2100000, guid: 683d830a8dffd4a4496850efec73dc35, type: 2}
+  Black: {fileID: 2100000, guid: fcac397647bac7e4fb88c99de4162c58, type: 2}
+  Grey: {fileID: 2100000, guid: 40e4ad1697590ce48b0ef6e2b16872ce, type: 2}
 --- !u!120 &8969533229563378571
 LineRenderer:
   m_ObjectHideFlags: 0

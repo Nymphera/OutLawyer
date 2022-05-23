@@ -37,7 +37,7 @@ public class HelpLines : MonoBehaviour
     {
      Instance = this;
         GameManager.OnGameStateChanged += Create_HelpLines;
-        EventTrigger.OnEvidenceUnlocked += EventTrigger_OnEvidenceUnlocked;
+       
         PinBoardManager.OnLineCreated += OnLineCreated;
         PinBoardManager.OnLineDeleted += OnLineDeleted;
 
@@ -54,7 +54,7 @@ public class HelpLines : MonoBehaviour
     private void OnDestroy()
     {
         GameManager.OnGameStateChanged -= Create_HelpLines;
-        EventTrigger.OnEvidenceUnlocked -= EventTrigger_OnEvidenceUnlocked;
+        
         PinBoardManager.OnLineCreated -= OnLineCreated;
         PinBoardManager.OnLineDeleted -= OnLineDeleted;
     }
@@ -257,7 +257,7 @@ public class HelpLines : MonoBehaviour
                                 Line.firstEvidence = evidences[i];
                                 Line.secondEvidence = evidences[j];
                                 Line.conectionType = evidences[j].Conections[k].ConectionType;
-                                Line.SetColor("White");
+                                Line.SetColor("Grey");
                                 Line.AddPoint(points[i]);
                                 Line.AddPoint(points[j]);
                                // Line.Render();

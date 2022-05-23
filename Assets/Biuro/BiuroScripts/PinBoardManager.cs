@@ -115,7 +115,7 @@ public class PinBoardManager : MonoBehaviour
 
         if (Physics.Raycast(Ray, out Hit, 1000))
         {
-            if (currentState != PinBoardState.Delete && currentState != PinBoardState.Neutral)
+            if (currentState != PinBoardState.Delete && currentState != PinBoardState.Neutral&& currentState!=PinBoardState.Burned)
             {
                 //createLine
                 
@@ -224,8 +224,9 @@ public class PinBoardManager : MonoBehaviour
 
     private IEnumerator DeleteLine(GameObject lineToDestroy)
     {
+        Line line = lineToDestroy.GetComponent<Line>();
 
-        if (lineToDestroy.tag == "ColliderLine")
+        if (lineToDestroy.tag == "ColliderLine"&&!line.wasLineBurned)
         {
             OnLineDeleted(lineToDestroy.GetComponent<Line>());
             Cursor.SetCursor(scissorsTextureClosed, new Vector2(30, 30), CursorMode.Auto);
@@ -397,6 +398,11 @@ public class PinBoardManager : MonoBehaviour
         currentState = PinBoardState.Delete;
         
     }
+    public void Burn()
+    {
+        currentState = PinBoardState.Burned;
+
+    }
 }
 public enum PinBoardState
 {
@@ -405,5 +411,6 @@ public enum PinBoardState
     CreateBlue,
     CreateYellow,
     Delete,
-    Neutral
+    Neutral,
+    Burned
 }

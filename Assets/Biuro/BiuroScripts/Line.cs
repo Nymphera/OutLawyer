@@ -15,6 +15,7 @@ public class Line : MonoBehaviour
     public ConectionType conectionType;
     public bool isConectionGood=false;
     public bool isAnimationDone=false;
+    public bool wasLineBurned = false;
     //public Conection conection;
     private void Awake()
     {
@@ -22,7 +23,7 @@ public class Line : MonoBehaviour
     }
     public float animationDuration; 
     [SerializeField]
-    private Material Yellow, Green, Red, Blue, White;
+    private Material Yellow, Green, Red, Blue, White,Black,Grey;
     
     public void AddPoint(Vector3 vector)
     {
@@ -128,6 +129,11 @@ public class Line : MonoBehaviour
             lineRenderer.material = White;
             this.conectionType = ConectionType.Black;
         }
+        if (color == "Grey")
+        {
+            lineRenderer.material = Grey;
+            //this.conectionType = ConectionType.Grey;
+        }
     }
     [Serializable]
     public class Conection
@@ -150,6 +156,7 @@ public enum ConectionType
     Blue,   //Relacja
     Green,   //Dowód
     White,
-    Black
+    Black,
+    Grey
 }
 

@@ -10,10 +10,10 @@ public class GameEvents : MonoBehaviour
     {
         current = this;
     }
-    public event Action<int> onDoorMouseClick;
-    public void DoorMouseClick(int id)
+    public event Action<int,bool> onDoorMouseClick;
+    public void DoorMouseClick(int id,bool doorState)
     {
-        onDoorMouseClick(id);
+        onDoorMouseClick(id,doorState);
     }
     
 }

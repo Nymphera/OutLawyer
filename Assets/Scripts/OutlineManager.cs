@@ -73,7 +73,7 @@ public class OutlineManager : MonoBehaviour
         RaycastHit hit;
         
         
-        if (Physics.Raycast(Ray, out hit))
+        if (Physics.Raycast(Ray, out hit,10f))
         {
             if (currentState == GameState.Move || currentState == GameState.Office)
             {

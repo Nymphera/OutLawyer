@@ -6,6 +6,8 @@ public class TriggerDoors : MonoBehaviour
 {
     [SerializeField]
     private int objectID;
+    [SerializeField]
+    private bool isDoorOpened=false;
     private void OnMouseDown()
     {
         
@@ -15,7 +17,8 @@ public class TriggerDoors : MonoBehaviour
         {
             if (hit.transform.gameObject == gameObject)
             {
-                GameEvents.current.DoorMouseClick(objectID);
+                GameEvents.current.DoorMouseClick(objectID,isDoorOpened);
+                this.isDoorOpened = !isDoorOpened;
             }
         }
            

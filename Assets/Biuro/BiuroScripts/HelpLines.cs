@@ -257,7 +257,7 @@ public class HelpLines : MonoBehaviour
                                 Line.firstEvidence = evidences[i];
                                 Line.secondEvidence = evidences[j];
                                 Line.conectionType = evidences[j].Conections[k].ConectionType;
-                                Line.SetColor("White");
+                                Line.SetColor("Grey");
                                 Line.AddPoint(points[i]);
                                 Line.AddPoint(points[j]);
                                // Line.Render();

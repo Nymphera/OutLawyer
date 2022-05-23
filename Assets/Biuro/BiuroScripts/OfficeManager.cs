@@ -65,7 +65,7 @@ public class OfficeManager : MonoBehaviour
             
         if (PinBoardManager.Instance.currentState == PinBoardState.Neutral)
         {
-            CinemachineSwitcher.Instance.SwitchState("Biuro");
+            GameEvents.current.OfficeClick(0);
         }
                
     }
@@ -88,7 +88,7 @@ public class OfficeManager : MonoBehaviour
         {
             if (hit.transform.tag == "Interact"&&currentState==OfficeState.Overview)
             {
-                CinemachineSwitcher.Instance.SwitchState(hit.transform.name);
+             //   CinemachineSwitcher.Instance.SwitchState(hit.transform.name);
                 
             }
             /*if (hit.transform.tag == "Interact2"&&currentState==OfficeState.Desk)
@@ -103,14 +103,14 @@ public class OfficeManager : MonoBehaviour
         if (name == "Globus")
         {
             Debug.Log("przenosi do nastêpnej lokacji");
-            CinemachineSwitcher.Instance.SwitchState("Biuro");
+         //  GameEvents.current.OfficeClick.SwitchState(0);
             GameManager.Instance.UpdateGameState(GameState.Move);
         }
         else
             if (name == "Phone")
         {
             Debug.Log("w³¹cza system dialogów (chocia¿ nie  powinien)");
-            CinemachineSwitcher.Instance.SwitchState("Biuro");
+           // CinemachineSwitcher.Instance.SwitchState("Biuro");
             GameManager.Instance.UpdateGameState(GameState.LockInteract);
         }
         else if (name == "Newspaper")

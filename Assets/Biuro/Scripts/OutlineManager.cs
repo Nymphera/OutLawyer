@@ -62,6 +62,7 @@ public class OutlineManager : MonoBehaviour
     
     private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
+        
         if (outlineObject != null)
         {
             DisableOutline(outlineObject);

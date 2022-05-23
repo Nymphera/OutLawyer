@@ -9,7 +9,7 @@ public class CinemachineSwitcher : MonoBehaviour
 {   [SerializeField]
     private Animator Animator;
     private bool MainCameraState = false;
-    public static CinemachineSwitcher Instance;
+    
 
     public OfficeState CurrentState;
     public static event Action<OfficeState> OnOfficeStateChanged;
@@ -18,33 +18,27 @@ public class CinemachineSwitcher : MonoBehaviour
     private void Awake()
     {
         Animator = transform.GetComponent<Animator>();
-              
-             
-        if (Instance == null)
-        {
-            Instance = this;
-         
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-        }
+      
 
-        OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged; 
-              
-        
-        
-        
+       // OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;      
     }
-
+    private void Start()
+    {
+        GameEvents.current.onOfficeClick += SwitchState;
+    }
+    private void OnDestroy()
+    {
+        GameEvents.current.onOfficeClick -= SwitchState;
+        OnOfficeStateChanged -= CinemachineSwitcher_OnOfficeStateChanged;
+    }
     private void CinemachineSwitcher_OnOfficeStateChanged(OfficeState state)
     {
         CurrentState = state;
     }
 
-    public void SwitchState(string objname)
-    { 
-        if (objname=="Biuro")
+    public void SwitchState(int ID)
+    {
+        if (ID == 0)
         {
             Animator.Play("Biuro Cam");
             OnOfficeStateChanged(OfficeState.Overview);
@@ -52,31 +46,34 @@ public class CinemachineSwitcher : MonoBehaviour
 
 
         }
-        else if(objname=="PinBoardSprite")
+        else if (ID == 1)
         {
             Animator.Play("PinBoard Cam");
             OnOfficeStateChanged(OfficeState.PinBoard);
             GameManager.Instance.UpdateGameState(GameState.LockInteract);
 
         }
-        else if (objname == "KOMINEK")
+        else if (ID == 2)
+        {
+            Animator.Play("Desk Cam");
+            OnOfficeStateChanged(OfficeState.Desk);
+            GameManager.Instance.UpdateGameState(GameState.Interact);
+        }
+        else if (ID == 3)
         {
             Animator.Play("Fire Cam");
             GameManager.Instance.UpdateGameState(GameState.LockInteract);
         }
-        else if (objname=="Evidence")
+        else if (ID == 4)
         {
             Animator.Play("InspectCam");
             OnOfficeStateChanged(OfficeState.Inspect);
             GameManager.Instance.UpdateGameState(GameState.LockInteract);
 
         }
-        else 
-        {
-            Animator.Play("Desk Cam");
-            OnOfficeStateChanged(OfficeState.Desk);
-            GameManager.Instance.UpdateGameState(GameState.Interact);
-        }
+        else
+            Debug.Log("Do nothing");
+        
                     
         MainCameraState = !MainCameraState;
     }

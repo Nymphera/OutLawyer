@@ -3524,6 +3524,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4810702338755577533, guid: 75ff33dfa3e4fea40be66c80e130d0ac, type: 3}
+      propertyPath: keyPrefab
+      value: 
+      objectReference: {fileID: 2051360633099577700, guid: 3bb86900c9a1d254f9674d1d60d974ca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ff33dfa3e4fea40be66c80e130d0ac, type: 3}
 --- !u!1 &1426202938
@@ -6852,6 +6856,7 @@ MonoBehaviour:
   isMoveEnabled: 1
   isPauseEnabled: 1
   CurrentState: 0
+  keyCount: 0
 --- !u!4 &1901013564
 Transform:
   m_ObjectHideFlags: 0

@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
     public GameState CurrentState;
    
     public static event Action<GameState> OnGameStateChanged;
-    
-    
+
+    public int keyCount=0;
     private void Awake()
     {
 

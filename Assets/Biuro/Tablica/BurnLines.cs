@@ -61,5 +61,6 @@ public class BurnLines : MonoBehaviour
             }
             
         }
+        GameManager.Instance.keyCount = keyCount;
     }
 }

@@ -17,7 +17,7 @@ public class OfficeActionTrigger : MonoBehaviour
             if (hit.transform.gameObject == gameObject)
             {
                 GameEvents.current.OfficeClick(objectID);
-                Debug.Log(objectID);
+               
             }
         }
 

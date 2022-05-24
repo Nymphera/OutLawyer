@@ -12,6 +12,7 @@ public class BurnLines : MonoBehaviour
     private TextMeshProUGUI tmp;
     public void CheckAnswears()
     {
+        StopAllCoroutines();
         StartCoroutine(Burn());
         tmp=key.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         tmp.text = "x" + keyCount;
@@ -31,8 +32,7 @@ public class BurnLines : MonoBehaviour
                
                 if (child.GetComponent<Line>().isConectionGood)
                 {
-                    keyCount++;
-                    tmp.text = "x" + keyCount;
+                    
                     float startTime = Time.time;
                     while (Time.time - startTime < 1)
                     {
@@ -42,7 +42,8 @@ public class BurnLines : MonoBehaviour
                         yield return null;
                     }
                     child.GetComponent<LineRenderer>().material.color = Color.white;
-                  
+                    keyCount++;
+                    tmp.text = "x" + keyCount;
                 }
                 else
                 {

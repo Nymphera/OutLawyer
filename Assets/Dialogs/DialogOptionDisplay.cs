@@ -24,10 +24,16 @@ public class DialogOptionDisplay : MonoBehaviour
 
     public void ShowButtonText()
     {
-        if (DialogManager.Instance.currentState == DialogState.playerTurn)
+        if (DialogManager.Instance.currentState == DialogState.playerTurn && dialogOption.cost <= GameManager.Instance.keyCount)
         {
             dialogText = GameObject.Find("DialogText");
             dialogText.GetComponent<Text>().text = GetComponent<DialogOptionDisplay>().dialogOption.text;
+        }
+        else if (DialogManager.Instance.currentState == DialogState.playerTurn && dialogOption.cost > GameManager.Instance.keyCount)
+        {
+            dialogText = GameObject.Find("DialogText");
+            dialogText.GetComponent<Text>().text = "Masz za ma³o kluczy!";
+            
         }
     }
        
@@ -38,6 +44,7 @@ public class DialogOptionDisplay : MonoBehaviour
             dialogText = GameObject.Find("DialogText");
             dialogText.GetComponent<Text>().text = "";
         }
+       
         
     }
 

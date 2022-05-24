@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
+using TMPro;
 
 public class DialogOptionDisplay : MonoBehaviour
 {
@@ -135,5 +136,17 @@ public class DialogOptionDisplay : MonoBehaviour
         {
             GetComponent<Image>().sprite = strategy5;
         }
+    }
+    public void SetKeyColors()
+    {
+      TextMeshProUGUI tmp=  transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        if (dialogOption.cost > 0)
+        {
+            tmp.color = Color.red;
+        }
+        if(dialogOption.cost<0)
+        {
+            tmp.color = Color.green;
+        }    
     }
 }

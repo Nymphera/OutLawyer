@@ -132,17 +132,30 @@ public class DialogTreeCreator : MonoBehaviour
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().dialogOption = dialog.levels[i].DialogOptions[j];
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().buttonPosition = spawnPosition;
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().RenderImage();   //zmienia grafikê dialogoption na odpowiedni¹ strategiê
+                
 
-                if (dialog.levels[i].DialogOptions[j].cost > 0)
+                if (dialog.levels[i].DialogOptions[j].cost != 0)
                 {
+                    
+
                     Vector3 position = currentDialogOption.transform.position + new Vector3(75, 0, 0);
                     GameObject currentKey = Instantiate(keyPrefab, position, Quaternion.identity, currentDialogOption.transform).gameObject;
                     TextMeshProUGUI tmp = currentKey.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-                    tmp.text = "x" + dialog.levels[i].DialogOptions[j].cost;
+                    
+                    
+                    if (dialog.levels[i].DialogOptions[j].cost > 0)
+                    {
+                        tmp.text = "-" + dialog.levels[i].DialogOptions[j].cost;
+                        tmp.color = Color.red;
+                    }
+                    if (dialog.levels[i].DialogOptions[j].cost < 0)
+                    {
+                        tmp.text = "+" + Mathf.Abs(dialog.levels[i].DialogOptions[j].cost);
+                        tmp.color = Color.green;
+                    }
+
                 }
-                //currentDialogOption.gameObject.AddComponent<Button>().onClick.AddListener(currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().Click);
-                
-                  //w³¹czanie dialogu funkcji Click
+               
                 
             }
         }

@@ -12,6 +12,7 @@ public class GameEvents : MonoBehaviour
     }
     public event Action<int,bool> onDoorMouseClick;
     public event Action <int>onOfficeClick;
+    public event Action onNegotiationsStarted;
     public void DoorMouseClick(int id,bool doorState)
     {
         onDoorMouseClick(id,doorState);
@@ -19,6 +20,10 @@ public class GameEvents : MonoBehaviour
     public void OfficeClick(int id)
     {
         onOfficeClick(id);
+    }
+    public void TriggerNegotiations()
+    {
+        onNegotiationsStarted();
     }
     
 }

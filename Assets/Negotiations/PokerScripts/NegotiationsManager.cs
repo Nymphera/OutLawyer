@@ -19,13 +19,20 @@ public class NegotiationsManager : MonoBehaviour
     private int animationCount=0;
     private GameObject canvas;
     private int cardNumber = 0;
-    private void Awake()
+   
+    private void Start()
     {
-        NegotiationsActivator.OnNegotiationsStarted += startNegotiations;
-         canvas = GameObject.Find("NegotiationsCanvas");
-            canvas.SetActive(false);
+       
+        GameEvents.current.onNegotiationsStarted += startNegotiations;
+
+        canvas = GameObject.Find("NegotiationsCanvas");
+        canvas.SetActive(false);
     }
-    
+    private void OnDestroy()
+    {
+        GameEvents.current.onNegotiationsStarted -= startNegotiations;
+    }
+
     public void UpdateNegotiationState(NegotiationState newState)
     {
 

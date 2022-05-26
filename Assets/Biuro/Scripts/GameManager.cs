@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public List<LineData> createdLines= new List<LineData>();
     private void Awake()
     {
-        PinBoardManager.OnLineCreated += OnLineCreated;
+        
         PinBoardManager.OnLineDeleted += OnLineDeleted;
         
 
@@ -35,10 +35,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameEvents.current.onBurnLines += OnnBurnLines;
+        GameEvents.current.onLineCreated += OnLineCreated;
+
     }
     private void OnDestroy()
     {
-        PinBoardManager.OnLineCreated -= OnLineCreated;
+        GameEvents.current.onLineCreated -= OnLineCreated;
         PinBoardManager.OnLineDeleted -= OnLineDeleted;
         GameEvents.current.onBurnLines -= OnnBurnLines;
     }

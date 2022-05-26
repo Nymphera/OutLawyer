@@ -14,6 +14,7 @@ public class GameEvents : MonoBehaviour
     public event Action <int>onOfficeClick;
     public event Action onNegotiationsStarted;
     public event Action <Line>onBurnLines;
+    public event Action<Line> onLineCreated;
     public void DoorMouseClick(int id,bool doorState)
     {
         onDoorMouseClick(id,doorState);
@@ -29,6 +30,10 @@ public class GameEvents : MonoBehaviour
     public void TriggerBurnLines(Line line)
     {
         onBurnLines(line);
+    }
+    public void TriggerLineCreated(Line line)
+    {
+        onLineCreated(line);
     }
     
 }

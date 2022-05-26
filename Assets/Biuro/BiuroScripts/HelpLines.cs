@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class HelpLines : MonoBehaviour
 {
+    
     [SerializeField]
     private GameObject RedButton, GreenButton, YellowButton, BlueButton;
     private Text redText, greenText, yellowText, blueText;
@@ -91,7 +92,7 @@ public class HelpLines : MonoBehaviour
 
              }
              }
-         //   LineCounter(line);
+        GameEvents.current.TriggerLineCreated(line);
         if (AreAllConectionsGood())
         {
             Debug.Log("You did gooood");    //tutaj event w kodzie

@@ -233,7 +233,7 @@ public class PinBoardManager : MonoBehaviour
 
         if (lineToDestroy.tag == "ColliderLine"&&!line.wasLineBurned)
         {
-            OnLineDeleted(lineToDestroy.GetComponent<Line>());
+            TriggerLineDeleted(lineToDestroy.GetComponent<Line>());
             Cursor.SetCursor(scissorsTextureClosed, new Vector2(30, 30), CursorMode.Auto);
             audioSource.PlayOneShot(scissorsClip);
             lines.Remove(lineToDestroy.GetComponent<Line>());
@@ -386,7 +386,7 @@ public class PinBoardManager : MonoBehaviour
         {
             CountLines(Line, true);
             lines.Add(Line);
-            OnLineCreated(Line);
+            TriggerLineCreated(Line);
             audioSource.PlayOneShot(stringClip);
             Line.AddColliderToLine();
             StartCoroutine(Line.AnimateLine());
@@ -400,6 +400,14 @@ public class PinBoardManager : MonoBehaviour
         isLineOverOtherLine = false;
         isLineOverWhiteLine = false;
 
+    }
+    public void TriggerLineCreated(Line line)
+    {
+        OnLineCreated(line);
+    }
+    public void TriggerLineDeleted(Line line)
+    {
+        OnLineDeleted(line);
     }
     private void CursorToNeutral(InputAction.CallbackContext obj)
     {

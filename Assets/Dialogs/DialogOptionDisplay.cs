@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
+using TMPro;
 
 public class DialogOptionDisplay : MonoBehaviour
 {
@@ -24,10 +25,16 @@ public class DialogOptionDisplay : MonoBehaviour
 
     public void ShowButtonText()
     {
-        if (DialogManager.Instance.currentState == DialogState.playerTurn)
+        if (DialogManager.Instance.currentState == DialogState.playerTurn && dialogOption.cost <= GameManager.Instance.keyCount)
         {
             dialogText = GameObject.Find("DialogText");
             dialogText.GetComponent<Text>().text = GetComponent<DialogOptionDisplay>().dialogOption.text;
+        }
+        else if (DialogManager.Instance.currentState == DialogState.playerTurn && dialogOption.cost > GameManager.Instance.keyCount)
+        {
+            dialogText = GameObject.Find("DialogText");
+            dialogText.GetComponent<Text>().text = "Masz za ma³o kluczy!";
+            
         }
     }
        
@@ -38,6 +45,7 @@ public class DialogOptionDisplay : MonoBehaviour
             dialogText = GameObject.Find("DialogText");
             dialogText.GetComponent<Text>().text = "";
         }
+       
         
     }
 
@@ -128,5 +136,17 @@ public class DialogOptionDisplay : MonoBehaviour
         {
             GetComponent<Image>().sprite = strategy5;
         }
+    }
+    public void SetKeyColors()
+    {
+      TextMeshProUGUI tmp=  transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        if (dialogOption.cost > 0)
+        {
+            tmp.color = Color.red;
+        }
+        if(dialogOption.cost<0)
+        {
+            tmp.color = Color.green;
+        }    
     }
 }

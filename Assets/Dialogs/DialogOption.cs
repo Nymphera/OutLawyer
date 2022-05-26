@@ -15,5 +15,5 @@ public class DialogOption : ScriptableObject
     [TextArea(3,10)]
     public string[] sentences;
     public AudioClip[] audioClips;
-    
+    public int cost=0;
 }

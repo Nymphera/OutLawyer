@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
 using System.Linq;
+using TMPro;
 
 public class DialogTreeCreator : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class DialogTreeCreator : MonoBehaviour
     private Canvas canvas;
 
     [SerializeField]
-    private GameObject levelPrefab,resultPrefab,talkingImagesPrefab;
+    private GameObject levelPrefab,resultPrefab,talkingImagesPrefab,keyPrefab;
 
     private Transform linesParent,dialogOptionsParent,crossPointsParent,treeParent;
 
@@ -131,9 +132,30 @@ public class DialogTreeCreator : MonoBehaviour
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().dialogOption = dialog.levels[i].DialogOptions[j];
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().buttonPosition = spawnPosition;
                 currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().RenderImage();   //zmienia grafikê dialogoption na odpowiedni¹ strategiê
-                //currentDialogOption.gameObject.AddComponent<Button>().onClick.AddListener(currentDialogOption.gameObject.GetComponent<DialogOptionDisplay>().Click);
                 
-                  //w³¹czanie dialogu funkcji Click
+
+                if (dialog.levels[i].DialogOptions[j].cost != 0)
+                {
+                    
+
+                    Vector3 position = currentDialogOption.transform.position + new Vector3(75, 0, 0);
+                    GameObject currentKey = Instantiate(keyPrefab, position, Quaternion.identity, currentDialogOption.transform).gameObject;
+                    TextMeshProUGUI tmp = currentKey.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+                    
+                    
+                    if (dialog.levels[i].DialogOptions[j].cost > 0)
+                    {
+                        tmp.text = "-" + dialog.levels[i].DialogOptions[j].cost;
+                        tmp.color = Color.red;
+                    }
+                    if (dialog.levels[i].DialogOptions[j].cost < 0)
+                    {
+                        tmp.text = "+" + Mathf.Abs(dialog.levels[i].DialogOptions[j].cost);
+                        tmp.color = Color.green;
+                    }
+
+                }
+               
                 
             }
         }
@@ -143,6 +165,9 @@ public class DialogTreeCreator : MonoBehaviour
     {
         GameObject obj=Instantiate(talkingImagesPrefab, treeParent.parent);
         obj.name = "TalkingImages";
+        Transform tr  = obj.transform.GetChild(4).GetChild(0);
+        TextMeshProUGUI tmp = tr.GetComponent<TextMeshProUGUI>();
+        tmp.text = "x" + GameManager.Instance.keyCount;
     }
     private void CreateLines()
     {

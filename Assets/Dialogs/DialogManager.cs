@@ -130,9 +130,11 @@ public class DialogManager : MonoBehaviour
 
             int length = dialogOption.earlierCrossPoint.ConectedDialogOptions.Length;
 
-            for (int i = 0; i < length; i++)
+        for (int i = 0; i < length; i++)
+        {
+            if (treeLawyer.GetComponent<DialogLawyer>().currentCrossPoint == dialogOption.earlierCrossPoint)
             {
-                if (treeLawyer.GetComponent<DialogLawyer>().currentCrossPoint == dialogOption.earlierCrossPoint)
+                if (dialogOption.cost == 0)
                 {
                     StartCoroutine(MoveLawyer(dialogOption, buttonPosition));
                     StartDialog(dialogOption);
@@ -140,11 +142,46 @@ public class DialogManager : MonoBehaviour
                     treeLawyer.GetComponent<DialogLawyer>().currentCrossPoint = dialogOption.nextCrossPoint;
 
                 }
+                else if (GameManager.Instance.keyCount >= dialogOption.cost)
+                {
+                    GameManager.Instance.keyCount -=dialogOption.cost;
+                    UseKey();
+                    GameObject obj = GameObject.Find(dialogOption.name).transform.GetChild(0).gameObject;
+                    Destroy(obj);
+
+                    StartCoroutine(MoveLawyer(dialogOption, buttonPosition));
+                    StartDialog(dialogOption);
+
+                    treeLawyer.GetComponent<DialogLawyer>().currentCrossPoint = dialogOption.nextCrossPoint;
+
+                }
+                else
+                {
+                    Debug.Log("You have not enough keys");
+
+                }
+
             }
+
+            
+        }
+
+
+
+       
         
        
         
     }
+
+    private void UseKey()
+    {
+        GameObject obj =GameObject.Find("TalkingImages");
+        Transform tr = obj.transform.GetChild(4).GetChild(0);
+        TextMeshProUGUI tmp = tr.GetComponent<TextMeshProUGUI>();
+        tmp.text = "x" + GameManager.Instance.keyCount;
+    }
+
     private IEnumerator PlayIntroduction()
     {
         UpdateDialogState(DialogState.introduction);

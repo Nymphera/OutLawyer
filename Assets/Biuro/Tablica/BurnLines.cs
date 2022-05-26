@@ -1,12 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BurnLines : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject key;
+    private int keyCount = 0;
+    private TextMeshProUGUI tmp;
     public void CheckAnswears()
     {
+        StopAllCoroutines();
         StartCoroutine(Burn());
+        tmp=key.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        tmp.text = "x" + keyCount;
     }
     private IEnumerator Burn()
     {
@@ -20,8 +29,10 @@ public class BurnLines : MonoBehaviour
         {
             if (!child.GetComponent<Line>().wasLineBurned) 
             {
+               
                 if (child.GetComponent<Line>().isConectionGood)
                 {
+                    
                     float startTime = Time.time;
                     while (Time.time - startTime < 1)
                     {
@@ -31,7 +42,8 @@ public class BurnLines : MonoBehaviour
                         yield return null;
                     }
                     child.GetComponent<LineRenderer>().material.color = Color.white;
-
+                    keyCount++;
+                    tmp.text = "x" + keyCount;
                 }
                 else
                 {
@@ -50,5 +62,6 @@ public class BurnLines : MonoBehaviour
             }
             
         }
+        GameManager.Instance.keyCount = keyCount;
     }
 }

@@ -6,10 +6,18 @@ using UnityEngine.UI;
 
 public class BurnLines : MonoBehaviour
 {
+    
     [SerializeField]
     private GameObject key;
     private int keyCount = 0;
     private TextMeshProUGUI tmp;
+    private void Start()
+    {
+        keyCount = GameManager.Instance.keyCount;
+        tmp = key.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        tmp.text = "x" + keyCount;
+        
+    }
     public void CheckAnswears()
     {
         StopAllCoroutines();
@@ -29,10 +37,11 @@ public class BurnLines : MonoBehaviour
         {
             if (!child.GetComponent<Line>().wasLineBurned) 
             {
-               
+                GameEvents.current.TriggerBurnLines(child.GetComponent<Line>());
                 if (child.GetComponent<Line>().isConectionGood)
                 {
                     
+
                     float startTime = Time.time;
                     while (Time.time - startTime < 1)
                     {
@@ -59,6 +68,7 @@ public class BurnLines : MonoBehaviour
 
                 }
                 child.GetComponent<Line>().wasLineBurned = true;
+                
             }
             
         }

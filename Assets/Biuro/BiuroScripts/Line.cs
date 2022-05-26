@@ -126,7 +126,7 @@ public class Line : MonoBehaviour
         }
         if (color == "Black")
         {
-            lineRenderer.material = White;
+            lineRenderer.material = Black;
             this.conectionType = ConectionType.Black;
         }
         if (color == "Grey")

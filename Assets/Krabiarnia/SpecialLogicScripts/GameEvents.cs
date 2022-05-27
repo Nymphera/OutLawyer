@@ -29,11 +29,11 @@ public class GameEvents : MonoBehaviour
     }
     public void TriggerBurnLines(Line line)
     {
-        onBurnLines(line);
+        onBurnLines?.Invoke(line);
     }
     public void TriggerLineCreated(Line line)
     {
-        onLineCreated(line);
+        onLineCreated?.Invoke(line);
     }
     
 }

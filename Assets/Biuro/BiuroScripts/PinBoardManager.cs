@@ -280,11 +280,13 @@ public class PinBoardManager : MonoBehaviour
             line.AddPoint(secondPoint);
             lines.Add(line);
             line.AddColliderToLine();
+            TriggerLineCreated(line);
         }
         
     }
     private void CreateLine(RaycastHit Hit)
     {
+        
         if (Hit.transform.gameObject.layer == 7)
         {
             currentEvidence = Hit.transform.parent.gameObject;
@@ -377,9 +379,11 @@ public class PinBoardManager : MonoBehaviour
 
         if (!isLineOverWhiteLine||isLineOverOtherLine)
         {
-            audioSource.PlayOneShot(wrongConectionClip);
             Debug.Log("Should be destroyed?");
-     
+            audioSource.PlayOneShot(wrongConectionClip);
+          
+            //????
+            
             Destroy(Line.gameObject);
         }
         else

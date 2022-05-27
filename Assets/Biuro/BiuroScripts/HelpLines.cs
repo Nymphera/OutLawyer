@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class HelpLines : MonoBehaviour
 {
+    
     [SerializeField]
     private GameObject RedButton, GreenButton, YellowButton, BlueButton;
     private Text redText, greenText, yellowText, blueText;
@@ -36,7 +37,7 @@ public class HelpLines : MonoBehaviour
     private void Awake()
     {
      Instance = this;
-        GameManager.OnGameStateChanged += Create_HelpLines;
+       
        
         PinBoardManager.OnLineCreated += OnLineCreated;
         PinBoardManager.OnLineDeleted += OnLineDeleted;
@@ -53,7 +54,7 @@ public class HelpLines : MonoBehaviour
     }
     private void OnDestroy()
     {
-        GameManager.OnGameStateChanged -= Create_HelpLines;
+        
         
         PinBoardManager.OnLineCreated -= OnLineCreated;
         PinBoardManager.OnLineDeleted -= OnLineDeleted;
@@ -75,7 +76,8 @@ public class HelpLines : MonoBehaviour
     private void OnLineCreated(Line line)
     {
         createdLines.Add(line);
-        
+       
+       
              for(int i = 0; i < lines.Count; i++)
              {
 
@@ -90,7 +92,7 @@ public class HelpLines : MonoBehaviour
 
              }
              }
-         //   LineCounter(line);
+        GameEvents.current.TriggerLineCreated(line);
         if (AreAllConectionsGood())
         {
             Debug.Log("You did gooood");    //tutaj event w kodzie
@@ -114,7 +116,7 @@ public class HelpLines : MonoBehaviour
 
     private void Start()
     {
-        Create_HelpLines(GameState.Office);
+        Create_HelpLines();
         
         LineCounter(null);      
   
@@ -232,13 +234,12 @@ public class HelpLines : MonoBehaviour
          button.GetComponent<Image>().color=color;
     }
 
-    public void Create_HelpLines(GameState state)
+    public void Create_HelpLines()
     {
-       
 
+        
 
-        if (state == GameState.Office)
-        {
+        
             SetAllTables();
 
             for (int i = 0; i < activeChildCount; i++)      //tablica dowodów
@@ -269,7 +270,7 @@ public class HelpLines : MonoBehaviour
                 }
             }
 
-        }
+        
     }
         private void SetAllTables()
     {

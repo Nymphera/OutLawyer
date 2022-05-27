@@ -14,10 +14,14 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> OnGameStateChanged;
 
     public int keyCount=0;
+    [SerializeField]
+    public List<LineData> createdLines= new List<LineData>();
     private void Awake()
     {
+        
+        PinBoardManager.OnLineDeleted += OnLineDeleted;
+        
 
-       
         if (Instance != null)
             Destroy(gameObject);
         else
@@ -28,6 +32,66 @@ public class GameManager : MonoBehaviour
 
         //OnGameStateChanged?.Invoke(GameState.Office);
     }
+    private void Start()
+    {
+        GameEvents.current.onBurnLines += OnnBurnLines;
+        GameEvents.current.onLineCreated += OnLineCreated;
+
+    }
+    private void OnDestroy()
+    {
+        GameEvents.current.onLineCreated -= OnLineCreated;
+        PinBoardManager.OnLineDeleted -= OnLineDeleted;
+        GameEvents.current.onBurnLines -= OnnBurnLines;
+    }
+    private void OnnBurnLines(Line line)
+    {
+        LineData lineData = new LineData();
+        lineData.firstEvidence = line.firstEvidence;
+        lineData.secondEvidence = line.secondEvidence;
+        lineData.isConectionGood = line.isConectionGood;
+        lineData.wasLineBurned = line.wasLineBurned;
+        lineData.conectionType = line.conectionType;
+
+        for (int i = 0; i < createdLines.Count; i++)
+        {
+            if (createdLines[i].firstEvidence == lineData.firstEvidence)
+                if(createdLines[i].secondEvidence== lineData.secondEvidence)
+                    if(lineData.conectionType == createdLines[i].conectionType)
+            {
+                createdLines[i].wasLineBurned = true;
+            }
+        }
+        
+    }
+
+    private void OnLineDeleted(Line line)
+    {
+        foreach(LineData lineData in createdLines)
+        {
+            if(lineData.firstEvidence == line.firstEvidence)
+                if(lineData.secondEvidence == line.secondEvidence)
+                   if (lineData.conectionType == line.conectionType)
+                    {
+                        createdLines.Remove(lineData);
+                        break;
+                    }
+                        
+        }
+    }
+
+    private void OnLineCreated(Line line)
+    {
+        LineData lineData=new LineData();
+        lineData.firstEvidence = line.firstEvidence;
+        lineData.secondEvidence = line.secondEvidence;
+        lineData.isConectionGood = line.isConectionGood;
+        lineData.wasLineBurned = line.wasLineBurned;
+        lineData.conectionType = line.conectionType;
+
+        createdLines.Add(lineData);
+    }
+
     private void Update()
     {
 

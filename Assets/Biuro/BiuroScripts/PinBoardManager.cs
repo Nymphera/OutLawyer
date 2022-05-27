@@ -81,7 +81,12 @@ public class PinBoardManager : MonoBehaviour
         GameControls.Game.GoBack.performed -= CursorToNeutral;
 
     }
-    
+    private void Start()
+    {
+        if (GameManager.Instance.createdLines.Count > 0)
+           
+        CreateLines(GameManager.Instance.createdLines.ToArray());
+    }
     private void OnMouseMove(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
 
@@ -228,7 +233,7 @@ public class PinBoardManager : MonoBehaviour
 
         if (lineToDestroy.tag == "ColliderLine"&&!line.wasLineBurned)
         {
-            OnLineDeleted(lineToDestroy.GetComponent<Line>());
+            TriggerLineDeleted(lineToDestroy.GetComponent<Line>());
             Cursor.SetCursor(scissorsTextureClosed, new Vector2(30, 30), CursorMode.Auto);
             audioSource.PlayOneShot(scissorsClip);
             lines.Remove(lineToDestroy.GetComponent<Line>());
@@ -241,8 +246,47 @@ public class PinBoardManager : MonoBehaviour
             
         }
     }
+    private void CreateLines(LineData[] lineData)
+    {
+        int count = lineData.Length;
+        foreach( LineData data in lineData)
+        {
+           Line line= Instantiate(linePrefab, lineParent).GetComponent<Line>();
+            line.firstEvidence = data.firstEvidence;
+            line.secondEvidence = data.secondEvidence;
+            line.conectionType = data.conectionType;
+            line.wasLineBurned = data.wasLineBurned;
+            line.isConectionGood = data.isConectionGood;
+            if (line.wasLineBurned)
+            {
+                if (line.isConectionGood)
+                    line.conectionType = ConectionType.White;
+                else
+                    line.conectionType = ConectionType.Black;
+
+            }
+            line.SetColor(line.conectionType.ToString());
+            
+            GameObject obj= GameObject.Find(line.firstEvidence.Name);
+            
+            Vector3 firstPoint = obj.transform.GetChild(1).position;
+           
+            line.AddPoint(firstPoint);
+            
+            GameObject obj2 = GameObject.Find(line.secondEvidence.Name);
+           
+            Vector3 secondPoint = obj2.transform.GetChild(1).position;
+            
+            line.AddPoint(secondPoint);
+            lines.Add(line);
+            line.AddColliderToLine();
+            TriggerLineCreated(line);
+        }
+        
+    }
     private void CreateLine(RaycastHit Hit)
     {
+        
         if (Hit.transform.gameObject.layer == 7)
         {
             currentEvidence = Hit.transform.parent.gameObject;
@@ -335,16 +379,18 @@ public class PinBoardManager : MonoBehaviour
 
         if (!isLineOverWhiteLine||isLineOverOtherLine)
         {
-            audioSource.PlayOneShot(wrongConectionClip);
             Debug.Log("Should be destroyed?");
-     
+            audioSource.PlayOneShot(wrongConectionClip);
+          
+            //????
+            
             Destroy(Line.gameObject);
         }
         else
         {
             CountLines(Line, true);
             lines.Add(Line);
-            OnLineCreated(Line);
+            TriggerLineCreated(Line);
             audioSource.PlayOneShot(stringClip);
             Line.AddColliderToLine();
             StartCoroutine(Line.AnimateLine());
@@ -358,6 +404,14 @@ public class PinBoardManager : MonoBehaviour
         isLineOverOtherLine = false;
         isLineOverWhiteLine = false;
 
+    }
+    public void TriggerLineCreated(Line line)
+    {
+        OnLineCreated(line);
+    }
+    public void TriggerLineDeleted(Line line)
+    {
+        OnLineDeleted(line);
     }
     private void CursorToNeutral(InputAction.CallbackContext obj)
     {

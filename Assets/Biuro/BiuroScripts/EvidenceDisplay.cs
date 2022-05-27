@@ -39,16 +39,17 @@ public class EvidenceDisplay : MonoBehaviour
         Evidence.Layer = 7;
        
             SpriteRender();
-        ConectionRender();
+        
         if (Evidence.orientation.ToString() == "Vertical")
         {
             Plane.transform.rotation = Quaternion.Euler(0, -90, 0);
         }
+        SetObjectName();
         ConclusionRender();
     }
-    private void ConectionRender()
+    private void SetObjectName()
     {
-        
+        transform.name = Evidence.Name;
     }
     void ConclusionRender()
     { 

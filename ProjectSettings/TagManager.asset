@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Interact
   - Interact2
+  - ColliderLine
+  - CinemachineTarget
+  - Negotiations
+  - Doors
   layers:
   - Default
   - TransparentFX
@@ -17,7 +21,7 @@ TagManager:
   - Evidence
   - PinBoardUI
   - Line
-  - 
+  - UIDialogs
   - 
   - 
   - 

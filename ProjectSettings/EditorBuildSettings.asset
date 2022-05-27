@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Biuro.unity
     guid: a8c238da6df248f4e9c40aaa3abedf75
+  - enabled: 1
+    path: Assets/Scenes/Dialogs.unity
+    guid: 5bd358dab3befbc41bef129531cdfff1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 4d443bc9c6c06b8419af36a4fc7cde0d, type: 2}

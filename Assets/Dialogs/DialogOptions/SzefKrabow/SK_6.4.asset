@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: SK_6.4
+  m_EditorClassIdentifier: 
+  text: "Chyba ci to na r\u0119k\u0119"
+  nextCrossPoint: {fileID: 11400000, guid: 0009542ddff6b884fbc16509865e5adf, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: b00a1f1c550befc438520299d54a2a02, type: 2}
+  strategy: 1
+  sentences:
+  - "Lojer: Niby ci szkoda hodowcy, ale chyba nie odda\u0142by\u015B tego fotela
+    bez walki."
+  - "Szef Krab\xF3w: C\xF3\u017C\u2026jest bardzo wygodny. I dodaje mi powagi."
+  - "Lojer: Oczywi\u015Bcie, \u017Ce tak."
+  audioClips: []

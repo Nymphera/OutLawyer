@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: SK_5.4
+  m_EditorClassIdentifier: 
+  text: Co hodowca na Aldhesta?
+  nextCrossPoint: {fileID: 11400000, guid: b00a1f1c550befc438520299d54a2a02, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: 611965085ce4614439684358292cd3eb, type: 2}
+  strategy: 2
+  sentences:
+  - "Lojer: Jakie s\u0105 relacje hodowcy z Aldhestem?\r\n"
+  - "Szef Krab\xF3w: Hodowca ma prze\u017Carty m\xF3zg!\r\n"
+  - "Szef Krab\xF3w: Aldhest omami\u0142 go ju\u017C wieki temu. Gdyby nie jego wp\u0142ywy,
+    Patrickowi pewnie wcale nie chcia\u0142oby si\u0119 nami zajmowa\u0107."
+  - 'Lojer: Jest tutaj niewolnikiem?'
+  - "Szef Krab\xF3w: Jego zdaniem jest tu szcz\u0119\u015Bliwy. Z reszt\u0105 gdyby
+    nie Patrick, nie by\u0142oby tu ani mnie ani ciebie."
+  - "Szef Krab\xF3w: W sumie szkoda ch\u0142opa. Ale biznes to brutalny \u015Bwiat."
+  - "Szef Krab\xF3w: Musia\u0142em przej\u0105\u0107 w\u0142adz\u0119."
+  audioClips: []

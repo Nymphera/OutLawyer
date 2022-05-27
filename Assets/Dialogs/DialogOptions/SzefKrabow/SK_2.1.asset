@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: SK_2.1
+  m_EditorClassIdentifier: 
+  text: "Diabelstwa s\u0105 niestrawne"
+  nextCrossPoint: {fileID: 11400000, guid: 08eaa5c02aff79f419e0ca6c7e30e7ef, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: 9e763dd7ea8b2f748ac68af728ad99e9, type: 2}
+  strategy: 4
+  sentences:
+  - "Lojer: Obawiam si\u0119, \u017Ce twoje kraby mog\u0142yby si\u0119 pochorowa\u0107.\r\n"
+  - "Szef Krab\xF3w: Grozisz im?\r\n"
+  - "Lojer: Nie \u015Bmia\u0142bym."
+  - "Lojer: Po prostu my, diabelstwa, jeste\u015Bmy ci\u0119\u017Ckostrawne."
+  - 'Lojer: I mamy ostry dowcip nie bez powodu.
+
+'
+  - "Szef Krab\xF3w:  Mi\u0142o, \u017Ce dbasz o zdrowie moich podw\u0142adnych."
+  - "Szef Krab\xF3w:  Jak przyj\u0119li ci\u0119 tu moi ludzie?"
+  audioClips: []

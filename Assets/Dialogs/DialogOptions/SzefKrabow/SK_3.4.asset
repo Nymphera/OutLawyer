@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: SK_3.4
+  m_EditorClassIdentifier: 
+  text: "To nie fotel na cz\u0142owieka?"
+  nextCrossPoint: {fileID: 11400000, guid: 009a0cd5d08181243bd50f7ad3b993dd, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: b24357a6a52226746b00440f6215b6f4, type: 2}
+  strategy: 1
+  sentences:
+  - "Lojer:  Jak na takiego ma\u0142ego szefa, to ca\u0142kiem spory gabinet."
+  - "Szef Krab\xF3w: Reszt\u0119 miejsca zajmuje moje ego."
+  - "Lojer: Nie da si\u0119 nie zauwa\u017Cy\u0107\u2026"
+  - "Lojer: \u2026Ale jeszcze ci\u0119\u017Cej zauwa\u017Cy\u0107 szefa zza tego
+    gargantuicznego fotela."
+  - "Szef Krab\xF3w:  W\u0142a\u015Bciwie, wcze\u015Bniej w tym gabinecie urz\u0119dowa\u0142
+    Patrick. Nasz ex-hodowca."
+  - "Szef Krab\xF3w:  Ale ze wzgl\u0119du na jego niedo\u0142\u0119\u017Cno\u015B\u0107
+    wyeksmitowali\u015Bmy go na dach budynku. Ale kto\u015B musia\u0142 zaj\u0105\u0107
+    si\u0119 krabami."
+  - "Szef Krab\xF3w:  Dlatego w\u0142adz\u0119 przej\u0105\u0142em tu ja! Nie ma
+    kto ju\u017C zajmowa\u0107 si\u0119 Aldhestem, z reszt\u0105 ca\u0142e szcz\u0119\u015Bcie."
+  - "Lojer: Interesuj\u0105ce\u2026"
+  - "Szef Krab\xF3w:  Ale do\u015B\u0107 o nim! To ja tu jestem szefem!\r\n"
+  audioClips: []

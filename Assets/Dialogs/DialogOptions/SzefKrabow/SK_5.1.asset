@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: SK_5.1
+  m_EditorClassIdentifier: 
+  text: "Mog\u0119 si\u0119 na co\u015B przyda\u0107?"
+  nextCrossPoint: {fileID: 11400000, guid: 04e1d128658e9714693679af5380d762, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: 3d12f036faf6a7647b65d20329749afb, type: 2}
+  strategy: 4
+  sentences:
+  - "Lojer: Czy taki ma\u0142y adwokat jak ja, mo\u017Ce co\u015B zrobi\u0107 dla
+    takiego znamienitego szefa?"
+  - "Szef Krab\xF3w:  Adwokat, adwokat\u2026"
+  - "Szef Krab\xF3w:  A \u017Cebym ja jeszcze wiedzia\u0142, czym si\u0119 zajmuje
+    adwokat!"
+  - "Lojer: Ach, ju\u017C t\u0142umacz\u0119, szefie."
+  - "Lojer: Dbam o to, by szef m\xF3g\u0142 spa\u0107 spokojnie."
+  - "Szef Krab\xF3w: Jeste\u015B opiekunk\u0105 do krab\xF3w? Dobrze, przydasz si\u0119
+    przy inkubatorach!"
+  - "Lojer: Uch\u2026nie do ko\u0144ca o to mi chodzi\u0142o."
+  - "Lojer: Pilnuj\u0119 interes\xF3w szefa. Za\u0142atwiam \u017Ceby problemy znika\u0142y.
+    Broni\u0119 szefa w s\u0105dzie."
+  - "Szef Krab\xF3w:  Czyli by\u0142by\u015B moim ochroniarzem?"
+  - "Lojer: Tak jakby\u2026tylko ja broni\u0119 szefa liter\u0105 prawa i sprytnym
+    s\u0142owem."
+  - "Szef Krab\xF3w:  Powiedz po prostu, \u017Ce mam ci p\u0142aci\u0107 za gadanie!"
+  audioClips: []

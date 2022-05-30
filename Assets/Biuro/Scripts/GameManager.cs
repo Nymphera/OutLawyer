@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public int keyCount=0;
     [SerializeField]
     public List<LineData> createdLines= new List<LineData>();
+    [SerializeField]
+    private List<Evidence> unlockedEvidences= new List<Evidence>();
     private void Awake()
     {
         
@@ -30,19 +32,31 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-        //OnGameStateChanged?.Invoke(GameState.Office);
+       
     }
     private void Start()
     {
         GameEvents.current.onBurnLines += OnnBurnLines;
         GameEvents.current.onLineCreated += OnLineCreated;
-
+        GameEvents.current.onEvidneceUnlocked += UnlockEvidence;
     }
+
+   
+
     private void OnDestroy()
     {
+        GameEvents.current.onEvidneceUnlocked -= UnlockEvidence;
         GameEvents.current.onLineCreated -= OnLineCreated;
         PinBoardManager.OnLineDeleted -= OnLineDeleted;
         GameEvents.current.onBurnLines -= OnnBurnLines;
+    }
+    private void UnlockEvidence(Evidence evidence)
+    {
+        unlockedEvidences.Add(evidence);
+    }
+    public Evidence[] GetUnlockedEvidences()
+    {
+        return unlockedEvidences.ToArray();
     }
     private void OnnBurnLines(Line line)
     {

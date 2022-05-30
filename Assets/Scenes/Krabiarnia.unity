@@ -3236,6 +3236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f46a24cb5528934f9fd37dd4e220f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  one: {fileID: 11400000, guid: 733436fcea2146f4b8bd7476289a5912, type: 2}
+  two: {fileID: 11400000, guid: bfb5b1fa548aa5341bed0b64b786d7f1, type: 2}
 --- !u!65 &1403902649
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6607,6 +6609,7 @@ MonoBehaviour:
   CurrentState: 0
   keyCount: 0
   createdLines: []
+  unlockedEvidences: []
 --- !u!4 &1901013564
 Transform:
   m_ObjectHideFlags: 0

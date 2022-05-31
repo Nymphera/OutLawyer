@@ -38,8 +38,8 @@ public class GameEvents : MonoBehaviour
     }
     public void TriggerEvidenceUnlocked(Evidence evidence)
     {
-        Debug.Log("trigger");
-        onEvidneceUnlocked(evidence);
+        
+        onEvidneceUnlocked?.Invoke(evidence);
     }
     
 }

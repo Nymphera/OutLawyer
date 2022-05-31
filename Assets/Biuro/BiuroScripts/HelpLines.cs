@@ -65,7 +65,7 @@ public class HelpLines : MonoBehaviour
     {
         ShowEvidences();
 
-        Create_HelpLines();
+       // Create_HelpLines();
 
        
 
@@ -73,12 +73,17 @@ public class HelpLines : MonoBehaviour
     }
 
     private void ShowEvidences()
-    {   
-        Evidence[] shown = GameManager.Instance.GetUnlockedEvidences();
-        foreach(Evidence evidence in shown)
+    {
+        
+        
+        Evidence[] unlockedEV  = GameManager.Instance.GetUnlockedEvidences();
+        foreach(Evidence evidence in unlockedEV)
         {
             EvidenceUnlocked(evidence);
         }
+        
+        
+        Create_HelpLines();
     }
 
     private void OnLineDeleted(Line line)
@@ -328,15 +333,22 @@ public class HelpLines : MonoBehaviour
     
     private void EvidenceUnlocked(Evidence evidence)
     {
-        Debug.Log(evidence);
+        childCount = transform.childCount;
+        childs = new Transform[childCount];
+        for (int i = 0; i < childCount; i++)                // pêtla dodaj¹ca wszystkie dowody do tablicy ACTIVE
+        {
+            childs[i] = transform.GetChild(i);
+        }
         for (int i = 0; i < childCount; i++)
         {
+            Debug.Log("123");
+            Debug.Log(childs[i].GetComponent<EvidenceDisplay>().Evidence);
             if (childs[i].GetComponent<EvidenceDisplay>().Evidence == evidence)
             {
                 childs[i].gameObject.SetActive(true);
             }
         }
-        Create_HelpLines();
+       
         
     }
  

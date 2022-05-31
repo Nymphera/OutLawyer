@@ -10,7 +10,7 @@ public class SceneLoad : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         LoadOffice();
-        GameEvents.current.TriggerEvidenceUnlocked(one);
+        
         
     }
  
@@ -18,6 +18,7 @@ public class SceneLoad : MonoBehaviour
     {
         SceneManager.LoadScene("Biuro");
         GameManager.Instance.UpdateGameState(GameState.Office);
+        GameEvents.current.TriggerEvidenceUnlocked(one);
         GameEvents.current.TriggerEvidenceUnlocked(two);
     }
    

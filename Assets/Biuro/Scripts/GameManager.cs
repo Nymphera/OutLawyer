@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     }
     private void UnlockEvidence(Evidence evidence)
     {
+        
         unlockedEvidences.Add(evidence);
     }
     public Evidence[] GetUnlockedEvidences()

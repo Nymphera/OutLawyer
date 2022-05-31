@@ -128,6 +128,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Move:
                 {
+                    
                     isMoveEnabled = true;
                     isInputEnabled = true;
                     Cursor.lockState = CursorLockMode.Locked;

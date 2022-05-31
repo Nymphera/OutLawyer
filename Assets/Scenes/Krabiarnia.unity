@@ -3237,6 +3237,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   one: {fileID: 11400000, guid: 733436fcea2146f4b8bd7476289a5912, type: 2}
   two: {fileID: 11400000, guid: bfb5b1fa548aa5341bed0b64b786d7f1, type: 2}
+  three: {fileID: 11400000, guid: 74a6c70194c064346ad8507321db7c00, type: 2}
+  four: {fileID: 11400000, guid: 07acbc4171e05334e8b1dd9579e26d28, type: 2}
+  five: {fileID: 11400000, guid: bfb5b1fa548aa5341bed0b64b786d7f1, type: 2}
+  six: {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
+  seven: {fileID: 11400000, guid: 1d3f36e34a97bc44b8dcef275e5c2ad8, type: 2}
+  eight: {fileID: 11400000, guid: 5b388a1d38feb2e43aab0aa49525f16c, type: 2}
+  nine: {fileID: 11400000, guid: 6de378c21d0440b45b602702f79f8d16, type: 2}
+  ten: {fileID: 11400000, guid: c7bc2e4253c905248bc81887a60559a4, type: 2}
+  eleven: {fileID: 11400000, guid: d08a7f03284e5604387582cf887035ca, type: 2}
+  twelve: {fileID: 11400000, guid: 0b83b2661fab8c4499482e13b62a4a84, type: 2}
 --- !u!65 &1403902649
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -305,6 +305,10 @@ public class PinBoardManager : MonoBehaviour
                 
             }
         }
+        else if(evidences[0]!= null)
+        {
+            EndLine();
+        }
     }
 
     private void StartLine()
@@ -379,7 +383,7 @@ public class PinBoardManager : MonoBehaviour
 
         if (!isLineOverWhiteLine||isLineOverOtherLine)
         {
-            Debug.Log("Should be destroyed?");
+            
             audioSource.PlayOneShot(wrongConectionClip);
           
             //????
@@ -395,9 +399,10 @@ public class PinBoardManager : MonoBehaviour
             Line.AddColliderToLine();
             StartCoroutine(Line.AnimateLine());
         }
-       
-       
-        
+        if (Line.secondEvidence == null)
+            Destroy(Line.gameObject);
+
+
 
         evidences[0] = null;
         evidences[1] = null;
@@ -415,6 +420,7 @@ public class PinBoardManager : MonoBehaviour
     }
     private void CursorToNeutral(InputAction.CallbackContext obj)
     {
+        EndLine();
         Cursor.SetCursor(neutralTexture, Vector2.zero, CursorMode.Auto);
         currentState = PinBoardState.Neutral;
         
@@ -423,39 +429,39 @@ public class PinBoardManager : MonoBehaviour
     {
         Cursor.SetCursor(yellowWoolTexture, Vector2.zero, CursorMode.Auto);
         currentState = PinBoardState.CreateYellow;
-       
+        EndLine();
     }
 
     public void CursorToBlue()
     {
         Cursor.SetCursor(blueWoolTexture, Vector2.zero, CursorMode.Auto);
         currentState = PinBoardState.CreateBlue;
-       
+        EndLine();
     }
 
     public void CursorToRed()
     {
         Cursor.SetCursor(redWoolTexture, Vector2.zero, CursorMode.Auto);
         currentState = PinBoardState.CreateRed;
-       
+        EndLine();
     }
 
     public void CursorToGreen()
     {
         Cursor.SetCursor(greenWoolTexture, Vector2.zero, CursorMode.Auto);
         currentState = PinBoardState.CreateGreen;
-        
+        EndLine();
     }
     public void CursorToScisors()
     {
         Cursor.SetCursor(scissorsTextureOpen, new Vector2(30,30), CursorMode.Auto);
         currentState = PinBoardState.Delete;
-        
+        EndLine();
     }
     public void Burn()
     {
         currentState = PinBoardState.Burned;
-
+        EndLine();
     }
 }
 public enum PinBoardState

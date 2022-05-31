@@ -7,6 +7,7 @@ public class TriggerDialog : MonoBehaviour
 {
     [SerializeField]
     private bool startDialog=false;
+    private bool wasDialogPlayed=false;
     public static event Action<Dialog> OnTriggerDialog;
     [SerializeField]
     private Dialog dialogToTrigger;
@@ -16,12 +17,14 @@ public class TriggerDialog : MonoBehaviour
         Debug.Log(dialogToTrigger.name);
 
         startDialog = true;
+        
     }
     private void Update()
     {
         
-        if (startDialog)
+        if (startDialog&&!wasDialogPlayed)
         {
+            wasDialogPlayed = true;
             startDialog = false;
             CameraControllerKrabiarnia.Instance.SwitchState("DialogWithKrabiarz");
             

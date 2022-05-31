@@ -6,11 +6,12 @@ using UnityEngine;
 public class HandEvaluator : Card
 {
  
-    private Card[] cards=new Card[7];
+    private Card[] cards;
     private HandValue handValue;
     private int spadesSum, heartSum, clubsSum, diamondSum;
     public HandEvaluator(Card[] playerCards,Card[] tableCards)
     {
+        cards = new Card[playerCards.Length + tableCards.Length];
         handValue = new HandValue();
         for (int i = 0; i<cards.Length; i++)
         {
@@ -28,26 +29,54 @@ public class HandEvaluator : Card
     {
         SortCards();
         GetNumberOfSuits();
-        if (KingPoker())
-            return Hand.KingPoker;
-        else if (Poker())
-            return Hand.Poker;
-        else if (FourKind())
-            return Hand.FourKind;
-        else if (FullHouse())
-            return Hand.FullHouse;
-        else if (Flush())
-            return Hand.Flush;
-        else if (Straight())
-            return Hand.Straight;
-        else if (ThreeKind())
-            return Hand.ThreeKind;
-        else if (TwoPairs())
-            return Hand.TwoPairs;
-        else if (OnePair())
-            return Hand.OnePair;
-        else return Hand.Nothing;
+        if (cards.Length >= 5)
+        {
+            if (KingPoker())
+                return Hand.KingPoker;
+            else if (Poker())
+                return Hand.Poker;
+            else if (FourKind())
+                return Hand.FourKind;
+            else if (FullHouse())
+                return Hand.FullHouse;
+            else if (Flush())
+                return Hand.Flush;
+            else if (Straight())
+                return Hand.Straight;
+            else if (ThreeKind())
+                return Hand.ThreeKind;
+            else if (TwoPairs())
+                return Hand.TwoPairs;
+            else if (OnePair())
+                return Hand.OnePair;
+            else return Hand.Nothing;
 
+        }
+         if (cards.Length >= 4)
+        {
+            if (ThreeKind())
+                return Hand.ThreeKind;
+            else if (TwoPairs())
+                return Hand.TwoPairs;
+            else if (OnePair())
+                return Hand.OnePair;
+            else return Hand.Nothing;
+        }
+         if (cards.Length >= 3 )
+        {
+            if (ThreeKind())
+                return Hand.ThreeKind;
+            else if (OnePair())
+                return Hand.OnePair;
+            else return Hand.Nothing;
+        }
+        if (cards.Length >= 1)
+        {
+            if (OnePair())
+                return Hand.OnePair;
+            else return Hand.Nothing;
+        }
+        else return Hand.Nothing;
     }
 
     private void SortCards()
@@ -119,7 +148,8 @@ public class HandEvaluator : Card
     }
     private bool FullHouse()
     {
-        for (int i = 0; i < 3; i++)
+        
+        for (int i = 0; i < cards.Length-4; i++)
         {
             //para przed trójk¹
             if (cards[i].MyValue == cards[i + 1].MyValue && cards[i].MyValue != cards[i + 2].MyValue)
@@ -152,7 +182,7 @@ public class HandEvaluator : Card
     }
     private bool Straight()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < cards.Length-4; i++)
         {
             if(cards[i].MyValue+1== cards[i+1].MyValue&& cards[i+1].MyValue + 1 == cards[i + 2].MyValue
                 && cards[i+2].MyValue + 1 == cards[i + 3].MyValue&& cards[i+3].MyValue + 1 == cards[i + 4].MyValue)
@@ -164,7 +194,7 @@ public class HandEvaluator : Card
     }
     private bool ThreeKind()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < cards.Length-2; i++)
         {
             if (cards[i].MyValue == cards[i + 1].MyValue && cards[i].MyValue == cards[i + 2].MyValue)
                 return true;
@@ -173,7 +203,7 @@ public class HandEvaluator : Card
     }
     private bool TwoPairs()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < cards.Length-3; i++)
         {
             if (cards[i].MyValue == cards[i + 1].MyValue)
             {

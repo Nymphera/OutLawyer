@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,7 @@ public class NegotiationsManager : MonoBehaviour
     private GameObject cardPrefab;
     [SerializeField]
     private Transform playerParent, computerParent, tableParent;
+    
     private Card[] playerCards, computerCards, tableCards;
     private CardSpawner cardSpawner;
     private Negotiations negotiations;
@@ -27,6 +29,7 @@ public class NegotiationsManager : MonoBehaviour
 
         canvas = GameObject.Find("NegotiationsCanvas");
         canvas.SetActive(false);
+        
     }
     private void OnDestroy()
     {
@@ -66,22 +69,40 @@ public class NegotiationsManager : MonoBehaviour
 
     private void HandleLose()
     {
-        
+        CameraControllerKrabiarnia.Instance.SwitchState("Player");
     }
 
     private void HandleVictory()
     {
-        
+        CameraControllerKrabiarnia.Instance.SwitchState("Player");
+        canvas.SetActive(false);
     }
 
     private void HandleDecide()
     {
-      
+        if (!tableCards[4].isFronted)
+        {
+            UpdateNegotiationState(NegotiationState.ComputerTurn);
+        }
+        else
+        {
+            StartCoroutine(WaitForVeridct());
+            
+            
+        }
+    }
+
+    private IEnumerator WaitForVeridct()
+    {
+        yield return new WaitForSeconds(2f);
+        UpdateNegotiationState(NegotiationState.Victory);
+
     }
 
     private void HandleComputerTurn()
     {
-        
+        Debug.Log("Computer goes brrrrr");
+        UpdateNegotiationState(NegotiationState.PlayerTurn);
     }
 
     private void HandlePlayerTurn()
@@ -111,6 +132,7 @@ public class NegotiationsManager : MonoBehaviour
 
         negotiations = new Negotiations(cardPrefab, playerParent, computerParent, tableParent);
        // cardSpawner = new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
+       
        negotiations.cardSpawner.spawnCards();
         GetCards();
 
@@ -128,7 +150,7 @@ public class NegotiationsManager : MonoBehaviour
         canvas.SetActive(true);
         yield return null;
         negotiations.ChooseNegotiationsType();
-        negotiations.PlayerTurn();
+        UpdatePlayerHandValue();
     }
 
     private IEnumerator AnimateDealing(Card[] cards,Transform parent)
@@ -159,7 +181,30 @@ public class NegotiationsManager : MonoBehaviour
     {
         StartCoroutine(tableCards[cardNumber].Rotate());
         cardNumber++;
+       
+        UpdatePlayerHandValue();
+        UpdateNegotiationState(NegotiationState.Decide);
     }
+
+    
+
+    private void UpdatePlayerHandValue()
+    {
+        Card[] valuatedCards = new Card[cardNumber];
+        for(int i = 0; i < valuatedCards.Length; i++)
+        {           
+                valuatedCards[i] =tableCards[i];
+            Debug.Log(valuatedCards[i].MyValue);
+        }
+        Debug.Log(cardNumber);
+        HandEvaluator playerHandEvaluator = new HandEvaluator(playerCards, valuatedCards);
+        Hand playerHand = playerHandEvaluator.EvaluateHand();
+        
+        Debug.Log($"Player has {playerHand}");
+        GameObject.Find("HandValueINT").GetComponent<TextMeshProUGUI>().text = ((int)playerHand).ToString();
+        GameObject.Find("HandValueText").GetComponent<TextMeshProUGUI>().text = playerHand.ToString();
+    }
+
     private void GetCards()
     {
         playerCards = new Card[2];

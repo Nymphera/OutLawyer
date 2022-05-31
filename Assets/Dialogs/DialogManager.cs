@@ -70,8 +70,10 @@ public class DialogManager : MonoBehaviour
             case DialogState.displaySentences:
                 break;
             case DialogState.victory:
+                UpdateGameState();
                 break;
             case DialogState.lose:
+                UpdateGameState();
                 break;
             case DialogState.valuate:
                 break;
@@ -79,16 +81,37 @@ public class DialogManager : MonoBehaviour
         }
         currentState = newState;
     }
+
+    private void UpdateGameState()
+    {
+        CameraControllerKrabiarnia.Instance.SwitchState("Player");
+        backGround.SetActive(false);
+        for(int i = 1; i < tree.childCount; i++)
+        {
+            Destroy(tree.GetChild(i).gameObject);
+            
+        }
+        Destroy(GameObject.Find("TalkingImages"));
+        dialog = null;
+    }
+
+    private void Victory(Transform result)
+    {
+        Debug.Log(result);
+    }
+
     public void StartDialog()
     {
         
+
         treeLawyer = GameObject.Find("lawyerIcon");     
         dialogText = GameObject.Find("DialogText");        
         backGround.SetActive(true);
         audioSource = gameObject.GetComponent<AudioSource>();
         tree = treeLawyer.transform.parent;
         Results = GameObject.Find("Results");
-      
+        Debug.Log(tree.position);
+        
 
         ClearResultsBars();
 
@@ -125,9 +148,6 @@ public class DialogManager : MonoBehaviour
 
     private void DialogOptionDisplay_OnDialogButtonClicked(DialogOption dialogOption, Vector3 buttonPosition)
     {
-
-        
-
             int length = dialogOption.earlierCrossPoint.ConectedDialogOptions.Length;
 
         for (int i = 0; i < length; i++)
@@ -164,13 +184,7 @@ public class DialogManager : MonoBehaviour
             }
 
             
-        }
-
-
-
-       
-        
-       
+        }     
         
     }
 
@@ -278,7 +292,32 @@ public class DialogManager : MonoBehaviour
         dialogText.GetComponent<Text>().text = "";
         //Results.SetActive(true);
         isDialogEnded = true;
-        UpdateDialogState(DialogState.playerTurn);
+        ValuateEnding();
+       
+    }
+
+    private void ValuateEnding()
+    {
+        UpdateDialogState(DialogState.valuate);
+        for (int i = 0; i < 5; i++)
+        {
+           if( bars[i].GetComponent<Image>().fillAmount >= 1f)
+            {
+                Victory(bars[i].transform.parent);
+                UpdateDialogState(DialogState.victory);
+                break;
+            }
+            
+            
+        }
+        if (treeLawyer.GetComponent<DialogLawyer>().currentCrossPoint.ConectedDialogOptions.Length == 0)
+        {
+            UpdateDialogState(DialogState.lose);
+        }
+        else
+        {
+            UpdateDialogState(DialogState.playerTurn);
+        }
     }
 
     /// <summary>

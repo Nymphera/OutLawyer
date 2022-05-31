@@ -15,6 +15,7 @@ public class GameEvents : MonoBehaviour
     public event Action onNegotiationsStarted;
     public event Action <Line>onBurnLines;
     public event Action<Line> onLineCreated;
+    public event Action<Evidence> onEvidneceUnlocked;
     public void DoorMouseClick(int id,bool doorState)
     {
         onDoorMouseClick(id,doorState);
@@ -34,6 +35,11 @@ public class GameEvents : MonoBehaviour
     public void TriggerLineCreated(Line line)
     {
         onLineCreated?.Invoke(line);
+    }
+    public void TriggerEvidenceUnlocked(Evidence evidence)
+    {
+        
+        onEvidneceUnlocked?.Invoke(evidence);
     }
     
 }

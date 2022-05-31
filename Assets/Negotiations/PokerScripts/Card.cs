@@ -42,7 +42,7 @@ public class Card
         }
             
         cardObject.transform.Rotate(0, 0, 0);
-
+       
     } 
     public IEnumerator Deal(Vector3 endPosition)
     {

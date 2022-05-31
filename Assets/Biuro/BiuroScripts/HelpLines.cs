@@ -41,6 +41,7 @@ public class HelpLines : MonoBehaviour
        
         PinBoardManager.OnLineCreated += OnLineCreated;
         PinBoardManager.OnLineDeleted += OnLineDeleted;
+        
 
         RedButton = GameObject.Find("RedButton");
         GreenButton = GameObject.Find("GreenButton");
@@ -58,7 +59,33 @@ public class HelpLines : MonoBehaviour
         
         PinBoardManager.OnLineCreated -= OnLineCreated;
         PinBoardManager.OnLineDeleted -= OnLineDeleted;
+        
     }
+    private void Start()
+    {
+        ShowEvidences();
+
+       // Create_HelpLines();
+
+       
+
+
+    }
+
+    private void ShowEvidences()
+    {
+        
+        
+        Evidence[] unlockedEV  = GameManager.Instance.GetUnlockedEvidences();
+        foreach(Evidence evidence in unlockedEV)
+        {
+            EvidenceUnlocked(evidence);
+        }
+        
+        
+        Create_HelpLines();
+    }
+
     private void OnLineDeleted(Line line)
     {
         createdLines.Remove(line);
@@ -93,35 +120,9 @@ public class HelpLines : MonoBehaviour
              }
              }
         GameEvents.current.TriggerLineCreated(line);
-        if (AreAllConectionsGood())
-        {
-            Debug.Log("You did gooood");    //tutaj event w kodzie
-        }
-    }
-
-    private bool AreAllConectionsGood()
-    { bool returnValue=true;
-        for(int i = 0; i < lines.Count; i++)
-        {
-            if (lines[i].isConectionGood != true)
-            {
-                returnValue= false;
-                Debug.Log("not yet");
-                break;
-            }
-            
-        }
-        return returnValue;
-    }
-
-    private void Start()
-    {
-        Create_HelpLines();
         
-        LineCounter(null);      
-  
-       
     }
+
 
     private void LineCounter(Line line)
     {
@@ -236,43 +237,56 @@ public class HelpLines : MonoBehaviour
 
     public void Create_HelpLines()
     {
+        DestroyOldLines();
+        SetAllTables();
 
-        
 
-        
-            SetAllTables();
+        for (int i = 0; i < activeChildCount; i++)      //tablica dowodów
+        {
 
-            for (int i = 0; i < activeChildCount; i++)      //tablica dowodów
+            for (int j = 0; j < activeChildCount; j++)      // tablica po³¹czeñ
             {
-
-                for (int j = 0; j < activeChildCount; j++)      // tablica po³¹czeñ
+                int conectionsCount = evidences[j].Conections.Length;
+                if (i < j)
                 {
-                    int conectionsCount = evidences[j].Conections.Length;
-                    if (i < j)
+                    for (int k = 0; k < conectionsCount; k++)
                     {
-                        for (int k = 0; k < conectionsCount; k++)
+                        if (evidences[i] == evidences[j].Conections[k].conected)
                         {
-                            if (evidences[i] == evidences[j].Conections[k].conected)
-                            {
-                                Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
-                                Line.firstEvidence = evidences[i];
-                                Line.secondEvidence = evidences[j];
-                                Line.conectionType = evidences[j].Conections[k].ConectionType;
-                                Line.SetColor("Grey");
-                                Line.AddPoint(points[i]);
-                                Line.AddPoint(points[j]);
-                               // Line.Render();
-                                lines.Add(Line);
-                                
-                            }
+                            Line = Instantiate(linePrefab, LineParent).GetComponent<Line>();
+                            Line.firstEvidence = evidences[i];
+                            Line.secondEvidence = evidences[j];
+                            Line.conectionType = evidences[j].Conections[k].ConectionType;
+
+
+
+                            Line.SetColor("Grey");
+                            Line.AddPoint(points[i]);
+                            Line.AddPoint(points[j]);
+                           
+                            lines.Add(Line);
+                            
                         }
                     }
                 }
             }
-
-        
+        }
+        LineCounter(null);
     }
-        private void SetAllTables()
+
+    private void DestroyOldLines()
+    {
+        if (LineParent.childCount > 0)
+        {
+            for(int i = 0; i < LineParent.childCount; i++)
+            {
+                Destroy(LineParent.GetChild(i).gameObject);
+            }
+            
+        }
+    }
+
+    private void SetAllTables()
     {
         activeChildCount = 0;
 
@@ -317,17 +331,25 @@ public class HelpLines : MonoBehaviour
 
 
     
-    private void EventTrigger_OnEvidenceUnlocked(Evidence evidence)
+    private void EvidenceUnlocked(Evidence evidence)
     {
-        Debug.Log(evidence);
+        childCount = transform.childCount;
+        childs = new Transform[childCount];
+        for (int i = 0; i < childCount; i++)                // pêtla dodaj¹ca wszystkie dowody do tablicy ACTIVE
+        {
+            childs[i] = transform.GetChild(i);
+        }
         for (int i = 0; i < childCount; i++)
         {
+            Debug.Log("123");
+            Debug.Log(childs[i].GetComponent<EvidenceDisplay>().Evidence);
             if (childs[i].GetComponent<EvidenceDisplay>().Evidence == evidence)
             {
                 childs[i].gameObject.SetActive(true);
             }
         }
-
+       
+        
     }
  
 }

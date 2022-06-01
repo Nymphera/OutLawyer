@@ -17,22 +17,9 @@ MonoBehaviour:
     m_Bits: 7
   Name: Alergia Wampira
   Description: Alergia Wampira
-  Artwork: {fileID: 21300000, guid: fd0e64991cb71eb4bb2ed78c2a588aaa, type: 3}
-  orientation: 0
+  Artwork: {fileID: 21300000, guid: 7ad1d0a63497a9b4e8d91e88eaf6056c, type: 3}
+  orientation: 1
   evidenceType: 0
-  conection:
-  - FirstEvidence: {fileID: 11400000}
-    ConectedEvidence: {fileID: 11400000, guid: d08a7f03284e5604387582cf887035ca, type: 2}
-    conectionColor: 3
-    Conclusion: "Wampir m\xF3g\u0142 potrzebowa\u0107 posi\u0142ku z krwi kraba przez
-      alergi\u0119 na ludzk\u0105 krew."
-    conectNumber: 16
-  - FirstEvidence: {fileID: 11400000}
-    ConectedEvidence: {fileID: 11400000, guid: 918345b74bd390940b301e659d30b364, type: 2}
-    conectionColor: 3
-    Conclusion: "Wampir m\xF3g\u0142 potrzebowa\u0107 posi\u0142ku z krwi kraba przez
-      alergi\u0119 na ludzk\u0105 krew."
-    conectNumber: 18
   Conections:
   - conected: {fileID: 11400000, guid: d08a7f03284e5604387582cf887035ca, type: 2}
     ConectionType: 3

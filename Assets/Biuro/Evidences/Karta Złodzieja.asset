@@ -17,34 +17,9 @@ MonoBehaviour:
     m_Bits: 7
   Name: "Karta Z\u0142odzieja"
   Description: "Karta Z\u0142odzieja"
-  Artwork: {fileID: 21300000, guid: 172564a0a0a00214b97f68852137cd6e, type: 3}
-  orientation: 0
+  Artwork: {fileID: 21300000, guid: e9ff357ce9fe21b449a0853ade24fa3d, type: 3}
+  orientation: 1
   evidenceType: 0
-  conection:
-  - FirstEvidence: {fileID: 0}
-    ConectedEvidence: {fileID: 11400000, guid: 733436fcea2146f4b8bd7476289a5912, type: 2}
-    conectionColor: 2
-    Conclusion: "Robb Banks nie mo\u017Ce by\u0107 chroniony prawami Karty Z\u0142odzieja
-      w przypadku braku po\u015Bwiadczenia kradzie\u017Cy."
-    conectNumber: 3
-  - FirstEvidence: {fileID: 0}
-    ConectedEvidence: {fileID: 11400000, guid: 1d3f36e34a97bc44b8dcef275e5c2ad8, type: 2}
-    conectionColor: 2
-    Conclusion: "Robbowi Banksowi nie mo\u017Cna by\u0142oby nic zarzuci\u0107 gdyby
-      tylko po\u015Bwiadczenie istnia\u0142o."
-    conectNumber: 6
-  - FirstEvidence: {fileID: 0}
-    ConectedEvidence: {fileID: 11400000, guid: 07acbc4171e05334e8b1dd9579e26d28, type: 2}
-    conectionColor: 1
-    Conclusion: "Dochody Hodowcy Krab\xF3w s\u0105 zbyt niskie aby mo\u017Cna by\u0142o
-      go legalnie okra\u015B\u0107 i je\u015Bli wyjdzie to na jaw, Robb straci jedn\u0105
-      ze swoich opcji wolno\u015Bci."
-    conectNumber: 7
-  - FirstEvidence: {fileID: 0}
-    ConectedEvidence: {fileID: 11400000, guid: 4259f5d0940efd8429c206d2b6d79d1c, type: 2}
-    conectionColor: 1
-    Conclusion: "Karta Z\u0142odzieja nie chroni przed porwaniami."
-    conectNumber: 8
   Conections:
   - conected: {fileID: 11400000, guid: 733436fcea2146f4b8bd7476289a5912, type: 2}
     ConectionType: 2

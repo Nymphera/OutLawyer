@@ -17,17 +17,9 @@ MonoBehaviour:
     m_Bits: 7
   Name: "Sekretne przej\u015Bcie"
   Description: "Sekretne przej\u015Bcie"
-  Artwork: {fileID: 21300000, guid: a34ce4028e555a14db021ac16f5e732f, type: 3}
-  orientation: 0
+  Artwork: {fileID: 21300000, guid: 138efe3d2bd45764a97b9918d122c055, type: 3}
+  orientation: 1
   evidenceType: 0
-  conection:
-  - FirstEvidence: {fileID: 0}
-    ConectedEvidence: {fileID: 11400000, guid: 4259f5d0940efd8429c206d2b6d79d1c, type: 2}
-    conectionColor: 0
-    Conclusion: "\u015Alady jasno wskazuj\u0105 na to kt\xF3r\u0119dy przemycono
-      kraba i dok\u0105d, ale rysowane po drodze serduszka wskazuj\u0105 na to \u017Ce
-      krab nie czu\u0142 si\u0119 porwany."
-    conectNumber: 12
   Conections:
   - conected: {fileID: 11400000, guid: 4259f5d0940efd8429c206d2b6d79d1c, type: 2}
     ConectionType: 0

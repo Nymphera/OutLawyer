@@ -17,23 +17,9 @@ MonoBehaviour:
     m_Bits: 7
   Name: Kodeks prawny
   Description: Kodeks prawny
-  Artwork: {fileID: 21300000, guid: 353b52f7eccca67468b593afdcdc778b, type: 3}
-  orientation: 0
+  Artwork: {fileID: 21300000, guid: 65a243da8d9ccae4d8e65a1eca865eb4, type: 3}
+  orientation: 1
   evidenceType: 0
-  conection:
-  - FirstEvidence: {fileID: 0}
-    ConectedEvidence: {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
-    conectionColor: 2
-    Conclusion: "Robbowi Banksowi nie mo\u017Cna by\u0142oby nic zarzuci\u0107 gdyby
-      tylko po\u015Bwiadczenie istnia\u0142o."
-    conectNumber: 6
-  - FirstEvidence: {fileID: 0}
-    ConectedEvidence: {fileID: 11400000, guid: 615b166ceedb57e4aaf14b65bef0e65a, type: 2}
-    conectionColor: 3
-    Conclusion: "Wyj\u015Bcie na jaw zaniedbania Robba spowoduje \u017Ce konszachty
-      ponad prawem Gildii Z\u0142odziei i Policji mog\u0105 si\u0119 posypa\u0107,
-      co by\u0142oby niekorzystne dla obu stron."
-    conectNumber: 5
   Conections:
   - conected: {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
     ConectionType: 2

@@ -17,24 +17,9 @@ MonoBehaviour:
     m_Bits: 7
   Name: Choroba Psychiczna Hodowcy
   Description: Choroba Psychiczna Hodowcy
-  Artwork: {fileID: 21300000, guid: daef13a019fc34146941cc09d615b733, type: 3}
-  orientation: 0
+  Artwork: {fileID: 21300000, guid: 8f47202d933c05a4989649138b73015f, type: 3}
+  orientation: 1
   evidenceType: 0
-  conection:
-  - FirstEvidence: {fileID: 0}
-    ConectedEvidence: {fileID: 11400000, guid: 5181a8d9fd03d8c4fada62a7f51206c6, type: 2}
-    conectionColor: 0
-    Conclusion: "Lojer mo\u017Ce udowodni\u0107 \u017Ce Hodowca przez swoj\u0105
-      niepoczytalno\u015B\u0107 zgubi\u0142 teczk\u0119 i nie pami\u0119ta\u0142,
-      \u017Ce m\xF3g\u0142 mie\u0107 tam po\u015Bwiadczenie."
-    conectNumber: 4
-  - FirstEvidence: {fileID: 0}
-    ConectedEvidence: {fileID: 11400000, guid: 07acbc4171e05334e8b1dd9579e26d28, type: 2}
-    conectionColor: 3
-    Conclusion: "Prowadzenie Hodowli okaza\u0142o si\u0119 bardzo nieop\u0142acalne,
-      a mimo to Hodowca kontynuuje swoj\u0105 pasj\u0119 \u017Cyj\u0105c w n\u0119dznych
-      warunkach. S\u0105 to samonakr\u0119caj\u0105ce si\u0119 spirale."
-    conectNumber: 9
   Conections:
   - conected: {fileID: 11400000, guid: 5181a8d9fd03d8c4fada62a7f51206c6, type: 2}
     ConectionType: 0

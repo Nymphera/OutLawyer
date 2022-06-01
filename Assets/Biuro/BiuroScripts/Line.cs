@@ -76,7 +76,7 @@ public class Line : MonoBehaviour
         
         col.transform.parent =transform;
 
-        col.tag = "ColliderLine";
+        //col.tag = "ColliderLine";
         float lineLength = Vector3.Distance(startPos, endPos);
         col.size = new Vector3(lineLength, 0.04f, 0.04f);
         Vector3 midPoint = (startPos + endPos) / 2;

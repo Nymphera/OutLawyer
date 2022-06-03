@@ -6,6 +6,7 @@ using UnityEngine;
 public class MoveOffer : MonoBehaviour
 {
     private Vector3 startPosition;
+    private bool wasClicked;
     private void Awake()
     {
         startPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
@@ -30,19 +31,22 @@ public class MoveOffer : MonoBehaviour
     }
     private IEnumerator MoveBack()
     {
-        
-        Vector2 currentPosition= gameObject.GetComponent<RectTransform>().anchoredPosition;
-        Vector2 pos = startPosition;
-        float startTime = Time.time;
-        float animationTime = 0.3f;
-
-        while (Time.time - startTime < animationTime)
+        if(!wasClicked)
         {
-            pos = Vector3.Lerp(currentPosition, startPosition, (Time.time - startTime) / animationTime);
-            gameObject.GetComponent<RectTransform>().anchoredPosition = pos;
-            yield return null;
+            Vector2 currentPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
+            Vector2 pos = startPosition;
+            float startTime = Time.time;
+            float animationTime = 0.3f;
+
+            while (Time.time - startTime < animationTime)
+            {
+                pos = Vector3.Lerp(currentPosition, startPosition, (Time.time - startTime) / animationTime);
+                gameObject.GetComponent<RectTransform>().anchoredPosition = pos;
+                yield return null;
+            }
+            gameObject.GetComponent<RectTransform>().anchoredPosition = startPosition;
         }
-        gameObject.GetComponent<RectTransform>().anchoredPosition = startPosition;
+       
 
     }
     private IEnumerator MoveDown()
@@ -68,9 +72,6 @@ public class MoveOffer : MonoBehaviour
 
     private IEnumerator MoveUp()
     {
-        
-        
-
         Vector2 minPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
         Vector2 maxPosition = minPosition + new Vector2(0, 100);
         Vector2 pos = minPosition;
@@ -84,10 +85,10 @@ public class MoveOffer : MonoBehaviour
                 yield return null;
             }
             gameObject.GetComponent<RectTransform>().anchoredPosition = maxPosition;
-      
-
-
-
     }
-
+    public void PlayOffer()
+    {
+        wasClicked = true;
+        StopAllCoroutines();
+    }
 }

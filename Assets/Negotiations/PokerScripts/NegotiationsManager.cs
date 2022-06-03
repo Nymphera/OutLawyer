@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class NegotiationsManager : MonoBehaviour
 {
@@ -14,14 +15,18 @@ public class NegotiationsManager : MonoBehaviour
     private GameObject cardPrefab;
     [SerializeField]
     private Transform playerParent, computerParent, tableParent;
-    
+    Slider whiteSlider, redSlider, greenSlider;
+    private TextMeshProUGUI betText, handValueText, handValueInt;
     private Card[] playerCards, computerCards, tableCards;
     private CardSpawner cardSpawner;
     private Negotiations negotiations;
     private int animationCount=0;
     private GameObject canvas;
     private int cardNumber = 0;
-   
+    private int patienceValue=10;
+    private int betValue=0;
+    private int handValue=1;
+
     private void Start()
     {
        
@@ -94,7 +99,7 @@ public class NegotiationsManager : MonoBehaviour
 
     private IEnumerator WaitForVeridct()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         UpdateNegotiationState(NegotiationState.Victory);
 
     }
@@ -131,10 +136,11 @@ public class NegotiationsManager : MonoBehaviour
         CameraControllerKrabiarnia.Instance.SwitchState("Negotiations");
 
         negotiations = new Negotiations(cardPrefab, playerParent, computerParent, tableParent);
-       // cardSpawner = new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
+        cardSpawner = new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
        
-       negotiations.cardSpawner.spawnCards();
+       cardSpawner.spawnCards();
         GetCards();
+       
 
         StartCoroutine(AnimateDealing(computerCards,computerParent));
         yield return new WaitUntil(()=>animationCount>0);
@@ -148,8 +154,10 @@ public class NegotiationsManager : MonoBehaviour
         StartCoroutine(RotatePlayerCards());
         yield return new WaitUntil(() => animationCount>3);
         canvas.SetActive(true);
+        GetRefernces();
         yield return null;
-        negotiations.ChooseNegotiationsType();
+        ChooseNegotiationsType();
+       
         UpdatePlayerHandValue();
     }
 
@@ -179,6 +187,7 @@ public class NegotiationsManager : MonoBehaviour
     }
     public void RotateTableCard()
     {
+        
         StartCoroutine(tableCards[cardNumber].Rotate());
         cardNumber++;
        
@@ -194,15 +203,15 @@ public class NegotiationsManager : MonoBehaviour
         for(int i = 0; i < valuatedCards.Length; i++)
         {           
                 valuatedCards[i] =tableCards[i];
-            Debug.Log(valuatedCards[i].MyValue);
+           
         }
-        Debug.Log(cardNumber);
+        
         HandEvaluator playerHandEvaluator = new HandEvaluator(playerCards, valuatedCards);
         Hand playerHand = playerHandEvaluator.EvaluateHand();
         
-        Debug.Log($"Player has {playerHand}");
-        GameObject.Find("HandValueINT").GetComponent<TextMeshProUGUI>().text = ((int)playerHand).ToString();
-        GameObject.Find("HandValueText").GetComponent<TextMeshProUGUI>().text = playerHand.ToString();
+        
+        handValueInt.text = ((int)playerHand).ToString();
+        handValueText.text = playerHand.ToString();
     }
 
     private void GetCards()
@@ -210,11 +219,122 @@ public class NegotiationsManager : MonoBehaviour
         playerCards = new Card[2];
         computerCards = new Card[2];
         tableCards = new Card[5];
-        computerCards =negotiations.cardSpawner.dealCards.GetComputerHand();
-        playerCards = negotiations.cardSpawner.dealCards.GetPlayerHand();
-        tableCards = negotiations.cardSpawner.dealCards.GetTableCards();
+        computerCards =cardSpawner.dealCards.GetComputerHand();
+        playerCards = cardSpawner.dealCards.GetPlayerHand();
+        tableCards = cardSpawner.dealCards.GetTableCards();
+    }
+    public IEnumerator ChooseNegotiationsType()
+    {
+        //wyœwietla trzy opcje
+
+        yield return null; //wati until przycisk zosta³ wciœniêty
+
+        //  znikaj¹ trzy opcje
+
+        // klikniêcie przycisku w³¹cza przejœcie do nastêpnej funkcji
+    }
+
+
+    public void MakeUp()
+    {
+        //Wysuñ jedno z nieaktywnych ¯¹dañ.Staje siê ono aktywne. Stawka maleje o wartoœæ na karcie.
+
+        //wysuwa red offer
+        //stawka--
+        UpdateBet(-1);
+        //cierpliwoœæ++
+        UpdatePatience(1);
+    }
+    public void Blef()
+    {
+        //Zmniejsz Cierpliwoœæ o dodatkowe(1). Stawka maleje o(-1) Nie mo¿esz blefowaæ, gdy NPC ma 1 cierpliwoœci.
+        UpdatePatience(-2);
+        UpdateBet(-1);
+        //cierpliwoœæ --
+        //stawka -- 
+    }
+    public void Raise()
+    {
+        //Przebicie: Zdejmij ze sto³u ¯¹danie. Stawka roœnie o wartoœæ na karcie.
+
+        //zdejmuje red Offer
+        //stawka++
+        UpdateBet(1);
+        UpdatePatience(-1);
+    }
+    public void Call(RectTransform rectTransform)
+    {
+        //Wysuñ jedn¹ z nieaktywnych Ofert. Staje siê ona aktywna. Stawka roœnie o wartoœæ na karcie.
+        PlayOffer(rectTransform);
+        //wysuwa greenOffer
+        //stawka++
+        UpdateBet(1);
+        UpdatePatience(-1);
+    }
+    
+    public void PlayOffer(RectTransform rectTransform)
+    {
+        rectTransform.anchoredPosition =new Vector2(rectTransform.anchoredPosition.x,-85);
+        Debug.Log(rectTransform.position);
+    }
+
+    private void Check()
+    {
+        //    Sprawdzam: Pomiñ kolejkê.
+
+        //nic nie rób     
+
+    }
+    public void AsWRekawie()
+    {
+        patienceValue = 0;
+        betValue = 0;
+        handValue = 0;
+    }
+    public void UczciweTasowanie()
+    {
+        patienceValue = 0;
+        betValue = 0;
+        handValue = 0;
+    }
+    public void PodejrzyjKarte()
+    {
+        patienceValue = 0;
+        betValue = 0;
+        handValue = 0;
+    }
+    private void UpdatePatience(int value)
+    {
+        patienceValue += value;
+
+        whiteSlider.value = patienceValue;
+        redSlider.value = whiteSlider.value;
+        greenSlider.value = whiteSlider.value;
+    }
+    private void UpdateBet(int value)
+    {
+        betValue += value;
+        betText.text = betValue.ToString();
+    }
+
+    public void GetRefernces()
+    {
+        whiteSlider = GameObject.Find("Slider_White").GetComponent<Slider>();
+        greenSlider = GameObject.Find("Slider_Green").GetComponent<Slider>();
+        redSlider = GameObject.Find("Slider_Red").GetComponent<Slider>();
+        betText = GameObject.Find("BetValueINT").GetComponent<TextMeshProUGUI>();
+        handValueInt = GameObject.Find("HandValueINT").GetComponent<TextMeshProUGUI>();
+        handValueText = GameObject.Find("HandValueText").GetComponent<TextMeshProUGUI>();
     }
 }
+public enum NegotiationsType
+{
+    Null = 0,
+    UczciweTasowanie,
+    PodjerzyjKarte,
+    AsWRêkawie
+}
+
 public enum NegotiationState
 {
     SelectType,

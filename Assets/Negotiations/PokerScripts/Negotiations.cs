@@ -1,19 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Negotiations :MonoBehaviour
 {
-    public int patienceValue;
+    public int patienceValue=10;
     public int betValue;
     public int handValue;
+    private int frontedCards=0;
     public CardSpawner cardSpawner;
     private Card[] playerCards, computerCards, tableCards;
-
+    Slider whiteSlider, redSlider, greenSlider;
+    private TextMeshProUGUI betText,handValueText,handValueInt;
     private void Awake()
     {
         NegotiationsManager.OnStateChanged += OnStateChanged;
+       
     }
     private void OnDestroy()
     {
@@ -28,7 +33,8 @@ public class Negotiations :MonoBehaviour
                          Transform computerParent,    Transform tableParent)
     {
         cardSpawner = new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
-        GetCards();   
+        GetCards();
+        
     }
     public IEnumerator ChooseNegotiationsType()
     {
@@ -40,24 +46,9 @@ public class Negotiations :MonoBehaviour
         
         // klikniêcie przycisku w³¹cza przejœcie do nastêpnej funkcji
     }
-    public void PlayerTurn()
-    {
-        EvaluateHand();
 
-        // mo¿na klikaæ w przyciski 
 
-        ActionResults();
-    }
-        public void ActionResults()
-    {
-        //blokowanie w³¹czenia przycisków
-    }
-    private void EvaluateHand()
-    {
-        
-    }
-
-    private void GetCards()
+    public void GetCards()
     {
         playerCards = new Card[2];
         computerCards = new Card[2];
@@ -66,32 +57,55 @@ public class Negotiations :MonoBehaviour
         playerCards = cardSpawner.dealCards.GetPlayerHand();
         tableCards = cardSpawner.dealCards.GetTableCards();
     }
-    private void RotateNextCard()
+  
+    public void MakeUp()
     {
+        //Wysuñ jedno z nieaktywnych ¯¹dañ.Staje siê ono aktywne. Stawka maleje o wartoœæ na karcie.
 
-    }
-    private void MakeUp()
-    {
         //wysuwa red offer
         //stawka--
+        UpdateBet(-1);
+        //cierpliwoœæ++
+        UpdatePatience(1);
     }
-    private void Blef()
+    public void Blef()
     {
-        //cierpliwoœæ -- stawka --
+        //Zmniejsz Cierpliwoœæ o dodatkowe(1). Stawka maleje o(-1) Nie mo¿esz blefowaæ, gdy NPC ma 1 cierpliwoœci.
+        UpdatePatience(-2);
+        UpdateBet(-1);
+        //cierpliwoœæ --
+        //stawka -- 
     }
-    private void Raise()
+    public void Raise()
     {
+        //Przebicie: Zdejmij ze sto³u ¯¹danie. Stawka roœnie o wartoœæ na karcie.
+
         //zdejmuje red Offer
         //stawka++
+        UpdateBet(1);
+        UpdatePatience(-1);
     }
     private void Call()
     {
+        //Wysuñ jedn¹ z nieaktywnych Ofert. Staje siê ona aktywna. Stawka roœnie o wartoœæ na karcie.
+       
         //wysuwa greenOffer
         //stawka++
+        UpdateBet(1);
+        UpdatePatience(-1);
     }
+
+    private void PlayOffer()
+    {
+       
+    }
+
     private void Check()
     {
-       //nic nie rób     
+        //    Sprawdzam: Pomiñ kolejkê.
+
+        //nic nie rób     
+        
     }
     public void AsWRekawie()
     {
@@ -111,10 +125,27 @@ public class Negotiations :MonoBehaviour
         betValue = 0;
         handValue = 0;
     }
-}
-public enum NegotiationsType
-{   Null=0,
-    UczciweTasowanie,
-    PodjerzyjKarte,
-    AsWRêkawie
+    private void UpdatePatience(int value)
+    {
+        patienceValue += value;
+        
+        whiteSlider.value = patienceValue;
+        redSlider.value = whiteSlider.value;
+        greenSlider.value = whiteSlider.value;
+    }
+    private void UpdateBet(int value)
+    {
+        betValue += value;
+        betText.text = betValue.ToString();
+    }
+
+    public void GetRefernces()
+    {
+        whiteSlider = GameObject.Find("Slider_White").GetComponent<Slider>();
+        greenSlider = GameObject.Find("Slider_Green").GetComponent<Slider>();
+        redSlider = GameObject.Find("Slider_Red").GetComponent<Slider>();
+        betText = GameObject.Find("BetValueINT").GetComponent<TextMeshProUGUI>();
+        handValueInt=GameObject.Find("HandValueINT").GetComponent<TextMeshProUGUI>();
+        handValueText= GameObject.Find("HandValueText").GetComponent<TextMeshProUGUI>();
+    }
 }

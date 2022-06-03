@@ -4,19 +4,24 @@ using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
 using System;
+using TMPro;
 
 public class InspectCameraContoller : MonoBehaviour
 {
     CinemachineVirtualCamera camera;
     private GameControls GameControls;
+    GameObject panel;
     Vector2 mousePosition;
+    TextMeshProUGUI tmp;
     private void Awake()
     {
         GameControls = new GameControls();
         camera = GetComponent<CinemachineVirtualCamera>();
-
+        panel= GameObject.Find("SettingsPanel");
         GameControls.Game.MousePosition.performed += OnMouseMove;
         GameControls.Game.MouseLeftClick.performed += OnMouseClick;
+        tmp = panel.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        panel.SetActive(false);
     }
     private void OnEnable()
     {
@@ -40,9 +45,9 @@ public class InspectCameraContoller : MonoBehaviour
 
         if (Physics.Raycast(Ray, out Hit, 1000))
         {
-            if (PinBoardManager.Instance.currentState == PinBoardState.Neutral)
+            if (PinBoardManager.Instance.currentState == PinBoardState.Neutral&&GameManager.Instance.CurrentState==GameState.LockInteract)
             {
-                Inspect(Hit);
+              StartCoroutine(  Inspect(Hit));
             }
         }
     }
@@ -51,7 +56,7 @@ public class InspectCameraContoller : MonoBehaviour
     {
         mousePosition = GameControls.Game.MousePosition.ReadValue<Vector2>();
     }
-    private void Inspect(RaycastHit Hit)
+    private IEnumerator Inspect(RaycastHit Hit)
     {
         GameObject currentEvidence;
         Evidence evidence;
@@ -69,6 +74,10 @@ public class InspectCameraContoller : MonoBehaviour
             camera.LookAt = currentEvidence.transform;
 
             GameEvents.current.OfficeClick(4);
+            yield return new WaitForSeconds(1f);
+            
+            panel.SetActive(true);
+            tmp.text = evidence.Description;
         }
 
         

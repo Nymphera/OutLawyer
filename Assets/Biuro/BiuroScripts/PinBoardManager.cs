@@ -428,7 +428,7 @@ public class PinBoardManager : MonoBehaviour
         
         Cursor.SetCursor(neutralTexture, Vector2.zero, CursorMode.Auto);
         currentState = PinBoardState.Neutral;
-        GameEvents.current.OfficeClick(1);
+        
 
     }
     public void CursorToYellow()

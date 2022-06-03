@@ -120,7 +120,7 @@ public class PinBoardManager : MonoBehaviour
 
         if (Physics.Raycast(Ray, out Hit, 1000))
         {
-            if (currentState != PinBoardState.Delete && currentState != PinBoardState.Neutral&& currentState!=PinBoardState.Burned)
+            if (currentState != PinBoardState.Delete && currentState != PinBoardState.Neutral&& currentState!=PinBoardState.Burned&&currentState!=PinBoardState.Inspect)
             {
 
                 
@@ -133,13 +133,16 @@ public class PinBoardManager : MonoBehaviour
 
                 StartCoroutine(DeleteLine(Hit.transform.parent.gameObject));
             }
-            else
+            else if(currentState==PinBoardState.Neutral)
             {
-                //Inspect evidence?
+                Inspect();
             }
    
         }
     }
+
+   
+
     private void CountLines(Line line,bool isLineCreated)
     {
         redCount = Int32.Parse(redText.text);
@@ -425,9 +428,7 @@ public class PinBoardManager : MonoBehaviour
         
         Cursor.SetCursor(neutralTexture, Vector2.zero, CursorMode.Auto);
         currentState = PinBoardState.Neutral;
-        
-            
-
+        GameEvents.current.OfficeClick(1);
 
     }
     public void CursorToYellow()
@@ -467,6 +468,10 @@ public class PinBoardManager : MonoBehaviour
        
        
     }
+    private void Inspect()
+    {
+      //  currentState = PinBoardState.Inspect;
+    }
     public void Burn()
     {
         currentState = PinBoardState.Burned;
@@ -482,5 +487,6 @@ public enum PinBoardState
     CreateYellow,
     Delete,
     Neutral,
+    Inspect,
     Burned
 }

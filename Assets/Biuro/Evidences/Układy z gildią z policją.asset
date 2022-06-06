@@ -18,16 +18,8 @@ MonoBehaviour:
   Name: "Uk\u0142ady z gildi\u0105 z policj\u0105"
   Description: "Uk\u0142ady z gildi\u0105 z policj\u0105"
   Artwork: {fileID: 21300000, guid: 82191ee4ddfd42f4da4d2b3887caaaf0, type: 3}
-  orientation: 0
+  orientation: 1
   evidenceType: 0
-  conection:
-  - FirstEvidence: {fileID: 0}
-    ConectedEvidence: {fileID: 11400000, guid: 1d3f36e34a97bc44b8dcef275e5c2ad8, type: 2}
-    conectionColor: 2
-    Conclusion: "Wyj\u015Bcie na jaw zaniedbania Robba spowoduje \u017Ce konszachty
-      ponad prawem Gildii Z\u0142odziei i Policji mog\u0105 si\u0119 posypa\u0107,
-      co by\u0142oby niekorzystne dla obu stron."
-    conectNumber: 5
   Conections:
   - conected: {fileID: 11400000, guid: 1d3f36e34a97bc44b8dcef275e5c2ad8, type: 2}
     ConectionType: 2

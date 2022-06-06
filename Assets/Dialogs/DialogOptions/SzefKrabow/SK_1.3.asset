@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: SK_1.3
+  m_EditorClassIdentifier: 
+  text: "Pomyli\u0142em dialogi!\t"
+  nextCrossPoint: {fileID: 11400000, guid: 2cc933c47648e8346a1fcdde923e8e6c, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: fde64bca4ee75eb4d9bfb84e5097a9b4, type: 2}
+  strategy: 1
+  sentences:
+  - "Lojer: Och, nie ta scena\u2026"
+  - "Szef Krab\xF3w: S\u0142ucham?"
+  - "Szef Krab\xF3w: S\u0142ucham?"
+  - "Lojer: Ekhm\u2026 ekhm\u2026"
+  - "Lojer: \u201CA wi\u0119c niech cierpi\u0105, tak jak ona. Ile mam ci zap\u0142aci\u0107?\u201D"
+  - "Szef Krab\xF3w:  \u201CBonasera, Bonasera. Co ja ci zrobi\u0142em, \u017Ce mnie
+    tak nie szanujesz?\u201D"
+  audioClips: []
+  cost: 0

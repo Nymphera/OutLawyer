@@ -27,18 +27,12 @@ public class CardSpawner : MonoBehaviour
     }
     public void spawnCards()
     {
-        
-
         DealCards();
         spawnCards(playerCards, playerParent);
        // yield return null;
         //spawnCards(computerCards, computerParent);
        // yield return null;
         spawnCards(tableCards, tableParent);
-
-
-
-
     }
 
     private void spawnCards(Card[] Cards,Transform parent)

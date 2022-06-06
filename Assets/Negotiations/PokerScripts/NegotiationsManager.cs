@@ -24,7 +24,8 @@ public class NegotiationsManager : MonoBehaviour
     private int animationCount=1;
     private GameObject canvas;
     private int cardNumber = 0;
-    private int patienceValue=10;
+    [SerializeField]
+    private int patienceValue=8;
     private int betValue=0;
     private int handValue=1;
 
@@ -93,7 +94,7 @@ public class NegotiationsManager : MonoBehaviour
     {
         RotateTableCard();
         yield return new WaitForSeconds(time);
-        if (!tableCards[4].isFronted)
+        if (!tableCards[4].isFronted&&patienceValue>0)
         {           
             UpdateNegotiationState(NegotiationState.PlayerTurn);
         }
@@ -281,8 +282,7 @@ public class NegotiationsManager : MonoBehaviour
                 //cierpliwość --
                 //stawka -- 
                 UpdateNegotiationState(NegotiationState.Decide);
-            }
-            
+            }           
         }
     }
     public void Raise(RectTransform rectTransform)
@@ -324,15 +324,14 @@ public class NegotiationsManager : MonoBehaviour
 
                 UpdateNegotiationState(NegotiationState.Decide);
             }
-        }
-       
-       
+        }      
     }
-    private void Check()
+    public void Check()
     {
+        
         if (currentState == NegotiationState.PlayerTurn)
         {
-
+            UpdateNegotiationState(NegotiationState.Decide);        
         }
         //    Sprawdzam: Pomiń kolejkę.
 
@@ -468,6 +467,9 @@ public class NegotiationsManager : MonoBehaviour
         betText = GameObject.Find("BetValueINT").GetComponent<TextMeshProUGUI>();
         handValueInt = GameObject.Find("HandValueINT").GetComponent<TextMeshProUGUI>();
         handValueText = GameObject.Find("HandValueText").GetComponent<TextMeshProUGUI>();
+        whiteSlider.maxValue = patienceValue;
+        greenSlider.maxValue = patienceValue;
+        redSlider.maxValue = patienceValue;
     }
 }
 public enum NegotiationsType

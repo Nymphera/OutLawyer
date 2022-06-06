@@ -97,7 +97,13 @@ public class MoveOffer : MonoBehaviour
         wasClicked = true;
         StopAllCoroutines();
         Vector2 minPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
-        Vector2 maxPosition = new Vector2(minPosition.x,-85);
+        Vector2 maxPosition;
+        if(offer.offerType==OfferType.green)
+           maxPosition = new Vector2(minPosition.x,-85);
+        else
+        {
+            maxPosition = new Vector2(minPosition.x, 85);
+        }
         StartCoroutine(MoveUp(minPosition, maxPosition));
         offer.isOfferActive = true;
 

@@ -235,15 +235,25 @@ public class NegotiationsManager : MonoBehaviour
     }
 
 
-    public void MakeUp()
+    public void MakeUp(RectTransform rectTransform)
     {
         //Wysuń jedno z nieaktywnych Żądań.Staje się ono aktywne. Stawka maleje o wartość na karcie.
+        Offer offer = rectTransform.GetComponent<OfferDisplay>().offer;
+        if (offer.isOfferActive == false)
+        {
+            //MoveOffer.PlayOffer();
+            //wysuwa greenOffer
+            rectTransform.GetComponent<MoveOffer>().PlayOffer();
 
-        //wysuwa red offer
-        //stawka--
-        UpdateBet(-1);
-        //cierpliwość++
-        UpdatePatience(1);
+            //stawka++
+            UpdateBet(-offer.offerValue);
+
+            UpdatePatience(-1);
+            RotateTableCard();
+            //wysuwa red offer
+            //stawka--
+        }
+            
     }
     public void Blef()
     {
@@ -281,22 +291,28 @@ public class NegotiationsManager : MonoBehaviour
         }
        
     }
-    public void ShowCallEffects(RectTransform rectTransform)
+    
+    public void ShowClickEffects(RectTransform rectTransform)
     {
-        //pokazuje karte
-        rectTransform.GetComponent<MoveOffer>().moveUp();
+        
+        
        Offer offer=rectTransform.GetComponent<OfferDisplay>().offer;
-        //patience
-        ShowPatienceChange(-1);
-        //jak w dół to biały spada
-        //jak w górę to zielony rośnie
-
-        //bet
-        ShowBetChange(offer.offerValue);
-        //jak w dół to stawka na czerwono z jakimś znaczkiem w dół
-        //jak w góre to na zielono i strzałka do góry
+        if (offer.offerType == OfferType.green)
+        {
+            rectTransform.GetComponent<MoveOffer>().moveUp();
+            ShowPatienceChange(-1);
+            ShowBetChange(offer.offerValue);
+        }
+        else if (offer.offerType == OfferType.red)
+        {
+            rectTransform.GetComponent<MoveOffer>().moveDown();
+            ShowPatienceChange(-1);
+            ShowBetChange(-offer.offerValue);
+        }
+        
+       
     }
-    public void HideCallEffects(RectTransform rectTransform)
+    public void HideClickEffects(RectTransform rectTransform)
     {
         rectTransform.GetComponent<MoveOffer>().moveBack();
         HideBetChange();

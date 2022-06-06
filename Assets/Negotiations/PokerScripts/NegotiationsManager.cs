@@ -22,7 +22,7 @@ public class NegotiationsManager : MonoBehaviour
     private CardSpawner cardSpawner;
     private Negotiations negotiations;
     private int animationCount=1;
-    private GameObject canvas;
+    private GameObject canvas,selectTypePanel;
     private int cardNumber = 0;
     [SerializeField]
     private int patienceValue=8;
@@ -140,7 +140,7 @@ public class NegotiationsManager : MonoBehaviour
     {
         StartCoroutine(StartNegotiations());
 
-        UpdateNegotiationState(NegotiationState.PlayerTurn);
+        UpdateNegotiationState(NegotiationState.DealCards);
     }
     private IEnumerator StartNegotiations()
     {
@@ -167,7 +167,7 @@ public class NegotiationsManager : MonoBehaviour
         canvas.SetActive(true);
         GetRefernces();
         yield return null;
-        ChooseNegotiationsType();
+        UpdateNegotiationState(NegotiationState.SelectType);
        
         UpdatePlayerHandValue();
     }
@@ -235,15 +235,9 @@ public class NegotiationsManager : MonoBehaviour
         playerCards = cardSpawner.dealCards.GetPlayerHand();
         tableCards = cardSpawner.dealCards.GetTableCards();
     }
-    public IEnumerator ChooseNegotiationsType()
+  public void FairDeal()
     {
-        //wyświetla trzy opcje
 
-        yield return null; //wati until przycisk został wciśnięty
-
-        //  znikają trzy opcje
-
-        // kliknięcie przycisku włącza przejście do następnej funkcji
     }
 
 
@@ -467,9 +461,11 @@ public class NegotiationsManager : MonoBehaviour
         betText = GameObject.Find("BetValueINT").GetComponent<TextMeshProUGUI>();
         handValueInt = GameObject.Find("HandValueINT").GetComponent<TextMeshProUGUI>();
         handValueText = GameObject.Find("HandValueText").GetComponent<TextMeshProUGUI>();
+        selectTypePanel = GameObject.Find("SelectType");
         whiteSlider.maxValue = patienceValue;
         greenSlider.maxValue = patienceValue;
         redSlider.maxValue = patienceValue;
+        
     }
 }
 public enum NegotiationsType

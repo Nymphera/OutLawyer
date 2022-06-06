@@ -27,7 +27,7 @@ public class NegotiationsManager : MonoBehaviour
     [SerializeField]
     private int patienceValue=8;
     private int betValue=0;
-    private int handValue=1;
+    private int handValue=0;
 
     private void Start()
     {
@@ -55,7 +55,7 @@ public class NegotiationsManager : MonoBehaviour
                 HandleDealCards();
                 break;
             case NegotiationState.PlayerTurn:
-               // HandlePlayerTurn();
+                HandlePlayerTurn();
                 break;
             case NegotiationState.ComputerTurn:
                 HandleComputerTurn();
@@ -123,7 +123,7 @@ public class NegotiationsManager : MonoBehaviour
 
     private void HandlePlayerTurn()
     {
-       
+        selectTypePanel.SetActive(false);
     }
 
     private void HandleDealCards()
@@ -133,7 +133,7 @@ public class NegotiationsManager : MonoBehaviour
 
     private void HandleSelectType()
     {
-        
+        selectTypePanel.SetActive(true);
     }
 
     private void startNegotiations()
@@ -221,9 +221,9 @@ public class NegotiationsManager : MonoBehaviour
         Hand playerHand = playerHandEvaluator.EvaluateHand();
         
         
-        handValueInt.text = ((int)playerHand).ToString();
+        handValueInt.text = (handValue+((int)playerHand)).ToString();
         handValueText.text = playerHand.ToString();
-        handValue = ((int)playerHand);
+       // handValue += ((int)playerHand);
     }
 
     private void GetCards()
@@ -423,21 +423,22 @@ public class NegotiationsManager : MonoBehaviour
 
     public void AsWRekawie()
     {
-        patienceValue = 0;
-        betValue = 0;
-        handValue = 0;
+        
+        UpdateNegotiationState(NegotiationState.PlayerTurn);
+
     }
     public void UczciweTasowanie()
     {
-        patienceValue = 0;
-        betValue = 0;
-        handValue = 0;
+        handValue = 1;
+        UpdatePlayerHandValue();
+        UpdateNegotiationState(NegotiationState.PlayerTurn);
     }
     public void PodejrzyjKarte()
     {
-        patienceValue = 0;
-        betValue = 0;
-        handValue = 0;
+        Debug.Log("click"); 
+        RotateTableCard();
+        UpdateNegotiationState(NegotiationState.PlayerTurn);
+        
     }
     private void UpdatePatience(int value)
     {

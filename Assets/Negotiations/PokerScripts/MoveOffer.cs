@@ -31,7 +31,7 @@ public class MoveOffer : MonoBehaviour
     }
     public void moveBack()
     {
-        if(!wasClicked)
+        if(!offer.isOfferActive)
         StopAllCoroutines();
         StartCoroutine(MoveBack());
     }
@@ -52,7 +52,7 @@ public class MoveOffer : MonoBehaviour
             }
             gameObject.GetComponent<RectTransform>().anchoredPosition = startPosition;
         }
-       
+        
 
     }
     private IEnumerator MoveDown(Vector2 minPosition,Vector2 maxPosition)

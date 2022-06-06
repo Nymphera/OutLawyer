@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class NegotiationsManager : MonoBehaviour
 {
+    [SerializeField]
     public NegotiationState currentState;
 
     public static event Action<NegotiationState> OnStateChanged;
@@ -53,7 +54,7 @@ public class NegotiationsManager : MonoBehaviour
                 HandleDealCards();
                 break;
             case NegotiationState.PlayerTurn:
-                HandlePlayerTurn();
+               // HandlePlayerTurn();
                 break;
             case NegotiationState.ComputerTurn:
                 HandleComputerTurn();
@@ -85,18 +86,24 @@ public class NegotiationsManager : MonoBehaviour
 
     private void HandleDecide()
     {
+        StartCoroutine(Think(0.2f));
+       
+    }
+   
+    private IEnumerator Think(float time)
+    {
+        yield return new WaitForSeconds(time);
         if (!tableCards[4].isFronted)
         {
-            UpdateNegotiationState(NegotiationState.ComputerTurn);
+            RotateTableCard();
+            UpdateNegotiationState(NegotiationState.PlayerTurn);
         }
         else
         {
             StartCoroutine(WaitForVeridct());
-            
-            
         }
-    }
 
+    }
     private IEnumerator WaitForVeridct()
     {
         yield return new WaitForSeconds(4f);
@@ -192,7 +199,7 @@ public class NegotiationsManager : MonoBehaviour
         cardNumber++;
        
         UpdatePlayerHandValue();
-        UpdateNegotiationState(NegotiationState.Decide);
+        
     }
 
     
@@ -237,61 +244,93 @@ public class NegotiationsManager : MonoBehaviour
 
     public void MakeUp(RectTransform rectTransform)
     {
-        //Wysuń jedno z nieaktywnych Żądań.Staje się ono aktywne. Stawka maleje o wartość na karcie.
-        Offer offer = rectTransform.GetComponent<OfferDisplay>().offer;
-        if (offer.isOfferActive == false)
+        if (currentState == NegotiationState.PlayerTurn)
         {
-            //MoveOffer.PlayOffer();
-            //wysuwa greenOffer
-            rectTransform.GetComponent<MoveOffer>().PlayOffer();
+            //Wysuń jedno z nieaktywnych Żądań.Staje się ono aktywne. Stawka maleje o wartość na karcie.
+            Offer offer = rectTransform.GetComponent<OfferDisplay>().offer;
+            if (!offer.isOfferActive)
+            {
+                //MoveOffer.PlayOffer();
+                //wysuwa greenOffer
+                rectTransform.GetComponent<MoveOffer>().PlayOffer();
 
-            //stawka++
-            UpdateBet(-offer.offerValue);
+                //stawka++
+                UpdateBet(-offer.offerValue);
 
-            UpdatePatience(-1);
-            RotateTableCard();
-            //wysuwa red offer
-            //stawka--
+                UpdatePatience(-1);
+
+                UpdateNegotiationState(NegotiationState.Decide);
+                //wysuwa red offer
+                //stawka--
+            }
         }
-            
     }
     public void Blef()
     {
+        if (currentState == NegotiationState.PlayerTurn)
+        {
+
+        }
         //Zmniejsz Cierpliwość o dodatkowe(1). Stawka maleje o(-1) Nie możesz blefować, gdy NPC ma 1 cierpliwości.
         UpdatePatience(-2);
         UpdateBet(-1);
         //cierpliwość --
         //stawka -- 
     }
-    public void Raise()
+    public void Raise(RectTransform rectTransform)
     {
         //Przebicie: Zdejmij ze stołu Żądanie. Stawka rośnie o wartość na karcie.
+        if (currentState == NegotiationState.PlayerTurn)
+        {
+            Offer offer = rectTransform.GetComponent<OfferDisplay>().offer;
+            if (offer.isOfferActive)
+            {
+                //zdejmuje red Offer
+                UpdateBet(offer.offerValue);
+                //stawka++
+                UpdatePatience(-1);
+                offer.isOfferActive = false;
+                rectTransform.GetComponent<MoveOffer>().moveBack();
 
-        //zdejmuje red Offer
-        //stawka++
-        UpdateBet(1);
-        UpdatePatience(-1);
+                UpdateNegotiationState(NegotiationState.Decide);
+            }
+        }
+
     }
     public void Call(RectTransform rectTransform)
     {
         //Wysuń jedną z nieaktywnych Ofert. Staje się ona aktywna. Stawka rośnie o wartość na karcie.
-        
-        Offer offer = rectTransform.GetComponent<OfferDisplay>().offer;
-        if(offer.isOfferActive == false)
+        if (currentState == NegotiationState.PlayerTurn)
         {
-            //MoveOffer.PlayOffer();
-            //wysuwa greenOffer
-            rectTransform.GetComponent<MoveOffer>().PlayOffer();
-          
-            //stawka++
-            UpdateBet(offer.offerValue);
-            
-            UpdatePatience(-1);
-            RotateTableCard();
+            Offer offer = rectTransform.GetComponent<OfferDisplay>().offer;
+            if (!offer.isOfferActive)
+            {
+                //MoveOffer.PlayOffer();
+                //wysuwa greenOffer
+                rectTransform.GetComponent<MoveOffer>().PlayOffer();
+
+                //stawka++
+                UpdateBet(offer.offerValue);
+
+                UpdatePatience(-1);
+
+                UpdateNegotiationState(NegotiationState.Decide);
+            }
         }
        
+       
     }
-    
+    private void Check()
+    {
+        if (currentState == NegotiationState.PlayerTurn)
+        {
+
+        }
+        //    Sprawdzam: Pomiń kolejkę.
+
+        //nic nie rób     
+
+    }
     public void ShowClickEffects(RectTransform rectTransform)
     {
         
@@ -307,7 +346,15 @@ public class NegotiationsManager : MonoBehaviour
         {
             rectTransform.GetComponent<MoveOffer>().moveDown();
             ShowPatienceChange(-1);
-            ShowBetChange(-offer.offerValue);
+            if (offer.isOfferActive)
+            {
+                ShowBetChange(offer.offerValue);
+            }
+            else
+            {
+                ShowBetChange(-offer.offerValue);
+            }
+           
         }
         
        
@@ -357,13 +404,6 @@ public class NegotiationsManager : MonoBehaviour
         greenSlider.value = whiteSlider.value;
     }
 
-    private void Check()
-    {
-        //    Sprawdzam: Pomiń kolejkę.
-
-        //nic nie rób     
-
-    }
     public void AsWRekawie()
     {
         patienceValue = 0;

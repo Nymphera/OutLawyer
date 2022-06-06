@@ -10037,6 +10037,7 @@ GameObject:
   - component: {fileID: 1426202942}
   - component: {fileID: 1426202941}
   - component: {fileID: 1426202940}
+  - component: {fileID: 1426202945}
   m_Layer: 0
   m_Name: "\u017B\u0105danie (2)"
   m_TagString: Untagged
@@ -10080,13 +10081,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1426202941}
-          m_TargetAssemblyTypeName: MoveOffer, Assembly-CSharp
-          m_MethodName: moveDown
-          m_Mode: 1
+        - m_Target: {fileID: 1585416803}
+          m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+          m_MethodName: ShowClickEffects
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1426202939}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -10096,13 +10097,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1426202941}
-          m_TargetAssemblyTypeName: MoveOffer, Assembly-CSharp
-          m_MethodName: moveBack
-          m_Mode: 1
+        - m_Target: {fileID: 1585416803}
+          m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+          m_MethodName: HideClickEffects
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1426202939}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -10166,11 +10167,23 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1585416803}
         m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
-        m_MethodName: RotateTableCard
-        m_Mode: 1
+        m_MethodName: MakeUp
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1426202939}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1585416803}
+        m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1426202939}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10214,6 +10227,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426202938}
   m_CullTransparentMesh: 1
+--- !u!114 &1426202945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426202938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a133fdc9c837fc54d910afaa677a8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offer:
+    offerValue: 1
+    offerType: 1
+    offerText: 
+    isOfferActive: 0
 --- !u!54 &1434354956
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14949,6 +14979,7 @@ GameObject:
   - component: {fileID: 1858573854}
   - component: {fileID: 1858573858}
   - component: {fileID: 1858573857}
+  - component: {fileID: 1858573859}
   m_Layer: 0
   m_Name: "\u017B\u0105danie"
   m_TagString: Untagged
@@ -15022,6 +15053,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1585416803}
         m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
         m_MethodName: MakeUp
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1858573853}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1585416803}
+        m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+        m_MethodName: Raise
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1858573853}
@@ -15126,6 +15169,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 759e7771f7db2c64b875db0444e36381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1858573859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858573852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a133fdc9c837fc54d910afaa677a8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offer:
+    offerValue: 1
+    offerType: 1
+    offerText: 
+    isOfferActive: 0
 --- !u!1001 &1859903951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17484,6 +17544,7 @@ GameObject:
   - component: {fileID: 2082988899}
   - component: {fileID: 2082988898}
   - component: {fileID: 2082988897}
+  - component: {fileID: 2082988902}
   m_Layer: 0
   m_Name: "\u017B\u0105danie (1)"
   m_TagString: Untagged
@@ -17527,13 +17588,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2082988898}
-          m_TargetAssemblyTypeName: MoveOffer, Assembly-CSharp
-          m_MethodName: moveDown
-          m_Mode: 1
+        - m_Target: {fileID: 1585416803}
+          m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+          m_MethodName: ShowClickEffects
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 2082988896}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -17543,13 +17604,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2082988898}
-          m_TargetAssemblyTypeName: MoveOffer, Assembly-CSharp
-          m_MethodName: moveBack
-          m_Mode: 1
+        - m_Target: {fileID: 1585416803}
+          m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+          m_MethodName: HideClickEffects
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 2082988896}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -17613,11 +17674,23 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1585416803}
         m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
-        m_MethodName: RotateTableCard
-        m_Mode: 1
+        m_MethodName: MakeUp
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2082988896}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1585416803}
+        m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2082988896}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -17661,6 +17734,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082988895}
   m_CullTransparentMesh: 1
+--- !u!114 &2082988902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082988895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a133fdc9c837fc54d910afaa677a8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offer:
+    offerValue: 1
+    offerType: 1
+    offerText: 
+    isOfferActive: 0
 --- !u!1 &2088246780
 GameObject:
   m_ObjectHideFlags: 0

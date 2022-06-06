@@ -269,13 +269,13 @@ public class NegotiationsManager : MonoBehaviour
     {
         if (currentState == NegotiationState.PlayerTurn)
         {
-
+            //Zmniejsz Cierpliwość o dodatkowe(1). Stawka maleje o(-1) Nie możesz blefować, gdy NPC ma 1 cierpliwości.
+            UpdatePatience(-2);
+            UpdateBet(-1);
+            //cierpliwość --
+            //stawka -- 
+            UpdateNegotiationState(NegotiationState.Decide);
         }
-        //Zmniejsz Cierpliwość o dodatkowe(1). Stawka maleje o(-1) Nie możesz blefować, gdy NPC ma 1 cierpliwości.
-        UpdatePatience(-2);
-        UpdateBet(-1);
-        //cierpliwość --
-        //stawka -- 
     }
     public void Raise(RectTransform rectTransform)
     {
@@ -330,6 +330,16 @@ public class NegotiationsManager : MonoBehaviour
 
         //nic nie rób     
 
+    }
+    public void ShowBlefEffects()
+    {
+        ShowBetChange(-1);
+        ShowPatienceChange(-2);
+    }
+    public void HideBlefEffects()
+    {
+        HideBetChange();
+        HidePatienceChange();
     }
     public void ShowClickEffects(RectTransform rectTransform)
     {

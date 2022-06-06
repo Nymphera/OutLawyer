@@ -2,23 +2,28 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardSpawner : MonoBehaviour
-{ [SerializeField]
+{ 
     private GameObject cardPrefab;
+    
+    private GameObject imagePrefab;
     [SerializeField]
-    private Transform playerParent,computerParent,tableParent;
+    private Transform playerParent,computerParent,tableParent,imageParent;
     private Card[] playerCards, computerCards, tableCards;
+    private Card addedCard;
     public DealCards dealCards;
     private GameObject deckOfCards;
-    public CardSpawner(GameObject cardPrefab,Transform playerCardsParent, Transform computerCardsParent,
-        Transform tableCardsParent)
+    public CardSpawner(GameObject cardPrefab,GameObject imagePrefab,Transform playerCardsParent, Transform computerCardsParent,
+        Transform tableCardsParent,Transform imageParent)
     {
         this.cardPrefab = cardPrefab;
         playerParent = playerCardsParent;
         computerParent=computerCardsParent;
         tableParent = tableCardsParent;
-
+        this.imagePrefab = imagePrefab;
+        this.imageParent = imageParent;
         dealCards = new DealCards();
         playerCards = new Card[2];
         computerCards = new Card[2];
@@ -34,7 +39,38 @@ public class CardSpawner : MonoBehaviour
        // yield return null;
         spawnCards(tableCards, tableParent);
     }
-
+    public void spawnCardImages()
+    {
+        Debug.Log("spawnCardImages");
+        Card[] cardImages = new Card[3];
+        cardImages[0] = addedCard;
+        for(int i = 1; i <3; i++)
+        {
+            cardImages[i] = playerCards[i-1];
+        }
+        for(int i = 0; i < 3; i++)
+        {
+            RectTransform rectTransform = Instantiate(imagePrefab, imageParent).GetComponent<RectTransform>();
+            rectTransform.name = cardImages[i].MySuit + cardImages[i].MyValue.ToString();
+            rectTransform.anchoredPosition = new Vector2(150 * (-1 + i), 0);
+           // rectTransform.GetComponent<Button>().onClick.AddListener(UpdatePlayerCards(rectTransform));
+           Sprite sprite= Resources.Load<Sprite>("Image/PlayingCards/"+cardImages[i].MySuit+cardImages[i].MyValue);
+            rectTransform.GetComponent<Image>().sprite = sprite;
+        }
+        
+    }
+    public void CorrectPlayerCards(Card[] playerNewCards)
+    {
+        destroyPlayerCards();
+        spawnCards(playerNewCards, playerParent);
+    }
+    private void destroyPlayerCards()
+    {
+        foreach(Card card in playerCards)
+        {
+            Destroy(GameObject.Find(card.MySuit + card.MyValue.ToString()));
+        }
+    }
     private void spawnCards(Card[] Cards,Transform parent)
     {
         Vector3 v=Vector3.zero;
@@ -69,5 +105,6 @@ public class CardSpawner : MonoBehaviour
         playerCards = dealCards.GetPlayerHand();
         computerCards = dealCards.GetComputerHand();
         tableCards = dealCards.GetTableCards();
+        addedCard = dealCards.GetAddedCard();
     }
 }

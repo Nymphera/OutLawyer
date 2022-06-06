@@ -29,13 +29,7 @@ public class Negotiations :MonoBehaviour
         
     }
 
-    public Negotiations(GameObject cardPrefab, Transform playerParent, 
-                         Transform computerParent,    Transform tableParent)
-    {
-        cardSpawner = new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
-        GetCards();
-        
-    }
+   
     public IEnumerator ChooseNegotiationsType()
     {
         //wyœwietla trzy opcje

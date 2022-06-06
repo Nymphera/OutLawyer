@@ -8,6 +8,7 @@ public class DealCards : DeckOfCards
     private Card[] playerHand;
         private Card[] computerHand;
     private Card[] tableCards;
+    private Card addedCard;
     public DealCards()
     {
         playerHand = new Card[2];
@@ -18,7 +19,7 @@ public class DealCards : DeckOfCards
     {
         setUpDeck();
         getHand();
-        DisplayCards();
+       // DisplayCards();
         //EvaluateHands();
     }
 
@@ -100,6 +101,7 @@ public class DealCards : DeckOfCards
         {
             tableCards[k-4] = getDeck[k];
         }
+        addedCard = getDeck[10];
     }
     public Card[] GetPlayerHand()
     {
@@ -112,6 +114,10 @@ public class DealCards : DeckOfCards
     public Card[] GetTableCards()
     {
         return tableCards;
+    }
+    public Card GetAddedCard()
+    {
+        return addedCard;
     }
 
 }

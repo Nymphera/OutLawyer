@@ -10,12 +10,12 @@ public class NegotiationsManager : MonoBehaviour
 {
     [SerializeField]
     public NegotiationState currentState;
-
+    public static NegotiationsManager Instance;
     public static event Action<NegotiationState> OnStateChanged;
     [SerializeField]
-    private GameObject cardPrefab;
+    private GameObject cardPrefab,imagePrefab;
     [SerializeField]
-    private Transform playerParent, computerParent, tableParent;
+    private Transform playerParent, computerParent, tableParent,imageParent;
     Slider whiteSlider, redSlider, greenSlider;
     private TextMeshProUGUI betText, handValueText, handValueInt;
     private Card[] playerCards, computerCards, tableCards;
@@ -31,7 +31,12 @@ public class NegotiationsManager : MonoBehaviour
 
     private void Start()
     {
-       
+        Instance = this;
+        if (Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
         GameEvents.current.onNegotiationsStarted += startNegotiations;
 
         canvas = GameObject.Find("NegotiationsCanvas");
@@ -146,8 +151,8 @@ public class NegotiationsManager : MonoBehaviour
     {
         CameraControllerKrabiarnia.Instance.SwitchState("Negotiations");
 
-        negotiations = new Negotiations(cardPrefab, playerParent, computerParent, tableParent);
-        cardSpawner = new CardSpawner(cardPrefab, playerParent, computerParent, tableParent);
+        
+        cardSpawner = new CardSpawner(cardPrefab,imagePrefab, playerParent, computerParent, tableParent,imageParent);
        
        cardSpawner.spawnCards();
         GetCards();
@@ -235,11 +240,6 @@ public class NegotiationsManager : MonoBehaviour
         playerCards = cardSpawner.dealCards.GetPlayerHand();
         tableCards = cardSpawner.dealCards.GetTableCards();
     }
-  public void FairDeal()
-    {
-
-    }
-
 
     public void MakeUp(RectTransform rectTransform)
     {
@@ -420,12 +420,20 @@ public class NegotiationsManager : MonoBehaviour
         redSlider.value = whiteSlider.value;
         greenSlider.value = whiteSlider.value;
     }
-
-    public void AsWRekawie()
-    {
-        
+    public void UpdatePlayerCards(RectTransform rectTransform)
+    {for(int i = 0; i < 2; i++)
+        {
+            if (rectTransform.name == playerCards[i].MySuit + playerCards[i].MyValue.ToString())
+            {
+                playerCards[i] = cardSpawner.dealCards.GetAddedCard();
+                cardSpawner.CorrectPlayerCards(playerCards);
+            }
+        }
         UpdateNegotiationState(NegotiationState.PlayerTurn);
-
+    }
+    public void AsWRekawie()
+    {       
+        cardSpawner.spawnCardImages();
     }
     public void UczciweTasowanie()
     {
@@ -435,7 +443,7 @@ public class NegotiationsManager : MonoBehaviour
     }
     public void PodejrzyjKarte()
     {
-        Debug.Log("click"); 
+       
         RotateTableCard();
         UpdateNegotiationState(NegotiationState.PlayerTurn);
         
@@ -463,6 +471,7 @@ public class NegotiationsManager : MonoBehaviour
         handValueInt = GameObject.Find("HandValueINT").GetComponent<TextMeshProUGUI>();
         handValueText = GameObject.Find("HandValueText").GetComponent<TextMeshProUGUI>();
         selectTypePanel = GameObject.Find("SelectType");
+       
         whiteSlider.maxValue = patienceValue;
         greenSlider.maxValue = patienceValue;
         redSlider.maxValue = patienceValue;

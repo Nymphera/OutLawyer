@@ -6,7 +6,7 @@ using UnityEngine;
 public class OfferDisplay : MonoBehaviour
 {
     [SerializeField]
-    Offer offer;
+    public  Offer offer;
     private void Awake()
     {
         SetOffers();

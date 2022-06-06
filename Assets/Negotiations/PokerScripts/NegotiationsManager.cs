@@ -185,7 +185,7 @@ public class NegotiationsManager : MonoBehaviour
         animationCount++;
 
     }
-    public void RotateTableCard()
+    private void RotateTableCard()
     {
         
         StartCoroutine(tableCards[cardNumber].Rotate());
@@ -265,17 +265,79 @@ public class NegotiationsManager : MonoBehaviour
     public void Call(RectTransform rectTransform)
     {
         //Wysuñ jedn¹ z nieaktywnych Ofert. Staje siê ona aktywna. Stawka roœnie o wartoœæ na karcie.
-        PlayOffer(rectTransform);
-        //wysuwa greenOffer
-        //stawka++
-        UpdateBet(1);
-        UpdatePatience(-1);
+        
+        Offer offer = rectTransform.GetComponent<OfferDisplay>().offer;
+        if(offer.isOfferActive == false)
+        {
+            //MoveOffer.PlayOffer();
+            //wysuwa greenOffer
+            rectTransform.GetComponent<MoveOffer>().PlayOffer();
+          
+            //stawka++
+            UpdateBet(offer.offerValue);
+            
+            UpdatePatience(-1);
+            RotateTableCard();
+        }
+       
     }
-    
-    public void PlayOffer(RectTransform rectTransform)
+    public void ShowCallEffects(RectTransform rectTransform)
     {
-        rectTransform.anchoredPosition =new Vector2(rectTransform.anchoredPosition.x,-85);
-        Debug.Log(rectTransform.position);
+        //pokazuje karte
+        rectTransform.GetComponent<MoveOffer>().moveUp();
+       Offer offer=rectTransform.GetComponent<OfferDisplay>().offer;
+        //patience
+        ShowPatienceChange(-1);
+        //jak w dó³ to bia³y spada
+        //jak w górê to zielony roœnie
+
+        //bet
+        ShowBetChange(offer.offerValue);
+        //jak w dó³ to stawka na czerwono z jakimœ znaczkiem w dó³
+        //jak w góre to na zielono i strza³ka do góry
+    }
+    public void HideCallEffects(RectTransform rectTransform)
+    {
+        rectTransform.GetComponent<MoveOffer>().moveBack();
+        HideBetChange();
+        HidePatienceChange();
+    }
+
+    private void ShowBetChange(int value)
+    {
+        if (value > 0)
+        {
+            betText.color = Color.red;
+            betText.text = (betValue + value).ToString();
+        }
+        else if (value < 0)
+        {
+            betText.color = Color.green;
+            betText.text = (betValue + value).ToString();
+        }
+    }
+    private void HideBetChange()
+    {
+        betText.color = Color.white;
+        betText.text = betValue.ToString();
+    }
+
+    private void ShowPatienceChange(int value)
+    {
+        if (value > 0)
+        {
+            greenSlider.value = patienceValue + value;
+        }
+        else if (value < 0)
+        {
+            whiteSlider.value = patienceValue + value;
+        }
+    }
+    private void HidePatienceChange()
+    {
+        whiteSlider.value = patienceValue;
+        redSlider.value = whiteSlider.value;
+        greenSlider.value = whiteSlider.value;
     }
 
     private void Check()

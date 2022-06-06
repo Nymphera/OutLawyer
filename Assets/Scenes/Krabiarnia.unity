@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 1488199}
   - component: {fileID: 1488200}
   m_Layer: 0
-  m_Name: Slder_Red
+  m_Name: Slider_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 5
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4018,10 +4018,11 @@ GameObject:
   m_Component:
   - component: {fileID: 660060382}
   - component: {fileID: 660060387}
+  - component: {fileID: 660060384}
   - component: {fileID: 660060386}
   - component: {fileID: 660060385}
-  - component: {fileID: 660060384}
   - component: {fileID: 660060383}
+  - component: {fileID: 660060388}
   m_Layer: 0
   m_Name: Oferta (1)
   m_TagString: Untagged
@@ -4077,13 +4078,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 660060383}
-          m_TargetAssemblyTypeName: MoveOffer, Assembly-CSharp
-          m_MethodName: moveUp
-          m_Mode: 1
+        - m_Target: {fileID: 1585416803}
+          m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+          m_MethodName: ShowCallEffects
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 660060382}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -4093,13 +4094,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 660060383}
-          m_TargetAssemblyTypeName: MoveOffer, Assembly-CSharp
-          m_MethodName: moveBack
-          m_Mode: 1
+        - m_Target: {fileID: 1585416803}
+          m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+          m_MethodName: HideCallEffects
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 660060382}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -4151,11 +4152,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1585416803}
         m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
-        m_MethodName: RotateTableCard
-        m_Mode: 1
+        m_MethodName: Call
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 660060382}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4199,6 +4200,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660060381}
   m_CullTransparentMesh: 1
+--- !u!114 &660060388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660060381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a133fdc9c837fc54d910afaa677a8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offer:
+    offerValue: 1
+    offerType: 0
+    offerText: 
+    isOfferActive: 0
 --- !u!1001 &664144709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5189,6 +5207,7 @@ GameObject:
   - component: {fileID: 792220832}
   - component: {fileID: 792220836}
   - component: {fileID: 792220835}
+  - component: {fileID: 792220837}
   m_Layer: 0
   m_Name: Oferta
   m_TagString: Untagged
@@ -5261,11 +5280,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1585416803}
         m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
-        m_MethodName: RotateTableCard
-        m_Mode: 1
+        m_MethodName: Call
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 792220831}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5338,13 +5357,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 792220835}
-          m_TargetAssemblyTypeName: MoveOffer, Assembly-CSharp
-          m_MethodName: moveUp
-          m_Mode: 1
+        - m_Target: {fileID: 1585416803}
+          m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+          m_MethodName: ShowCallEffects
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 792220831}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -5354,18 +5373,35 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 792220835}
-          m_TargetAssemblyTypeName: MoveOffer, Assembly-CSharp
-          m_MethodName: moveBack
-          m_Mode: 1
+        - m_Target: {fileID: 1585416803}
+          m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+          m_MethodName: HideCallEffects
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 792220831}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &792220837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792220830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a133fdc9c837fc54d910afaa677a8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offer:
+    offerValue: 1
+    offerType: 0
+    offerText: 
+    isOfferActive: 0
 --- !u!4 &793414237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: cba00f75539bc564fabb9136fccfac6c, type: 3}
@@ -5740,7 +5776,7 @@ GameObject:
   - component: {fileID: 842565027}
   - component: {fileID: 842565026}
   m_Layer: 0
-  m_Name: HandValueINT
+  m_Name: BetValueINT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5785,7 +5821,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 99
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7245,7 +7281,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048687239}
-  m_LocalRotation: {x: 0.5083911, y: 0.000000026711499, z: -0.000000015769913, w: 0.8611263}
+  m_LocalRotation: {x: 0.5083911, y: -0.000000026711492, z: 0.00000001576991, w: 0.8611263}
   m_LocalPosition: {x: -0.23077774, y: 0.9840002, z: -0.6094856}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8116,7 +8152,7 @@ GameObject:
   - component: {fileID: 1154103628}
   - component: {fileID: 1154103629}
   m_Layer: 0
-  m_Name: Slder_White
+  m_Name: Slider_White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8188,7 +8224,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 4
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8843,7 +8879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1293199939
 Transform:
   m_ObjectHideFlags: 0
@@ -9740,7 +9776,7 @@ GameObject:
   - component: {fileID: 1418478656}
   - component: {fileID: 1418478655}
   m_Layer: 0
-  m_Name: HandValueText
+  m_Name: BetValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10776,7 +10812,7 @@ GameObject:
   - component: {fileID: 1510242355}
   - component: {fileID: 1510242356}
   m_Layer: 0
-  m_Name: Slder_Green
+  m_Name: Slider_Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10848,7 +10884,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 5
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -15326,6 +15362,7 @@ GameObject:
   - component: {fileID: 1891182851}
   - component: {fileID: 1891182850}
   - component: {fileID: 1891182849}
+  - component: {fileID: 1891182854}
   m_Layer: 0
   m_Name: Oferta (2)
   m_TagString: Untagged
@@ -15381,13 +15418,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1891182849}
-          m_TargetAssemblyTypeName: MoveOffer, Assembly-CSharp
-          m_MethodName: moveUp
-          m_Mode: 1
+        - m_Target: {fileID: 1585416803}
+          m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+          m_MethodName: ShowCallEffects
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1891182848}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -15397,13 +15434,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1891182849}
-          m_TargetAssemblyTypeName: MoveOffer, Assembly-CSharp
-          m_MethodName: moveBack
-          m_Mode: 1
+        - m_Target: {fileID: 1585416803}
+          m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+          m_MethodName: HideCallEffects
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1891182848}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -15455,11 +15492,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1585416803}
         m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
-        m_MethodName: RotateTableCard
-        m_Mode: 1
+        m_MethodName: Call
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1891182848}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -15503,6 +15540,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891182847}
   m_CullTransparentMesh: 1
+--- !u!114 &1891182854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891182847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a133fdc9c837fc54d910afaa677a8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offer:
+    offerValue: 2
+    offerType: 0
+    offerText: 
+    isOfferActive: 0
 --- !u!1 &1900504821
 GameObject:
   m_ObjectHideFlags: 0
@@ -16639,7 +16693,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 99
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -26122,7 +26176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6731000392090424917
 Transform:
   m_ObjectHideFlags: 0

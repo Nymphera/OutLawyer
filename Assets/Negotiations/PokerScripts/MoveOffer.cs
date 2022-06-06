@@ -7,31 +7,37 @@ public class MoveOffer : MonoBehaviour
 {
     private Vector3 startPosition;
     private bool wasClicked;
+    private Offer offer;
     private void Awake()
     {
         startPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
+        offer = GetComponent<OfferDisplay>().offer;
         
     }
     public void moveUp()
     {
        
         StopAllCoroutines();
-
-        StartCoroutine(MoveUp());        
+        Vector2 minPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
+        Vector2 maxPosition = minPosition + new Vector2(0, 100);
+        StartCoroutine(MoveUp(minPosition,maxPosition));        
     }
     public void moveDown()
     {
         StopAllCoroutines();
-            StartCoroutine(MoveDown());       
+        Vector2 minPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
+        Vector2 maxPosition = minPosition + new Vector2(0, -100);
+        StartCoroutine(MoveDown(minPosition,maxPosition));       
     }
     public void moveBack()
     {
+        if(!wasClicked)
         StopAllCoroutines();
         StartCoroutine(MoveBack());
     }
     private IEnumerator MoveBack()
     {
-        if(!wasClicked)
+        if(!offer.isOfferActive)
         {
             Vector2 currentPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
             Vector2 pos = startPosition;
@@ -49,16 +55,14 @@ public class MoveOffer : MonoBehaviour
        
 
     }
-    private IEnumerator MoveDown()
+    private IEnumerator MoveDown(Vector2 minPosition,Vector2 maxPosition)
     {
-        
-       
-        Vector2 minPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
-        Vector2 maxPosition = minPosition + new Vector2(0, -100);
-        Vector2 pos = minPosition;
-        float startTime = Time.time;
-        float animationTime = 0.3f;
-        
+        if (!offer.isOfferActive)
+        {
+            Vector2 pos = minPosition;
+            float startTime = Time.time;
+            float animationTime = 0.3f;
+
             while (Time.time - startTime < animationTime)
             {
                 pos = Vector2.Lerp(minPosition, maxPosition, (Time.time - startTime) / animationTime);
@@ -66,18 +70,18 @@ public class MoveOffer : MonoBehaviour
                 yield return null;
             }
             gameObject.GetComponent<RectTransform>().anchoredPosition = maxPosition;
-
-       
+        }
+    
     }
 
-    private IEnumerator MoveUp()
+    private IEnumerator MoveUp(Vector2 minPosition,Vector2 maxPosition)
     {
-        Vector2 minPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
-        Vector2 maxPosition = minPosition + new Vector2(0, 100);
-        Vector2 pos = minPosition;
-        float startTime = Time.time;
-        float animationTime = 0.3f;
-        
+        if (!offer.isOfferActive)
+        {
+            Vector2 pos = minPosition;
+            float startTime = Time.time;
+            float animationTime = 0.3f;
+
             while (Time.time - startTime < animationTime)
             {
                 pos = Vector2.Lerp(minPosition, maxPosition, (Time.time - startTime) / animationTime);
@@ -85,10 +89,17 @@ public class MoveOffer : MonoBehaviour
                 yield return null;
             }
             gameObject.GetComponent<RectTransform>().anchoredPosition = maxPosition;
+        }
+        
     }
     public void PlayOffer()
     {
         wasClicked = true;
         StopAllCoroutines();
+        Vector2 minPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
+        Vector2 maxPosition = new Vector2(minPosition.x,-85);
+        StartCoroutine(MoveUp(minPosition, maxPosition));
+        offer.isOfferActive = true;
+
     }
 }

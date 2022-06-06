@@ -128,7 +128,7 @@ public class NegotiationsManager : MonoBehaviour
 
     private void HandleDealCards()
     {
-        startNegotiations();
+        
     }
 
     private void HandleSelectType()

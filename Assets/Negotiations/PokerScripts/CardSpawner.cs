@@ -32,7 +32,7 @@ public class CardSpawner : MonoBehaviour
         DealCards();
         spawnCards(playerCards, playerParent);
        // yield return null;
-        spawnCards(computerCards, computerParent);
+        //spawnCards(computerCards, computerParent);
        // yield return null;
         spawnCards(tableCards, tableParent);
 

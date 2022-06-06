@@ -31,7 +31,7 @@ public class MoveOffer : MonoBehaviour
     }
     public void moveBack()
     {
-        if(!offer.isOfferActive)
+        if(!wasClicked)
         StopAllCoroutines();
         StartCoroutine(MoveBack());
     }

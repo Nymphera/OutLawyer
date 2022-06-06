@@ -21,7 +21,7 @@ public class NegotiationsManager : MonoBehaviour
     private Card[] playerCards, computerCards, tableCards;
     private CardSpawner cardSpawner;
     private Negotiations negotiations;
-    private int animationCount=0;
+    private int animationCount=1;
     private GameObject canvas;
     private int cardNumber = 0;
     private int patienceValue=10;
@@ -86,16 +86,15 @@ public class NegotiationsManager : MonoBehaviour
 
     private void HandleDecide()
     {
-        StartCoroutine(Think(0.2f));
-       
+        StartCoroutine(Think(0.2f));       
     }
    
     private IEnumerator Think(float time)
     {
+        RotateTableCard();
         yield return new WaitForSeconds(time);
         if (!tableCards[4].isFronted)
-        {
-            RotateTableCard();
+        {           
             UpdateNegotiationState(NegotiationState.PlayerTurn);
         }
         else
@@ -107,8 +106,12 @@ public class NegotiationsManager : MonoBehaviour
     private IEnumerator WaitForVeridct()
     {
         yield return new WaitForSeconds(4f);
+        if(handValue>=betValue)
         UpdateNegotiationState(NegotiationState.Victory);
-
+        else if (handValue < betValue)
+        {
+            UpdateNegotiationState(NegotiationState.Lose);
+        }
     }
 
     private void HandleComputerTurn()
@@ -149,8 +152,8 @@ public class NegotiationsManager : MonoBehaviour
         GetCards();
        
 
-        StartCoroutine(AnimateDealing(computerCards,computerParent));
-        yield return new WaitUntil(()=>animationCount>0);
+      //  StartCoroutine(AnimateDealing(computerCards,computerParent));
+       // yield return new WaitUntil(()=>animationCount>0);
         
         StartCoroutine(AnimateDealing(playerCards,playerParent));
         yield return new WaitUntil(() => animationCount>1);
@@ -219,6 +222,7 @@ public class NegotiationsManager : MonoBehaviour
         
         handValueInt.text = ((int)playerHand).ToString();
         handValueText.text = playerHand.ToString();
+        handValue = ((int)playerHand);
     }
 
     private void GetCards()
@@ -248,7 +252,7 @@ public class NegotiationsManager : MonoBehaviour
         {
             //Wysuń jedno z nieaktywnych Żądań.Staje się ono aktywne. Stawka maleje o wartość na karcie.
             Offer offer = rectTransform.GetComponent<OfferDisplay>().offer;
-            if (!offer.isOfferActive)
+            if (!offer.isOfferActive&&betValue-offer.offerValue>=0)
             {
                 //MoveOffer.PlayOffer();
                 //wysuwa greenOffer
@@ -270,11 +274,15 @@ public class NegotiationsManager : MonoBehaviour
         if (currentState == NegotiationState.PlayerTurn)
         {
             //Zmniejsz Cierpliwość o dodatkowe(1). Stawka maleje o(-1) Nie możesz blefować, gdy NPC ma 1 cierpliwości.
-            UpdatePatience(-2);
-            UpdateBet(-1);
-            //cierpliwość --
-            //stawka -- 
-            UpdateNegotiationState(NegotiationState.Decide);
+            if(betValue -1 >= 0)
+            {
+                UpdatePatience(-2);
+                UpdateBet(-1);
+                //cierpliwość --
+                //stawka -- 
+                UpdateNegotiationState(NegotiationState.Decide);
+            }
+            
         }
     }
     public void Raise(RectTransform rectTransform)
@@ -342,11 +350,10 @@ public class NegotiationsManager : MonoBehaviour
         HidePatienceChange();
     }
     public void ShowClickEffects(RectTransform rectTransform)
-    {
-        
+    {        
         
        Offer offer=rectTransform.GetComponent<OfferDisplay>().offer;
-        if (offer.offerType == OfferType.green)
+        if (offer.offerType == OfferType.green&&!offer.isOfferActive)
         {
             rectTransform.GetComponent<MoveOffer>().moveUp();
             ShowPatienceChange(-1);
@@ -354,15 +361,18 @@ public class NegotiationsManager : MonoBehaviour
         }
         else if (offer.offerType == OfferType.red)
         {
+            
             rectTransform.GetComponent<MoveOffer>().moveDown();
             ShowPatienceChange(-1);
-            if (offer.isOfferActive)
+            if (!offer.isOfferActive)
             {
-                ShowBetChange(offer.offerValue);
+                rectTransform.GetComponent<MoveOffer>().moveDown();
+                ShowBetChange(-offer.offerValue);
             }
             else
-            {
-                ShowBetChange(-offer.offerValue);
+            {               
+                rectTransform.GetComponent<MoveOffer>().moveUp();                
+                ShowBetChange(offer.offerValue);
             }
            
         }
@@ -378,6 +388,10 @@ public class NegotiationsManager : MonoBehaviour
 
     private void ShowBetChange(int value)
     {
+        if (betValue + value < 0)
+        {
+            Debug.Log("Stawka nie może być mniejsza od zera");
+        }
         if (value > 0)
         {
             betText.color = Color.red;

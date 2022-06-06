@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -225,37 +225,37 @@ public class NegotiationsManager : MonoBehaviour
     }
     public IEnumerator ChooseNegotiationsType()
     {
-        //wyœwietla trzy opcje
+        //wyÅ›wietla trzy opcje
 
-        yield return null; //wati until przycisk zosta³ wciœniêty
+        yield return null; //wati until przycisk zostaÅ‚ wciÅ›niÄ™ty
 
-        //  znikaj¹ trzy opcje
+        //  znikajÄ… trzy opcje
 
-        // klikniêcie przycisku w³¹cza przejœcie do nastêpnej funkcji
+        // klikniÄ™cie przycisku wÅ‚Ä…cza przejÅ›cie do nastÄ™pnej funkcji
     }
 
 
     public void MakeUp()
     {
-        //Wysuñ jedno z nieaktywnych ¯¹dañ.Staje siê ono aktywne. Stawka maleje o wartoœæ na karcie.
+        //WysuÅ„ jedno z nieaktywnych Å»Ä…daÅ„.Staje siÄ™ ono aktywne. Stawka maleje o wartoÅ›Ä‡ na karcie.
 
         //wysuwa red offer
         //stawka--
         UpdateBet(-1);
-        //cierpliwoœæ++
+        //cierpliwoÅ›Ä‡++
         UpdatePatience(1);
     }
     public void Blef()
     {
-        //Zmniejsz Cierpliwoœæ o dodatkowe(1). Stawka maleje o(-1) Nie mo¿esz blefowaæ, gdy NPC ma 1 cierpliwoœci.
+        //Zmniejsz CierpliwoÅ›Ä‡ o dodatkowe(1). Stawka maleje o(-1) Nie moÅ¼esz blefowaÄ‡, gdy NPC ma 1 cierpliwoÅ›ci.
         UpdatePatience(-2);
         UpdateBet(-1);
-        //cierpliwoœæ --
+        //cierpliwoÅ›Ä‡ --
         //stawka -- 
     }
     public void Raise()
     {
-        //Przebicie: Zdejmij ze sto³u ¯¹danie. Stawka roœnie o wartoœæ na karcie.
+        //Przebicie: Zdejmij ze stoÅ‚u Å»Ä…danie. Stawka roÅ›nie o wartoÅ›Ä‡ na karcie.
 
         //zdejmuje red Offer
         //stawka++
@@ -264,7 +264,7 @@ public class NegotiationsManager : MonoBehaviour
     }
     public void Call(RectTransform rectTransform)
     {
-        //Wysuñ jedn¹ z nieaktywnych Ofert. Staje siê ona aktywna. Stawka roœnie o wartoœæ na karcie.
+        //WysuÅ„ jednÄ… z nieaktywnych Ofert. Staje siÄ™ ona aktywna. Stawka roÅ›nie o wartoÅ›Ä‡ na karcie.
         
         Offer offer = rectTransform.GetComponent<OfferDisplay>().offer;
         if(offer.isOfferActive == false)
@@ -288,13 +288,13 @@ public class NegotiationsManager : MonoBehaviour
        Offer offer=rectTransform.GetComponent<OfferDisplay>().offer;
         //patience
         ShowPatienceChange(-1);
-        //jak w dó³ to bia³y spada
-        //jak w górê to zielony roœnie
+        //jak w dÃ³Å‚ to biaÅ‚y spada
+        //jak w gÃ³rÄ™ to zielony roÅ›nie
 
         //bet
         ShowBetChange(offer.offerValue);
-        //jak w dó³ to stawka na czerwono z jakimœ znaczkiem w dó³
-        //jak w góre to na zielono i strza³ka do góry
+        //jak w dÃ³Å‚ to stawka na czerwono z jakimÅ› znaczkiem w dÃ³Å‚
+        //jak w gÃ³re to na zielono i strzaÅ‚ka do gÃ³ry
     }
     public void HideCallEffects(RectTransform rectTransform)
     {
@@ -308,12 +308,13 @@ public class NegotiationsManager : MonoBehaviour
         if (value > 0)
         {
             betText.color = Color.red;
-            betText.text = (betValue + value).ToString();
+            betText.text = (betValue + value).ToString()+ "â†‘";
+            
         }
         else if (value < 0)
         {
             betText.color = Color.green;
-            betText.text = (betValue + value).ToString();
+            betText.text = (betValue + value).ToString()+ "â†“";
         }
     }
     private void HideBetChange()
@@ -342,9 +343,9 @@ public class NegotiationsManager : MonoBehaviour
 
     private void Check()
     {
-        //    Sprawdzam: Pomiñ kolejkê.
+        //    Sprawdzam: PomiÅ„ kolejkÄ™.
 
-        //nic nie rób     
+        //nic nie rÃ³b     
 
     }
     public void AsWRekawie()
@@ -394,7 +395,7 @@ public enum NegotiationsType
     Null = 0,
     UczciweTasowanie,
     PodjerzyjKarte,
-    AsWRêkawie
+    AsWRÄ™kawie
 }
 
 public enum NegotiationState

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CardSpawner : MonoBehaviour
 { 
@@ -40,7 +41,7 @@ public class CardSpawner : MonoBehaviour
        // yield return null;
         spawnCards(tableCards, tableParent);
     }
-    public void spawnCardImages()
+    public IEnumerator spawnCardImages()
     {       
         Card[] cardImages = new Card[3];
         cardImages[0] = addedCard;
@@ -48,28 +49,39 @@ public class CardSpawner : MonoBehaviour
         {
             cardImages[i] = playerCards[i-1];
         }
+        GameObject.Find("Wybierz Karte").GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 123);
+
         for(int i = 0; i < 3; i++)
         {
             RectTransform rectTransform = GameObject.Find("CardImage " + i).GetComponent<RectTransform>();           
-            rectTransform.name = "Image"+cardImages[i].MySuit + cardImages[i].MyValue.ToString();
-            rectTransform.anchoredPosition = new Vector2(150 * (-1 + i), 0);
-           
+            rectTransform.name = "Image"+cardImages[i].MySuit + cardImages[i].MyValue.ToString();        
            Sprite sprite= Resources.Load<Sprite>("Image/PlayingCards/"+cardImages[i].MySuit+cardImages[i].MyValue);
             rectTransform.GetComponent<Image>().sprite = sprite;
+
+            
+            yield return null;
+
+            float animationDuration = 0.3f;
+            float startTime = Time.time;
+            Vector2 spawnPosition = rectTransform.anchoredPosition;
+            Vector2 pos = spawnPosition;
+            Vector2 endPosition= new Vector2(150 * (-1 + i), 0);
+            while (pos != endPosition)
+            {
+                pos = Vector2.Lerp(spawnPosition, endPosition, (Time.time - startTime) / animationDuration);
+                rectTransform.anchoredPosition = pos;
+                yield return null;
+
+
+            }
+            rectTransform.anchoredPosition = endPosition;
+
         }
         
     }
     public void CorrectPlayerCards(Card[] playerNewCards)
-    {        
-        destroyPlayerCards();
+    {               
         spawnCards(playerNewCards, playerParent);
-    }
-    private void destroyPlayerCards()
-    {
-        foreach(Card card in playerCards)
-        {
-            Destroy(GameObject.Find(card.MySuit + card.MyValue.ToString()));
-        }
     }
     private void spawnCards(Card[] Cards,Transform parent)
     {

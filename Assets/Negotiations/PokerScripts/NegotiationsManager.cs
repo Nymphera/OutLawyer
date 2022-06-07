@@ -81,11 +81,14 @@ public class NegotiationsManager : MonoBehaviour
 
     private void HandleLose()
     {
+        Debug.Log("You lost");
         CameraControllerKrabiarnia.Instance.SwitchState("Player");
+        canvas.SetActive(false);
     }
 
     private void HandleVictory()
     {
+        Debug.Log("You won");
         CameraControllerKrabiarnia.Instance.SwitchState("Player");
         canvas.SetActive(false);
     }
@@ -422,29 +425,32 @@ public class NegotiationsManager : MonoBehaviour
         greenSlider.value = whiteSlider.value;
     }
     public void UpdatePlayerCards(RectTransform rectTransform)
-    {for(int i = 0; i < 2; i++)
+    {
+        Card[] addedCard = new Card[1];
+        for (int i = 0; i < 2; i++)
         {
             if (rectTransform.name == ("Image" + playerCards[i].MySuit + playerCards[i].MyValue.ToString())) 
             {
                 Destroy(GameObject.Find(playerCards[i].MySuit + playerCards[i].MyValue.ToString()));
                 playerCards[i] = cardSpawner.dealCards.GetAddedCard();
-               
+                addedCard[0]= cardSpawner.dealCards.GetAddedCard();
+                cardSpawner.CorrectPlayerCards(addedCard);
+                StartCoroutine(AnimateDealing(playerCards, playerParent));
+                StartCoroutine(RotatePlayerCards());
             }
             
         }
-        for(int i = 0; i < 2; i++)
-        {
-            Debug.Log(playerCards[i].MySuit + playerCards[i].MyValue.ToString());
-        }
        
-        cardSpawner.CorrectPlayerCards(playerCards);
-        StartCoroutine(AnimateDealing(playerCards, playerParent));
-        StartCoroutine(RotatePlayerCards());
         UpdateNegotiationState(NegotiationState.PlayerTurn);
     }
     public void AsWRekawie()
     {       
-        cardSpawner.spawnCardImages();
+        for(int i = 0; i < 3; i++)
+        {
+            selectTypePanel.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        
+        StartCoroutine(cardSpawner.spawnCardImages());
     }
     public void UczciweTasowanie()
     {

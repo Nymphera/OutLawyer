@@ -17,7 +17,7 @@ public class NegotiationsManager : MonoBehaviour
     [SerializeField]
     private Transform playerParent, computerParent, tableParent,imageParent;
     Slider whiteSlider, redSlider, greenSlider;
-    private TextMeshProUGUI betText, handValueText, handValueInt;
+    private TextMeshProUGUI betText, handValueText, handValueInt,dialogOutput;
     private Card[] playerCards, computerCards, tableCards;
     private CardSpawner cardSpawner;
     private Negotiations negotiations;
@@ -387,7 +387,7 @@ public class NegotiationsManager : MonoBehaviour
     {
         if (betValue + value < 0)
         {
-            Debug.Log("Stawka nie może być mniejsza od zera");
+            dialogOutput.text="Stawka nie może być mniejsza od zera.";
         }
         if (value > 0)
         {
@@ -403,6 +403,7 @@ public class NegotiationsManager : MonoBehaviour
     }
     private void HideBetChange()
     {
+        dialogOutput.text = "";
         betText.color = Color.white;
         betText.text = betValue.ToString();
     }
@@ -488,6 +489,7 @@ public class NegotiationsManager : MonoBehaviour
         handValueInt = GameObject.Find("HandValueINT").GetComponent<TextMeshProUGUI>();
         handValueText = GameObject.Find("HandValueText").GetComponent<TextMeshProUGUI>();
         selectTypePanel = GameObject.Find("SelectType");
+        dialogOutput=GameObject.Find("DialogOutputNegotiations").GetComponent<TextMeshProUGUI>();
        
         whiteSlider.maxValue = patienceValue;
         greenSlider.maxValue = patienceValue;

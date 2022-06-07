@@ -105,38 +105,6 @@ public class NegotiationsManager : MonoBehaviour
             Debug.Log("You lost");
         }
     }
-
-    private void ResetValues()
-    {
-        cardNumber = 0;
-        handValue = 0;
-        patienceValue = patienceStartValue;
-        betValue = 0;
-        animationCount = 1;
-        UpdateBet(0);
-        UpdatePatience(0);
-        handValueInt.text = "0";
-        handValueText.text = Hand.Nothing.ToString();
-        for (int i = 0; i < 3; i++)
-        {
-            selectTypePanel.transform.GetChild(i).gameObject.SetActive(true);
-        }
-        for (int i = 3; i < 6; i++)
-        {
-            selectTypePanel.transform.GetChild(i).gameObject.name= "CardImage " + (i - 3);
-            selectTypePanel.transform.GetChild(i).GetComponent<RectTransform>().anchoredPosition = new Vector2(0,-500);
-        }
-        int index=offersParent.childCount;
-        for(int i = 0; i < index; i++)
-        {
-            MoveOffer moveOffer = offersParent.GetChild(i).transform.GetComponent<MoveOffer>();
-            moveOffer.wasClicked = false;
-            moveOffer.offer.isOfferActive = false;
-            offersParent.GetChild(i).GetComponent<RectTransform>().anchoredPosition = moveOffer.startPosition; 
-        }
-        
-    }
-
     private void HandleDecide()
     {
         
@@ -525,7 +493,36 @@ public class NegotiationsManager : MonoBehaviour
         betValue += value;
         betText.text = betValue.ToString();
     }
+    private void ResetValues()
+    {
+        cardNumber = 0;
+        handValue = 0;
+        betValue = 0;
+        patienceValue = patienceStartValue;      
+        animationCount = 1;
+        UpdateBet(0);
+        UpdatePatience(0);
+        handValueInt.text = "0";
+        handValueText.text = Hand.Nothing.ToString();
+        for (int i = 0; i < 3; i++)
+        {
+            selectTypePanel.transform.GetChild(i).gameObject.SetActive(true);
+        }
+        for (int i = 3; i < 6; i++)
+        {
+            selectTypePanel.transform.GetChild(i).gameObject.name = "CardImage " + (i - 3);
+            selectTypePanel.transform.GetChild(i).GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -500);
+        }
+        int index = offersParent.childCount;
+        for (int i = 0; i < index; i++)
+        {
+            MoveOffer moveOffer = offersParent.GetChild(i).transform.GetComponent<MoveOffer>();
+            moveOffer.wasClicked = false;
+            moveOffer.offer.isOfferActive = false;
+            offersParent.GetChild(i).GetComponent<RectTransform>().anchoredPosition = moveOffer.startPosition;
+        }
 
+    }
     public void GetRefernces()
     {
         whiteSlider = GameObject.Find("Slider_White").GetComponent<Slider>();

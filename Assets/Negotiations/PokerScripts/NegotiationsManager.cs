@@ -15,7 +15,7 @@ public class NegotiationsManager : MonoBehaviour
     [SerializeField]
     private GameObject cardPrefab,imagePrefab;
     [SerializeField]
-    private Transform playerParent, computerParent, tableParent,imageParent;
+    private Transform playerParent, computerParent, tableParent,imageParent,offersParent;
     Slider whiteSlider, redSlider, greenSlider;
     private TextMeshProUGUI betText, handValueText, handValueInt,dialogOutput;
     private Card[] playerCards, computerCards, tableCards;
@@ -26,6 +26,7 @@ public class NegotiationsManager : MonoBehaviour
     private int cardNumber = 0;
     [SerializeField]
     private int patienceValue=8;
+    private int patienceStartValue;
     private int betValue=0;
     private int handValue=0;
 
@@ -41,7 +42,7 @@ public class NegotiationsManager : MonoBehaviour
 
         canvas = GameObject.Find("NegotiationsCanvas");
         canvas.SetActive(false);
-        
+        patienceStartValue = patienceValue;
     }
     private void OnDestroy()
     {
@@ -80,21 +81,65 @@ public class NegotiationsManager : MonoBehaviour
     }
 
     private void HandleLose()
-    {
-        Debug.Log("You lost");
-        CameraControllerKrabiarnia.Instance.SwitchState("Player");
-        canvas.SetActive(false);
+    {       
+        EndNegotiations(false);
     }
 
     private void HandleVictory()
+    {      
+        EndNegotiations(true);
+    }
+
+    private void EndNegotiations(bool win)
     {
-        Debug.Log("You won");
-        CameraControllerKrabiarnia.Instance.SwitchState("Player");
+        cardSpawner.destroyCards();
+        ResetValues();
         canvas.SetActive(false);
+        CameraControllerKrabiarnia.Instance.SwitchState("Player");
+        if (win)
+        {
+            Debug.Log("You won");
+        }
+        else
+        {
+            Debug.Log("You lost");
+        }
+    }
+
+    private void ResetValues()
+    {
+        cardNumber = 0;
+        handValue = 0;
+        patienceValue = patienceStartValue;
+        betValue = 0;
+        animationCount = 1;
+        UpdateBet(0);
+        UpdatePatience(0);
+        handValueInt.text = "0";
+        handValueText.text = Hand.Nothing.ToString();
+        for (int i = 0; i < 3; i++)
+        {
+            selectTypePanel.transform.GetChild(i).gameObject.SetActive(true);
+        }
+        for (int i = 3; i < 6; i++)
+        {
+            selectTypePanel.transform.GetChild(i).gameObject.name= "CardImage " + (i - 3);
+            selectTypePanel.transform.GetChild(i).GetComponent<RectTransform>().anchoredPosition = new Vector2(0,-500);
+        }
+        int index=offersParent.childCount;
+        for(int i = 0; i < index; i++)
+        {
+            MoveOffer moveOffer = offersParent.GetChild(i).transform.GetComponent<MoveOffer>();
+            moveOffer.wasClicked = false;
+            moveOffer.offer.isOfferActive = false;
+            offersParent.GetChild(i).GetComponent<RectTransform>().anchoredPosition = moveOffer.startPosition; 
+        }
+        
     }
 
     private void HandleDecide()
     {
+        
         StartCoroutine(Think(0.2f));       
     }
    
@@ -173,6 +218,7 @@ public class NegotiationsManager : MonoBehaviour
         StartCoroutine(RotatePlayerCards());
         yield return new WaitUntil(() => animationCount>3);
         canvas.SetActive(true);
+        if(selectTypePanel==null)
         GetRefernces();
         yield return null;
         UpdateNegotiationState(NegotiationState.SelectType);

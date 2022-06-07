@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class MoveOffer : MonoBehaviour
 {
-    private Vector3 startPosition;
-    private bool wasClicked;
-    private Offer offer;
+    public Vector3 startPosition;
+    public bool wasClicked;
+    public Offer offer;
     private void Awake()
     {
         startPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;

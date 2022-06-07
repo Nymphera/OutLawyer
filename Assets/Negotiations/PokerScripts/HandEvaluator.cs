@@ -154,7 +154,7 @@ public class HandEvaluator : Card
             //para przed trójk¹
             if (cards[i].MyValue == cards[i + 1].MyValue && cards[i].MyValue != cards[i + 2].MyValue)
             {
-                for (int j = i + 2; j < cards.Length - 2; j++)
+                for (int j = i + 2; j < cards.Length - 6; j++)
                 {
                     if (cards[j].MyValue == cards[j + 1].MyValue && cards[i].MyValue == cards[j + 2].MyValue)
                         return true;
@@ -162,11 +162,12 @@ public class HandEvaluator : Card
             }
             //trójka przed par¹
 
-            if (cards[i].MyValue == cards[i + 1].MyValue && cards[i].MyValue == cards[i + 2].MyValue)
+            if (cards[i].MyValue == cards[i + 1].MyValue && cards[i].MyValue == cards[i + 2].MyValue&&
+                cards[i].MyValue!=cards[i+3].MyValue)
             {
                 for (int j = i + 3; j < cards.Length - 1; j++)
                 {
-                    if (cards[j].MyValue == cards[j + 1].MyValue) ;
+                    if (cards[j].MyValue == cards[j + 1].MyValue);
                     return true;
                 }
             }
@@ -229,7 +230,7 @@ public class HandEvaluator : Card
 
 public enum Hand
 {
-    Nothing=1,
+    Nothing=0,
     OnePair,
     TwoPairs,
     ThreeKind,

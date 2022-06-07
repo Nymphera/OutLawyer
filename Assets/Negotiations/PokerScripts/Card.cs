@@ -22,7 +22,7 @@ public class Card
     public Suit MySuit { get; set; }
     public Value MyValue { get; set; }
     public bool isFronted { get; set; }
-    public Material material;
+    public Material material { get; set; }
     public IEnumerator Rotate()
     {
         isFronted = !isFronted;

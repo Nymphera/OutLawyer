@@ -101,7 +101,7 @@ MonoBehaviour:
     m_To: InspectCam
     m_Blend:
       m_Style: 1
-      m_Time: 2
+      m_Time: 1
       m_CustomCurve:
         serializedVersion: 2
         m_Curve:
@@ -130,7 +130,7 @@ MonoBehaviour:
     m_To: PinBoard Cam
     m_Blend:
       m_Style: 1
-      m_Time: 2
+      m_Time: 1
       m_CustomCurve:
         serializedVersion: 2
         m_Curve:

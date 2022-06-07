@@ -67,7 +67,11 @@ public class OfficeManager : MonoBehaviour
         {
             GameEvents.current.OfficeClick(0);
         }
-               
+        if (PinBoardManager.Instance.currentState == PinBoardState.Inspect)
+        {
+            GameEvents.current.OfficeClick(1);
+        }
+
     }
 
     private void OnEnable()

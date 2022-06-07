@@ -35,7 +35,7 @@ public class CinemachineSwitcher : MonoBehaviour
     {
         CurrentState = state;
     }
-
+    
     public void SwitchState(int ID)
     {
         if (ID == 0)
@@ -51,7 +51,7 @@ public class CinemachineSwitcher : MonoBehaviour
             Animator.Play("PinBoard Cam");
             OnOfficeStateChanged(OfficeState.PinBoard);
             GameManager.Instance.UpdateGameState(GameState.LockInteract);
-
+            PinBoardManager.Instance.currentState = PinBoardState.Neutral;
         }
         else if (ID == 2)
         {
@@ -69,6 +69,7 @@ public class CinemachineSwitcher : MonoBehaviour
             Animator.Play("InspectCam");
             OnOfficeStateChanged(OfficeState.Inspect);
             GameManager.Instance.UpdateGameState(GameState.LockInteract);
+            PinBoardManager.Instance.currentState = PinBoardState.Inspect;
 
         }
         else

@@ -15,6 +15,7 @@ public class CardSpawner : MonoBehaviour
     private Card addedCard;
     public DealCards dealCards;
     private GameObject deckOfCards;
+    
     public CardSpawner(GameObject cardPrefab,GameObject imagePrefab,Transform playerCardsParent, Transform computerCardsParent,
         Transform tableCardsParent,Transform imageParent)
     {
@@ -40,8 +41,7 @@ public class CardSpawner : MonoBehaviour
         spawnCards(tableCards, tableParent);
     }
     public void spawnCardImages()
-    {
-        Debug.Log("spawnCardImages");
+    {       
         Card[] cardImages = new Card[3];
         cardImages[0] = addedCard;
         for(int i = 1; i <3; i++)
@@ -50,17 +50,17 @@ public class CardSpawner : MonoBehaviour
         }
         for(int i = 0; i < 3; i++)
         {
-            RectTransform rectTransform = Instantiate(imagePrefab, imageParent).GetComponent<RectTransform>();
-            rectTransform.name = cardImages[i].MySuit + cardImages[i].MyValue.ToString();
+            RectTransform rectTransform = GameObject.Find("CardImage " + i).GetComponent<RectTransform>();           
+            rectTransform.name = "Image"+cardImages[i].MySuit + cardImages[i].MyValue.ToString();
             rectTransform.anchoredPosition = new Vector2(150 * (-1 + i), 0);
-           // rectTransform.GetComponent<Button>().onClick.AddListener(UpdatePlayerCards(rectTransform));
+           
            Sprite sprite= Resources.Load<Sprite>("Image/PlayingCards/"+cardImages[i].MySuit+cardImages[i].MyValue);
             rectTransform.GetComponent<Image>().sprite = sprite;
         }
         
     }
     public void CorrectPlayerCards(Card[] playerNewCards)
-    {
+    {        
         destroyPlayerCards();
         spawnCards(playerNewCards, playerParent);
     }

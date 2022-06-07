@@ -195,6 +195,7 @@ public class NegotiationsManager : MonoBehaviour
     {
         foreach(Card card in playerCards)
         {
+            if(!card.isFronted)
            StartCoroutine( card.Rotate());
             yield return new WaitForSeconds(0.3f);
         }
@@ -423,12 +424,22 @@ public class NegotiationsManager : MonoBehaviour
     public void UpdatePlayerCards(RectTransform rectTransform)
     {for(int i = 0; i < 2; i++)
         {
-            if (rectTransform.name == playerCards[i].MySuit + playerCards[i].MyValue.ToString())
+            if (rectTransform.name == ("Image" + playerCards[i].MySuit + playerCards[i].MyValue.ToString())) 
             {
+                Destroy(GameObject.Find(playerCards[i].MySuit + playerCards[i].MyValue.ToString()));
                 playerCards[i] = cardSpawner.dealCards.GetAddedCard();
-                cardSpawner.CorrectPlayerCards(playerCards);
+               
             }
+            
         }
+        for(int i = 0; i < 2; i++)
+        {
+            Debug.Log(playerCards[i].MySuit + playerCards[i].MyValue.ToString());
+        }
+       
+        cardSpawner.CorrectPlayerCards(playerCards);
+        StartCoroutine(AnimateDealing(playerCards, playerParent));
+        StartCoroutine(RotatePlayerCards());
         UpdateNegotiationState(NegotiationState.PlayerTurn);
     }
     public void AsWRekawie()

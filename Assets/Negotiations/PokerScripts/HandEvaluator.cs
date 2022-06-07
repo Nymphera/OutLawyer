@@ -230,7 +230,7 @@ public class HandEvaluator : Card
 
 public enum Hand
 {
-    Nothing=1,
+    Nothing=0,
     OnePair,
     TwoPairs,
     ThreeKind,

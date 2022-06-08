@@ -39,6 +39,7 @@ public class MenuManager : MonoBehaviour
     public void NewGame()
     {
         SceneManager.LoadScene("Biuro");
+        GameManager.Instance.UpdateGameState(GameState.Office);
     }
     public void ShowSettings()
     {

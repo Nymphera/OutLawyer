@@ -557,5 +557,4 @@ public enum NegotiationState
     Decide,
     Victory,
     Lose
-
 }

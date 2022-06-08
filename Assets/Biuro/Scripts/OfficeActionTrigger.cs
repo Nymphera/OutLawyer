@@ -12,7 +12,7 @@ public class OfficeActionTrigger : MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 10f))
+        if (Physics.Raycast(ray, out hit, 10f)&&GameManager.Instance.CurrentState==GameState.Office)
         {
             if (hit.transform.gameObject == gameObject)
             {

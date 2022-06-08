@@ -39,18 +39,20 @@ public class PauseController : MonoBehaviour
             }
             else
             {
-                ShowPanel();              
-            }
-            
-            
+                StartCoroutine(ShowPanel());              
+            }       
+        }
+        if(pausePanel.activeSelf&& GameManager.Instance.CurrentState == GameState.LockInteract)
+        {
+            GoBackToGame();
         }
     }
-    private void ShowPanel()
+    private IEnumerator ShowPanel()
     {
-        
-        GameManager.Instance.CurrentState=GameState.LockInteract;
         pausePanel.SetActive(true);
-        
+        yield return null;
+        GameManager.Instance.UpdateGameState(GameState.LockInteract);
+               
     }
     private void OnEnable()
     {

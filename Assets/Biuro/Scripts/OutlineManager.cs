@@ -10,14 +10,7 @@ using TMPro;
 public class OutlineManager : MonoBehaviour
 {
     [SerializeField]
-    private GameState currentState;
-    
-   
-    
-    
-    
- 
-    
+    private GameState currentState; 
     private GameObject outlineObject;
     private GameControls gameControls;
     private InputAction mouseMove;
@@ -31,15 +24,13 @@ public class OutlineManager : MonoBehaviour
       
         gameControls.Game.MousePosition.performed += MousePosition_performed;
         mouseMove = gameControls.Game.MousePosition;
-       // if(specialLogicOnClick!=null)
-       // specialLogicOnClick.SetActive(false);
-        //  actionTextField = GameObject.Find("InteractText").GetComponent<TextMeshProUGUI>();
+      
     }  
     
     private void GameManager_OnGameStateChanged(GameState state)
     {
         currentState = state;
-        if (state == GameState.Interact)
+        if (state == GameState.Interact||state==GameState.LockInteract)
         {
             if(outlineObject!=null)
             DisableOutline(outlineObject);
@@ -76,7 +67,7 @@ public class OutlineManager : MonoBehaviour
         
         if (Physics.Raycast(Ray, out hit,10f))
         {
-            if (currentState == GameState.Move || currentState == GameState.Office)
+           if (GameManager.Instance.isInteractEnabled)
             {
                 if (hit.transform.GetComponent<Outline>() != null)
                 {
@@ -86,16 +77,17 @@ public class OutlineManager : MonoBehaviour
                     outlineObject = selectedObj;
                 }
             }
-            if (currentState == GameState.Interact)
-            {
-                if (hit.transform.GetComponent<Outline>() != null)
+                
+            
+            
+               /* if (hit.transform.GetComponent<Outline>() != null)
                 {
                     selectedObj = hit.transform.gameObject;
                     EnableOutline(selectedObj);                 
 
                     outlineObject = selectedObj;
-                }
-            }
+                }*/
+            
 
 
         }

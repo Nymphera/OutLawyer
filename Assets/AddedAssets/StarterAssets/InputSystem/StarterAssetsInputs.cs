@@ -40,7 +40,7 @@ namespace StarterAssets
 		{
 			if(cursorInputForLook)
 			{
-				if(GameManager.Instance.isInputEnabled)
+				if(GameManager.Instance.isLookEnabled)
 				LookInput(value.Get<Vector2>());
                 else
                 {
@@ -51,6 +51,7 @@ namespace StarterAssets
 
 		public void OnJump(InputValue value)
 		{
+			if(GameManager.Instance.isMoveEnabled)
 			JumpInput(value.isPressed);
 		}
 

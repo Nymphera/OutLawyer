@@ -32,6 +32,23 @@ public class CardSpawner : MonoBehaviour
         tableCards = new Card[5];
         deckOfCards = GameObject.Find("DeckOfCards");
     }
+    public void destroyCards()
+    {
+        destroyCards(tableCards,tableParent);
+        destroyCards(playerCards,playerParent);
+        
+    }
+
+    private void destroyCards(Card[] cards,Transform parent)
+    {
+        int index = parent.childCount;
+        for (int i = 0; i < index; i++)
+        {
+            Destroy(parent.GetChild(i).gameObject);
+            cards[i] = null;
+        }
+    }
+
     public void spawnCards()
     {
         DealCards();

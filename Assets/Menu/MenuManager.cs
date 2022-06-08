@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         GetInputActions = new GameControls();
-         SettingsPanel = GameObject.Find("Settings");
+         SettingsPanel = GameObject.Find("SettingsPanel");
         SettingsPanel.SetActive(false);
         GetInputActions.Game.GoBack.performed += GoBack_performed;
     }
@@ -39,6 +39,7 @@ public class MenuManager : MonoBehaviour
     public void NewGame()
     {
         SceneManager.LoadScene("Biuro");
+        GameManager.Instance.UpdateGameState(GameState.Office);
     }
     public void ShowSettings()
     {

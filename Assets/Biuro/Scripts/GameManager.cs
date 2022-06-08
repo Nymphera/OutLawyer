@@ -7,10 +7,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public bool isInputEnabled,isMoveEnabled,isPauseEnabled;
-    
+
+    public bool isInteractEnabled { get; set; }
+    public bool isMoveEnabled { get; set; }
+    public bool isPauseEnabled { get; set; }
+    public bool isLookEnabled { get; set; }
+    [SerializeField]
     public GameState CurrentState;
-   
+    
     public static event Action<GameState> OnGameStateChanged;
 
     public int keyCount=0;
@@ -39,6 +43,7 @@ public class GameManager : MonoBehaviour
         GameEvents.current.onBurnLines += OnnBurnLines;
         GameEvents.current.onLineCreated += OnLineCreated;
         GameEvents.current.onEvidneceUnlocked += UnlockEvidence;
+        UpdateGameState(GameState.Office);
     }
 
    
@@ -116,28 +121,30 @@ public class GameManager : MonoBehaviour
     public void UpdateGameState(GameState newState)
     {
         CurrentState = newState;
-        OnGameStateChanged(newState);
+        OnGameStateChanged?.Invoke(newState);
         switch (newState)
         {
             case GameState.Office:
                 {
                     Cursor.lockState = CursorLockMode.None;
                     isMoveEnabled = false;
-                    isInputEnabled = true;
+                    isInteractEnabled = true;
+                    isLookEnabled = false;
                 }
                 break;
             case GameState.Move:
                 {
-                    
+                    isLookEnabled = true;
                     isMoveEnabled = true;
-                    isInputEnabled = true;
+                    isInteractEnabled = true;
                     Cursor.lockState = CursorLockMode.Locked;
                 }
                 break;
             case GameState.Interact:
                 {
                     isMoveEnabled = false;
-                    isInputEnabled = true;
+                    isInteractEnabled = true;
+                    isLookEnabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                 }
@@ -145,7 +152,8 @@ public class GameManager : MonoBehaviour
             case GameState.LockInteract:
                 {
                     isMoveEnabled = false;
-                    isInputEnabled = false;
+                    isInteractEnabled = false;
+                    isLookEnabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                     
@@ -154,8 +162,9 @@ public class GameManager : MonoBehaviour
             case GameState.CutScene:
                 {
                     isMoveEnabled = false;
-                    isInputEnabled = false;
+                    isInteractEnabled = false;
                     isPauseEnabled = false;
+                    Cursor.visible = false;
                     Cursor.lockState = CursorLockMode.None;
                 }
                 break;
@@ -172,14 +181,13 @@ public class GameManager : MonoBehaviour
    
 
 }
+[Serializable]
     public enum GameState
     {
        Move,        //move and interact enable
        Interact,    //move disable interact enable
        LockInteract,    
-       Dialog,
-      
-        Office,
-       
+       Dialog,      
+        Office,       
         CutScene
     }

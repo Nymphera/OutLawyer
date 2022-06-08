@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour
 {
+    public static PauseController Instance;
     GameControls gameControls;
     GameObject pausePanel;
     private bool panelState;
@@ -14,6 +15,17 @@ public class PauseController : MonoBehaviour
         gameControls.Game.GoBack.performed += GoBack_performed;
         pausePanel = transform.GetChild(0).gameObject;
         pausePanel.SetActive(false);
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        
     }
 
     private void GoBack_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -35,8 +47,8 @@ public class PauseController : MonoBehaviour
     }
     private void ShowPanel()
     {
-        GameManager.Instance.UpdateGameState(GameState.Office);
-        GameManager.Instance.UpdateGameState(GameState.LockInteract);
+        
+        GameManager.Instance.CurrentState=GameState.LockInteract;
         pausePanel.SetActive(true);
         
     }

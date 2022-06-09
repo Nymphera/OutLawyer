@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     {
   
 
-        if ( itemToPickUp != null)
+        if (Input.GetKeyDown(KeyCode.P) && itemToPickUp != null)
         {
             inventory.AddItem(itemToPickUp);
             
@@ -33,9 +33,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("enter");
 
-            Debug.Log("collision");
             itemToPickUp = other.GetComponent<InventoryItem>();
-
 
 
     }

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public interface InventoryItem
 {
-    string Name { get; }
-    Sprite Image { get; }
-    //string Tag { get; }
+    string name { get; }
+    Sprite image { get; }
+
+ 
 
 
     void OnPickup();

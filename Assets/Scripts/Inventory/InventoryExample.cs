@@ -7,15 +7,8 @@ public class InventoryExample : MonoBehaviour, InventoryItem
     [SerializeField]
     private string name = "example";
 
-    public string Name
-    {
-        get
-        {
-            return name;
-        }
-    }
 
-    public Sprite Image => throw new System.NotImplementedException();
+    public Sprite image => throw new System.NotImplementedException();
 
     public void OnPickup()
     {

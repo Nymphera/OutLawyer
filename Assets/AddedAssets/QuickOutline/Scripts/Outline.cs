@@ -16,7 +16,9 @@ using UnityEngine;
 public class Outline : MonoBehaviour {
   private static HashSet<Mesh> registeredMeshes = new HashSet<Mesh>();
 
-  public enum Mode {
+    [TextArea(3, 10)]
+    public string[] message;
+    public enum Mode {
     OutlineAll,
     OutlineVisible,
     OutlineHidden,

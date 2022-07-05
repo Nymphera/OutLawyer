@@ -48,11 +48,10 @@ public class PauseController : MonoBehaviour
         }
     }
     private IEnumerator ShowPanel()
-    {
-        pausePanel.SetActive(true);
-        yield return null;
-        GameManager.Instance.UpdateGameState(GameState.LockInteract);
-               
+    { 
+            pausePanel.SetActive(true);
+            yield return null;
+            GameManager.Instance.UpdateGameState(GameState.LockInteract);        
     }
     private void OnEnable()
     {

@@ -100,21 +100,21 @@ public class OutlineManager : MonoBehaviour
                    
                 }
             }
-
-
         }
     }
     private void MouseLeftClick_performed(InputAction.CallbackContext obj)
-    {
-        if (outlineObject != null)
+    {if (message != null && helpText != null)
         {
-            string[] message = outlineObject.GetComponent<Outline>().message;
-            Queue<string> sentences = new Queue<string>();
-            foreach (string sentence in message)
+            if (outlineObject != null)
             {
-                sentences.Enqueue(sentence);
+                string[] message = outlineObject.GetComponent<Outline>().message;
+                Queue<string> sentences = new Queue<string>();
+                foreach (string sentence in message)
+                {
+                    sentences.Enqueue(sentence);
+                }
+                StartCoroutine(DisplaySentences(sentences));
             }
-            StartCoroutine(DisplaySentences(sentences));
         }
     }
 
@@ -131,14 +131,22 @@ public class OutlineManager : MonoBehaviour
     }
     private void HideInteractText()
     {
-        TextMeshProUGUI tmp = helpText.GetComponent<TextMeshProUGUI>();
-        tmp.text = "";
+        if (helpText != null)
+        {
+            TextMeshProUGUI tmp = helpText.GetComponent<TextMeshProUGUI>();
+            tmp.text = "";
+        }
+        
     }
 
     private void ShowInteractText()
     {
-        TextMeshProUGUI tmp = helpText.GetComponent<TextMeshProUGUI>();
-        tmp.text = "[LPM] Interact";
+        if ( helpText != null)
+        {
+            TextMeshProUGUI tmp = helpText.GetComponent<TextMeshProUGUI>();
+            tmp.text = "[LPM] Interact";
+        }
+            
     }
 
     public void EnableOutline(GameObject Object)

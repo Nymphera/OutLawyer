@@ -16,7 +16,10 @@ public class Inventory : MonoBehaviour
 
         GameControls.Game.Scroll.performed += RollThroughIcons;
     }
-
+    private void OnEnable()
+    {
+        GameControls.Enable();
+    }
     private void RollThroughIcons(InputAction.CallbackContext obj)
     {
         Debug.Log("123");

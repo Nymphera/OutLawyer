@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_2.7
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 4e558560272359c46a4b3f7de6f14bef, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: e2b8a6b4fc5383d48852f9b0796dcfb2, type: 2}
+  strategy: 0
+  sentences:
+  - 'Lojer: Kim jest dla Ciebie hodowca?
+
+'
+  - "Aldhest: Jest moim s\u0142u-. Pracuje dla mnie. Zajmuje si\u0119 mn\u0105 i
+    dogl\u0105da mniejszych krab\xF3w.\r\n\n"
+  - "Lojer: P\u0142acisz mu w jaki\u015B spos\xF3b? \u017Beby nazwa\u0107 to prac\u0105
+    wymagane jest jakie\u015B wynagrodzenie. Kto by si\u0119 spodziewa\u0142 \u017Ce
+    wyzyskujesz tak tego biednego starca."
+  - "Aldhest: Patrick nie wydaje si\u0119 narzeka\u0107.\r\n"
+  - "Lojer: Nie pogr\u0105\u017Caj si\u0119 prosze. Najlepiej b\u0119dzie jak zostaniesz
+    przy odpowiadaniu na pytania.\r\n"
+  audioClips: []
+  cost: 0

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f193a960434c12444b4d5ba58c3d80b1, type: 3}
+  m_Name: Re2
+  m_EditorClassIdentifier: 
+  resultNumber: 0
+  strategy1: 0
+  strategy2: 1
+  ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
+  ResultText: "Ostatni raz udaje kraba, przysi\u0119gam\u2026 "
+  resultImage: {fileID: 0}

@@ -16,6 +16,6 @@ MonoBehaviour:
   strategy1: 1
   strategy2: 2
   ResultBarColor: {r: 1, g: 0.34509805, b: 0.34509805, a: 1}
-  ResultText: "Lojer wmawia szefowi Krab\xF3w \u017Ce sam te\u017C jest krabem swego
-    rodzaju i dzia\u0142a w interesie szefa."
+  ResultText: "Je\u015Bli wejdziesz mi\u0119dzy kraby, musisz kleszcze\u0107 tak
+    jak one. "
   resultImage: {fileID: 21300000, guid: 5e3c63bf9bfcbed4d8d0f3035f0e30fa, type: 3}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_3.1
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: abeda2b5b24079a4486f5207eeb31dcf, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: d3de71365d7752f48acb80881c6b42da, type: 2}
+  strategy: 4
+  sentences:
+  - "Lojer: Zdarza\u0142y si\u0119 ju\u017C wcze\u015Bniej podobne sytuacje m\xF3j
+    Panie? Kradzie\u017Ce, wypadki itp.\r\n"
+  - "Aldhest: Nie ma dnia bez jakiego\u015B wypadku, wielokrotnie mieli\u015Bmy w\u0142amywaczy.
+    Zazywczaj jednak nic nie znika. Ma\u0142o kto chce ukra\u015B\u0107 kraba.\r\n"
+  - "Lojer: Nie zdawa\u0142em sobie sprawy z tego jaki Patrick jest bezu\u017Cyteczny.
+    Zas\u0142ugujesz na znacznie lepszego s\u0142ug\u0119 Panie.\r\n"
+  - "Aldhest: Do\u015B\u0107 o tym, tracimy czas.\r\n"
+  audioClips: []
+  cost: 0

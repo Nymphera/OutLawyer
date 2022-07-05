@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_4.3
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: b11b2d6e948924f41bdc0a4e101f2283, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: 85b90ea24ae19944d815dd5142588953, type: 2}
+  strategy: 3
+  sentences:
+  - "Lojer: Przepraszam bardzo je\u015Bli moje podej\u015Bcie do tej pory by\u0142o
+    niezbyt profesjonalne. Tak nietypowy widok jak Pan, bez obrazy oczywi\u015Bcie,
+    mo\u017Ce wybi\u0107 z rytmu nawet najlepszych."
+  - "Aldhest: Ciesz\u0119 si\u0119 \u017Ce si\u0119 opami\u0119ta\u0142e\u015B, nie
+    dziwi\u0119 si\u0119 \u017Ce poprzewraca\u0142o Ci si\u0119 w g\u0142owie, w
+    ko\u0144cu patrzysz na boga."
+  - "Lojer: Kontynuuj\u0105c, rozumiem \u017Ce Pan Patrick nie poinformowa\u0142
+    Pana o zaistnia\u0142ej sytuacji?"
+  - "Aldhest: Nie jest to co\u015B na tyle istotnego \u017Ceby zawraca\u0142 mi tym
+    g\u0142owotu\u0142\xF3w, to nawet lepiej \u017Ce skrab znikn\u0105\u0142. Mo\u017Ce
+    Patrick w ko\u0144cu zacznie si\u0119 zajmowa\u0107 swoimi obowi\u0105zkami zamiast
+    bawi\u0107 si\u0119 w dom.\r\n"
+  audioClips: []
+  cost: 0

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_2.5
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 4e558560272359c46a4b3f7de6f14bef, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: b73b288844c51f246b24a29291387913, type: 2}
+  strategy: 0
+  sentences:
+  - "Lojer: Jaka jest Pana relacja z hodowc\u0105?\r\n\n"
+  - "Aldhest: Patrick jest moim s\u0142ug\u0105.\r\n\n"
+  - "Lojer: Co z reszt\u0105 Pana poddanych?"
+  - "Aldhest: \u2026\r\n"
+  - "Loyer: Rozumiem. Niezbyt imponuj\u0105ce, to zupe\u0142nie tak jakby nikt nie
+    chcia\u0142 Ci s\u0142u\u017Cy\u0107 z w\u0142asnej woli.\n"
+  - "Aldhest: Jeszcze jedno s\u0142owo i-\r\n\r\n"
+  - "Lojer: I co? Zawo\u0142asz tego starca \u017Ceby si\u0119 mn\u0105 zaj\u0105\u0142?
+    Zrozum w ko\u0144cu \u017Ce nie jeste\u015B w stanie mnie przestraszy\u0107,
+    dla swojego w\u0142asnego dobra.\r\n"
+  audioClips: []
+  cost: 0

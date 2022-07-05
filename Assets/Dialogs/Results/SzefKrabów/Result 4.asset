@@ -16,7 +16,5 @@ MonoBehaviour:
   strategy1: 2
   strategy2: 4
   ResultBarColor: {r: 1, g: 0.7411765, b: 0.3529412, a: 1}
-  ResultText: "Lojer powstrzymuj\u0105c \u015Bmiech uznaje wy\u017Cszo\u015B\u0107
-    szefa krab\xF3w i zgadza si\u0119 odstawia\u0107 szopk\u0119 traktowania go jako
-    mafioz\u0119, aby ten w zamian mu pom\xF3g\u0142. "
+  ResultText: "Kraby gangsterzy, ale was si\u0119 boj\u0119! "
   resultImage: {fileID: 21300000, guid: 9085da4db39dd484183d340cb24795a3, type: 3}

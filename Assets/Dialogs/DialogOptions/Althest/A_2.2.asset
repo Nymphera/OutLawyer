@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_2.2
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 7949153df1e8d4e49b2993a7cb104b90, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: d3de71365d7752f48acb80881c6b42da, type: 2}
+  strategy: 1
+  sentences:
+  - "Lojer: Zaraz zaraz, sk\u0105d mam wiedzie\u0107 \u017Ce nie podaje si\u0119
+    Pan za jego wysoko\u015B\u0107 Aldhesta?\n"
+  - "Aldhest: Spieszno Ci na tamten \u015Bwiat je\u015Bli \u015Bmiesz oskar\u017Ca\u0107
+    mnie o bycie podr\xF3bk\u0105!\n"
+  - "Lojer: Oczywi\u015Bcie nie mia\u0142em na celu ura\u017Cenie Pana, jednak praca
+    nauczy\u0142a mnie by\u0107 ostro\u017Cnym. Poza tym te rogi nie s\u0105 tylko
+    na pokaz\u2026"
+  - "Aldhest: Hmmm\u2026 Wydajesz si\u0119 godny bycia moim s\u0142ug\u0105. Pytaj
+    wi\u0119c o co chcesz, jestem pewny \u017Ce wkr\xF3tce zauwa\u017Cysz m\xF3j
+    boski majestat.\n"
+  audioClips: []
+  cost: 0

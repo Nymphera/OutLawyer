@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_4.1
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 309202d7257117d4b964f4dc839ff108, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: abeda2b5b24079a4486f5207eeb31dcf, type: 2}
+  strategy: 4
+  sentences:
+  - "Lojer: Przepraszam bardzo m\xF3j Panie, ju\u017C przechodz\u0119 dalej. Wi\u0119c
+    Patrick nie poinformowa\u0142 Pana o znikni\u0119ciu Skarba?\r\n"
+  - "Aldhest: ie pofatygowa\u0142 si\u0119, jednak nie mam mu tego za z\u0142e. Znikni\u0119cie
+    jednego ma\u0142ego kraba to nie koniec \u015Bwiata, to nawet lepiej \u017Ce
+    skrab znikn\u0105\u0142. Mo\u017Ce Patrick w ko\u0144cu zacznie si\u0119 zajmowa\u0107
+    swoimi obowi\u0105zkami zamiast bawi\u0107 si\u0119 w dom.\r\n"
+  - "Lojer: Nie mog\u0119 uwierzy\u0107 \u017Ce nie zosta\u0142 za to ukarany. M\xF3j
+    Panie musisz bardziej stanowczo rz\u0105dzi\u0107 swoimi poddanymi. Inaczej nigdy
+    si\u0119 nie naucz\u0105.\r\n"
+  - "Aldhest: Podoba mi si\u0119 tw\xF3j entuzjazm, jednak nie jest to rozmowa o
+    prac\u0119. Sko\u0144cz to ca\u0142e przes\u0142uchanie i wtedy do tego przejdziemy."
+  audioClips: []
+  cost: 0

@@ -16,7 +16,5 @@ MonoBehaviour:
   strategy1: 0
   strategy2: 3
   ResultBarColor: {r: 0.49411768, g: 0.854902, b: 0.34509805, a: 1}
-  ResultText: "Lojer grozi szefowi krab\xF3w swoimi kompetencjami, sugeruj\u0105c
-    \u017Ce szef powinien stara\u0107 si\u0119 mie\u0107 Lojera jako wsp\xF3lnika,
-    nie wroga.  "
+  ResultText: " Nawet najwi\u0119kszych mafioz\xF3w skazali za podatki."
   resultImage: {fileID: 21300000, guid: d3ecc6aa6572e714789de24ed60209dc, type: 3}

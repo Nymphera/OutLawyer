@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_3.2
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: abeda2b5b24079a4486f5207eeb31dcf, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: b73b288844c51f246b24a29291387913, type: 2}
+  strategy: 2
+  sentences:
+  - "Lojer: A wi\u0119c sk\u0105d Ty si\u0119 tu wzi\u0105\u0142e\u015B? Nie mog\u0142e\u015B
+    zej\u015B\u0107 po drabinie, nie s\u0105dze \u017Ce dom dalej by sta\u0142 jakby\u015B
+    si\u0119 tu podkopa\u0142. Wi\u0119c jak to by\u0142o?\r\n"
+  - "Aldhest: Czy to nie oczywiste? By\u0142em tu gdy zacz\u0119li budowa\u0107 ten
+    dom.\r\n"
+  - "Lojer: Przepraszam je\u015Bli to niegrzeczne ale czy m\xF3g\u0142bym spyta\u0107
+    ile masz lat?\r\n"
+  - "Aldhest: Niewiele mniej ni\u017C ta planeta. Nie udawaj zdziwionego. M\xF3wi\u0142em
+    \u017Ce jestem boskim bytem.\r\n"
+  - "Lojer: Ten budynek wygl\u0105da na do\u015B\u0107 stary, dziesi\u0105tki lat
+    sp\u0119dzonych w piwnicy\u2026 Jakim cudem nie dopad\u0142o Ci\u0119 szale\u0144stwo?\r\n"
+  - "Aldhest: Do\u015B\u0107 o tym, tracimy czas.\r\n"
+  audioClips: []
+  cost: 0

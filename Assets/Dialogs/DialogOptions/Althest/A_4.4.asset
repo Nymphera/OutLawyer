@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_4.4
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 9258d7fe0bf0e2d4493cc01428c3363a, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: 85b90ea24ae19944d815dd5142588953, type: 2}
+  strategy: 0
+  sentences:
+  - "Lojer: W ko\u0144cu jakie\u015B istotne informacje, ju\u017C my\u015Bla\u0142em
+    \u017Ce do niczego nie dojd\u0119. Wi\u0119c po kradzie\u017Cy Patrick nic Ci
+    nie powiedzia\u0142?\r\n"
+  - "Aldhest: nie jest to co\u015B na tyle istotnego \u017Ceby zawraca\u0142 mi tym
+    g\u0142owotu\u0142\xF3w, to nawet lepiej \u017Ce skrab zni-\r\n"
+  - "Lojer: Dobra dobra nie rozp\u0119dzaj si\u0119, oczekiwa\u0142em prostej odpowiedzi
+    a nie rozprawki na temat waszych relacji."
+  audioClips: []
+  cost: 0

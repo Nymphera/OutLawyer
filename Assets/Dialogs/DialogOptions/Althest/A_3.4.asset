@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_3.4
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 85b90ea24ae19944d815dd5142588953, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: e2b8a6b4fc5383d48852f9b0796dcfb2, type: 2}
+  strategy: 0
+  sentences:
+  - "Lojer: Szczerze m\xF3wi\u0105c to powoli ko\u0144czy mi si\u0119 cierpliwo\u015B\u0107.
+    Wszystkie twoje odpowiedzi s\u0105 takie nijakie"
+  - 'Aldhest: JAK-'
+  - "Lojer: JAK \u015AMIEM ODZYWA\u0106 SI\u0118 DO CIEBIE W TAKI SPOS\xD3B! Tak
+    tak wiem, b\xF3g krab\xF3w.\r Powiedz mi czy Ty wiesz cokolwiek co mo\u017Ce
+    mi si\u0119 przyda\u0107?\r Co wiesz o ukradzionym krabie?\r\n"
+  - "Aldhest: Tylko tyle \u017Ce by\u0142a ulubienic\u0105 Patricka.\r\n"
+  - "Lojer: Mo\u017Ce co\u015B wi\u0119cej?"
+  - "Aldhest: W k\xF3\u0142ko powtarza\u0142 \u017Ce jest jak c\xF3rka kt\xF3rej
+    nigdy nie mia\u0142."
+  audioClips: []
+  cost: 0

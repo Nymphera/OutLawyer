@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: H_1.3
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 028cd8b57074336458eaf8e57d26f426, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: 2b7920a1a10df07419573d9bc2980e9e, type: 2}
+  strategy: 0
+  sentences:
+  - "Lojer: Witam, witam. Jestem tu w sprawie kradzie\u017Cy"
+  - "P: Patrick wiedzia\u0142 \u017Ce ten s\u0105siad spod 4 pr\u0119dzej czy p\xF3\u017Aniej
+    wyl\u0105duje w wi\u0119zieniu. A szkoda, Patrick go uwa\u017Ca\u0142 za mi\u0142ego
+    cz\u0142owieka, nawet czasem Patrickowi na hodowli pomaga\u0142.\r\n"
+  - 
+  - 
+  audioClips: []
+  cost: 0

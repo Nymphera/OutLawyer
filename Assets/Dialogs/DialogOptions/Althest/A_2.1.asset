@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_2.1
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 217b84b78ea36134d880829956e37a2c, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: d3de71365d7752f48acb80881c6b42da, type: 2}
+  strategy: 2
+  sentences:
+  - "Lojer: Gdzie by\u0142 Pan mi\u0119dzy godzin\u0105 6 a 10 w pi\u0105tek 30 lipca?"
+  - "Aldhest: Tu gdzie jestem teraz, c\xF3\u017C za absurdalne pytanie, nie widzisz
+    \u017Ce ca\u0142y dom jest zbudowany na mnie?\r\n\n"
+  - "Lojer: Przepraszam za moj\u0105 g\u0142upot\u0119 Panie, ale je\u015Bli m\xF3g\u0142bym
+    spyta\u0107 to jak kr\xF3lewska mo\u015B\u0107 si\u0119 tu znalaz\u0142a?\r\n"
+  - "Aldhest: Nie starczy Ci czasu na tym \u015Bwiecie aby\u015B m\xF3g\u0142 us\u0142ysze\u0107
+    o wszystkich moich przygodach\u2026\r\n"
+  audioClips: []
+  cost: 0

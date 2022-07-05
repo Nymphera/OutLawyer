@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_6.4
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: ee99957794c15f84abd0fc57fe0de0eb, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: cbefe0bf3a614ed4fb09f595c9443f1f, type: 2}
+  strategy: 1
+  sentences:
+  - "Lojer: My\u015Bl\u0119 \u017Ce wcale nie zosta\u0142a pokonana."
+  - "Aldhest: Co masz na my\u015Bli? My\u015Blisz \u017Ce dobrowolnie opu\u015Bci\u0142a
+    Patricka?\r\n"
+  - "Lojer: Nie do ko\u0144ca ale to ciekawy pomys\u0142. Mia\u0142a do tego powody?\r\n"
+  - "Aldhest: Nie wydaje mi si\u0119, tak jak wcze\u015Bniej m\xF3wi\u0142em Patrick
+    dba\u0142 o ni\u0105 najbardziej ze wszystkich.\r Mo\u017Ce mia\u0142a do\u015B\u0107
+    tego starca i chcia\u0142a si\u0119 od niego uwolni\u0107\r.\n"
+  - "Lojer: Hmmm wiem \u017Ce ja bym tak zrobi\u0142\u2026\r\n"
+  audioClips: []
+  cost: 0

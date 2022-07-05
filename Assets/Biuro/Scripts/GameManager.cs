@@ -8,10 +8,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public bool isInteractEnabled { get; set; }
-    public bool isMoveEnabled { get; set; }
-    public bool isPauseEnabled { get; set; }
-    public bool isLookEnabled { get; set; }
+    public bool isInteractEnabled;
+    public bool isMoveEnabled;
+    public bool isPauseEnabled;
+    public bool isLookEnabled;
     [SerializeField]
     public GameState CurrentState;
     

@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         GameEvents.current.onBurnLines += OnnBurnLines;
         GameEvents.current.onLineCreated += OnLineCreated;
         GameEvents.current.onEvidneceUnlocked += UnlockEvidence;
-        UpdateGameState(GameState.Office);
+       // UpdateGameState(GameState.Office);
     }
 
    

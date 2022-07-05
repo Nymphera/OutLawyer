@@ -65,6 +65,7 @@ public class OutlineManager : MonoBehaviour
         if (outlineObject != null)
         {
             DisableOutline(outlineObject);
+            HideInteractText();
             outlineObject = null;
         }
 
@@ -81,7 +82,7 @@ public class OutlineManager : MonoBehaviour
                 {
                     selectedObj = hit.transform.gameObject;
                     EnableOutline(selectedObj);
-
+                    ShowInteractText();
                     outlineObject = selectedObj;
                 }
             }

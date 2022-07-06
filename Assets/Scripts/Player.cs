@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        inventory = gameObject.AddComponent<Inv>();
+        inventory = gameObject.AddComponent<Inv>();     //plaer musi byæ dodany do obiektu
     }
 
 
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     {
   
 
-        if (Input.GetKeyDown(KeyCode.P) && itemToPickUp != null)
+        if (Input.GetKeyDown(KeyCode.E) && itemToPickUp != null)
         {
             inventory.AddItem(itemToPickUp);
             

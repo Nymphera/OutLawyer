@@ -59,7 +59,7 @@ public class PinBoardManager : MonoBehaviour
         GameControls = new GameControls();
         GameControls.Game.MousePosition.performed += OnMouseMove;
         GameControls.Game.MouseLeftClick.performed += OnMouseClick;
-        GameControls.Game.GoBack.performed += CursorToNeutral;
+        GameControls.Game.GoBack.performed += GoBack_performed; ;
 
         RedButton = GameObject.Find("RedButton");
         GreenButton = GameObject.Find("GreenButton");
@@ -75,6 +75,7 @@ public class PinBoardManager : MonoBehaviour
     }
 
     
+
     private void OnEnable()
     {
         GameControls.Enable();
@@ -87,7 +88,7 @@ public class PinBoardManager : MonoBehaviour
     {
         GameControls.Game.MousePosition.performed -= OnMouseMove;
         GameControls.Game.MouseLeftClick.performed -= OnMouseClick;
-        GameControls.Game.GoBack.performed -= CursorToNeutral;
+        GameControls.Game.GoBack.performed -= GoBack_performed;
 
     }
     private void Start()
@@ -411,6 +412,7 @@ public class PinBoardManager : MonoBehaviour
             TriggerLineCreated(Line);
             audioSource.PlayOneShot(stringClip);
             Line.AddColliderToLine();
+            Line.SetConclusion();
             StartCoroutine(Line.AnimateLine());
         }
         if (Line.secondEvidence == null)
@@ -432,7 +434,11 @@ public class PinBoardManager : MonoBehaviour
     {
         OnLineDeleted(line);
     }
-    private void CursorToNeutral(InputAction.CallbackContext obj)
+    private void GoBack_performed(InputAction.CallbackContext obj)
+    {
+        CursorToNeutral();
+    }
+    public void CursorToNeutral()
     {
         
         Cursor.SetCursor(neutralTexture, Vector2.zero, CursorMode.Auto);

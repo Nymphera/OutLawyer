@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     {
   
 
-        if (Input.GetKeyDown(KeyCode.P) && itemToPickUp != null)
+        if (Input.GetKeyDown(KeyCode.E) && itemToPickUp != null)
         {
             inventory.AddItem(itemToPickUp);
             

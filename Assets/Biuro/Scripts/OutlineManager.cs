@@ -15,12 +15,18 @@ public class OutlineManager : MonoBehaviour
     private GameControls gameControls;
     private InputAction mouseMove;
 
+    //TEXT NA EKRANIE
+
     [SerializeField]
     private GameObject helpText;
     [SerializeField]
     private GameObject message;
     [SerializeField]
     private float displaySentencesTime=2.5f;
+
+    //INVENTORY
+    public Inv inventory = new Inv();
+    
     private void Awake()
     {
         
@@ -33,16 +39,6 @@ public class OutlineManager : MonoBehaviour
         mouseMove = gameControls.Game.MousePosition;
       
     }  
-    
-    private void GameManager_OnGameStateChanged(GameState state)
-    {
-        currentState = state;
-        if (state == GameState.Interact||state==GameState.LockInteract)
-        {
-            if(outlineObject!=null)
-            DisableOutline(outlineObject);
-        }
-    }
 
     private void OnEnable()
     {
@@ -58,7 +54,16 @@ public class OutlineManager : MonoBehaviour
         gameControls.Game.MousePosition.performed -= MousePosition_performed;
         gameControls.Game.MouseLeftClick.performed -= MouseLeftClick_performed;
     }
-    
+
+    private void GameManager_OnGameStateChanged(GameState state)
+    {
+        currentState = state;
+        if (state == GameState.Interact || state == GameState.LockInteract)
+        {
+            if (outlineObject != null)
+                DisableOutline(outlineObject);
+        }
+    }
     private void MousePosition_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         
@@ -82,8 +87,9 @@ public class OutlineManager : MonoBehaviour
                 {
                     selectedObj = hit.transform.gameObject;
                     EnableOutline(selectedObj);
-                    ShowInteractText();
+                    
                     outlineObject = selectedObj;
+                    ShowInteractText();
                 }
             }
         }
@@ -132,7 +138,15 @@ public class OutlineManager : MonoBehaviour
         if (helpText != null)
         {
             TextMeshProUGUI tmp = helpText.GetComponent<TextMeshProUGUI>();
-            tmp.text = "[LPM] Interact";
+            if (outlineObject.GetComponent<InventoryItem>() !=null)
+            {
+                tmp.text = "[E] Pick Up";
+            }
+            else
+            {
+                tmp.text = "[LPM] Interact";
+            }
+          
         }
 
     }

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_5.1
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 6cddf35c627cab64a84f7bb0a4af1c93, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: 309202d7257117d4b964f4dc839ff108, type: 2}
+  strategy: 4
+  sentences:
+  - "Lojer: Tak jest Panie. Czy s\u0142ysza\u0142 Pan odg\u0142osy walki?\r\n"
+  - "Aldhest: Tutejsze kraby ucz\u0105 si\u0119 krabate od najm\u0142odszych lat,
+    s\u0142ysze odg\u0142osy walki w ka\u017Cdy wtorek i pi\u0105tek. Urz\u0105dzane
+    s\u0105 te\u017C sparingi w praktycznie ka\u017Cdy dzie\u0144 tygodnia. To prawda
+    \u017Ce s\u0142ysza\u0142em walk\u0119 ale pomy\u015Bla\u0142em \u017Ce to nic
+    podejrzanego.\r\n"
+  - "Lojer: Jak na \u015Bwietnego lidera przysta\u0142o, dba Pan o swoich podopiecznych
+    ucz\u0105c ich jak si\u0119 broni\u0107.\r\n"
+  - "Aldhest: Jak teraz o tym wspomnia\u0142em to przypomnia\u0142em sobie \u017Ce
+    Skarb by\u0142a czarnym pasem. Nie ma szans aby ktokolwiek z mniejszym do\u015Bwiadczeniem
+    bojowym m\xF3g\u0142 j\u0105 porwa\u0107.\r\n\r\n"
+  audioClips: []
+  cost: 0

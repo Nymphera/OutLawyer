@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: H_2.5
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: eaf7e2ea0b1b1354ea214e7c27090d30, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: d87d761c9332da64d9bdf9385c1bd9f9, type: 2}
+  strategy: 1
+  sentences:
+  - "Lojer: Prosz\u0119 si\u0119 uspokoi\u0107, nie s\u0105dzi\u0142em \u017Ce wygoni
+    Pan ze swojego domu innego mi\u0142o\u015Bnika krab\xF3w\u2026"
+  - "Patrick: Mi\u0142o\u015Bnika krab\xF3w? Czy Patricka uszy nie myl\u0105?\r\n"
+  - "Lojer: Nic z tych rzeczy Panie Patricku, co wi\u0119cej jestem w 20% krabem,
+    moja prababka nie by\u0142a do ko\u0144ca wierna, a kraby maj\u0105 sw\xF3j urok.\r\n"
+  - "Patrick: Je\u015Bli jest Pan tym za kogo si\u0119 podaje to Patrick najszczerzej
+    przeprasza. Prosz\u0119 pyta\u0107 Patrick postara si\u0119 odpowiedzie\u0107.
+    Jednak je\u015Bli Patrick dowie si\u0119 \u017Ce go Pan ok\u0142ama\u0142, zostanie
+    Pan karm\u0105 dla pi\u0119knych podopiecznych Patricka.\r\n"
+  - "Lojer: Nie \u015Bmia\u0142bym Pana oszukiwa\u0107 Panie Patricku, przejd\u0119
+    wi\u0119c do pyta\u0144.\r Czy by\u0142 Pan w domu podczas kradzie\u017Cy?\r\n"
+  - "Patrick: O tak Patrick by\u0142 obecny w \u0142\xF3\u017Cku. Noc jest od spania,
+    chyba \u017Ce jest okres godowy moich podopiecznych. Wtedy Patrick musi nadzorowa\u0107
+    aby wszystko posz\u0142o zgodnie z planem. Jest Patrick pewny \u017Ce Pan filozof
+    rozumie, je\u015Bli Pan filozof jest tym za kogo si\u0119 podaje\u2026\r\n"
+  - "Lojer: Oczywi\u015Bcie \u017Ce rozumiem, ale zastanawia mnie jakim cudem odg\u0142osy
+    walki Pana nie obudzi\u0142y.\r\n"
+  - "Patrick: Patrick nauczy\u0142 si\u0119 jak spa\u0107 aby spa\u0107 a nie nie
+    spa\u0107. Patrick kiedy\u015B przespa\u0142 atak na jego obozowisko\u2026\rA
+    mo\u017Ce nie?\r\n\n"
+  audioClips: []
+  cost: 0

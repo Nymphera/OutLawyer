@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e81b79e0fb515443878e1ff5a471fc0, type: 3}
+  m_Name: DiAldhest
+  m_EditorClassIdentifier: 
+  levels: []
+  introductionSentences:
+  - "Lojer: Ale zajecha\u0142o owocami morza\u2026 To jaki\u015B sk\u0142adzik na
+    karm\u0119 dla krab\xF3w czy co?\r\n"
+  - "Aldhest: \u2026 *odg\u0142osy szczypiec*\r\n"
+  - "Lojer: No tak\u2026 Finalny boss krab\xF3w w piwnicy, czego ja si\u0119 spodziewa\u0142em."
+  - "Aldhest: Kto o\u015Bmiela si\u0119 stawa\u0107 przede mn\u0105, Aldhestem, ojcem
+    wszystkich krabopodobnych, panem i bogiem zaginionej Atlantydy! Na kolana n\u0119dzny
+    \u015Bmiertelniku!\r\n"
+  introductionClips: []
+  results:
+  - {fileID: 11400000, guid: a84478e9a4c743245a9129f6adbdfe04, type: 2}
+  - {fileID: 11400000, guid: 9d6ca744d83c843439b1cfbeb25ab8fb, type: 2}
+  - {fileID: 11400000, guid: fb8f065d732132a44b346c0cedae4b02, type: 2}
+  - {fileID: 11400000, guid: 7e859ee8aad46f146938f65ae76cbef7, type: 2}
+  - {fileID: 11400000, guid: 4d14809396469724c944712b8c0e499e, type: 2}

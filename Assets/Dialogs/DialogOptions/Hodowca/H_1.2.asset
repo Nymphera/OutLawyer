@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: H_1.2
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 8b8f9aeebd4c4a14a917d6cfb350d2c9, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: 0261883c5414ec7439af5577f99e80d9, type: 2}
+  strategy: 3
+  sentences:
+  - "Lojer: Przepraszam bardzo za naj\u015Bcie Panie Patricku, ale czy m\xF3g\u0142bym
+    zada\u0107 Panu kilka pyta\u0144 dotycz\u0105cych zaistnia\u0142ej sprawy?\r\n"
+  - "Patrick: Patrick wiedzia\u0142 \u017Ce ten s\u0105siad spod 4 pr\u0119dzej czy
+    p\xF3\u017Aniej wyl\u0105duje w wi\u0119zieniu. A szkoda, Patrick go uwa\u017Ca\u0142
+    za mi\u0142ego cz\u0142owieka, nawet czasem Patrickowi na hodowli pomaga\u0142.\r\n"
+  - "Lojer: Nie, nie. Panie Patricku ja jestem tu w sprawie kradzie\u017Cy kt\xF3ra
+    mia\u0142a miejsce kilka dni temu. Czy mog\u0119 zada\u0107 Panu par\u0119 pyta\u0144?\r\n"
+  - "Patrick: Hmmm, Patrick chyba nie wynajmowa\u0142 Prawnika. No c\xF3\u017C lepsze
+    to ni\u017C nic. Prosz\u0119 pytac Panie filozofie, tylko szybko nie mam ca\u0142ego
+    dnia.\r\n"
+  audioClips: []
+  cost: 0

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_6.3
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 4fc539c32b65b3448bb08c2bb77fef9c, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: cbefe0bf3a614ed4fb09f595c9443f1f, type: 2}
+  strategy: 3
+  sentences:
+  - "Lojer: Rozumiem, mam jeszcze jedno ostatnie pytanie, czy skrab mia\u0142a jakie\u015B
+    powody aby chcie\u0107 opu\u015Bci\u0107 to miejsce?\r\n"
+  - "Aldhest: Nie wydaje mi si\u0119, tak jak wcze\u015Bniej m\xF3wi\u0142em Patrick
+    dba\u0142 o ni\u0105 najbardziej ze wszystkich.\r\n"
+  - "Aldhest: Mo\u017Ce mia\u0142a do\u015B\u0107 tego starca i chcia\u0142a si\u0119
+    od niego uwolni\u0107.\r\n"
+  - "Lojer: Hmmm, dobrze wi\u0119c chyba nie mam wi\u0119cej pyta\u0144.\r\n"
+  audioClips: []
+  cost: 0

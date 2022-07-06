@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro;
 
 public class PinBoardManager : MonoBehaviour
 {
@@ -25,12 +26,14 @@ public class PinBoardManager : MonoBehaviour
     AudioSource audioSource;
     [SerializeField]
     AudioClip scissorsClip,stringClip,wrongConectionClip;
-    
    
+    // LINIE
+
     [SerializeField]
     private GameObject linePrefab;
     [SerializeField]
     private Transform lineParent;
+
     private Line Line;
     private List<Line> lines = new List<Line>();
 
@@ -38,18 +41,25 @@ public class PinBoardManager : MonoBehaviour
     private bool isLineOverOtherLine=false;
     private bool isLineOverWhiteLine=false;
 
-
     private GameObject RedButton, GreenButton, YellowButton, BlueButton;
     private Text redText, greenText, yellowText, blueText;
     private int redCount = 0, greenCount = 0, yellowCount = 0, blueCount = 0;
     private bool redButtonState, greenButtonState, yellowButtonState, blueButtonState;
+
+
+    //Message
+
+    [SerializeField]
+    private GameObject message;
+    TextMeshProUGUI tmp;
+
     private void Awake()
     {
         Instance = this;
         GameControls = new GameControls();
         GameControls.Game.MousePosition.performed += OnMouseMove;
         GameControls.Game.MouseLeftClick.performed += OnMouseClick;
-        GameControls.Game.GoBack.performed += CursorToNeutral;
+        GameControls.Game.GoBack.performed += GoBack_performed; ;
 
         RedButton = GameObject.Find("RedButton");
         GreenButton = GameObject.Find("GreenButton");
@@ -61,11 +71,11 @@ public class PinBoardManager : MonoBehaviour
         blueText = BlueButton.transform.GetChild(0).GetComponent<Text>();
         yellowText = YellowButton.transform.GetChild(0).GetComponent<Text>();
 
-       
-        
+        tmp = message.GetComponent<TextMeshProUGUI>();
     }
 
     
+
     private void OnEnable()
     {
         GameControls.Enable();
@@ -78,7 +88,7 @@ public class PinBoardManager : MonoBehaviour
     {
         GameControls.Game.MousePosition.performed -= OnMouseMove;
         GameControls.Game.MouseLeftClick.performed -= OnMouseClick;
-        GameControls.Game.GoBack.performed -= CursorToNeutral;
+        GameControls.Game.GoBack.performed -= GoBack_performed;
 
     }
     private void Start()
@@ -402,6 +412,7 @@ public class PinBoardManager : MonoBehaviour
             TriggerLineCreated(Line);
             audioSource.PlayOneShot(stringClip);
             Line.AddColliderToLine();
+            Line.SetConclusion();
             StartCoroutine(Line.AnimateLine());
         }
         if (Line.secondEvidence == null)
@@ -423,7 +434,11 @@ public class PinBoardManager : MonoBehaviour
     {
         OnLineDeleted(line);
     }
-    private void CursorToNeutral(InputAction.CallbackContext obj)
+    private void GoBack_performed(InputAction.CallbackContext obj)
+    {
+        CursorToNeutral();
+    }
+    public void CursorToNeutral()
     {
         
         Cursor.SetCursor(neutralTexture, Vector2.zero, CursorMode.Auto);
@@ -465,8 +480,8 @@ public class PinBoardManager : MonoBehaviour
     {
         Cursor.SetCursor(scissorsTextureOpen, new Vector2(30,30), CursorMode.Auto);
         currentState = PinBoardState.Delete;
-       
-       
+        tmp.text = "Usuñ po³¹czenia.";
+
     }
     private void Inspect()
     {
@@ -475,8 +490,36 @@ public class PinBoardManager : MonoBehaviour
     public void Burn()
     {
         currentState = PinBoardState.Burned;
-        
+       
             
+    }
+    public void ShowYellowMessage()
+    {
+        tmp.text = "ZnajdŸ Dowód.";
+    }
+    public void ShowRedMessage()
+    {
+        tmp.text = "ZnajdŸ Sprzecznoœæ.";
+    }
+    public void ShowGreenMessage()
+    {
+        tmp.text = "ZnajdŸ Motyw.";
+    }
+    public void ShowBlueMessage()
+    {
+        tmp.text = "ZnajdŸ Wskazówkê.";
+    }
+    public void ShowScisorsMessage()
+    {
+        tmp.text = "Usuñ linie.";
+    }
+    public void ShowBurnMessage()
+    {
+        tmp.text = "SprawdŸ po³¹cznia.";
+    }
+    public void HideMessage()
+    {
+        tmp.text="";
     }
 }
 public enum PinBoardState

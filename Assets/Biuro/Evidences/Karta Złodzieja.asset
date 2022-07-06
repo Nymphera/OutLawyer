@@ -23,7 +23,8 @@ MonoBehaviour:
   Conections:
   - conected: {fileID: 11400000, guid: 733436fcea2146f4b8bd7476289a5912, type: 2}
     ConectionType: 2
-    Conclusion: 
+    Conclusion: "Robb Banks nie mo\u017Ce by\u0107 chroniony prawami Karty Z\u0142odzieja
+      w przypadku braku po\u015Bwiadczenia kradzie\u017Cy."
     conectNumber: 0
   - conected: {fileID: 11400000, guid: 1d3f36e34a97bc44b8dcef275e5c2ad8, type: 2}
     ConectionType: 2

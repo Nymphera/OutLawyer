@@ -16,6 +16,8 @@ public class Line : MonoBehaviour
     public bool isConectionGood=false;
     public bool isAnimationDone=false;
     public bool wasLineBurned = false;
+
+    public string Conclusion; 
     //public Conection conection;
     private void Awake()
     {
@@ -135,7 +137,21 @@ public class Line : MonoBehaviour
             //this.conectionType = ConectionType.Grey;
         }
     }
-    [Serializable]
+    public void SetConclusion()
+    {
+        int count = firstEvidence.Conections.Length;
+        int count2 = secondEvidence.Conections.Length;
+        
+        for(int i = 0; i < count; i++)
+        {
+            if (firstEvidence.Conections[i].conected == secondEvidence)
+            {
+                Conclusion = firstEvidence.Conections[i].Conclusion;
+            }  
+        }
+       
+    }
+   /* [Serializable]
     public class Conection
     {
         public Evidence FirstEvidence;
@@ -146,7 +162,7 @@ public class Line : MonoBehaviour
         
         public int conectNumber;
 
-    }
+    }*/
 }
 [Serializable]
 public enum ConectionType

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: H_2.4
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: eaf7e2ea0b1b1354ea214e7c27090d30, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: 8b8f9aeebd4c4a14a917d6cfb350d2c9, type: 2}
+  strategy: 1
+  sentences:
+  - "Lojer: No dobrze dobrze, ju\u017C przechodz\u0119 do pyta\u0144. Mia\u0142em
+    nadziej\u0119 \u017Ce b\u0119dzie Pan chcia\u0142 porozmawia\u0107 z innym mi\u0142o\u015Bnikiem
+    krab\xF3w ale widz\u0119 \u017Ce si\u0119 myli\u0142em.\r\n"
+  - "Patrick: Mi\u0142o\u015Bnikiem krab\xF3w? Czy Patricka uszy nie myl\u0105?\r\n"
+  - "Lojer: Nic z tych rzeczy Panie Patricku, co wi\u0119cej jestem w 20% krabem,
+    moja prababka nie by\u0142a do ko\u0144ca wierna, a kraby maj\u0105 sw\xF3j urok.\r\n"
+  - "Patrick: Oj tak, Patrick si\u0119 zgadza. Jakby Patrick m\xF3g\u0142 to o\u017Ceni\u0142by
+    si\u0119 z krabem. Jednak by\u0142oby to nieprofesjonalne wi\u0119c Patrick twardo
+    trzyma si\u0119 swojego postanowienia.\r\n"
+  - "Lojer: Ale wracaj\u0105c do pyta\u0144, by\u0142 Pan w domu podczas zaj\u015Bcia?\r\n"
+  - "Patrick: O tak Patrick by\u0142 obecny w \u0142\xF3\u017Cku. Noc jest od spania,
+    chyba \u017Ce jest okres godowy moich podopiecznych. Wtedy Patrick musi nadzorowa\u0107
+    aby wszystko posz\u0142o zgodnie z planem. Jest Patrick pewny \u017Ce Pan filozof
+    rozumie.\r\n"
+  - "Lojer: Oczywi\u015Bcie \u017Ce rozumiem, ale zastanawia mnie jakim cudem odg\u0142osy
+    walki Pana nie obudzi\u0142y.\r\n"
+  - "Patrick: Patrick nauczy\u0142 si\u0119 jak spa\u0107 aby spa\u0107 a nie nie
+    spa\u0107. Patrick kiedy\u015B przespa\u0142 atak na jego obozowisko\u2026\rA
+    mo\u017Ce nie?\r\n"
+  audioClips: []
+  cost: 0

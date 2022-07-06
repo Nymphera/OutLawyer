@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: H_5
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: e3ab3c5de68327b4ab8964590329b9e1, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: c5e7daf06cb69e341a1ed8b75cd53efc, type: 2}
+  strategy: 4
+  sentences:
+  - "Lojer: No dobrze w takim razie to ju\u017C ostatnie pytanie z mojej strony.
+    Przepraszam je\u015Bli Pana ura\u017C\u0119, ale czy tutejsze kraby maj\u0105
+    podstawy do tego aby chcie\u0107 st\u0105d uciec?\r\n"
+  - "Patrick: Tak jak Pan filozof my\u015Bla\u0142, Patrick czuje si\u0119 ura\u017Cony.
+    Wszystko tutaj jest w jak najlepszym porz\u0105dku. Patrick dba o kraby a kraby
+    s\u0142uchaj\u0105 Patricka.\r\n"
+  - "Lojer: I nie do\u015Bwiadczy\u0142 Pan ostatnio \u017Cadnego oporu?\r\n"
+  - "Patrick: Patrick nie ma poj\u0119cia o czym Pan filozof m\xF3wi. Wszystkie kraby
+    Patricka s\u0105 bardzo grzeczne i nigdy nie pomy\u015Bla\u0142yby nawet o buncie
+    czy te\u017C ucieczce!\r\n"
+  - "Lojer: Jeszcze raz bardzo Pana przepraszam, nie mia\u0142em na celu Pana urazi\u0107
+    Panie Patricku.\r\n"
+  audioClips: []
+  cost: 0

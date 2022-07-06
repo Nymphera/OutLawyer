@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: H_3.5
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 6344e2792d3302f41b9cae33b250a791, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: eaf7e2ea0b1b1354ea214e7c27090d30, type: 2}
+  strategy: 3
+  sentences:
+  - "Lojer: Czyli \u017Ce nie pami\u0119ta Pan?\r\n"
+  - "Patrick: Wie Pan filozof jak to jest w wieku Patricka, od sklerozy nie mo\u017Cna
+    uciec.\r\n"
+  - "Lojer: Czy te zaniki pami\u0119ci trwaj\u0105 od dawna?\r\n"
+  - "Patrick: \u2026\r\n"
+  - "Lojer: Jak d\u0142ugo jest Pan hodowc\u0105 krab\xF3w?\r\n"
+  - 'Patrick:...
+
+'
+  - "Lojer: Czym si\u0119 Pan zajmowa\u0142 wcze\u015Bniej?\r\n"
+  - "Patrick:...\r"
+  - "Lojer: Ile gatunk\xF3w krab\xF3w posiada Pan w hodowli?\r\n"
+  - "Patrick: Patrick posiada tylko 622 gatunki krab\xF3w, w przysz\u0142o\u015Bci
+    Patrick planuje powi\u0119ksza\u0107 swoj\u0105 hodowl\u0119 a\u017C w ko\u0144cu
+    Patrick zbierze wszystkie 4508 gatunk\xF3w.\r\n"
+  - "Lojer: Interesuj\u0105ce\u2026\r\n"
+  audioClips: []
+  cost: 0

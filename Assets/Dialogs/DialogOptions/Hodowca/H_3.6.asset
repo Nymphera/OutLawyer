@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: H_3
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 6344e2792d3302f41b9cae33b250a791, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: eaf7e2ea0b1b1354ea214e7c27090d30, type: 2}
+  strategy: 1
+  sentences:
+  - "Lojer: Czyli \u017Ce Pan nie pami\u0119ta.\r\n"
+  - "Patrick: Zgadza si\u0119, Patrick ma ju\u017C swoje lata, a od sklerozy nie
+    da si\u0119 uciec.\r\n"
+  - "Lojer: Jaka tam skleroza Panie Patricku, Pan jest okazem zdrowia. Poza tym je\u015Bli
+    zapyta\u0142bym o co\u015B zwi\u0105zanego z krabami to te\u017C by mi Pan nie
+    odpowiedzia\u0142? \r\n"
+  - "Lojer: Na przyk\u0142ad ile krab\xF3w jest wy\u0142awianych rocznie?\r\n"
+  - "Patrick: Oko\u0142o 1400000 krab\xF3w jest spo\u017Cywanych rocznie, mniej wi\u0119cej
+    60% to kraby hodowane tylko jako przysz\u0142y posi\u0142ek, reszta jest wy\u0142awiana
+    w siatkach.\r\n"
+  - "Lojer: Wow\u2026 To znaczy, oczywi\u015Bcie \u017Ce to wiedzia\u0142em ale nie
+    spodziewa\u0142em si\u0119 tak szybkiej odpowiedzi.\r\n"
+  audioClips: []
+  cost: 0

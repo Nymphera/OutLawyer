@@ -16,6 +16,5 @@ MonoBehaviour:
   strategy1: 4
   strategy2: 3
   ResultBarColor: {r: 0.7960785, g: 0.41960788, b: 0.9058824, a: 1}
-  ResultText: "Lojer proponuje szefowi krab\xF3w wsp\xF3\u0142prac\u0119, prezentuj\u0105c
-    mu potencjalne korzy\u015Bci z posiadania prawnika w wielkim mie\u015Bcie."
+  ResultText: "Ka\u017Cdy diabe\u0142 musi mie\u0107 swojego adwokata."
   resultImage: {fileID: 21300000, guid: 9160290909740ba41a788f734b0bc3d8, type: 3}

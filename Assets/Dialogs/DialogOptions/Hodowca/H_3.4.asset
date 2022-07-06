@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: H_3.4
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 16a1a2af55d4cb24baa61db3740b8b09, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: eaf7e2ea0b1b1354ea214e7c27090d30, type: 2}
+  strategy: 3
+  sentences:
+  - "Lojer: Czyli \u017Ce nie pami\u0119ta Pan?\r\n"
+  - "Patrick: Wie Pan filozof jak to jest w wieku Patricka, od sklerozy nie mo\u017Cna
+    uciec.\r\n"
+  - "Lojer: Czy te zaniki pami\u0119ci trwaj\u0105 od dawna?\r\n"
+  - "Patrick: \u2026\r\n"
+  - "Lojer: Jak d\u0142ugo jest Pan hodowc\u0105 krab\xF3w?\r\n"
+  - 'Patrick:...
+
+'
+  - "Lojer: Czym si\u0119 Pan zajmowa\u0142 wcze\u015Bniej?\r\n"
+  - 'Patrick:...
+
+'
+  - 'Lojer: Ile lat ma Pana najstarszy krab?
+
+'
+  - "Patrick: 43 lata, 3 miesi\u0105ce i 12 dni. W dziczy ten gatunek \u017Cyje do
+    30 lat, jednak Patrick zajmuje si\u0119 nimi tak dobrze \u017Ce mog\u0105 \u017Cy\u0107
+    nawet 50.\r\n"
+  - "Lojer: Interesuj\u0105ce\u2026\r\n"
+  audioClips: []
+  cost: 0

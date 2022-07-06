@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f355ab2e95955ca4b8301cd253d69c14, type: 3}
+  m_Name: H_A1
+  m_EditorClassIdentifier: 
+  crossPointName: H_A1
+  ConectedDialogOptions:
+  - {fileID: 11400000, guid: d293f0ce3f219fd409aa036c521fb49b, type: 2}
+  - {fileID: 11400000, guid: d7831c591e49e004a8654286a37fc6d4, type: 2}
+  - {fileID: 11400000, guid: 4b1be093cfd1e1b48b7bdd456000487d, type: 2}

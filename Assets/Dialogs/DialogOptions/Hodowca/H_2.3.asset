@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: H_2.3
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 98126827a2fb3444f8373cc8f0dfe3da, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: 8b8f9aeebd4c4a14a917d6cfb350d2c9, type: 2}
+  strategy: 2
+  sentences:
+  - "Lojer: No dobrze dobrze, uspok\xF3j si\u0119 bo Ci ci\u015Bnienie podskoczy.
+    Nie masz ochoty pogada\u0107 z humanoidem takim jak Ty? No mo\u017Ce nie do ko\u0144ca,
+    ale wida\u0107 wi\u0119ksze podobie\u0144stwo ni\u017C z krabami.\r\n"
+  - "Patrick: Po co Patrickowi ludzie czy inne demony skoro ma kraby. S\u0105 o wiele
+    lepsze i \u0142adniejsze ni\u017C te oble\u015Bne humanoidy. Jakby Patrick m\xF3g\u0142
+    to zmieni\u0142by si\u0119 w kraba od zaraz.\r\n"
+  - "Lojer: Skoro ju\u017C m\xF3wimy o krabach. By\u0142e\u015B w domu podczas kradzie\u017Cy?\r\n"
+  - "Patrick: O tak Patrick by\u0142 obecny w \u0142\xF3\u017Cku. Noc jest od spania,
+    chyba \u017Ce jest okres godowy moich podopiecznych. Wtedy Patrick musi nadzorowa\u0107
+    aby wszystko posz\u0142o zgodnie z planem."
+  - "Lojer: S\u0105dz\u0105c po \u015Bladach walki, ca\u0142e zaj\u015Bcie musia\u0142o
+    by\u0107 bardzo g\u0142o\u015Bne, nawet ten s\u0105siad pewnie to s\u0142ysza\u0142.
+    A Ty si\u0119 nie obudzi\u0142e\u015B nawet na moment?\r\n"
+  - "Patrick: Patrick nauczy\u0142 si\u0119 jak spa\u0107 aby spa\u0107 a nie nie
+    spa\u0107. Patrick kiedy\u015B przespa\u0142 atak na jego obozowisko\u2026\rA
+    mo\u017Ce m\xF3zg Patricka zn\xF3w go oszukuje?\r\n"
+  audioClips: []
+  cost: 0

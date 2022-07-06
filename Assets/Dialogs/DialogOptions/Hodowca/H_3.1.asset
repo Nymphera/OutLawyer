@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: H_3.1
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 7a40d19ae48577748b50a7c6440de7ed, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: 6c66f9471df02f940a80aa663195940e, type: 2}
+  strategy: 4
+  sentences:
+  - "Lojer: Wydaje si\u0119 Panu? Czyli nie pami\u0119ta Pan?\r\n"
+  - "Patrick: Wie Pan filozof jak to jest w wieku Patricka, od sklerozy nie mo\u017Cna
+    uciec.\r\n"
+  - "Lojer: Hmm, skleroza tak? A tak z ciekawo\u015Bci, czy wie Pan jaki jest najwi\u0119kszy
+    krab \u017Cyj\u0105cy na naszym \u015Bwiecie?\r\n"
+  - "Patrick: Pomijaj\u0105c legendy o wielkich boskich krabach, najwi\u0119ksze
+    s\u0105 kraby paj\u0119cze. Mog\u0105 osi\u0105ga\u0107 nawet 3.6576 metra d\u0142ugo\u015Bci
+    i wa\u017Cy\u0107 do 19.05088 kilograma.\r\n"
+  - "Lojer: Bardzo dzi\u0119kuj\u0119 za tak wyczerpuj\u0105c\u0105 odpowied\u017A,
+    wygl\u0105da na to \u017Ce niekt\xF3re rzeczy Pan bardzo dobrze pami\u0119ta.
+    A czy pami\u0119ta Pan kt\xF3ry krab zosta\u0142 ukradziony?\r\n"
+  - "Patrick: Jak Patrick m\xF3g\u0142by zapomnie\u0107 o jego skrabie? Odk\u0105d
+    znikn\u0119\u0142a Patrick musi nosi\u0107 ze sob\u0105 t\u0119 czaszk\u0119
+    aby nie by\u0107 samotny.\r\n"
+  - "Lojer: Czaszk\u0119?! Nosi Pan przy sobie ludzk\u0105 czaszk\u0119?\r\n"
+  - "Patrick: Patrick nie pami\u0119ta czyja to czaszka, jedyne co Patrick pami\u0119ta
+    to \u017Ce jest dla Patricka bardzo wa\u017Cna.\r\n"
+  audioClips: []
+  cost: 0

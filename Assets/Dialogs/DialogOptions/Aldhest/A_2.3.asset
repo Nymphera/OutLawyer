@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_2.3
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 217b84b78ea36134d880829956e37a2c, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: b73b288844c51f246b24a29291387913, type: 2}
+  strategy: 4
+  sentences:
+  - "Lojer: Jaka jest Pana relacja z hodowc\u0105? Jest Pana s\u0142ug\u0105 jak
+    mniemam?\r\n"
+  - "Aldhest: Zgadza si\u0119, bezu\u017Cytecznym ale wiernym, tylko dlatego jeszcze
+    si\u0119 go nie pozby\u0142em."
+  - "Lojer: Czyli je\u015Bli znalaz\u0142by si\u0119 kto\u015B bardziej u\u017Cyteczny,
+    kto\u015B z dobr\u0105 edukacj\u0105, ponadprzeci\u0119tnym intelektem i diabelsko
+    przystojn\u0105 buzi\u0105, m\xF3g\u0142by przej\u0105\u0107 jego miejsce?"
+  - "Aldhest: Wydajesz si\u0119 dosy\u0107 kompetentny\u2026 Odeszli\u015Bmy jednak
+    od tematu, jeszcze jakie\u015B pytania?\r\n"
+  audioClips: []
+  cost: 0

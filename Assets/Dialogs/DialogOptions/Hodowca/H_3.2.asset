@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: H_3.2
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 6c66f9471df02f940a80aa663195940e, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: 98126827a2fb3444f8373cc8f0dfe3da, type: 2}
+  strategy: 2
+  sentences:
+  - "Lojer: Czyli \u017Ce nie pami\u0119tasz? \r\n"
+  - "Patrick: Wie Pan filozof jak to jest w wieku Patricka, od sklerozy nie mo\u017Cna
+    uciec.\r\n"
+  - "Lojer: Jaka tam skleroza, jestem pewny \u017Ce je\u015Bli zapyta\u0142bym Pana
+    o jaki\u015B bardzo ma\u0142o znany fakt o krabach to odpowiedzia\u0142by Pan
+    od razu. Na przyk\u0142ad ile \u015Brednio wa\u017Cy krab\u2026"
+  - "Patrick: Najpopularniejsze kraby wa\u017C\u0105 pomi\u0119dzy 0.68 a 1.4 kilograma.\r
+    Jednak mniejsze i przez wielu uwa\u017Cane za \u0142adniejsze, niebieskie kraby
+    \u015Brednio wa\u017C\u0105 tylko oko\u0142o 0.151197457 kilograma.\r\n"
+  - "Lojer: Wow\u2026"
+  audioClips: []
+  cost: 0

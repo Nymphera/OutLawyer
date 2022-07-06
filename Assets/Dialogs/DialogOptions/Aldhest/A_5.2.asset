@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_5.2
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: cbefe0bf3a614ed4fb09f595c9443f1f, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: b11b2d6e948924f41bdc0a4e101f2283, type: 2}
+  strategy: 2
+  sentences:
+  - "Lojer: Ale nie s\u0142ysza\u0142 Pan nic? \u017Badnej szarpaniny ani nic?\r\n"
+  - "Aldhest: Tutejsze kraby ucz\u0105 si\u0119 krabate od najm\u0142odszych lat,
+    s\u0142ysze odg\u0142osy walki w ka\u017Cdy wtorek i pi\u0105tek. Urz\u0105dzane
+    s\u0105 te\u017C sparingi w praktycznie ka\u017Cdy dzie\u0144 tygodnia. To prawda
+    \u017Ce s\u0142ysza\u0142em walk\u0119 ale pomy\u015Bla\u0142em \u017Ce to nic
+    podejrzanego.\r\n"
+  - "Lojer: Ciekawe jak to jest walczy\u0107 z krabem, my\u015Blisz \u017Ce da\u0142bym
+    rad\u0119 waszemu najsilniejszemu krabowi?\r\n"
+  - "Aldhest: Najsilniejszemu? Jak teraz o tym my\u015Bl\u0119 to Skarb by\u0142a
+    czarnym pasem. Nie ma szans aby ktokolwiek z mniejszym do\u015Bwiadczeniem bojowym
+    m\xF3g\u0142 j\u0105 porwa\u0107.\r\n"
+  audioClips: []
+  cost: 0

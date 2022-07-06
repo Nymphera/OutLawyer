@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: A_5.4
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: cbefe0bf3a614ed4fb09f595c9443f1f, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: b11b2d6e948924f41bdc0a4e101f2283, type: 2}
+  strategy: 1
+  sentences:
+  - "Lojer: Zawsze jest tu tak cicho? My\u015Bla\u0142em \u017Ce dziesi\u0105tki
+    krab\xF3w z g\xF3ry b\u0119dzie lepiej s\u0142ycha\u0107..\r\n"
+  - "Aldhest: S\u0142ycha\u0107 je dopiero jak zaczn\u0105 \u0107wiczy\u0107, albo
+    si\u0119 sparingowa\u0107.\r\n"
+  - "Lojer: Mam rozumie\u0107 \u017Ce to jaki\u015B krabowy Fight Club? M\xF3g\u0142bym
+    mo\u017Ce do\u0142\u0105czy\u0107?\r\n"
+  - "Aldhest: \u017Baden Fight Club tylko szko\u0142a krabate. Ka\u017Cdy krab musi
+    pozna\u0107 cho\u0107by podstawy.\r\n"
+  - "Lojer: To znaczy \u017Ce Skarb te\u017C by\u0142a wyszkolona? Co\u015B mi tu
+    nie gra, jak kto\u015B znaj\u0105cy karate da\u0142 si\u0119 tak \u0142atwo porwa\u0107?\r\n"
+  - "Aldhest: Nie karate tylko KRABATE. To staro\u017Cytna sztuka walki wykorzystuj\u0105ca
+    szczypce jako mordercz\u0105 bro\u0144! Ale prawda \u017Ce nie ma to sensu, Skarb
+    by\u0142a czarnym pasem, niemo\u017Cliwe \u017Ceby zosta\u0142a pokonana przez
+    jakiego\u015B przeci\u0119tnego z\u0142odzieja.\r\n"
+  audioClips: []
+  cost: 0

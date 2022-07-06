@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: H_1.1
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: 766b7b422d5399b4fa91f9d85369b45d, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: a808f7111ee2ca547bbecae57335215f, type: 2}
+  strategy: 4
+  sentences:
+  - "Lojer: Przepraszam bardzo za naj\u015Bcie Panie Patricku, ale jak tylko us\u0142ysza\u0142em
+    co si\u0119 sta\u0142o musia\u0142em si\u0119 zabra\u0107 za t\u0119 spraw\u0119.\r\n"
+  - "Patrick: Patrick wiedzia\u0142 \u017Ce ten s\u0105siad spod 4 pr\u0119dzej czy
+    p\xF3\u017Aniej wyl\u0105duje w wi\u0119zieniu. A szkoda, Patrick go uwa\u017Ca\u0142
+    za mi\u0142ego cz\u0142owieka, nawet czasem Patrickowi na hodowli pomaga\u0142.\r\n"
+  - "Lojer: S\u0105siad spod\u2026 Aaa tak tak biedny cz\u0142owiek no ale prawo
+    dogoni ka\u017Cdego pr\u0119dzej czy p\xF3\u017Aniej.\r\n"
+  - "Lojer: Ja jednak jestem tu w innej sprawie. Dosz\u0142y do mnie s\u0142uchy
+    \u017Ce zosta\u0142 Pan okradziony. Prosz\u0119 przyj\u0105\u0107 moje najszczersze
+    kondolencje, niestety b\u0119d\u0119 musia\u0142 zapyta\u0107 Pana o ca\u0142e
+    zaj\u015Bcie. Mam nadziej\u0119 \u017Ce nie b\u0119dzie z tym problemu.\r\n"
+  - "Patrick: Tak, tak Patrick dzi\u0119kuj\u0119, ale czy Patrick wynajmowa\u0142
+    Prawnika? Przekl\u0119ty Patrick wszystko zapomina. No dobrze Panie filozofie,
+    prosz\u0119 pyta\u0107.\r\n\r\n"
+  audioClips: []
+  cost: 0

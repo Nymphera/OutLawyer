@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
+  m_Name: H_4.3
+  m_EditorClassIdentifier: 
+  text: 
+  nextCrossPoint: {fileID: 11400000, guid: fe09b973e30f62746b3bbf50873f28b8, type: 2}
+  earlierCrossPoint: {fileID: 11400000, guid: 16a1a2af55d4cb24baa61db3740b8b09, type: 2}
+  strategy: 2
+  sentences:
+  - "Lojer: No dobra zostawmy to na bok i przejd\u017Amy do kolejnego pytania.\r
+    Wiesz w jakim celu kto\u015B m\xF3g\u0142 chcie\u0107 Ci\u0119 okra\u015B\u0107?
+    I to jeszcze z jednego kraba?\r\n"
+  - "Patrick: To oczywiste w jakim celu, Ci barbarzy\u0144cy z tego klubu dla bladych
+    proponowali kupno krab\xF3w Patricka wiele razy. Chc\u0105 sprzedawa\u0107 je
+    jako przystawki! Patrick przep\u0119dzi\u0142 ich wi\u0119c i kaza\u0142 nie
+    wraca\u0107. Pewnie chcieli wzi\u0105\u0107 wi\u0119cej ale nie spodziewali si\u0119
+    \u017Ce moje kraby s\u0105 mistrzami krabate.\r\n"
+  - "Lojer: Klubu dla bladych? Chodzi Ci o t\u0105 restauracj\u0119 dla wampir\xF3w
+    kt\xF3r\u0105 otwarto niedawno?\r\n"
+  - "Patrick: Dok\u0142adnie o to Patrickowi chodzi. Patrick nawet nie mia\u0142
+    nic przeciwko, Patrick jest tolerancyjny, dop\xF3ki nie zachcia\u0142o im si\u0119
+    serwowa\u0107 krab\xF3w Patricka! Patrick przeklina ich ca\u0142\u0105 Patricka
+    egzystencj\u0105!\r\n"
+  audioClips: []
+  cost: 0

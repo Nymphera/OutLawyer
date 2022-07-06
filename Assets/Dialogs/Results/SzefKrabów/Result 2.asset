@@ -16,7 +16,6 @@ MonoBehaviour:
   strategy1: 0
   strategy2: 1
   ResultBarColor: {r: 0.22352943, g: 0.7137255, b: 1, a: 1}
-  ResultText: " Lojer sugeruje Szefowi Krab\xF3w, \u017Ce jego pozycja lidera mo\u017Ce
-    nied\u0142ugo si\u0119 sko\u0144czy\u0107, chyba \u017Ce zdecyduje si\u0119 pom\xF3c
-    Lojerowi."
+  ResultText: "Szef krab\xF3w mo\u017Ce mie\u0107 tu wi\u0119cej wrog\xF3w ni\u017C
+    mu si\u0119 wydaje."
   resultImage: {fileID: 21300000, guid: 2a8676137260aed4ca868cf18946555e, type: 3}

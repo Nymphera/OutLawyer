@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        inventory = gameObject.AddComponent<Inv>();
+        inventory = gameObject.AddComponent<Inv>();     //plaer musi byæ dodany do obiektu
     }
 
 

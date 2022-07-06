@@ -9687,6 +9687,7 @@ MonoBehaviour:
   helpText: {fileID: 1741708432}
   message: {fileID: 157213161}
   displaySentencesTime: 3
+  inventory: {fileID: 0}
 --- !u!4 &901695912
 Transform:
   m_ObjectHideFlags: 0
@@ -11565,7 +11566,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048687239}
-  m_LocalRotation: {x: 0.5083911, y: -0.000000026711492, z: 0.00000001576991, w: 0.8611263}
+  m_LocalRotation: {x: 0.5083911, y: 0.000000026711499, z: -0.000000015769913, w: 0.8611263}
   m_LocalPosition: {x: -0.23077774, y: 0.9840002, z: -0.6094856}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14764,6 +14765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: []
+  interacted: 0
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -15150,6 +15152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message:
   - "Ten cz\u0142owiek nie lubi towarzystwa..."
+  interacted: 0
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -16142,6 +16145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: []
+  interacted: 0
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -19879,6 +19883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: []
+  interacted: 0
   outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -21497,10 +21502,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9ebc57ec5e59745b979da71a29ccb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractEnabled: 0
+  isInteractEnabled: 1
   isMoveEnabled: 1
   isPauseEnabled: 1
-  isLookEnabled: 0
+  isLookEnabled: 1
   CurrentState: 0
   keyCount: 0
   createdLines: []
@@ -29875,6 +29880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: []
+  interacted: 0
   outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2

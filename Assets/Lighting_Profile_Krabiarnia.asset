@@ -129,7 +129,7 @@ MonoBehaviour:
   Vignette_Enabled: 1
   Chromattic_Enabled: 0
   SSR_Enabled: 1
-  ST_SSR_Enabled: 1
+  ST_SSR_Enabled: 0
   ambientState: 1
   sunState: 1
   lightSettingsState: 1
@@ -153,4 +153,4 @@ MonoBehaviour:
   foliageState: 0
   snowState: 0
   OptionsState: 1
-  LightingBoxState: 1
+  LightingBoxState: 0

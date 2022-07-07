@@ -33,12 +33,18 @@ public class TriggerDialog : MonoBehaviour
             dialogTree.GetComponent<DialogTreeCreator>().dialog = dialogToTrigger;
             dialogTree.GetComponent<DialogTreeCreator>().CreateTree();
 
-            GameObject dialogManager = GameObject.Find("DialogManager");
-            dialogManager.GetComponent<DialogManager>().dialog = dialogToTrigger;
-            dialogManager.GetComponent<DialogManager>().StartDialog();
+            StartCoroutine(StartDialog());
             
             
         }
         
+    }
+
+    private IEnumerator StartDialog()
+    {
+        yield return null;
+        GameObject dialogManager = GameObject.Find("DialogManager");
+        dialogManager.GetComponent<DialogManager>().dialog = dialogToTrigger;
+        dialogManager.GetComponent<DialogManager>().StartDialog();
     }
 }

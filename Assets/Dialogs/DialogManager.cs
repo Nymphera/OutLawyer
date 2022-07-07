@@ -104,13 +104,18 @@ public class DialogManager : MonoBehaviour
     {
         
 
-        treeLawyer = GameObject.Find("lawyerIcon");     
+        treeLawyer = GameObject.Find("lawyerIcon");  
+        
         dialogText = GameObject.Find("DialogText");        
         backGround.SetActive(true);
-        audioSource = gameObject.GetComponent<AudioSource>();
+        if(gameObject.GetComponent<AudioSource>() != null)
+        {
+            audioSource = gameObject.GetComponent<AudioSource>();
+        }
+        
         tree = treeLawyer.transform.parent;
         Results = GameObject.Find("Results");
-        Debug.Log(tree.position);
+        
         
 
         ClearResultsBars();

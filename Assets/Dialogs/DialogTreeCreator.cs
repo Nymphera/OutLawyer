@@ -42,12 +42,12 @@ public class DialogTreeCreator : MonoBehaviour
     public void CreateTree()
     {
         SetLevels();
-       
+        
         SetUpCrossPoints();
         SetUpDialogOptions();
         SetTalkingImages();
         SetResults();
-        //¿eby rysowaæ linie potrzebujemy najpierw wszystkich pozycji
+       
         CreateLines();
 
     }
@@ -56,6 +56,7 @@ public class DialogTreeCreator : MonoBehaviour
 
     private void SetLevels()
     {
+        Debug.Log("SetLevels");
         transform.localPosition=Vector3.zero;
         int levelNum= dialog.levels.Length;
         for(int i = 0; i < levelNum; i++)
@@ -64,7 +65,8 @@ public class DialogTreeCreator : MonoBehaviour
         }
     }
     private void SetResults()
-    {   
+    {
+        Debug.Log("SetResults");
         int resultNum = dialog.results.Length;
         float intervalLength = levelWidth / (resultNum + 1);
         Vector3 spawnPosition;
@@ -81,6 +83,7 @@ public class DialogTreeCreator : MonoBehaviour
     }
     private void SetUpCrossPoints()
     {
+        Debug.Log("SetCrossPoints");
         int dialoglevelsNum= dialog.levels.Length;
         int crosspointNum;
         float intervalLength;
@@ -100,7 +103,7 @@ public class DialogTreeCreator : MonoBehaviour
                 current.gameObject.name = dialog.levels[i].CrossPoints[j].name;
                 current.gameObject.AddComponent<CrossPointDisplay>().crossPoint= dialog.levels[i].CrossPoints[j];
                 current.gameObject.GetComponent<CrossPointDisplay>().position = spawnPosition;
-                lawyerIcon = Resources.Load<Image>("LawyerImage");
+                //lawyerIcon = Resources.Load<Image>("LawyerImage");
                 if (i == 0 && j == 0)
                 {
                     lawyerIcon=Instantiate(lawyerIcon, treeParent);
@@ -115,6 +118,7 @@ public class DialogTreeCreator : MonoBehaviour
     }
     private void SetUpDialogOptions()
     {
+        Debug.Log("SetDialogOptions");
         int dialoglevelsNum = dialog.levels.Length;
         int dialogOptionNum;
         float intervalLength;

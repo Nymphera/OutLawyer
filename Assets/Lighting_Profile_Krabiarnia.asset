@@ -31,7 +31,7 @@ MonoBehaviour:
   equatorColor: {r: 1, g: 1, b: 1, a: 1}
   groundColor: {r: 1, g: 1, b: 1, a: 1}
   skyIntensity: 1.23
-  skyRotation: 1
+  skyRotation: 220
   sunColor: {r: 0.9150943, g: 0.67853564, b: 0.48776254, a: 1}
   sunIntensity: 1.43
   sunFlare: {fileID: 12100000, guid: 70ff7d98b27dd54458e51a95f7984da3, type: 2}

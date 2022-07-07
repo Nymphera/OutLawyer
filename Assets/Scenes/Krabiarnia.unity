@@ -31520,6 +31520,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Resolution: 2
   DefaultSpotCookie: {fileID: 2800000, guid: 5157bf6d690b6df458f6c0ce0c06d329, type: 3}
+--- !u!114 &2003976449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003976446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf64824c668f664da44e55e8b9e3633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  depthMode: 2
+  rayMode: 2
+  rayDistance: 70
+  BRDFBias: 0.7
+  resolveMode: 1
+  rayReuse: 1
+  normalization: 1
+  reduceFireflies: 1
+  useMipMap: 1
+  useTemporal: 1
+  scale: 2
+  response: 0.85
+  useFresnel: 1
+  screenFadeSize: 0
+  smoothnessRange: 1
+  debugPass: 0
 --- !u!114 &2003976450
 MonoBehaviour:
   m_ObjectHideFlags: 0

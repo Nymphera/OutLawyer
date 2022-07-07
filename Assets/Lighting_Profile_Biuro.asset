@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09549af41255a3d46b8b500a63f93e23, type: 3}
-  m_Name: DefaultSettings
+  m_Name: Lighting_Profile_Biuro
   m_EditorClassIdentifier: 
   mainCameraName: Main Camera
   objectName: LightingProfile
-  postProcessingProfile: {fileID: 11400000, guid: 6da86197aa457484e9c71360f2a8832e, type: 2}
+  postProcessingProfile: {fileID: 11400000, guid: e1aaf1e101ac17549859f337c668cacd, type: 2}
   webGL_Mobile: 0
   renderPath: 2
   lightingMode: 1
@@ -22,11 +22,11 @@ MonoBehaviour:
   lightSettings: 2
   colorSpace: 0
   enlightenQuality: 1
-  skyBox: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  skyCube: {fileID: 8900000, guid: 62893534e620ae141afbc80a899ed22d, type: 3}
+  skyBox: {fileID: 2100000, guid: 71f14a2d79f732f4d9893ef1b911f4ff, type: 2}
+  skyCube: {fileID: 8900000, guid: a0286e2360ff01a4e8a01842df3b123f, type: 3}
   skyBoxExposure: 1
   ambientLight: 1
-  ambientColor: {r: 0.5514706, g: 0.65141994, b: 0.75, a: 1}
+  ambientColor: {r: 0.38443395, g: 0.442217, b: 0.5, a: 1}
   skyColor: {r: 1, g: 1, b: 1, a: 1}
   equatorColor: {r: 1, g: 1, b: 1, a: 1}
   groundColor: {r: 1, g: 1, b: 1, a: 1}
@@ -75,7 +75,7 @@ MonoBehaviour:
     m_Bits: 1
   exposureIntensity: 0.37
   contrastValue: 0.247
-  temp: 0
+  temp: 18.7
   colorMode: 0
   saturation: 0
   gamma: 0.04
@@ -98,7 +98,7 @@ MonoBehaviour:
   shaftBlur: 3
   shaftColor: {r: 1, g: 0.7411765, b: 0.57254905, a: 1}
   exposureMode: 1
-  exposureCompensation: 0.17
+  exposureCompensation: 0.133
   eyeMin: -6
   eyeMax: -3
   aaMode: 0
@@ -117,12 +117,12 @@ MonoBehaviour:
   Ambient_Enabled: 1
   Scene_Enabled: 1
   Sun_Enabled: 1
-  VL_Enabled: 0
-  SunShaft_Enabled: 0
-  Fog_Enabled: 0
-  AutoFocus_Enabled: 0
-  DOF_Enabled: 0
-  Bloom_Enabled: 0
+  VL_Enabled: 1
+  SunShaft_Enabled: 1
+  Fog_Enabled: 1
+  AutoFocus_Enabled: 1
+  DOF_Enabled: 1
+  Bloom_Enabled: 1
   AA_Enabled: 1
   AO_Enabled: 1
   MotionBlur_Enabled: 0

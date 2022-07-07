@@ -24783,6 +24783,10 @@ GameObject:
   - component: {fileID: 1692991829}
   - component: {fileID: 1692991828}
   - component: {fileID: 1692991827}
+  - component: {fileID: 1692991833}
+  - component: {fileID: 1692991832}
+  - component: {fileID: 1692991831}
+  - component: {fileID: 1692991830}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -24848,6 +24852,58 @@ Transform:
   m_Father: {fileID: 538723889}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1692991830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692991826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 500, z: 200}
+  m_Center: {x: 160, y: 0, z: 70}
+--- !u!65 &1692991831
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692991826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 1000, z: 200}
+  m_Center: {x: -5, y: 0, z: 70}
+--- !u!65 &1692991832
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692991826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 500, z: 10}
+  m_Center: {x: 80, y: 0, z: 117}
+--- !u!65 &1692991833
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692991826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 500, z: 10}
+  m_Center: {x: 80, y: 0, z: -5}
 --- !u!1001 &1698597110
 PrefabInstance:
   m_ObjectHideFlags: 0

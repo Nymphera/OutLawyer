@@ -43,7 +43,8 @@ public class GameManager : MonoBehaviour
         GameEvents.current.onBurnLines += OnnBurnLines;
         GameEvents.current.onLineCreated += OnLineCreated;
         GameEvents.current.onEvidneceUnlocked += UnlockEvidence;
-       // UpdateGameState(GameState.Office);
+        PinBoardManager.OnLineDeleted += OnLineDeleted;
+        // UpdateGameState(GameState.Office);
     }
 
    
@@ -55,9 +56,9 @@ public class GameManager : MonoBehaviour
         PinBoardManager.OnLineDeleted -= OnLineDeleted;
         GameEvents.current.onBurnLines -= OnnBurnLines;
     }
-    private void UnlockEvidence(Evidence evidence)
+    public void UnlockEvidence(Evidence evidence)
     {
-        
+        Debug.Log("Evudence triggered");
         unlockedEvidences.Add(evidence);
     }
     public Evidence[] GetUnlockedEvidences()
@@ -102,6 +103,7 @@ public class GameManager : MonoBehaviour
 
     private void OnLineCreated(Line line)
     {
+        Debug.Log(line);
         LineData lineData=new LineData();
         lineData.firstEvidence = line.firstEvidence;
         lineData.secondEvidence = line.secondEvidence;
@@ -110,11 +112,6 @@ public class GameManager : MonoBehaviour
         lineData.conectionType = line.conectionType;
 
         createdLines.Add(lineData);
-    }
-
-    private void Update()
-    {
-
     }
 
 

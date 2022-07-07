@@ -37,8 +37,7 @@ public class GameEvents : MonoBehaviour
         onLineCreated?.Invoke(line);
     }
     public void TriggerEvidenceUnlocked(Evidence evidence)
-    {
-        
+    {       
         onEvidneceUnlocked?.Invoke(evidence);
     }
     

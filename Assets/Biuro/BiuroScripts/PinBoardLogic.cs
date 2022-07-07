@@ -11,7 +11,7 @@ using Cinemachine;
 
 public class PinBoardLogic : MonoBehaviour
 {
-    public static event Action<Line> OnLineCreated,OnLineDeleted;
+    public static event Action<Line> OnLineCreated,OnLineDeleted;   
     
     private PinBoardControls PinBoardControls;
     private Camera Cam;
@@ -123,8 +123,6 @@ public class PinBoardLogic : MonoBehaviour
             SetPoints(Evidence.transform);
             SetEvidences(Evidence.transform);
         }
-
-        else;
      
         
 

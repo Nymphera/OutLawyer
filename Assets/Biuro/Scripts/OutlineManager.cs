@@ -101,15 +101,27 @@ public class OutlineManager : MonoBehaviour
         {
             if (outlineObject != null)
             {
-                string[] message = outlineObject.GetComponent<Outline>().message;
+                Outline outline = outlineObject.GetComponent<Outline>();
+                string[] message = outline.message;
                 Queue<string> sentences = new Queue<string>();
                 foreach (string sentence in message)
                 {
                     sentences.Enqueue(sentence);
                 }
                 StartCoroutine(DisplaySentences(sentences));
+                if (outline.unlockEvidence)
+                {
+                    outline.unlockEvidence = false;
+                    Evidence evidence = outline.evidenceToUnlock;
+                    UnlockEvidence(evidence);
+                }
             }
         }
+    }
+
+    private void UnlockEvidence(Evidence evidence)
+    {
+        GameEvents.current.TriggerEvidenceUnlocked(evidence);
     }
 
     private IEnumerator DisplaySentences(Queue<string> sentences)
@@ -122,6 +134,7 @@ public class OutlineManager : MonoBehaviour
             yield return new WaitForSeconds(displaySentencesTime);
         }
         tmp.text = "";
+        
     }
     private void HideInteractText()
     {

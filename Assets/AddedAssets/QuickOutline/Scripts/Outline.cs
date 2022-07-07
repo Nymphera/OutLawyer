@@ -18,7 +18,11 @@ public class Outline : MonoBehaviour {
 
     [TextArea(3, 10)]
     public string[] message;
-    public bool interacted;
+    [SerializeField]
+    public bool unlockEvidence;
+    [SerializeField]
+    public Evidence evidenceToUnlock;
+    
     public enum Mode {
     OutlineAll,
     OutlineVisible,

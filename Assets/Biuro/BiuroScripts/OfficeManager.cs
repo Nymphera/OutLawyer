@@ -128,16 +128,23 @@ public class OfficeManager : MonoBehaviour
     {
         currentState = state;
         pinBoardLogic.enabled = (state == OfficeState.PinBoard);
-        if(Buttons!=null)
-        Buttons.SetActive(state == OfficeState.PinBoard);
-       
-        if (PinBoardUI != null)
-            
-                PinBoardUI.SetActive(state == OfficeState.PinBoard||state==OfficeState.Inspect);
 
+        StartCoroutine(WaitForCamera(state));
 
-       
+    }
 
+    private IEnumerator WaitForCamera(OfficeState state)        //to jest Ÿle ale nie mam si³y
+    {
+        if(Buttons != null)
+        {
+            Buttons.SetActive(state == OfficeState.PinBoard);
+        }
+        if(PinBoardUI != null)
+        {
+            yield return new WaitForSeconds(1f);
+            PinBoardUI.SetActive(state == OfficeState.PinBoard || state == OfficeState.Inspect);
+        }
+        
     }
 
 }

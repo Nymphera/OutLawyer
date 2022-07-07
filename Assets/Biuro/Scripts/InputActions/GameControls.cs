@@ -71,6 +71,15 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""OpenNoteBook"",
+                    ""type"": ""Button"",
+                    ""id"": ""978847db-54a8-4ee5-960c-e7040788b129"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -128,6 +137,17 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""action"": ""Scroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""acad3036-8725-4421-b4e8-64ac3b7d5520"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenNoteBook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -141,6 +161,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         m_Game_MouseLeftClick = m_Game.FindAction("MouseLeftClick", throwIfNotFound: true);
         m_Game_ChangePlayerCamera = m_Game.FindAction("ChangePlayerCamera", throwIfNotFound: true);
         m_Game_Scroll = m_Game.FindAction("Scroll", throwIfNotFound: true);
+        m_Game_OpenNoteBook = m_Game.FindAction("OpenNoteBook", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -205,6 +226,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_MouseLeftClick;
     private readonly InputAction m_Game_ChangePlayerCamera;
     private readonly InputAction m_Game_Scroll;
+    private readonly InputAction m_Game_OpenNoteBook;
     public struct GameActions
     {
         private @GameControls m_Wrapper;
@@ -214,6 +236,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         public InputAction @MouseLeftClick => m_Wrapper.m_Game_MouseLeftClick;
         public InputAction @ChangePlayerCamera => m_Wrapper.m_Game_ChangePlayerCamera;
         public InputAction @Scroll => m_Wrapper.m_Game_Scroll;
+        public InputAction @OpenNoteBook => m_Wrapper.m_Game_OpenNoteBook;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -238,6 +261,9 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 @Scroll.started -= m_Wrapper.m_GameActionsCallbackInterface.OnScroll;
                 @Scroll.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnScroll;
                 @Scroll.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnScroll;
+                @OpenNoteBook.started -= m_Wrapper.m_GameActionsCallbackInterface.OnOpenNoteBook;
+                @OpenNoteBook.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnOpenNoteBook;
+                @OpenNoteBook.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnOpenNoteBook;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -257,6 +283,9 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 @Scroll.started += instance.OnScroll;
                 @Scroll.performed += instance.OnScroll;
                 @Scroll.canceled += instance.OnScroll;
+                @OpenNoteBook.started += instance.OnOpenNoteBook;
+                @OpenNoteBook.performed += instance.OnOpenNoteBook;
+                @OpenNoteBook.canceled += instance.OnOpenNoteBook;
             }
         }
     }
@@ -268,5 +297,6 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         void OnMouseLeftClick(InputAction.CallbackContext context);
         void OnChangePlayerCamera(InputAction.CallbackContext context);
         void OnScroll(InputAction.CallbackContext context);
+        void OnOpenNoteBook(InputAction.CallbackContext context);
     }
 }

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f193a960434c12444b4d5ba58c3d80b1, type: 3}
   m_Name: R1
   m_EditorClassIdentifier: 
-  resultNumber: 0
+  resultNumber: 1
   strategy1: 0
-  strategy2: 0
-  ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
-  ResultText: 
-  resultImage: {fileID: 0}
+  strategy2: 3
+  ResultBarColor: {r: 0.49411768, g: 0.854902, b: 0.34509805, a: 1}
+  ResultText: "Wiedza to pot\u0119ga "
+  resultImage: {fileID: 21300000, guid: 5e3c63bf9bfcbed4d8d0f3035f0e30fa, type: 3}

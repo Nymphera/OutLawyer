@@ -1,10 +1,22 @@
 fileFormatVersion: 2
 guid: 04585a78ef2f09c40ae6114d03d36e1e
-timeCreated: 1496954165
-licenseType: Store
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - helper: {instanceID: 0}
+  - dirtTexture: {instanceID: 0}
+  - lut: {instanceID: 0}
+  - LB_LightingProfile: {instanceID: 0}
+  - postProcessingProfile: {instanceID: 0}
+  - skyBox: {fileID: 2100000, guid: 71f14a2d79f732f4d9893ef1b911f4ff, type: 2}
+  - skyCube: {fileID: 8900000, guid: a0286e2360ff01a4e8a01842df3b123f, type: 3}
+  - sunLight: {instanceID: 0}
+  - sunFlare: {instanceID: 0}
+  - mainCamera: {instanceID: 0}
+  - snowAlbedo: {instanceID: 0}
+  - snowNormal: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

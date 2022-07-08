@@ -63,6 +63,14 @@ namespace StarterAssets
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
 
+		// set target speed based on move speed, sprint speed and if sprint is pressed
+		public float targetSpeed = 0.0f;
+
+		// footsteps thingy?
+ 		public AudioSource Footsteps_Wooden;
+		public AudioSource Footsteps_Grass;
+		public RaycastHit hit;
+
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
@@ -97,11 +105,43 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			DoFootsteps();
 		}
 
 		private void LateUpdate()
 		{
 			CameraRotation();
+		}
+
+		private void DoFootsteps()
+		{
+			// lily can't write proper code to save her life
+			// this was blatantly "borrowed" from unity docs and slightly modified to make this work
+			// programmers FIX THIS JANK
+
+			var fwd = transform.TransformDirection (Vector3.down);
+			Debug.DrawRay(transform.position, fwd * 2.0f, Color.red);
+			if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
+			{
+				if (targetSpeed > 0.0f) {
+					if (hit.transform.tag == "Footsteps_Grass") {
+						Footsteps_Wooden.volume = 0.0f;
+						Footsteps_Grass.volume = 1.0f;
+					}
+					else if (hit.transform.tag == "Footsteps_Wooden") {
+						Footsteps_Wooden.volume = 1.0f;
+						Footsteps_Grass.volume = 0.0f;
+					}
+					else {
+						Footsteps_Wooden.volume = 0.0f;
+						Footsteps_Grass.volume = 0.0f;
+					}
+				}
+				else {
+					Footsteps_Wooden.volume = 0.0f;
+					Footsteps_Grass.volume = 0.0f;
+				}
+			}
 		}
 
 		private void GroundedCheck()
@@ -132,9 +172,7 @@ namespace StarterAssets
 
 		private void Move()
 		{
-			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
-
+			targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
 			// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude

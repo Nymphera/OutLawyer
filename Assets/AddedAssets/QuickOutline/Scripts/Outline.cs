@@ -18,7 +18,7 @@ public class Outline : MonoBehaviour {
 
     [TextArea(3, 10)]
     public string[] message;
-    public bool interacted;
+   
 
     [SerializeField]
     public bool unlockEvidence;

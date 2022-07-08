@@ -23,11 +23,13 @@ MonoBehaviour:
   Conections:
   - conected: {fileID: 11400000, guid: e1921b79feed6d9498882dc2d3aa4222, type: 2}
     ConectionType: 3
-    Conclusion: 
+    Conclusion: "Nagrania potwierdzaj\u0105 wyst\u0119powanie na nich wampira, niestety
+      przez to \u017Ce jest niewidoczny, nie mo\u017Cna go zidentyfikowa\u0107"
     conectNumber: 0
   - conected: {fileID: 11400000, guid: 22d820f08a219f5429cdd265ce42ca43, type: 2}
     ConectionType: 3
-    Conclusion: 
+    Conclusion: "eznania Kelnerki jasno sugeruj\u0105, \u017Ce j\u0105 i wampira
+      musia\u0142o po\u0142\u0105czy\u0107 jakie\u015B gor\u0105ce uczucie"
     conectNumber: 0
   - conected: {fileID: 11400000, guid: 6de378c21d0440b45b602702f79f8d16, type: 2}
     ConectionType: 0

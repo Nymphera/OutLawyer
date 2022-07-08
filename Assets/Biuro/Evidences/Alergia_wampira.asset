@@ -23,9 +23,11 @@ MonoBehaviour:
   Conections:
   - conected: {fileID: 11400000, guid: d08a7f03284e5604387582cf887035ca, type: 2}
     ConectionType: 3
-    Conclusion: 
+    Conclusion: "Wampir m\xF3g\u0142 potrzebowa\u0107 posi\u0142ku z krwi kraba przez
+      alergi\u0119 na ludzk\u0105 krew"
     conectNumber: 0
   - conected: {fileID: 11400000, guid: 918345b74bd390940b301e659d30b364, type: 2}
     ConectionType: 3
-    Conclusion: 
+    Conclusion: "Wampir m\xF3g\u0142 potrzebowa\u0107 posi\u0142ku z krwi kraba przez
+      alergi\u0119 na ludzk\u0105 krew"
     conectNumber: 0

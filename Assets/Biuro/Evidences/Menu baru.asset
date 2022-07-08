@@ -23,5 +23,7 @@ MonoBehaviour:
   Conections:
   - conected: {fileID: 11400000, guid: d08a7f03284e5604387582cf887035ca, type: 2}
     ConectionType: 1
-    Conclusion: 
+    Conclusion: "Chocia\u017C w barze znale\u017A\u0107 mo\u017Cna by\u0142o potraw\u0119
+      z kraba, nie jest ona nigdzie oferowana - co wi\u0119cej, bar nie ma nawet
+      na ni\u0105 koncesji"
     conectNumber: 0

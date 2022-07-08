@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
   m_Name: A_2.2
   m_EditorClassIdentifier: 
-  text: 
+  text: 'Pan to na pewno Aldhest? '
   nextCrossPoint: {fileID: 11400000, guid: 7949153df1e8d4e49b2993a7cb104b90, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: d3de71365d7752f48acb80881c6b42da, type: 2}
   strategy: 1

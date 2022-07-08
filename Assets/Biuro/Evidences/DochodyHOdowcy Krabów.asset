@@ -29,5 +29,7 @@ MonoBehaviour:
     conectNumber: 0
   - conected: {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
     ConectionType: 1
-    Conclusion: 
+    Conclusion: "Dochody Hodowcy Krab\xF3w s\u0105 zbyt niskie aby mo\u017Cna by\u0142o
+      go legalnie okra\u015B\u0107 i je\u015Bli wyjdzie to na jaw, Robb straci jedn\u0105
+      ze swoich opcji wolno\u015Bci. "
     conectNumber: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
   m_Name: H_1.1
   m_EditorClassIdentifier: 
-  text: 
+  text: " Przybywam z pomoc\u0105!"
   nextCrossPoint: {fileID: 11400000, guid: 766b7b422d5399b4fa91f9d85369b45d, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: a808f7111ee2ca547bbecae57335215f, type: 2}
   strategy: 4

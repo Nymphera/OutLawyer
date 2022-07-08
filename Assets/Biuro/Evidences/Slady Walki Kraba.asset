@@ -34,5 +34,6 @@ MonoBehaviour:
     conectNumber: 0
   - conected: {fileID: 11400000, guid: badd262cc4c182b41970d8a233bffdb7, type: 2}
     ConectionType: 2
-    Conclusion: 
+    Conclusion: "\u015Alady walki Kraba mog\u0105 wskazywa\u0107 na porwanie - czyn
+      nie jest wtedy zakwalifikowany jako kradzie\u017C."
     conectNumber: 0

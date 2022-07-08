@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
   m_Name: H_4.3
   m_EditorClassIdentifier: 
-  text: 
+  text: " Przejd\u017Amy dalej."
   nextCrossPoint: {fileID: 11400000, guid: fe09b973e30f62746b3bbf50873f28b8, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 16a1a2af55d4cb24baa61db3740b8b09, type: 2}
   strategy: 2

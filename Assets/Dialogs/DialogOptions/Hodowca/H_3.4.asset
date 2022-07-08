@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
   m_Name: H_3.4
   m_EditorClassIdentifier: 
-  text: 
+  text: "Jak u Pana z pami\u0119ci\u0105?\t"
   nextCrossPoint: {fileID: 11400000, guid: 16a1a2af55d4cb24baa61db3740b8b09, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: eaf7e2ea0b1b1354ea214e7c27090d30, type: 2}
   strategy: 3

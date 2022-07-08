@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.07784747, g: 0.11597474, b: 0.16366902, a: 1}
+  m_IndirectSpecularColor: {r: 0.07784632, g: 0.11597428, b: 0.16366895, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15613,7 +15613,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048687239}
-  m_LocalRotation: {x: 0.5083911, y: -0.000000026711492, z: 0.00000001576991, w: 0.8611263}
+  m_LocalRotation: {x: 0.5083911, y: 0.000000026711499, z: -0.000000015769913, w: 0.8611263}
   m_LocalPosition: {x: -0.23077774, y: 0.9840002, z: -0.6094856}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -24783,6 +24783,10 @@ GameObject:
   - component: {fileID: 1692991829}
   - component: {fileID: 1692991828}
   - component: {fileID: 1692991827}
+  - component: {fileID: 1692991833}
+  - component: {fileID: 1692991832}
+  - component: {fileID: 1692991831}
+  - component: {fileID: 1692991830}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -24848,6 +24852,58 @@ Transform:
   m_Father: {fileID: 538723889}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1692991830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692991826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 400, z: 200}
+  m_Center: {x: 160, y: 0, z: 80}
+--- !u!65 &1692991831
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692991826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 400, z: 200}
+  m_Center: {x: -5, y: 0, z: 80}
+--- !u!65 &1692991832
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692991826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 400, z: 10}
+  m_Center: {x: 80, y: 0, z: -5}
+--- !u!65 &1692991833
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692991826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 400, z: 10}
+  m_Center: {x: 80, y: 0, z: 117}
 --- !u!1001 &1698597110
 PrefabInstance:
   m_ObjectHideFlags: 0

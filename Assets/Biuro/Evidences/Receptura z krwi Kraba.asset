@@ -23,13 +23,15 @@ MonoBehaviour:
   Conections:
   - conected: {fileID: 11400000, guid: 5b388a1d38feb2e43aab0aa49525f16c, type: 2}
     ConectionType: 1
-    Conclusion: 
+    Conclusion: "Lojer mo\u017Ce udowodni\u0107 \u017Ce Kraba skradziono w celu wykorzystania
+      go do pokarmu z krwi dla wampir\xF3w wegan"
     conectNumber: 0
   - conected: {fileID: 11400000, guid: badd262cc4c182b41970d8a233bffdb7, type: 2}
     ConectionType: 0
-    Conclusion: 
+    Conclusion: "Karta Z\u0142odzieja nie chroni przed porwaniami"
     conectNumber: 0
   - conected: {fileID: 11400000, guid: e1921b79feed6d9498882dc2d3aa4222, type: 2}
     ConectionType: 3
-    Conclusion: 
+    Conclusion: "Wampir m\xF3g\u0142 potrzebowa\u0107 posi\u0142ku z krwi kraba przez
+      alergi\u0119 na ludzk\u0105 krew"
     conectNumber: 0

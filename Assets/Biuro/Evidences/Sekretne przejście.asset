@@ -23,5 +23,7 @@ MonoBehaviour:
   Conections:
   - conected: {fileID: 11400000, guid: 4259f5d0940efd8429c206d2b6d79d1c, type: 2}
     ConectionType: 0
-    Conclusion: 
+    Conclusion: "\u015Alady jasno wskazuj\u0105 na to kt\xF3r\u0119dy przemycono
+      kraba i dok\u0105d, ale rysowane po drodze serduszka wskazuj\u0105 na to \u017Ce
+      krab nie czu\u0142 si\u0119 porwany"
     conectNumber: 0

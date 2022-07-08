@@ -23,9 +23,13 @@ MonoBehaviour:
   Conections:
   - conected: {fileID: 11400000, guid: 5181a8d9fd03d8c4fada62a7f51206c6, type: 2}
     ConectionType: 0
-    Conclusion: 
+    Conclusion: "Lojer mo\u017Ce udowodni\u0107 \u017Ce Hodowca przez swoj\u0105
+      niepoczytalno\u015B\u0107 zgubi\u0142 teczk\u0119 i nie pami\u0119ta\u0142,
+      \u017Ce m\xF3g\u0142 mie\u0107 tam po\u015Bwiadczenie"
     conectNumber: 0
   - conected: {fileID: 11400000, guid: 07acbc4171e05334e8b1dd9579e26d28, type: 2}
     ConectionType: 3
-    Conclusion: 
+    Conclusion: "Prowadzenie Hodowli okaza\u0142o si\u0119 bardzo nieop\u0142acalne,
+      a mimo to Hodowca kontynuuje swoj\u0105 pasj\u0119 \u017Cyj\u0105c w n\u0119dznych
+      warunkach. S\u0105 to samonakr\u0119caj\u0105ce si\u0119 spirale."
     conectNumber: 0

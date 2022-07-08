@@ -18,11 +18,19 @@ public class Outline : MonoBehaviour {
 
     [TextArea(3, 10)]
     public string[] message;
+<<<<<<< HEAD
+=======
+    public bool interacted;
+
+>>>>>>> 1166aee (notatnik jeszcze bez outlinemanagera)
     [SerializeField]
     public bool unlockEvidence;
     [SerializeField]
     public Evidence evidenceToUnlock;
+<<<<<<< HEAD
     
+=======
+>>>>>>> 1166aee (notatnik jeszcze bez outlinemanagera)
     public enum Mode {
     OutlineAll,
     OutlineVisible,

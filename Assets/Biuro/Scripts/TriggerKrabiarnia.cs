@@ -10,7 +10,7 @@ public class TriggerKrabiarnia : MonoBehaviour
     {
         LoadKrabiarnia();
     }
-    public void LoadKrabiarnia()
+    public async void LoadKrabiarnia()
     {
         GameEvents.current.OfficeClick(0);
         SceneManager.LoadScene("Krabiarnia");

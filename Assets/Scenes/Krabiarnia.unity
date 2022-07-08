@@ -925,7 +925,8 @@ MonoBehaviour:
   message:
   - "Lojer: Je\u017Celi jest co\u015B do \u0142\u0105czy kraby i inteligentne humanoidy,
     to zami\u0142owanie do whisky."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -3721,7 +3722,8 @@ MonoBehaviour:
   - "Szef Krab\xF3w: To w te worki chc\u0119 zapakowa\u0107 moich podw\u0142adnych
     i podrzuci\u0107 do sklepu z meblami!"
   - "Szef Krab\xF3w: Niech si\u0119 nas boj\u0105! MUAHHAHAHHA"
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -5900,7 +5902,8 @@ MonoBehaviour:
   message:
   - "Lojer: Nie wiem czy ten dzwonek jest po to, by szef wo\u0142a\u0142 kraby...."
   - "Lojer: ...Czy po to by zwr\xF3ci\u0107 uwag\u0119 szanownego ja\u015Bnie Pana."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -6824,7 +6827,8 @@ MonoBehaviour:
   - "Lojer: Kto\u015B kto rysowa\u0142 ten obraz musi by\u0107 albo ju\u017C bardzo
     stary, albo od dawna martwy."
   - "Lojer: Hm... dawno nie widzia\u0142em ju\u017C zimy."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -9005,7 +9009,8 @@ MonoBehaviour:
   - "Lojer: Wygl\u0105da na to \u017Ce Robb Banks wykorzysta\u0142 t\u0119 dziur\u0119,
     \u017Ceby prze\u015Blizgn\u0105\u0107 si\u0119 i wymin\u0105\u0107 korytarz."
   - "Lojer: Tylko dlaczego kraby opu\u015Bci\u0142y ca\u0142kiem t\u0119 sypialni\u0119?"
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -10883,7 +10888,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message:
   - "Lojer: Nie przysz\u0142o lustro do szefa, przyszed\u0142 szef do lustra."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -11042,7 +11048,8 @@ MonoBehaviour:
   - "Lojer: No no, to dopiero uroczy wystr\xF3j wn\u0119trz."
   - "Lojer: Kraby musia\u0142y skr\u0119ci\u0107 t\u0119 cel\u0119 z kilku krabich
     klatek. Ale ta jest przygotowana na cz\u0142owieka."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -11432,7 +11439,8 @@ MonoBehaviour:
   message:
   - "Lojer: Ten krawat jest zdecydowanie za du\u017Cy na kraba."
   - "Szef Krab\xF3w: Le\u017Cy tu jako moje trofeum!"
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -12528,7 +12536,8 @@ MonoBehaviour:
   - "Lojer: I dlaczego do cholery trzyma dokumenty rachunkowe pomi\u0119dzy stronami
     o zakl\u0119ciach transmutacyjnych?!"
   - "Lojer: Hm... wygl\u0105da na to, \u017Ce krabiarnia jest bardzo mocno zad\u0142u\u017Cona."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -15688,7 +15697,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048687239}
-  m_LocalRotation: {x: 0.5083911, y: 0.000000026711499, z: -0.000000015769913, w: 0.8611263}
+  m_LocalRotation: {x: 0.5083911, y: -0.000000026711492, z: 0.00000001576991, w: 0.8611263}
   m_LocalPosition: {x: -0.23077774, y: 0.9840002, z: -0.6094856}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -20680,7 +20689,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: []
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -21200,7 +21210,8 @@ MonoBehaviour:
   - 'Lojer: Znak STOP na prywatnej posesji?'
   - "Lojer: Albko go kto\u015B tu przywl\xF3k\u0142, albo hodowca wyj\u0105tkowo
     nie cierpi go\u015Bci."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -22499,7 +22510,8 @@ MonoBehaviour:
   - "Lojer: To spore \u0142\xF3\u017Cko ma\u0142\u017Ce\u0144skie..."
   - "Lojer: Hodowca z pewno\u015Bci\u0105 nie mieszka\u0142 tu sam. Ale nikogo wi\u0119cej
     nie wida\u0107."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -22637,6 +22649,123 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: cba00f75539bc564fabb9136fccfac6c, type: 3}
   m_PrefabInstance: {fileID: 838722574}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1519751339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1519751344}
+  - component: {fileID: 1519751343}
+  - component: {fileID: 1519751342}
+  - component: {fileID: 1519751341}
+  - component: {fileID: 1519751340}
+  m_Layer: 8
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1519751340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519751339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: []
+  unlockEvidence: 1
+  evidenceToUnlock: {fileID: 11400000, guid: e1921b79feed6d9498882dc2d3aa4222, type: 2}
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!65 &1519751341
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519751339}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1519751342
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519751339}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1519751343
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519751339}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1519751344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519751339}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 21.402, y: -4.71, z: -13.34}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 116
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1521123516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22650,7 +22779,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: []
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -22709,7 +22839,8 @@ MonoBehaviour:
   - "Lojer: Kto\u015B kto budowa\u0142 ten dom, chyba nie zna\u0142 si\u0119 na kondygnacjach."
   - "Lojer: Zas\u0142oni\u0119cie dziury w \u015Bcianie szaf\u0105 niewiele pomog\u0142o.
     Wida\u0107, kraby i tak szybko prze\u015Blizgn\u0119\u0142y si\u0119 do gabinetu."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -22910,7 +23041,8 @@ MonoBehaviour:
   - "Lojer: Wygl\u0105da na to \u017Ce krabom nie uda\u0142o si\u0119 jej otworzy\u0107."
   - "Lojer: Ugh... nie dziwi\u0119 si\u0119, to wieczko jest potwornie ci\u0119\u017Ckie.
     Chyba w\u0142a\u015Bciciel tej skrzyni zainwestowa\u0142 w runy magnetyczne."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -23792,7 +23924,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -23891,7 +24023,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message:
   - "Lojer: Dziwne, wszystkie te pud\u0142a maj\u0105 ten sam numer seryjny..."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -27800,7 +27933,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: []
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -29401,7 +29535,8 @@ MonoBehaviour:
   message:
   - "Lojer: Te narz\u0119dzia s\u0105 zdecydowanie zbyt wysokie dla krab\xF3w."
   - "Lojer: Ale wida\u0107, \u017Ce hodowca lubi\u0142 prace ogrodowe."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -29686,7 +29821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1901013563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29742,7 +29877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1911732091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31787,7 +31922,8 @@ MonoBehaviour:
   - "Lojer: ...Zaraz zaraz, przecie\u017C to moja biografia! Och wy skur...."
   - "Retrospekcjant: Wygl\u0105da na to, \u017Ce pan Lojer chcia\u0142 zapomnie\u0107
     o reszcie tego wspomnienia."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -35660,7 +35796,8 @@ MonoBehaviour:
   message:
   - "Lojer: Ughh, dawno nikt nie czy\u015Bci\u0142 tej budy."
   - "Lojer: Ciekawe, gdzie si\u0119 podziewa mieszkaniec tej chatki w chatce..."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -39148,7 +39285,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: []
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2

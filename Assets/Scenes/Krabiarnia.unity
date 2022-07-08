@@ -2552,6 +2552,7 @@ MonoBehaviour:
     offerType: 0
     offerText: Offer Text
     isOfferActive: 0
+    sentences: []
 --- !u!114 &165212818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2571,6 +2572,7 @@ MonoBehaviour:
     offerType: 0
     offerText: 
     isOfferActive: 0
+    sentences: []
 --- !u!114 &165212819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8468,6 +8470,7 @@ GameObject:
   - component: {fileID: 529676623}
   - component: {fileID: 529676622}
   - component: {fileID: 529676624}
+  - component: {fileID: 529676625}
   m_Layer: 0
   m_Name: "PoziomR\u0119ki"
   m_TagString: Untagged
@@ -8589,6 +8592,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &529676625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529676620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1585416803}
+          m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+          m_MethodName: Write
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: "Przeczekaj kolejk\u0119."
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1585416803}
+          m_TargetAssemblyTypeName: NegotiationsManager, Assembly-CSharp
+          m_MethodName: Write
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &530429750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12486,6 +12534,7 @@ MonoBehaviour:
     offerType: 1
     offerText: eluwina
     isOfferActive: 0
+    sentences: []
 --- !u!114 &835606701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12505,6 +12554,7 @@ MonoBehaviour:
     offerType: 0
     offerText: 
     isOfferActive: 0
+    sentences: []
 --- !u!222 &835606702
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14383,6 +14433,7 @@ MonoBehaviour:
     offerType: 1
     offerText: eluwina
     isOfferActive: 0
+    sentences: []
 --- !u!114 &924889991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14402,6 +14453,7 @@ MonoBehaviour:
     offerType: 0
     offerText: 
     isOfferActive: 0
+    sentences: []
 --- !u!222 &924889992
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16277,7 +16329,10 @@ MonoBehaviour:
     NearClipPlane: 0.2
     FarClipPlane: 500
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -30181,6 +30236,7 @@ MonoBehaviour:
     offerType: 0
     offerText: Offer Text
     isOfferActive: 0
+    sentences: []
 --- !u!114 &1879850326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30200,6 +30256,7 @@ MonoBehaviour:
     offerType: 0
     offerText: 
     isOfferActive: 0
+    sentences: []
 --- !u!114 &1879850327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30644,6 +30701,8 @@ MonoBehaviour:
   keyCount: 0
   createdLines: []
   unlockedEvidences: []
+  notatnik: {fileID: 1459721679}
+  mouseText: {fileID: 1741708432}
 --- !u!4 &1901013564
 Transform:
   m_ObjectHideFlags: 0
@@ -31419,7 +31478,10 @@ MonoBehaviour:
     NearClipPlane: 0.2
     FarClipPlane: 500
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -32727,6 +32789,10 @@ PrefabInstance:
     - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: far clip plane
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: orthographic size
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430823, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_Name
@@ -36371,6 +36437,7 @@ MonoBehaviour:
     offerType: 0
     offerText: 
     isOfferActive: 0
+    sentences: []
 --- !u!222 &1033700602392981009
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36424,8 +36491,11 @@ MonoBehaviour:
   offer:
     offerValue: 1
     offerType: 0
-    offerText: Offer Text
+    offerText: asdfasdfsadfsadfsdafsdafsadfsdafsdafsdafsdafsadfsadfsdafsdafsdafsdafsadfasdfsa
     isOfferActive: 0
+    sentences:
+    - 12312312
+    - asdfsdaf
 --- !u!224 &1033700602392981036
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41708,6 +41778,7 @@ MonoBehaviour:
     offerType: 1
     offerText: eluwina
     isOfferActive: 0
+    sentences: []
 --- !u!114 &4877847530866728772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41727,6 +41798,7 @@ MonoBehaviour:
     offerType: 0
     offerText: 
     isOfferActive: 0
+    sentences: []
 --- !u!222 &4877847530866728773
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -44172,6 +44244,7 @@ GameObject:
   - component: {fileID: 4598796312668718388}
   - component: {fileID: 8813165382172202006}
   - component: {fileID: 7185655840044571050}
+  - component: {fileID: 7414093675875060083}
   m_Layer: 0
   m_Name: Line008
   m_TagString: Untagged
@@ -44179,6 +44252,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &7414093675875060083
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7414093675875060082}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2696279837256549028, guid: eb987dd029e12e9428da9519012bc087, type: 3}
 --- !u!1 &7416075629307811289
 GameObject:
   m_ObjectHideFlags: 0

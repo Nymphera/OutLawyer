@@ -138,7 +138,7 @@ public class NegotiationsManager : MonoBehaviour
 
     private void HandleComputerTurn()
     {
-        Debug.Log("Computer goes brrrrr");
+       
         UpdateNegotiationState(NegotiationState.PlayerTurn);
     }
 
@@ -259,12 +259,39 @@ public class NegotiationsManager : MonoBehaviour
         tableCards = cardSpawner.dealCards.GetTableCards();
     }
 
+    public void PlayDialog(string[] messages)
+    {
+        UpdateNegotiationState(NegotiationState.ComputerTurn);
+        Queue<string> sentences = new Queue<string>();
+        foreach (string sentence in messages)
+        {
+            sentences.Enqueue(sentence);
+        }
+
+        StartCoroutine(DisplaySentences(sentences));
+    }
+
+    private IEnumerator DisplaySentences(Queue<string> sentences)
+    {
+
+        TextMeshProUGUI tmp = GameObject.Find("DialogOutputNegotiations").GetComponent<TextMeshProUGUI>();
+        while (sentences.Count != 0)
+        {
+            string sentence = sentences.Dequeue();
+            tmp.text = sentence;
+            yield return new WaitForSeconds(3f);
+        }
+        tmp.text = "";
+        UpdateNegotiationState(NegotiationState.Decide);
+    }
     public void MakeUp(RectTransform rectTransform)
     {
         if (currentState == NegotiationState.PlayerTurn)
         {
             //Wysuń jedno z nieaktywnych Żądań.Staje się ono aktywne. Stawka maleje o wartość na karcie.
-            Offer offer = rectTransform.GetComponent<OfferDisplay>().offer;
+            OfferDisplay offerDisplay = rectTransform.GetComponent<OfferDisplay>();
+            Offer offer = offerDisplay.offer;
+
             if (!offer.isOfferActive&&betValue-offer.offerValue>=0)
             {
                 //MoveOffer.PlayOffer();
@@ -276,9 +303,10 @@ public class NegotiationsManager : MonoBehaviour
 
                 UpdatePatience(-1);
 
-                UpdateNegotiationState(NegotiationState.Decide);
+                
                 //wysuwa red offer
                 //stawka--
+                PlayDialog(offer.sentences);
             }
         }
     }
@@ -322,7 +350,9 @@ public class NegotiationsManager : MonoBehaviour
         //Wysuń jedną z nieaktywnych Ofert. Staje się ona aktywna. Stawka rośnie o wartość na karcie.
         if (currentState == NegotiationState.PlayerTurn)
         {
-            Offer offer = rectTransform.GetComponent<OfferDisplay>().offer;
+            OfferDisplay offerDisplay = rectTransform.GetComponent<OfferDisplay>();
+            Offer offer = offerDisplay.offer;
+
             if (!offer.isOfferActive)
             {
                 //MoveOffer.PlayOffer();
@@ -334,7 +364,9 @@ public class NegotiationsManager : MonoBehaviour
 
                 UpdatePatience(-1);
 
-                UpdateNegotiationState(NegotiationState.Decide);
+                
+
+                PlayDialog(offer.sentences);
             }
         }      
     }
@@ -352,39 +384,66 @@ public class NegotiationsManager : MonoBehaviour
     }
     public void ShowBlefEffects()
     {
-        ShowBetChange(-1);
-        ShowPatienceChange(-2);
+        if (currentState != NegotiationState.ComputerTurn)
+        {
+            ShowBetChange(-1);
+            ShowPatienceChange(-2);
+            Write("[Blefuj]");
+        }
+       
     }
+
+   
+
     public void HideBlefEffects()
     {
-        HideBetChange();
-        HidePatienceChange();
-    }
-    public void ShowClickEffects(RectTransform rectTransform)
-    {        
-        
-       Offer offer=rectTransform.GetComponent<OfferDisplay>().offer;
-        if (offer.offerType == OfferType.green&&!offer.isOfferActive)
+        if(currentState != NegotiationState.ComputerTurn)
         {
-            rectTransform.GetComponent<MoveOffer>().moveUp();
-            ShowPatienceChange(-1);
-            ShowBetChange(offer.offerValue);
+            HideBetChange();
+            HidePatienceChange();
+            Write("");
         }
-        else if (offer.offerType == OfferType.red)
+        
+    }
+
+    public void Write(string message)
+    {
+        TextMeshProUGUI tmp = dialogOutput.GetComponent<TextMeshProUGUI>();
+        if(currentState != NegotiationState.ComputerTurn)
+        tmp.text = message;
+    }
+
+    public void ShowClickEffects(RectTransform rectTransform)
+    {
+        if (currentState != NegotiationState.ComputerTurn)
         {
-            
-            rectTransform.GetComponent<MoveOffer>().moveDown();
-            ShowPatienceChange(-1);
-            if (!offer.isOfferActive)
+            Offer offer = rectTransform.GetComponent<OfferDisplay>().offer;
+            if (offer.offerType == OfferType.green && !offer.isOfferActive)
             {
-                rectTransform.GetComponent<MoveOffer>().moveDown();
-                ShowBetChange(-offer.offerValue);
-            }
-            else
-            {               
-                rectTransform.GetComponent<MoveOffer>().moveUp();                
+                rectTransform.GetComponent<MoveOffer>().moveUp();
+                ShowPatienceChange(-1);
                 ShowBetChange(offer.offerValue);
+                Write("Zagraj ofertę");
             }
+            else if (offer.offerType == OfferType.red)
+            {
+
+                rectTransform.GetComponent<MoveOffer>().moveDown();
+                ShowPatienceChange(-1);
+                if (!offer.isOfferActive)
+                {
+                    rectTransform.GetComponent<MoveOffer>().moveDown();
+                    ShowBetChange(-offer.offerValue);
+                    Write("Wysuń żądanie");
+                }
+                else
+                {
+                    rectTransform.GetComponent<MoveOffer>().moveUp();
+                    ShowBetChange(offer.offerValue);
+                    Write("Wycofaj żądanie");
+                }
+            }
+            
            
         }
         
@@ -392,34 +451,47 @@ public class NegotiationsManager : MonoBehaviour
     }
     public void HideClickEffects(RectTransform rectTransform)
     {
-        rectTransform.GetComponent<MoveOffer>().moveBack();
-        HideBetChange();
-        HidePatienceChange();
+        if(currentState != NegotiationState.ComputerTurn)
+        {
+            rectTransform.GetComponent<MoveOffer>().moveBack();
+            HideBetChange();
+            HidePatienceChange();
+        }
+        
+        
     }
 
     private void ShowBetChange(int value)
     {
-        if (betValue + value < 0)
+        if (currentState != NegotiationState.ComputerTurn)
         {
-            dialogOutput.text="Stawka nie może być mniejsza od zera.";
+            if (betValue + value < 0)
+            {
+                dialogOutput.text = "Stawka nie może być mniejsza od zera.";
+            }
+            if (value > 0)
+            {
+                betText.color = Color.red;
+                betText.text = (betValue + value).ToString() + "↑";
+
+            }
+            else if (value < 0)
+            {
+                betText.color = Color.green;
+                betText.text = (betValue + value).ToString() + "↓";
+            }
         }
-        if (value > 0)
-        {
-            betText.color = Color.red;
-            betText.text = (betValue + value).ToString()+ "↑";
             
-        }
-        else if (value < 0)
-        {
-            betText.color = Color.green;
-            betText.text = (betValue + value).ToString()+ "↓";
-        }
     }
     private void HideBetChange()
     {
-        dialogOutput.text = "";
-        betText.color = Color.white;
-        betText.text = betValue.ToString();
+        if(currentState != NegotiationState.ComputerTurn)
+        {
+            dialogOutput.text = "";
+            betText.color = Color.white;
+            betText.text = betValue.ToString();
+        }
+       
     }
 
     private void ShowPatienceChange(int value)

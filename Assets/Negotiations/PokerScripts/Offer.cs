@@ -8,6 +8,9 @@ public class Offer
     public OfferType offerType;
     public string offerText;
     public bool isOfferActive;
+    public string[] sentences;
+
+
 }
 public enum OfferType
 {

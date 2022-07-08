@@ -23,5 +23,7 @@ MonoBehaviour:
   Conections:
   - conected: {fileID: 11400000, guid: 918345b74bd390940b301e659d30b364, type: 2}
     ConectionType: 0
-    Conclusion: 
+    Conclusion: "Kelnerka sporo ryzykowa\u0142a spotykaj\u0105c si\u0119 nie do\u015B\u0107
+      \u017Ce z wampirzyc\u0105, to kim\u015B tak wysoko postawionym. To si\u0119
+      nie mog\u0142o dobrze sko\u0144czy\u0107"
     conectNumber: 0

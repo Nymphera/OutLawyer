@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crossPointName: H_B1
   ConectedDialogOptions:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 4ecd385675a4ee34d8c950c968e9b6c5, type: 2}
+  - {fileID: 11400000, guid: f63242162d115474ca197d9a6c82bd43, type: 2}

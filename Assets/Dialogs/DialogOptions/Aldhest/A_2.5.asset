@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
   m_Name: A_2.5
   m_EditorClassIdentifier: 
-  text: 
+  text: Tylko tyle masz poddanych?
   nextCrossPoint: {fileID: 11400000, guid: 4e558560272359c46a4b3f7de6f14bef, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: b73b288844c51f246b24a29291387913, type: 2}
   strategy: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
   m_Name: A_3.1
   m_EditorClassIdentifier: 
-  text: 
+  text: "Cz\u0119sto macie z\u0142odzieji? \t"
   nextCrossPoint: {fileID: 11400000, guid: abeda2b5b24079a4486f5207eeb31dcf, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 217b84b78ea36134d880829956e37a2c, type: 2}
   strategy: 4

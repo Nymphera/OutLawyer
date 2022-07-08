@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
   m_Name: H_2.4
   m_EditorClassIdentifier: 
-  text: 
+  text: "Jestem mi\u0142o\u015Bnikiem krab\xF3w."
   nextCrossPoint: {fileID: 11400000, guid: eaf7e2ea0b1b1354ea214e7c27090d30, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 8b8f9aeebd4c4a14a917d6cfb350d2c9, type: 2}
   strategy: 1

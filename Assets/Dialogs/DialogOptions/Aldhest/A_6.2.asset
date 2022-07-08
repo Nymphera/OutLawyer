@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
   m_Name: A_6.2
   m_EditorClassIdentifier: 
-  text: 
+  text: "By\u0142bym dobrym krabatek\u0105?"
   nextCrossPoint: {fileID: 11400000, guid: 4fc539c32b65b3448bb08c2bb77fef9c, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 6cddf35c627cab64a84f7bb0a4af1c93, type: 2}
   strategy: 2

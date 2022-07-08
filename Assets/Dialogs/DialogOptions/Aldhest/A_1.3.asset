@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
   m_Name: A_1.3
   m_EditorClassIdentifier: 
-  text: 
+  text: Pff marny krab
   nextCrossPoint: {fileID: 11400000, guid: e2b8a6b4fc5383d48852f9b0796dcfb2, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 0261883c5414ec7439af5577f99e80d9, type: 2}
   strategy: 0

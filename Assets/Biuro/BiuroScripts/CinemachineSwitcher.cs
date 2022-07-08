@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System;
+using System.Threading.Tasks;
+
 
 public class CinemachineSwitcher : MonoBehaviour
 {   [SerializeField]
@@ -36,12 +38,13 @@ public class CinemachineSwitcher : MonoBehaviour
         CurrentState = state;
     }
     
-    public void SwitchState(int ID)
+    public async void SwitchState(int ID)
     {
         if (ID == 0)
         {
             Animator.Play("Biuro Cam");
             OnOfficeStateChanged(OfficeState.Overview);
+            await Task.Delay(10);
             GameManager.Instance.UpdateGameState(GameState.Office);
 
 

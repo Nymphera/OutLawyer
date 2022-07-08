@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public List<LineData> createdLines= new List<LineData>();
     [SerializeField]
     private List<Evidence> unlockedEvidences= new List<Evidence>();
+
+    [SerializeField]
+    private GameObject notatnik, mouseText;
     private void Awake()
     {
         
@@ -138,6 +141,8 @@ public class GameManager : MonoBehaviour
                     isMoveEnabled = true;
                     isInteractEnabled = true;
                     Cursor.lockState = CursorLockMode.Locked;
+                    mouseText.SetActive(true);
+                    notatnik.SetActive(true);
                 }
                 break;
             case GameState.Interact:
@@ -147,6 +152,8 @@ public class GameManager : MonoBehaviour
                     isLookEnabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
+                    mouseText.SetActive(false);
+                    notatnik.SetActive(false);
                 }
                 break;
             case GameState.LockInteract:
@@ -156,7 +163,8 @@ public class GameManager : MonoBehaviour
                     isLookEnabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
-                    
+                    mouseText.SetActive(false);
+                    notatnik.SetActive(false);
                 }
                 break;
             case GameState.CutScene:

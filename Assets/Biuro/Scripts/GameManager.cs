@@ -175,19 +175,10 @@ public class GameManager : MonoBehaviour
                     Cursor.visible = false;
                     Cursor.lockState = CursorLockMode.None;
                 }
-                break;
-            
+                break;          
 
         }
-
-
-
-
     }
-   
-
-   
-
 }
 [Serializable]
     public enum GameState

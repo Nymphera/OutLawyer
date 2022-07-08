@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
   m_Name: A_4.1
   m_EditorClassIdentifier: 
-  text: 
+  text: "Och Panie, powiedz mi o znikni\u0119ciu Skarba."
   nextCrossPoint: {fileID: 11400000, guid: 309202d7257117d4b964f4dc839ff108, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: abeda2b5b24079a4486f5207eeb31dcf, type: 2}
   strategy: 4

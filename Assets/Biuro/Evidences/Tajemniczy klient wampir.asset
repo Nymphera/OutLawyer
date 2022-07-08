@@ -33,7 +33,8 @@ MonoBehaviour:
     conectNumber: 0
   - conected: {fileID: 11400000, guid: 6de378c21d0440b45b602702f79f8d16, type: 2}
     ConectionType: 0
-    Conclusion: 
+    Conclusion: "Klient by\u0142 zdecydowanie specjalnym go\u015Bciem. Zapewne wszed\u0142
+      tylnymi drzwiami. "
     conectNumber: 0
   - conected: {fileID: 11400000, guid: c7bc2e4253c905248bc81887a60559a4, type: 2}
     ConectionType: 0

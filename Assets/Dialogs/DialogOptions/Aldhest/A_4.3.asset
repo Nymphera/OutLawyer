@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
   m_Name: A_4.3
   m_EditorClassIdentifier: 
-  text: 
+  text: Przepraszam za nieprofesjonalizm.
   nextCrossPoint: {fileID: 11400000, guid: b11b2d6e948924f41bdc0a4e101f2283, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 85b90ea24ae19944d815dd5142588953, type: 2}
   strategy: 3

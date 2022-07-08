@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
   m_Name: H_3.1
   m_EditorClassIdentifier: 
-  text: 
+  text: "Dobrze si\u0119 czujesz?"
   nextCrossPoint: {fileID: 11400000, guid: 7a40d19ae48577748b50a7c6440de7ed, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 6c66f9471df02f940a80aa663195940e, type: 2}
   strategy: 4

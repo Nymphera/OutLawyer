@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753cfc07851f3ac4c9aa0ee76109e974, type: 3}
   m_Name: A_5.1
   m_EditorClassIdentifier: 
-  text: 
+  text: "S\u0142ysza\u0142e\u015B odg\u0142osy walki?\t"
   nextCrossPoint: {fileID: 11400000, guid: 6cddf35c627cab64a84f7bb0a4af1c93, type: 2}
   earlierCrossPoint: {fileID: 11400000, guid: 309202d7257117d4b964f4dc839ff108, type: 2}
   strategy: 4

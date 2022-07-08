@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.07784632, g: 0.11597428, b: 0.16366895, a: 1}
+  m_IndirectSpecularColor: {r: 0.07784747, g: 0.11597474, b: 0.16366902, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1072,6 +1072,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 764c9b3fd8aee814fa1629487743aa20, type: 3}
+--- !u!1 &81107203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1652666205758284837, guid: 764c9b3fd8aee814fa1629487743aa20, type: 3}
+  m_PrefabInstance: {fileID: 81107202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &81107204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81107203}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message:
+  - "Lojer: Robb Banks nie zostawi\u0142 po\u015Bwiadczenia, ale za to zgubi\u0142
+    swoje CV."
+  - "Lojer: By\u0107 mo\u017Ce m\xF3g\u0142bym to troch\u0119...podrasowa\u0107 na
+    dow\xF3d w sprawie."
+  unlockEvidence: 1
+  evidenceToUnlock: {fileID: 11400000, guid: 733436fcea2146f4b8bd7476289a5912, type: 2}
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!65 &81107205
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81107203}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15691023, y: 0.88181084, z: 0.15450674}
+  m_Center: {x: 0.0020249449, y: -0.034853186, z: -0.016489703}
 --- !u!4 &87434762 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1157871478893653756, guid: 204da6aadc13e164eac745605815a273, type: 3}
@@ -9084,8 +9127,8 @@ MonoBehaviour:
   - "Lojer: Wygl\u0105da na to \u017Ce Robb Banks wykorzysta\u0142 t\u0119 dziur\u0119,
     \u017Ceby prze\u015Blizgn\u0105\u0107 si\u0119 i wymin\u0105\u0107 korytarz."
   - "Lojer: Tylko dlaczego kraby opu\u015Bci\u0142y ca\u0142kiem t\u0119 sypialni\u0119?"
-  unlockEvidence: 0
-  evidenceToUnlock: {fileID: 0}
+  unlockEvidence: 1
+  evidenceToUnlock: {fileID: 11400000, guid: 4259f5d0940efd8429c206d2b6d79d1c, type: 2}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -11123,8 +11166,8 @@ MonoBehaviour:
   - "Lojer: No no, to dopiero uroczy wystr\xF3j wn\u0119trz."
   - "Lojer: Kraby musia\u0142y skr\u0119ci\u0107 t\u0119 cel\u0119 z kilku krabich
     klatek. Ale ta jest przygotowana na cz\u0142owieka."
-  unlockEvidence: 0
-  evidenceToUnlock: {fileID: 0}
+  unlockEvidence: 1
+  evidenceToUnlock: {fileID: 11400000, guid: e1921b79feed6d9498882dc2d3aa4222, type: 2}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -15697,7 +15740,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048687239}
-  m_LocalRotation: {x: 0.5083911, y: 0.000000026711499, z: -0.000000015769913, w: 0.8611263}
+  m_LocalRotation: {x: 0.5083911, y: -0.000000026711492, z: 0.00000001576991, w: 0.8611263}
   m_LocalPosition: {x: -0.23077774, y: 0.9840002, z: -0.6094856}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -16694,6 +16737,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52f992404acbdfe449f93b8ba25267d7, type: 3}
+--- !u!1 &1095003911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7030378209745065368, guid: 52f992404acbdfe449f93b8ba25267d7, type: 3}
+  m_PrefabInstance: {fileID: 1095003910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1095003912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095003911}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message:
+  - "Lojer: Kto\u015B tutaj zostawi\u0142 teczk\u0119..."
+  - "Lojer: Hm... d\u0142uga historia diagnostyki Hodowcy. Nie jest z nim najlepiej."
+  unlockEvidence: 1
+  evidenceToUnlock: {fileID: 11400000, guid: 5181a8d9fd03d8c4fada62a7f51206c6, type: 2}
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!65 &1095003913
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095003911}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.7590306, y: 5.178637, z: 1.7257116}
+  m_Center: {x: -0.0058442946, y: 0.22506523, z: -0.2392439}
 --- !u!1001 &1095847233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21187,8 +21271,8 @@ MonoBehaviour:
   - 'Lojer: Znak STOP na prywatnej posesji?'
   - "Lojer: Albko go kto\u015B tu przywl\xF3k\u0142, albo hodowca wyj\u0105tkowo
     nie cierpi go\u015Bci."
-  unlockEvidence: 0
-  evidenceToUnlock: {fileID: 0}
+  unlockEvidence: 1
+  evidenceToUnlock: {fileID: 11400000, guid: 6de378c21d0440b45b602702f79f8d16, type: 2}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -29638,7 +29722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1901013563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29694,7 +29778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1911732091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45162,6 +45246,7 @@ GameObject:
   - component: {fileID: 9038124681116165495}
   - component: {fileID: 3206413897030439935}
   - component: {fileID: 9010890440646061694}
+  - component: {fileID: 9010890440646061695}
   m_Layer: 0
   m_Name: Line011
   m_TagString: Untagged
@@ -45183,6 +45268,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2616342423733805244, guid: eb987dd029e12e9428da9519012bc087, type: 3}
+--- !u!65 &9010890440646061695
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9010890440646061693}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 36.984554, y: 37.82314, z: 0.30000007}
+  m_Center: {x: -2.5168784, y: 0.83025956, z: 0.14999837}
 --- !u!33 &9035301608051987826
 MeshFilter:
   m_ObjectHideFlags: 0

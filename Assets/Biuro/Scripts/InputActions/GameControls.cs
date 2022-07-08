@@ -75,7 +75,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""OpenNoteBook"",
                     ""type"": ""Button"",
-                    ""id"": ""f6ab70e7-5b62-4b5e-9dc4-e7223451be31"",
+                    ""id"": ""978847db-54a8-4ee5-960c-e7040788b129"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -140,7 +140,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9615f3f6-1f88-47d1-a100-f368025cee96"",
+                    ""id"": ""acad3036-8725-4421-b4e8-64ac3b7d5520"",
                     ""path"": ""<Keyboard>/n"",
                     ""interactions"": """",
                     ""processors"": """",

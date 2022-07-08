@@ -109,7 +109,6 @@ public class OutlineManager : MonoBehaviour
                     sentences.Enqueue(sentence);
                 }
                 StartCoroutine(DisplaySentences(sentences));
-                
                 if (outline.unlockEvidence)
                 {
                     outline.unlockEvidence = false;
@@ -135,6 +134,7 @@ public class OutlineManager : MonoBehaviour
             yield return new WaitForSeconds(displaySentencesTime);
         }
         tmp.text = "";
+        
     }
     private void HideInteractText()
     {

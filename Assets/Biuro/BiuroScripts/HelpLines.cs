@@ -64,13 +64,11 @@ public class HelpLines : MonoBehaviour
     private void Start()
     {
         ShowEvidences();
-
-       // Create_HelpLines();
-
-       
-
-
+        
+ 
     }
+
+    
 
     private void ShowEvidences()
     {

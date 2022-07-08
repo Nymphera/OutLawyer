@@ -17,14 +17,13 @@ public class SceneLoad : MonoBehaviour
     public void LoadOffice()
     {
         SceneManager.LoadScene("Biuro");
-        /*GameManager.Instance.UpdateGameState(GameState.Office);
-        GameEvents.current.TriggerEvidenceUnlocked(one);
+        GameManager.Instance.UpdateGameState(GameState.Office);
+        /*GameEvents.current.TriggerEvidenceUnlocked(one);
         GameEvents.current.TriggerEvidenceUnlocked(two);
         GameEvents.current.TriggerEvidenceUnlocked(three);
         GameEvents.current.TriggerEvidenceUnlocked(four);
         GameEvents.current.TriggerEvidenceUnlocked(five);
-        GameEvents.current.TriggerEvidenceUnlocked(six);
-        */
+        GameEvents.current.TriggerEvidenceUnlocked(six);*/
     }
    
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f193a960434c12444b4d5ba58c3d80b1, type: 3}
   m_Name: R5
   m_EditorClassIdentifier: 
-  resultNumber: 0
+  resultNumber: 5
   strategy1: 1
   strategy2: 2
   ResultBarColor: {r: 0, g: 0, b: 0, a: 0}

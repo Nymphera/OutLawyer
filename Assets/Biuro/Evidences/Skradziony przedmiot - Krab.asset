@@ -23,7 +23,7 @@ MonoBehaviour:
   Conections:
   - conected: {fileID: 11400000, guid: d08a7f03284e5604387582cf887035ca, type: 2}
     ConectionType: 0
-    Conclusion: 
+    Conclusion: "Karta Z\u0142odzieja nie chroni przed porwaniami"
     conectNumber: 0
   - conected: {fileID: 11400000, guid: 4259f5d0940efd8429c206d2b6d79d1c, type: 2}
     ConectionType: 2

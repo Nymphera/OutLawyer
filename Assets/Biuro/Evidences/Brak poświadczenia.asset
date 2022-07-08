@@ -23,7 +23,8 @@ MonoBehaviour:
   Conections:
   - conected: {fileID: 11400000, guid: bfb5b1fa548aa5341bed0b64b786d7f1, type: 2}
     ConectionType: 2
-    Conclusion: 
+    Conclusion: "Robbowi Banksowi nie mo\u017Cna by\u0142oby nic zarzuci\u0107 gdyby
+      tylko po\u015Bwiadczenie istnia\u0142o"
     conectNumber: 0
   - conected: {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
     ConectionType: 2
@@ -32,5 +33,8 @@ MonoBehaviour:
     conectNumber: 0
   - conected: {fileID: 11400000, guid: 5181a8d9fd03d8c4fada62a7f51206c6, type: 2}
     ConectionType: 3
-    Conclusion: 
+    Conclusion: "Lojer mo\u017Ce w s\u0105dzie pr\xF3bowa\u0107 wykaza\u0107, \u017Ce
+      zagubienie teczki dla Hodowcy by\u0142o wyj\u0105tkowo korzystne, poniewa\u017C
+      m\xF3g\u0142by jednocze\u015Bnie pobra\u0107 ubezpieczenie od kradzie\u017Cy
+      oraz odzyska\u0107 zgub\u0119, a wi\u0119c zarobi\u0142by na z\u0142odzieju"
     conectNumber: 0

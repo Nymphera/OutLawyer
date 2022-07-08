@@ -23,7 +23,9 @@ MonoBehaviour:
   Conections:
   - conected: {fileID: 11400000, guid: 74a6c70194c064346ad8507321db7c00, type: 2}
     ConectionType: 3
-    Conclusion: 
+    Conclusion: "Prowadzenie Hodowli okaza\u0142o si\u0119 bardzo nieop\u0142acalne,
+      a mimo to Hodowca kontynuuje swoj\u0105 pasj\u0119 \u017Cyj\u0105c w n\u0119dznych
+      warunkach. S\u0105 to samonakr\u0119caj\u0105ce si\u0119 spirale."
     conectNumber: 0
   - conected: {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
     ConectionType: 1

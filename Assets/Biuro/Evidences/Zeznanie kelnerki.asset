@@ -23,9 +23,11 @@ MonoBehaviour:
   Conections:
   - conected: {fileID: 11400000, guid: c7bc2e4253c905248bc81887a60559a4, type: 2}
     ConectionType: 1
-    Conclusion: 
+    Conclusion: "Zeznania Kelnerki jasno sugeruj\u0105, \u017Ce j\u0105 i wampira
+      musia\u0142o po\u0142\u0105czy\u0107 jakie\u015B gor\u0105ce uczucie"
     conectNumber: 0
   - conected: {fileID: 11400000, guid: 918345b74bd390940b301e659d30b364, type: 2}
     ConectionType: 3
-    Conclusion: 
+    Conclusion: "eznania Kelnerki jasno sugeruj\u0105, \u017Ce j\u0105 i wampira
+      musia\u0142o po\u0142\u0105czy\u0107 jakie\u015B gor\u0105ce uczucie"
     conectNumber: 0

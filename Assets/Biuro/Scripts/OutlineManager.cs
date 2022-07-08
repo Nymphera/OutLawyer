@@ -109,6 +109,10 @@ public class OutlineManager : MonoBehaviour
                     sentences.Enqueue(sentence);
                 }
                 StartCoroutine(DisplaySentences(sentences));
+<<<<<<< HEAD
+=======
+                
+>>>>>>> 26c4fac (zapis dowodów w notatniku)
                 if (outline.unlockEvidence)
                 {
                     outline.unlockEvidence = false;

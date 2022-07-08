@@ -19,8 +19,12 @@ public class Outline : MonoBehaviour {
     [TextArea(3, 10)]
     public string[] message;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     public bool interacted;
+=======
+   
+>>>>>>> 26c4fac (zapis dowodów w notatniku)
 
 >>>>>>> 1166aee (notatnik jeszcze bez outlinemanagera)
     [SerializeField]

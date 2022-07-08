@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.07784747, g: 0.11597474, b: 0.16366902, a: 1}
+  m_IndirectSpecularColor: {r: 0.07784632, g: 0.11597428, b: 0.16366895, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -925,7 +925,8 @@ MonoBehaviour:
   message:
   - "Lojer: Je\u017Celi jest co\u015B do \u0142\u0105czy kraby i inteligentne humanoidy,
     to zami\u0142owanie do whisky."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -2523,6 +2524,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165212815}
   m_CullTransparentMesh: 1
+--- !u!1 &165993609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 165993610}
+  - component: {fileID: 165993612}
+  - component: {fileID: 165993611}
+  m_Layer: 0
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &165993610
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165993609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1459721680}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 58.4, y: 81.2}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &165993611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165993609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.34509805, b: 0.34509805, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 16aec50a5a651ef42b6a9774048a454b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &165993612
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165993609}
+  m_CullTransparentMesh: 1
 --- !u!1001 &169539592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3721,7 +3797,8 @@ MonoBehaviour:
   - "Szef Krab\xF3w: To w te worki chc\u0119 zapakowa\u0107 moich podw\u0142adnych
     i podrzuci\u0107 do sklepu z meblami!"
   - "Szef Krab\xF3w: Niech si\u0119 nas boj\u0105! MUAHHAHAHHA"
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -5900,7 +5977,8 @@ MonoBehaviour:
   message:
   - "Lojer: Nie wiem czy ten dzwonek jest po to, by szef wo\u0142a\u0142 kraby...."
   - "Lojer: ...Czy po to by zwr\xF3ci\u0107 uwag\u0119 szanownego ja\u015Bnie Pana."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -6824,7 +6902,8 @@ MonoBehaviour:
   - "Lojer: Kto\u015B kto rysowa\u0142 ten obraz musi by\u0107 albo ju\u017C bardzo
     stary, albo od dawna martwy."
   - "Lojer: Hm... dawno nie widzia\u0142em ju\u017C zimy."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -9005,7 +9084,8 @@ MonoBehaviour:
   - "Lojer: Wygl\u0105da na to \u017Ce Robb Banks wykorzysta\u0142 t\u0119 dziur\u0119,
     \u017Ceby prze\u015Blizgn\u0105\u0107 si\u0119 i wymin\u0105\u0107 korytarz."
   - "Lojer: Tylko dlaczego kraby opu\u015Bci\u0142y ca\u0142kiem t\u0119 sypialni\u0119?"
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -10883,7 +10963,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message:
   - "Lojer: Nie przysz\u0142o lustro do szefa, przyszed\u0142 szef do lustra."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -11042,7 +11123,8 @@ MonoBehaviour:
   - "Lojer: No no, to dopiero uroczy wystr\xF3j wn\u0119trz."
   - "Lojer: Kraby musia\u0142y skr\u0119ci\u0107 t\u0119 cel\u0119 z kilku krabich
     klatek. Ale ta jest przygotowana na cz\u0142owieka."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -11432,7 +11514,8 @@ MonoBehaviour:
   message:
   - "Lojer: Ten krawat jest zdecydowanie za du\u017Cy na kraba."
   - "Szef Krab\xF3w: Le\u017Cy tu jako moje trofeum!"
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -12528,7 +12611,8 @@ MonoBehaviour:
   - "Lojer: I dlaczego do cholery trzyma dokumenty rachunkowe pomi\u0119dzy stronami
     o zakl\u0119ciach transmutacyjnych?!"
   - "Lojer: Hm... wygl\u0105da na to, \u017Ce krabiarnia jest bardzo mocno zad\u0142u\u017Cona."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -15613,7 +15697,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048687239}
-  m_LocalRotation: {x: 0.5083911, y: -0.000000026711492, z: 0.00000001576991, w: 0.8611263}
+  m_LocalRotation: {x: 0.5083911, y: 0.000000026711499, z: -0.000000015769913, w: 0.8611263}
   m_LocalPosition: {x: -0.23077774, y: 0.9840002, z: -0.6094856}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -17477,6 +17561,123 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 2fd9acdc43206ee42ae6f1a706872c6e, type: 3}
   m_PrefabInstance: {fileID: 1120489681}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1155015106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1155015107}
+  - component: {fileID: 1155015111}
+  - component: {fileID: 1155015110}
+  - component: {fileID: 1155015109}
+  - component: {fileID: 1155015108}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1155015107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155015106}
+  m_LocalRotation: {x: -0, y: 0.9721818, z: -0, w: 0.23422755}
+  m_LocalPosition: {x: -22.87, y: -4.36, z: 45.92}
+  m_LocalScale: {x: 0.80000013, y: 0.8, z: 0.80000013}
+  m_Children: []
+  m_Father: {fileID: 1359755745}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1155015108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155015106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: []
+  unlockEvidence: 1
+  evidenceToUnlock: {fileID: 11400000, guid: cd7dee3f817f4fa4a8fdd7e482d83306, type: 2}
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!65 &1155015109
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155015106}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1155015110
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155015106}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1155015111
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155015106}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1157883776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19443,6 +19644,87 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8db97000ddd1d024b9f9e7f0dcd3f200, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1aa9cb361cc87e4c988163a8de50413, type: 3}
+--- !u!1 &1314128107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1314128108}
+  - component: {fileID: 1314128110}
+  - component: {fileID: 1314128109}
+  m_Layer: 0
+  m_Name: NotatnikText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1314128108
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314128107}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1459721680}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 74}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1314128109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314128107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Notatnik:
+
+'
+--- !u!222 &1314128110
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314128107}
+  m_CullTransparentMesh: 1
 --- !u!4 &1324458164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: cba00f75539bc564fabb9136fccfac6c, type: 3}
@@ -19635,6 +19917,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 07399c197316efd44b813b68accdd846, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55776efecb0cd134ea5f418c2f97a705, type: 3}
+--- !u!4 &1359755745 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6146498833018615571, guid: d7f16bebf84a8be45a4edf754a799508, type: 3}
+  m_PrefabInstance: {fileID: 19953150}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1360550832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20379,7 +20666,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: []
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -20899,7 +21187,8 @@ MonoBehaviour:
   - 'Lojer: Znak STOP na prywatnej posesji?'
   - "Lojer: Albko go kto\u015B tu przywl\xF3k\u0142, albo hodowca wyj\u0105tkowo
     nie cierpi go\u015Bci."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -21202,6 +21491,97 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acbdb13218a23b644b2a15c0a6fbd3f7, type: 3}
+--- !u!1 &1459721679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1459721680}
+  - component: {fileID: 1459721683}
+  - component: {fileID: 1459721682}
+  - component: {fileID: 1459721681}
+  m_Layer: 0
+  m_Name: NoteBook
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1459721680
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459721679}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0000222524}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 165993610}
+  - {fileID: 1938245355}
+  - {fileID: 1314128108}
+  m_Father: {fileID: 1525926926}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 313, y: -290}
+  m_SizeDelta: {x: 160, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1459721681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459721679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 834539090a4d34649abb3e7e6a450a68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1459721682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459721679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1459721683
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459721679}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1461377465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22198,7 +22578,8 @@ MonoBehaviour:
   - "Lojer: To spore \u0142\xF3\u017Cko ma\u0142\u017Ce\u0144skie..."
   - "Lojer: Hodowca z pewno\u015Bci\u0105 nie mieszka\u0142 tu sam. Ale nikogo wi\u0119cej
     nie wida\u0107."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -22349,7 +22730,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: []
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -22408,7 +22790,8 @@ MonoBehaviour:
   - "Lojer: Kto\u015B kto budowa\u0142 ten dom, chyba nie zna\u0142 si\u0119 na kondygnacjach."
   - "Lojer: Zas\u0142oni\u0119cie dziury w \u015Bcianie szaf\u0105 niewiele pomog\u0142o.
     Wida\u0107, kraby i tak szybko prze\u015Blizgn\u0119\u0142y si\u0119 do gabinetu."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -22578,6 +22961,7 @@ RectTransform:
   - {fileID: 1622893823}
   - {fileID: 1741708433}
   - {fileID: 157213162}
+  - {fileID: 1459721680}
   m_Father: {fileID: 532288146}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22608,7 +22992,8 @@ MonoBehaviour:
   - "Lojer: Wygl\u0105da na to \u017Ce krabom nie uda\u0142o si\u0119 jej otworzy\u0107."
   - "Lojer: Ugh... nie dziwi\u0119 si\u0119, to wieczko jest potwornie ci\u0119\u017Ckie.
     Chyba w\u0142a\u015Bciciel tej skrzyni zainwestowa\u0142 w runy magnetyczne."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -23455,7 +23840,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message:
   - "Lojer: Dziwne, wszystkie te pud\u0142a maj\u0105 ten sam numer seryjny..."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -27308,7 +27694,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: []
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -28909,7 +29296,8 @@ MonoBehaviour:
   message:
   - "Lojer: Te narz\u0119dzia s\u0105 zdecydowanie zbyt wysokie dla krab\xF3w."
   - "Lojer: Ale wida\u0107, \u017Ce hodowca lubi\u0142 prace ogrodowe."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -29194,7 +29582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1901013563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29250,7 +29638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1911732091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29808,6 +30196,140 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1938245354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1938245355}
+  - component: {fileID: 1938245357}
+  - component: {fileID: 1938245356}
+  m_Layer: 0
+  m_Name: notes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1938245355
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938245354}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1459721680}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.3237, y: -13.637495}
+  m_SizeDelta: {x: 138.5696, y: 162.9963}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1938245356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938245354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 12
+  m_fontSizeBase: 12
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1938245357
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938245354}
+  m_CullTransparentMesh: 1
 --- !u!1 &1941802905
 GameObject:
   m_ObjectHideFlags: 0
@@ -31295,7 +31817,8 @@ MonoBehaviour:
   - "Lojer: ...Zaraz zaraz, przecie\u017C to moja biografia! Och wy skur...."
   - "Retrospekcjant: Wygl\u0105da na to, \u017Ce pan Lojer chcia\u0142 zapomnie\u0107
     o reszcie tego wspomnienia."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -35089,7 +35612,8 @@ MonoBehaviour:
   message:
   - "Lojer: Ughh, dawno nikt nie czy\u015Bci\u0142 tej budy."
   - "Lojer: Ciekawe, gdzie si\u0119 podziewa mieszkaniec tej chatki w chatce..."
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
@@ -38577,7 +39101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: []
-  interacted: 0
+  unlockEvidence: 0
+  evidenceToUnlock: {fileID: 0}
   outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2

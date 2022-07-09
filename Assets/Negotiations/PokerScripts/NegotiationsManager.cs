@@ -27,8 +27,10 @@ public class NegotiationsManager : MonoBehaviour
     [SerializeField]
     private int patienceValue=8;
     private int patienceStartValue;
+    [SerializeField]
     private int betValue=0;
-    private int handValue=0;
+    [SerializeField]
+    private int handValue=0,currentHandValue;
 
     private void Start()
     {
@@ -92,6 +94,7 @@ public class NegotiationsManager : MonoBehaviour
 
     private void EndNegotiations(bool win)
     {
+        Debug.Log(win);
         cardSpawner.destroyCards();
         ResetValues();
         canvas.SetActive(false);
@@ -113,6 +116,7 @@ public class NegotiationsManager : MonoBehaviour
    
     private IEnumerator Think(float time)
     {
+        Debug.Log("Think");
         RotateTableCard();
         yield return new WaitForSeconds(time);
         if (!tableCards[4].isFronted&&patienceValue>0)
@@ -127,11 +131,17 @@ public class NegotiationsManager : MonoBehaviour
     }
     private IEnumerator WaitForVeridct()
     {
-        yield return new WaitForSeconds(4f);
-        if(handValue>=betValue)
-        UpdateNegotiationState(NegotiationState.Victory);
-        else if (handValue < betValue)
+        Debug.Log("WaitForVeridct");
+        yield return new WaitForSeconds(2f);
+        if (currentHandValue >= betValue)
         {
+            Debug.Log("Win");
+            UpdateNegotiationState(NegotiationState.Victory);
+        }
+        
+        else if (currentHandValue < betValue)
+        {
+            Debug.Log("Lose");
             UpdateNegotiationState(NegotiationState.Lose);
         }
     }
@@ -246,7 +256,7 @@ public class NegotiationsManager : MonoBehaviour
         
         handValueInt.text = (handValue+((int)playerHand)).ToString();
         handValueText.text = playerHand.ToString();
-       // handValue += ((int)playerHand);
+        currentHandValue=handValue+ (int)playerHand;
     }
 
     private void GetCards()

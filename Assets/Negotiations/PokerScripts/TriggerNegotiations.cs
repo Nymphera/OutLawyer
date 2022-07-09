@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TriggerNegotiations : MonoBehaviour
 {
-    
+    private bool wasPlayed = false;
     private void OnMouseDown()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -14,7 +14,12 @@ public class TriggerNegotiations : MonoBehaviour
         {
             if (hit.transform.gameObject == gameObject&&GameManager.Instance.CurrentState==GameState.Move)
             {
-                GameEvents.current.TriggerNegotiations();
+                if (!wasPlayed)
+                {
+                    GameEvents.current.TriggerNegotiations();
+                    wasPlayed = true;
+                }
+                
             }
         }
     }

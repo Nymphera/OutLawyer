@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e81b79e0fb515443878e1ff5a471fc0, type: 3}
+  m_Name: DialogWithAldhest
+  m_EditorClassIdentifier: 
+  levels:
+  - CrossPoints:
+    - {fileID: 11400000, guid: 0261883c5414ec7439af5577f99e80d9, type: 2}
+    DialogOptions:
+    - {fileID: 11400000, guid: 8d2394dda51e6ad47aeede9792a21a7f, type: 2}
+    - {fileID: 11400000, guid: 811b810c7b3323f4190abc7bcf156ae5, type: 2}
+    - {fileID: 11400000, guid: 4f950b3d218a49a4785ca4fc26084787, type: 2}
+  - CrossPoints:
+    - {fileID: 11400000, guid: d3de71365d7752f48acb80881c6b42da, type: 2}
+    - {fileID: 11400000, guid: b73b288844c51f246b24a29291387913, type: 2}
+    - {fileID: 11400000, guid: e2b8a6b4fc5383d48852f9b0796dcfb2, type: 2}
+    DialogOptions:
+    - {fileID: 11400000, guid: 332243b3b21b34b4e8a53f009a451006, type: 2}
+    - {fileID: 11400000, guid: 2118ec9a27b6bac478a1208f4629324f, type: 2}
+    - {fileID: 11400000, guid: 388e17e776cc5fc4f8ac9840e2b1f639, type: 2}
+    - {fileID: 11400000, guid: dbe7ead1d9b967142b2799e9a911b9f0, type: 2}
+    - {fileID: 11400000, guid: ec5332e82a5979a4ba5a4ebbb10f5be8, type: 2}
+    - {fileID: 11400000, guid: 0fafb72865d1a194c8fad6021ec7cbeb, type: 2}
+    - {fileID: 11400000, guid: ea30edabb56c2ee47a356f392877c193, type: 2}
+  - CrossPoints:
+    - {fileID: 11400000, guid: 217b84b78ea36134d880829956e37a2c, type: 2}
+    - {fileID: 11400000, guid: 7949153df1e8d4e49b2993a7cb104b90, type: 2}
+    - {fileID: 11400000, guid: 4e558560272359c46a4b3f7de6f14bef, type: 2}
+    DialogOptions:
+    - {fileID: 11400000, guid: 68ed8c48debefe9419265dd1f970e155, type: 2}
+    - {fileID: 11400000, guid: 8008748feb2fb094fb3c636b5548dc53, type: 2}
+    - {fileID: 11400000, guid: 3ce1977cb57853940ba1a69a1ef609f1, type: 2}
+    - {fileID: 11400000, guid: 811cc0b7f3de3184bb4ae8a04bea1e7d, type: 2}
+  - CrossPoints:
+    - {fileID: 11400000, guid: abeda2b5b24079a4486f5207eeb31dcf, type: 2}
+    - {fileID: 11400000, guid: 85b90ea24ae19944d815dd5142588953, type: 2}
+    DialogOptions:
+    - {fileID: 11400000, guid: 373c41e2c24ad264fb8903da4bd7e5c1, type: 2}
+    - {fileID: 11400000, guid: 0300eb432ef33db49a47778911012c5d, type: 2}
+    - {fileID: 11400000, guid: e4f221957e7ec4b4585eabc746789734, type: 2}
+    - {fileID: 11400000, guid: 088862b18dad4534089939c5ee54d98b, type: 2}
+  - CrossPoints:
+    - {fileID: 11400000, guid: 309202d7257117d4b964f4dc839ff108, type: 2}
+    - {fileID: 11400000, guid: b11b2d6e948924f41bdc0a4e101f2283, type: 2}
+    - {fileID: 11400000, guid: 9258d7fe0bf0e2d4493cc01428c3363a, type: 2}
+    DialogOptions:
+    - {fileID: 11400000, guid: 44b94c36d22f4ee4dab78ef97f275626, type: 2}
+    - {fileID: 11400000, guid: e58c8517e7f2ada45be105227467bbfb, type: 2}
+    - {fileID: 11400000, guid: d38b512df5836314cba7daf4d3ce2df4, type: 2}
+    - {fileID: 11400000, guid: 4c4ee5e1560834d4ebe765aa535e33ff, type: 2}
+  - CrossPoints:
+    - {fileID: 11400000, guid: 6cddf35c627cab64a84f7bb0a4af1c93, type: 2}
+    - {fileID: 11400000, guid: cbefe0bf3a614ed4fb09f595c9443f1f, type: 2}
+    DialogOptions:
+    - {fileID: 11400000, guid: 93d0c15967ad6c94ab71a69737add1bb, type: 2}
+    - {fileID: 11400000, guid: c63d4987df8cb64409bb66211e04fc8b, type: 2}
+    - {fileID: 11400000, guid: 8b051ddca8440884ebe56efc5fdc2c3d, type: 2}
+    - {fileID: 11400000, guid: 15488619c10a0aa4ebf143b457ef430b, type: 2}
+  - CrossPoints:
+    - {fileID: 11400000, guid: 1e7fa0b38fcb7874fb4e1c746c3c634c, type: 2}
+    - {fileID: 11400000, guid: 4fc539c32b65b3448bb08c2bb77fef9c, type: 2}
+    - {fileID: 11400000, guid: ee99957794c15f84abd0fc57fe0de0eb, type: 2}
+    DialogOptions: []
+  introductionSentences:
+  - "Lojer: Ale zajecha\u0142o owocami morza\u2026 To jaki\u015B sk\u0142adzik na
+    karm\u0119 dla krab\xF3w czy co?\r\n"
+  - "Aldhest: \u2026 *odg\u0142osy szczypiec*\r\n"
+  - "Lojer: No tak\u2026 Finalny boss krab\xF3w w piwnicy, czego ja si\u0119 spodziewa\u0142em."
+  - "Aldhest: Kto o\u015Bmiela si\u0119 stawa\u0107 przede mn\u0105, Aldhestem, ojcem
+    wszystkich krabopodobnych, panem i bogiem zaginionej Atlantydy! Na kolana n\u0119dzny
+    \u015Bmiertelniku!\r\n"
+  introductionClips: []
+  results:
+  - {fileID: 11400000, guid: a84478e9a4c743245a9129f6adbdfe04, type: 2}
+  - {fileID: 11400000, guid: 9d6ca744d83c843439b1cfbeb25ab8fb, type: 2}
+  - {fileID: 11400000, guid: fb8f065d732132a44b346c0cedae4b02, type: 2}
+  - {fileID: 11400000, guid: 7e859ee8aad46f146938f65ae76cbef7, type: 2}
+  - {fileID: 11400000, guid: 4d14809396469724c944712b8c0e499e, type: 2}

@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e81b79e0fb515443878e1ff5a471fc0, type: 3}
+  m_Name: DialogWithHodowca
+  m_EditorClassIdentifier: 
+  levels:
+  - CrossPoints:
+    - {fileID: 11400000, guid: a808f7111ee2ca547bbecae57335215f, type: 2}
+    DialogOptions:
+    - {fileID: 11400000, guid: d293f0ce3f219fd409aa036c521fb49b, type: 2}
+    - {fileID: 11400000, guid: d7831c591e49e004a8654286a37fc6d4, type: 2}
+    - {fileID: 11400000, guid: 4b1be093cfd1e1b48b7bdd456000487d, type: 2}
+  - CrossPoints:
+    - {fileID: 11400000, guid: 766b7b422d5399b4fa91f9d85369b45d, type: 2}
+    - {fileID: 11400000, guid: 8b8f9aeebd4c4a14a917d6cfb350d2c9, type: 2}
+    - {fileID: 11400000, guid: d87d761c9332da64d9bdf9385c1bd9f9, type: 2}
+    DialogOptions:
+    - {fileID: 11400000, guid: 4ecd385675a4ee34d8c950c968e9b6c5, type: 2}
+    - {fileID: 11400000, guid: f63242162d115474ca197d9a6c82bd43, type: 2}
+    - {fileID: 11400000, guid: 39a66770d2f6b3c4d86acbb9b29d5a8a, type: 2}
+    - {fileID: 11400000, guid: ddd03adb72f0d3e4b9670605e39695a7, type: 2}
+    - {fileID: 11400000, guid: 761b03dc81ae39d489e3bc7e7e61d312, type: 2}
+    - {fileID: 11400000, guid: 68ad67eb45ce96f4481b953659e39d19, type: 2}
+  - CrossPoints:
+    - {fileID: 11400000, guid: 7a40d19ae48577748b50a7c6440de7ed, type: 2}
+    - {fileID: 11400000, guid: 98126827a2fb3444f8373cc8f0dfe3da, type: 2}
+    - {fileID: 11400000, guid: eaf7e2ea0b1b1354ea214e7c27090d30, type: 2}
+    - {fileID: 11400000, guid: 36559359101269247ad3cbc4e41a2860, type: 2}
+    DialogOptions:
+    - {fileID: 11400000, guid: 923a7fbf3f268eb40b55f70c4b0695de, type: 2}
+    - {fileID: 11400000, guid: 7f563ad864634ac44a434403497f04e7, type: 2}
+    - {fileID: 11400000, guid: 9267f28b37dc32642b23df62bc6338b1, type: 2}
+    - {fileID: 11400000, guid: aabb5bef23f817d4da5ff7c75158fff3, type: 2}
+    - {fileID: 11400000, guid: 7250844e16ca62246b60ca1921cc05be, type: 2}
+    - {fileID: 11400000, guid: f2141cc10113e264aaea58b95ef6ce12, type: 2}
+  - CrossPoints:
+    - {fileID: 11400000, guid: 6c66f9471df02f940a80aa663195940e, type: 2}
+    - {fileID: 11400000, guid: 16a1a2af55d4cb24baa61db3740b8b09, type: 2}
+    - {fileID: 11400000, guid: 6344e2792d3302f41b9cae33b250a791, type: 2}
+    DialogOptions:
+    - {fileID: 11400000, guid: 2a3e60bee21dcba4887941fde93e4cb1, type: 2}
+    - {fileID: 11400000, guid: 77841bdad87775747b4778df2eb9ff75, type: 2}
+    - {fileID: 11400000, guid: b0b718c3829e45044985e1f4c4c70d84, type: 2}
+    - {fileID: 11400000, guid: db4d5311b785d3e42b3c2316e9f2a300, type: 2}
+    - {fileID: 11400000, guid: 958dd542662cfdf4c906038519682db9, type: 2}
+    - {fileID: 11400000, guid: 4752a0dc37e05914f82bfba8ace7aaae, type: 2}
+  - CrossPoints:
+    - {fileID: 11400000, guid: c5e7daf06cb69e341a1ed8b75cd53efc, type: 2}
+    - {fileID: 11400000, guid: fe09b973e30f62746b3bbf50873f28b8, type: 2}
+    - {fileID: 11400000, guid: e7c0e1480ef99ea478bd0db44a1fdcd2, type: 2}
+    - {fileID: 11400000, guid: 84876b5fbe04dbc499bd68a47fbaeda8, type: 2}
+    DialogOptions:
+    - {fileID: 11400000, guid: d6bc878562570e04c81c9b7399216231, type: 2}
+    - {fileID: 11400000, guid: 6168219ebf85f4a4799d3f4b5035cb24, type: 2}
+    - {fileID: 11400000, guid: 68d6dfa25e6a8194eaf0ed47e224c04d, type: 2}
+    - {fileID: 11400000, guid: 2ffd7f296fdc31544ab7598742283c39, type: 2}
+    - {fileID: 11400000, guid: 6309e92bba85e0a45a9cb21045add1da, type: 2}
+    - {fileID: 11400000, guid: 26c5a467a33d39542bb489417109660c, type: 2}
+  - CrossPoints:
+    - {fileID: 11400000, guid: e3ab3c5de68327b4ab8964590329b9e1, type: 2}
+    - {fileID: 11400000, guid: 3fffabb19c777784b8ef12120812e308, type: 2}
+    - {fileID: 11400000, guid: dcecfd6b03daa1248a334d7a749e5759, type: 2}
+    DialogOptions: []
+  introductionSentences:
+  - "Patrick: Hmmmm, Hodowca wyczuwa \u017Ce kto\u015B tu jeest\u2026 O tak, kto\u015B
+    nawiedza Patricka w jego w\u0142asnym domu i to jeszcze \r\nNIE-ZA-PO-WIE-DZIA-NY!!!\r\n"
+  - "Lojer: Witam Panie Patricku, Lojer.\r Radca prawny, Filozof, Filantrop i mi\u0142o\u015Bnik
+    dobrej whisky.\r\n"
+  - "Patrick: Patrick wita Pana Filozofa, Patricka imi\u0119 to Patrick.\r Czy Pan
+    Filozof mo\u017Ce zada\u0107 sobie pytanie dlaczego tu jest? Bardzo to Patricka
+    interesuje.\r\n"
+  introductionClips: []
+  results:
+  - {fileID: 11400000, guid: e3570d646dade2143ae741ebbf0889da, type: 2}
+  - {fileID: 11400000, guid: 43443f00672a92f49880ecfa60a1a72b, type: 2}
+  - {fileID: 11400000, guid: 8064e205f4bd8db45a75ef40b5c84efa, type: 2}
+  - {fileID: 11400000, guid: a05d7169626a67b4c9fb3bc6fe9f65c3, type: 2}
+  - {fileID: 11400000, guid: 073c15fad83719d4da7828f409b0a451, type: 2}

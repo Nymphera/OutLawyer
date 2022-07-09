@@ -67,7 +67,7 @@ public class NoteBookManager : MonoBehaviour
     {
         Debug.Log(evidence);
         alert.SetActive(true);
-        tmp.text += "\n" + evidence.Name;
+        tmp.text += "\n" +"Odblokowano dowód: "+evidence.Name;
 
     }
     private IEnumerator MoveUp(Vector2 minPosition, Vector2 maxPosition)

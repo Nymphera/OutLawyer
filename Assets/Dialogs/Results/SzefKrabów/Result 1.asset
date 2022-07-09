@@ -23,3 +23,4 @@ MonoBehaviour:
   - Zdanie1
   - Zdanie2
   - "o kurwa co\u015B si\u0119 dzieje"
+  evidenceToUnlock: {fileID: 11400000, guid: 6de378c21d0440b45b602702f79f8d16, type: 2}

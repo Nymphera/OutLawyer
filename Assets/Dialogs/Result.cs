@@ -13,4 +13,7 @@ public class Result : ScriptableObject
     public Color ResultBarColor;
     public string ResultText;
     public Sprite resultImage;
+
+    public string[] sentences;
+    
 }

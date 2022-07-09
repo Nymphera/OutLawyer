@@ -266,7 +266,7 @@ public class DialogManager : MonoBehaviour
            
 
             string sentence = sentences.Dequeue();
-            if (clips.Count != 0)
+            if (clips.Count != 0&&clips!=null)
             {
                 AudioClip clip = clips.Dequeue();
                 clipLength = clip.length;

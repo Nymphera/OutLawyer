@@ -30,6 +30,17 @@ public class CameraControllerKrabiarnia : MonoBehaviour
             animator.Play(animationName);
             GameManager.Instance.UpdateGameState(GameState.Interact);
         }
+        else if (animationName == "DialogWithAldhest")
+        {
+            animator.Play(animationName);
+            GameManager.Instance.UpdateGameState(GameState.Interact);
+        }
+        else if (animationName == "DialogWithHodowca")
+        {
+            animator.Play(animationName);
+            GameManager.Instance.UpdateGameState(GameState.Interact);
+        }
+
         mouse.SetActive(GameManager.Instance.CurrentState != GameState.Interact);
     }
 }

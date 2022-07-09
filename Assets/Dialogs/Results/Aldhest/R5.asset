@@ -15,9 +15,9 @@ MonoBehaviour:
   resultNumber: 5
   strategy1: 1
   strategy2: 2
-  ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
+  ResultBarColor: {r: 0.49411768, g: 0.854902, b: 0.34509805, a: 1}
   ResultText: "Wyczuwam fortel\u2026"
-  resultImage: {fileID: 0}
+  resultImage: {fileID: 21300000, guid: 03777689e26fb7941b904535108d38fb, type: 3}
   sentences:
   - "Lojer: Zaintrygowa\u0142e\u015B mnie, o wielki. Chcia\u0142bym wi\u0119cej dowiedzie\u0107
     si\u0119 o twoim pochodzeniu. "

@@ -46,8 +46,7 @@ MonoBehaviour:
   FencePoints: []
   FencePrefabs:
   - {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  PostPrefab: {fileID: 4053396113723301936, guid: cab90c40ab6e48540b863bd64860e39a,
-    type: 3}
+  PostPrefab: {fileID: 4053396113723301936, guid: cab90c40ab6e48540b863bd64860e39a, type: 3}
   FenceEndOffset: {x: 0, y: 0, z: 1.25}
   FenceRotation: 0
   FenceLength: 2.5

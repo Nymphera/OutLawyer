@@ -40,7 +40,7 @@ public class NoteBookManager : MonoBehaviour
     }
     private void MenageNoteBook(InputAction.CallbackContext obj)
     {
-        Debug.Log("press N");
+        
         if (isOpen)
         {
             CloseNoteBook();

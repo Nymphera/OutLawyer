@@ -15,9 +15,9 @@ MonoBehaviour:
   resultNumber: 4
   strategy1: 3
   strategy2: 0
-  ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
+  ResultBarColor: {r: 0.7960785, g: 0.41960788, b: 0.9058824, a: 1}
   ResultText: "Wiedza to pot\u0119ga "
-  resultImage: {fileID: 0}
+  resultImage: {fileID: 21300000, guid: fb4ba13398d65c24382fc3bcaa83aef2, type: 3}
   sentences:
   - "Lojer: Dobrze Panie Aldhest. Jest Pan \u015Bwiadkiem, a wi\u0119c jak ka\u017Cdy
     \u015Bwiadek, musi mi Pan z\u0142o\u017Cy\u0107 pisemne zeznania. "

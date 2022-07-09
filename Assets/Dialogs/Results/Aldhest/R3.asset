@@ -15,9 +15,9 @@ MonoBehaviour:
   resultNumber: 3
   strategy1: 0
   strategy2: 1
-  ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
+  ResultBarColor: {r: 1, g: 0.34509805, b: 0.34509805, a: 1}
   ResultText: " Mam ochot\u0119 na kraboburgera\u2026 "
-  resultImage: {fileID: 0}
+  resultImage: {fileID: 21300000, guid: 3604ee2b292e1554bba74f7dad0f958c, type: 3}
   sentences:
   - "Lojer: Podajesz si\u0119 za Boga Aldhe\u015Bcie, ale jeste\u015B tch\xF3rzem! "
   - "Aldhest: JAK \u015AMIESZ. "

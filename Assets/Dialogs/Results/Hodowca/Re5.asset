@@ -15,9 +15,9 @@ MonoBehaviour:
   resultNumber: 5
   strategy1: 4
   strategy2: 3
-  ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
+  ResultBarColor: {r: 0.49411768, g: 0.854902, b: 0.34509805, a: 1}
   ResultText: "Lepiej mie\u0107 tego szale\u0144ca po mojej stronie "
-  resultImage: {fileID: 0}
+  resultImage: {fileID: 21300000, guid: d4d2ab4fbc596ba4cad3823453c3b70d, type: 3}
   sentences:
   - "Lojer: Panie Patricku, my\u015Bl\u0119, \u017Ce mogliby\u015Bmy sobie wzajemnie
     pom\xF3c. "

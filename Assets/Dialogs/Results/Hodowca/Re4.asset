@@ -15,9 +15,9 @@ MonoBehaviour:
   resultNumber: 4
   strategy1: 2
   strategy2: 4
-  ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
+  ResultBarColor: {r: 1, g: 0.7411765, b: 0.3529412, a: 1}
   ResultText: "Dobrze si\u0119 szczypie w mi\u0142ym towarzystwie "
-  resultImage: {fileID: 0}
+  resultImage: {fileID: 21300000, guid: c4c0b2d059576494aaefe400476579a0, type: 3}
   sentences:
   - "Patrick: Patrick musi przyzna\u0107, \u017Ce Patrick polubi\u0142 Lojera. "
   - "Lojer: A Lojer musi przyzna\u0107, \u017Ce Lojerowi mi\u0142o to s\u0142ysze\u0107. "

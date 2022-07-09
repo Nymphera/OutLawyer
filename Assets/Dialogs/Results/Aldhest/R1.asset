@@ -15,10 +15,10 @@ MonoBehaviour:
   resultNumber: 1
   strategy1: 3
   strategy2: 4
-  ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
+  ResultBarColor: {r: 0.22352943, g: 0.7137255, b: 1, a: 1}
   ResultText: "Nie ka\u017Cdy bohater nosi peleryn\u0119\u2026 niekt\xF3rzy maj\u0105
     rogi. "
-  resultImage: {fileID: 0}
+  resultImage: {fileID: 21300000, guid: 9d715a4e6331de24387072ff786f4544, type: 3}
   sentences:
   - "Lojer: Och, wielki Aldhe\u015Bcie. To zaszczyt, \u017Ce mog\u0119 ci\u0119 uratowa\u0107."
   - "Aldhest: Uratowa\u0107?"

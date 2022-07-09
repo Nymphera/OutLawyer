@@ -15,9 +15,9 @@ MonoBehaviour:
   resultNumber: 1
   strategy1: 1
   strategy2: 2
-  ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
+  ResultBarColor: {r: 0.22352943, g: 0.7137255, b: 1, a: 1}
   ResultText: "NAPRAWD\u0118?! Kraby s\u0105 takie ekscytuj\u0105ce!!! "
-  resultImage: {fileID: 0}
+  resultImage: {fileID: 21300000, guid: 93505d2f8f088d34db961b5c759f3d40, type: 3}
   sentences:
   - "Lojer: Oh, nie wiedzia\u0142em \u017Ce kraby s\u0105 takie interesuj\u0105ce! "
   - "Patrick: Tak tak, Patrick si\u0119 zgadza, nie ma nic bardziej interesuj\u0105cego

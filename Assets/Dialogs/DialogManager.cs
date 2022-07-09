@@ -107,7 +107,7 @@ public class DialogManager : MonoBehaviour
     {
         Debug.Log("Victory");
         victory = true;
-        UpdateGameState();
+        
         ResultDialog(resultNumber);
         if (dialog.results[resultNumber].evidenceToUnlock != null)
         {
@@ -115,6 +115,7 @@ public class DialogManager : MonoBehaviour
             Evidence ev = dialog.results[resultNumber].evidenceToUnlock;
             GameEvents.current.TriggerEvidenceUnlocked(ev);
         }
+        UpdateGameState();
     }
     private void ResultDialog(int resultNumber)
     {
@@ -239,9 +240,7 @@ public class DialogManager : MonoBehaviour
     private IEnumerator PlayIntroduction()
     {
         UpdateDialogState(DialogState.introduction);
-       
-        
-        
+                    
         
         isDialogEnded = false;
         

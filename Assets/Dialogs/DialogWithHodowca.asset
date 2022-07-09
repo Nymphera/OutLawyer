@@ -85,3 +85,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8064e205f4bd8db45a75ef40b5c84efa, type: 2}
   - {fileID: 11400000, guid: a05d7169626a67b4c9fb3bc6fe9f65c3, type: 2}
   - {fileID: 11400000, guid: 073c15fad83719d4da7828f409b0a451, type: 2}
+  npcImage: {fileID: 21300000, guid: b46141337c608b7449813afbd52f6c82, type: 3}

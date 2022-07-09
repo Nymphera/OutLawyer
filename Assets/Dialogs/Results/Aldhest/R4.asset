@@ -18,3 +18,15 @@ MonoBehaviour:
   ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
   ResultText: "Wiedza to pot\u0119ga "
   resultImage: {fileID: 0}
+  sentences:
+  - "Lojer: Dobrze Panie Aldhest. Jest Pan \u015Bwiadkiem, a wi\u0119c jak ka\u017Cdy
+    \u015Bwiadek, musi mi Pan z\u0142o\u017Cy\u0107 pisemne zeznania. "
+  - "Aldhest: \u015Awiadkiem?! TO TY MO\u017BESZ BY\u0106 \u015AWIADKIEM MOJEJ NIEOPISANEJ
+    POT\u0118GI. "
+  - "Lojer: No to prosz\u0119. "
+  - "Lojer: Oka\u017C t\u0119 swoj\u0105 POT\u0118G\u0118. "
+  - "Aldhest: \u2026 "
+  - "Lojer: Tak my\u015Bla\u0142em. "
+  - "Lojer: A wi\u0119c teraz, Panie Aldhe\u015Bcie, prosz\u0119 poda\u0107 mi swoje
+    dane osobowe\u2026 "
+  evidenceToUnlock: {fileID: 0}

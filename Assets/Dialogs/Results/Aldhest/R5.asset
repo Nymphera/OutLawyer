@@ -16,5 +16,16 @@ MonoBehaviour:
   strategy1: 1
   strategy2: 2
   ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
-  ResultText: 
+  ResultText: "Wyczuwam fortel\u2026"
   resultImage: {fileID: 0}
+  sentences:
+  - "Lojer: Zaintrygowa\u0142e\u015B mnie, o wielki. Chcia\u0142bym wi\u0119cej dowiedzie\u0107
+    si\u0119 o twoim pochodzeniu. "
+  - "Aldhest: Musz\u0119 to rozwa\u017Cy\u0107, \u015Bmiertelniku. "
+  - "Aldhest: Tylko wielkie umys\u0142y s\u0105 godne wielkiej wiedzy. "
+  - "Aldhest: Tak\u2026b\u0105d\u017A moim nowym s\u0142ug\u0105!"
+  - "Lojer: Ja\u2026uh, czuj\u0119 si\u0119\u2026dziwnie. "
+  - 'Lojer: Tak, mistrzu.'
+  - "Aldhest: A wi\u0119c apraszam. Si\u0119gnij po moj\u0105 moc. Gdy jej spr\xF3bujesz,
+    nie b\u0119dziesz m\xF3g\u0142 si\u0119 oprze\u0107"
+  evidenceToUnlock: {fileID: 0}

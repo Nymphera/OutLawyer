@@ -18,3 +18,16 @@ MonoBehaviour:
   ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
   ResultText: "Lepiej mie\u0107 tego szale\u0144ca po mojej stronie "
   resultImage: {fileID: 0}
+  sentences:
+  - "Lojer: Panie Patricku, my\u015Bl\u0119, \u017Ce mogliby\u015Bmy sobie wzajemnie
+    pom\xF3c. "
+  - 'Patrick: Patrick nie wie czy prawnik jest mu potrzebny. '
+  - "Lojer: My\u015Bl\u0119, \u017Ce mog\u0119 by\u0107 wr\u0119cz nieoceniony. Mam
+    wra\u017Cenie, \u017Ce masz du\u017Co zamieszania w dokumentacji. "
+  - 'Patrick: Patrick nie cierpi dokumentacji! '
+  - "Lojer: Tak, dokumentacja potrafi by\u0107 straszna. Ale by\u0107 mo\u017Ce m\xF3g\u0142bym
+    zaj\u0105\u0107 si\u0119 ni\u0105 za ciebie. Kraby wr\xF3ci\u0142yby pod twoj\u0105
+    opiek\u0119, a d\u0142ugi by znikn\u0119\u0142y. "
+  - "Patrick: Patrick nie jest pewien. Patrick ma przeczucie, \u017Ce prawnik co\u015B
+    chce w zamian. "
+  evidenceToUnlock: {fileID: 0}

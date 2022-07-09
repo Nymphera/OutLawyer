@@ -18,3 +18,11 @@ MonoBehaviour:
   ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
   ResultText: "NAPRAWD\u0118?! Kraby s\u0105 takie ekscytuj\u0105ce!!! "
   resultImage: {fileID: 0}
+  sentences:
+  - "Lojer: Oh, nie wiedzia\u0142em \u017Ce kraby s\u0105 takie interesuj\u0105ce! "
+  - "Patrick: Tak tak, Patrick si\u0119 zgadza, nie ma nic bardziej interesuj\u0105cego
+    ni\u017C kraby! "
+  - "Lojer: Patricku, b\u0142agam, czy mo\u017Cesz mi o nich wi\u0119cej opowiedzie\u0107? "
+  - "Patrick: Patricka prosi\u0107 dwa razy nie trzeba! Patrick wszystko opowie! "
+  - "Patrick: Patricka prosi\u0107 dwa razy nie trzeba! Patrick wszystko opowie! "
+  evidenceToUnlock: {fileID: 0}

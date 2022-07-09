@@ -18,3 +18,13 @@ MonoBehaviour:
   ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
   ResultText: " Mam ochot\u0119 na kraboburgera\u2026 "
   resultImage: {fileID: 0}
+  sentences:
+  - "Lojer: Podajesz si\u0119 za Boga Aldhe\u015Bcie, ale jeste\u015B tch\xF3rzem! "
+  - "Aldhest: JAK \u015AMIESZ. "
+  - "Lojer: To udowodnij mi \u017Ce si\u0119 myl\u0119! "
+  - "Lojer: Przyjd\u017A no tutaj, wyjd\u017A z tej swojej kryj\xF3wki i poka\u017C
+    mi swoimi szczypcami co potrafisz!"
+  - "Aldhest: \u2026 "
+  - "Lojer: Tak my\u015Bla\u0142em."
+  - "Lojer: A wi\u0119c teraz, m\xF3j zwierzaczku, b\u0119dziesz wsp\xF3\u0142pracowa\u0142. "
+  evidenceToUnlock: {fileID: 0}

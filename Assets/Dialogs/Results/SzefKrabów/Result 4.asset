@@ -18,3 +18,18 @@ MonoBehaviour:
   ResultBarColor: {r: 1, g: 0.7411765, b: 0.3529412, a: 1}
   ResultText: "Kraby gangsterzy, ale was si\u0119 boj\u0119! Efekt:  "
   resultImage: {fileID: 21300000, guid: 9085da4db39dd484183d340cb24795a3, type: 3}
+  sentences:
+  - "Szef Krab\xF3w: Wydajesz si\u0119 wyj\u0105tkowo przyja\u017Anie nastawiony
+    do naszej sprawy. "
+  - "Lojer: Nie \u015Bmia\u0142bym szefie inaczej. Mo\u017Ce nawet nied\u0142ugo
+    powinienem rzec: "
+  - "Lojer: \u201CEkscelencjo\u201D. "
+  - "Szef Krab\xF3w: Ekscelencjo\u2026podoba mi si\u0119. "
+  - "Szef Krab\xF3w: Ciesz\u0119 si\u0119, \u017Ce znasz swoje miejsce w \u0142a\u0144cuchu
+    pokarmowym, humanoidzie. "
+  - "Lojer: Tak jest, ekscelencjo. Uznaj\u0119 wy\u017Cszo\u015B\u0107 krab\xF3w
+    nad moim skromnym gatunkiem. "
+  - "Szef Krab\xF3w: Lubi\u0119 ci\u0119, humanoidzie.Nie rzuc\u0119 ci\u0119 na
+    po\u017Carcie. "
+  - "Szef Krab\xF3w: Prosz\u0119, b\u0105d\u017A moim uni\u017Conym go\u015Bciem. "
+  evidenceToUnlock: {fileID: 0}

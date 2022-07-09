@@ -18,3 +18,14 @@ MonoBehaviour:
   ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
   ResultText: "M\u0105drego zawsze mi\u0142o pos\u0142ucha\u0107. "
   resultImage: {fileID: 0}
+  sentences:
+  - "Lojer: Widzisz Aldhest, jak na prastar\u0105 istot\u0119 jeste\u015B ca\u0142kiem
+    spoko ziomek. "
+  - 'Aldhest: ....'
+  - "Aldhest: Dzi\u0119kuj\u0119. Dawno \u017Caden \u015Bmiertelnik si\u0119 mn\u0105
+    nie zainteresowa\u0142. "
+  - "Lojer: Mo\u017Ce wi\u0119c skoro jeste\u015Bmy ju\u017C przyjaci\xF3\u0142mi,
+    wejdziemy we wsp\xF3\u0142prac\u0119? "
+  - "Aldhest: Hm\u2026 Przyjaciel. PRZYJACIEL. P-R-Z-Y-J-A-C-I-E-L. Nowe s\u0142owo."
+  - "Lojer: Oho, przyjacielu, wi\u0119c mamy wiele do nadrobienia! "
+  evidenceToUnlock: {fileID: 0}

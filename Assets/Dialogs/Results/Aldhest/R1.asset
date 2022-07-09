@@ -13,8 +13,23 @@ MonoBehaviour:
   m_Name: R1
   m_EditorClassIdentifier: 
   resultNumber: 1
-  strategy1: 0
-  strategy2: 0
+  strategy1: 3
+  strategy2: 4
   ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
-  ResultText: 
+  ResultText: "Nie ka\u017Cdy bohater nosi peleryn\u0119\u2026 niekt\xF3rzy maj\u0105
+    rogi. "
   resultImage: {fileID: 0}
+  sentences:
+  - "Lojer: Och, wielki Aldhe\u015Bcie. To zaszczyt, \u017Ce mog\u0119 ci\u0119 uratowa\u0107."
+  - "Aldhest: Uratowa\u0107?"
+  - "Lojer: Nie chcesz chyba sp\u0119dzi\u0107 reszty dni zamkni\u0119ty w piwnicy
+    pod rozpadaj\u0105c\u0105 si\u0119 chat\u0105. "
+  - "Lojer: Sta\u0107 Ci\u0119 na wi\u0119cej."
+  - "Aldhest: Tak\u2026b\u0105d\u017A moim nowym s\u0142ug\u0105!"
+  - "Lojer: Nie s\u0142ug\u0105. Wybawc\u0105."
+  - "Lojer: Dopilnuj\u0119, aby twoja \u015Bwietno\u015B\u0107 wr\xF3ci\u0142a. Ale
+    ma to swoj\u0105 cen\u0119. "
+  - "Aldhest: Rozumiem. Nawet B\xF3g musi zna\u0107 swoje miejsce. "
+  - "Aldhest: Zapraszam. Si\u0119gnij po moj\u0105 moc. Gdy jej spr\xF3bujesz, nie
+    b\u0119dziesz m\xF3g\u0142 si\u0119 oprze\u0107."
+  evidenceToUnlock: {fileID: 0}

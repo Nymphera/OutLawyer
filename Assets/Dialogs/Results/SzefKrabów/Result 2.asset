@@ -19,3 +19,21 @@ MonoBehaviour:
   ResultText: "Szef krab\xF3w mo\u017Ce mie\u0107 tu wi\u0119cej wrog\xF3w ni\u017C
     mu si\u0119 wydaje."
   resultImage: {fileID: 21300000, guid: 2a8676137260aed4ca868cf18946555e, type: 3}
+  sentences:
+  - "Szef Krab\xF3w: Mam dosy\u0107 ju\u017C twoich wybryk\xF3w. Rzuci\u0107 go na
+    po\u017Carcie! "
+  - "Lojer: Jeste\u015B pewien, \u017Ce twoje kraby si\u0119 Ciebie pos\u0142uchaj\u0105? "
+  - "Lojer: Sp\xF3jrzmy na fakty: "
+  - "Szef Krab\xF3w: Grhhh\u2026 "
+  - "Lojer: Ledwo co wystajesz zza stoliku w tym gabinecie, a zwiesz si\u0119 szefem. "
+  - "Lojer: Ile realnie krab\xF3w ci\u0119 tu powa\u017Cnie traktuje? "
+  - "Szef Krab\xF3w: No\u2026troch\u0119\u2026 "
+  - "Lojer: Troch\u0119. Nie ty jeden tu chcesz by\u0107 szefem. Ka\u017Cdy krab
+    ma swoje aspiracje. "
+  - "Lojer: Wielu pewnie t\u0119skni za starym \u0142adem i poczciwym hodowc\u0105. "
+  - "Szef Krab\xF3w: Co ty mi tu sugerujesz\u2026 "
+  - "Lojer: Twoja pozycja jest zagro\u017Cona. Lepiej wsp\xF3\u0142pracuj, bo mo\u017Ce
+    ja zdmuchn\u0119 ten domek z kart, kt\xF3ry pieczo\u0142owicie zbudowa\u0142e\u015B. "
+  - "Szef Krab\xF3w: Dosy\u0107! Doigra\u0142e\u015B si\u0119! "
+  - "Szef Krab\xF3w: Ch\u0142opaki! Za buty i wyrzuci\u0107 go st\u0105d!"
+  evidenceToUnlock: {fileID: 0}

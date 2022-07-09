@@ -18,3 +18,13 @@ MonoBehaviour:
   ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
   ResultText: "Ostatni raz udaje kraba, przysi\u0119gam\u2026"
   resultImage: {fileID: 0}
+  sentences:
+  - "Lojer: Dobra, ostatni raz w \u017Cyciu udaje kraba, przysi\u0119gam!"
+  - "Patrick: Co prawnik m\xF3wi?"
+  - "Lojer: Yyyy. Patricku, musz\u0119 ci co\u015B wyzna\u0107. Sam, jako krab, szukam
+    swojego pobratymca. Ze Skarbem \u0142\u0105czy mnie wi\u0119cej ni\u017C my\u015Blisz. "
+  - "Patrick: Ale Lojer nie wygl\u0105da jak krab! "
+  - "Lojer: To z t\u0119sknoty za mym towarzyszem! Patricku, w imi\u0119 krabiarza
+    masz obowi\u0105zek mi pom\xF3c w moim zadaniu. "
+  - "Patrick: Patrick\u2026Patrick si\u0119 musi zastanowi\u0107. "
+  evidenceToUnlock: {fileID: 0}

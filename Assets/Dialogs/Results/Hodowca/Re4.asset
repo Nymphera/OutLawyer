@@ -18,3 +18,11 @@ MonoBehaviour:
   ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
   ResultText: "Dobrze si\u0119 szczypie w mi\u0142ym towarzystwie "
   resultImage: {fileID: 0}
+  sentences:
+  - "Patrick: Patrick musi przyzna\u0107, \u017Ce Patrick polubi\u0142 Lojera. "
+  - "Lojer: A Lojer musi przyzna\u0107, \u017Ce Lojerowi mi\u0142o to s\u0142ysze\u0107. "
+  - "Patrick: Jak Patrick mo\u017Ce pom\xF3c prawnikowi? Patrick uwielbia pomaga\u0107! "
+  - "Lojer: Och, to tak samo jak ja! Ciesz\u0119 si\u0119, \u017Ce Patrick i Lojer
+    znale\u017Ali wsp\xF3lny j\u0119zyk. "
+  - "Lojer:  Teraz przejd\u017Amy mo\u017Ce do nieco bardziej delikatnych spraw. "
+  evidenceToUnlock: {fileID: 0}

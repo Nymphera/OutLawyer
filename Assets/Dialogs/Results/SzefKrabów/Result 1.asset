@@ -20,7 +20,23 @@ MonoBehaviour:
     jak one. "
   resultImage: {fileID: 21300000, guid: 5e3c63bf9bfcbed4d8d0f3035f0e30fa, type: 3}
   sentences:
-  - Zdanie1
-  - Zdanie2
-  - "o kurwa co\u015B si\u0119 dzieje"
+  - "Szef Krab\xF3w: Wydajesz si\u0119 wyj\u0105tkowo przyja\u017Anie nastawiony
+    do naszej sprawy. "
+  - "Lojer: Jak\u017Ce by inaczej, szefie. "
+  - "Lojer: W ko\u0144cu, jestem takim samym krabem jak wy. "
+  - "Szef Krab\xF3w: ??? "
+  - "Szef Krab\xF3w: S\u0142ucham?! "
+  - "Lojer: No, mo\u017Ce nie takim samym\u2026 "
+  - "Lojer: Jestem bardzo szczeg\xF3lnym gatunkiem kraba. "
+  - 'Lojer: Diabolus Rogatus Siarczysty z podrodzaju adwokowatych. '
+  - "Szef Krab\xF3w: Pierwsze s\u0142ysz\u0119\u2026 "
+  - 'Lojer: Nic dziwnego. Jestem pierwszym jego przedstawicielem. '
+  - "Lojer: Ma\u0142e adwokaciki s\u0105 jeszcze przede mn\u0105. "
+  - "Szef Krab\xF3w: Rozumiem. W takim razie wiesz, \u017Ce ja tu jestem szefem WSZYSTKICH
+    krab\xF3w? "
+  - "Lojer: Oczywi\u015Bcie, szefie. "
+  - "Szef Krab\xF3w: Dobrze, rozgo\u015B\u0107 si\u0119. B\u0119dziesz moim asystentem
+    w biurze.  "
+  - "Szef Krab\xF3w: I we\u017A klucz. Kto\u015B musi przypilnowa\u0107 hodowc\u0119
+    w laboratorium. "
   evidenceToUnlock: {fileID: 11400000, guid: 6de378c21d0440b45b602702f79f8d16, type: 2}

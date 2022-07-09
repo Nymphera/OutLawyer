@@ -18,3 +18,27 @@ MonoBehaviour:
   ResultBarColor: {r: 0.49411768, g: 0.854902, b: 0.34509805, a: 1}
   ResultText: "Nawet najwi\u0119kszych mafioz\xF3w skazali za podatki."
   resultImage: {fileID: 21300000, guid: d3ecc6aa6572e714789de24ed60209dc, type: 3}
+  sentences:
+  - "Szef Krab\xF3w: Mam dosy\u0107 ju\u017C twoich wybryk\xF3w. Rzuci\u0107 go na
+    po\u017Carcie! "
+  - "Lojer: Masz licencj\u0119 na dokarmianie krab\xF3w? "
+  - "Szef Krab\xF3w: Jak\u0105 licencj\u0119? "
+  - "Lojer: No w\u0142a\u015Bnie. Pr\xF3bujesz prowadzi\u0107 interesy, a si\u0119
+    na niczym nie znasz. Akt w\u0142asno\u015Bci tego domu to czyj jest? "
+  - "Szef Krab\xF3w: \u2026 "
+  - "Szef Krab\xF3w: Patricka. "
+  - "Lojer: A p\u0142acisz swoim krabom minimaln\u0105 krajow\u0105 za us\u0142ugiwanie
+    Tobie? "
+  - "Szef Krab\xF3w: Yhh\u2026 jeszcze nie\u2026 "
+  - "Lojer: M\xF3g\u0142bym wsadzi\u0107 ci\u0119 za podatki szybciej, ni\u017C zd\u0105\u017Cysz
+    pisn\u0105\u0107 \u201CO\u015Bmiornica!\u201D. "
+  - "Lojer: A mog\u0119 te\u017C ci\u0119 z takich zarzut\xF3w wyci\u0105ga\u0107. "
+  - "Lojer: Powiedz, wolisz mie\u0107 mnie jako swojego wsp\xF3lnika, czy wroga? "
+  - "Szef Krab\xF3w: Dobra! Czego chcesz? "
+  - "Lojer: Mam tu par\u0119 spraw do za\u0142atwienia i chc\u0119 to zrobi\u0107
+    w spokoju. "
+  - "Szef Krab\xF3w: Prosz\u0119, masz tu klucz do hodowcy. Jak taki chojrak, to
+    powodzenia! "
+  - "Szef Krab\xF3w: Ciekawe, jak ci p\xF3jdzie robienie z nim interes\xF3w. "
+  - "Szef Krab\xF3w: A teraz zje\u017Cd\u017Caj st\u0105d! "
+  evidenceToUnlock: {fileID: 0}

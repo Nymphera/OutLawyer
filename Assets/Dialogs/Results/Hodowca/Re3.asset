@@ -18,3 +18,13 @@ MonoBehaviour:
   ResultBarColor: {r: 0, g: 0, b: 0, a: 0}
   ResultText: " Jestem Prawnikiem a nie jakim\u015B rybakiem! "
   resultImage: {fileID: 0}
+  sentences:
+  - "Lojer: Dobra, starczy ju\u017C! Naprawd\u0119, mam dosy\u0107 krab\xF3w na dzisiaj! "
+  - "Patrick: PATRICK JEST OBURZONY. JAK LOJER TAK MO\u017BE M\xD3WI\u0106?! "
+  - "Lojer: B\u0105d\u017Amy powa\u017Cni. Po\u015Bwi\u0119casz zdecydowanie zbyt
+    wiele uwagi tym prymitywnym stworzeniom i doprowadzi\u0142o ci\u0119 to na manowce! "
+  - "Patrick: Lojer niech uwa\u017Ca lepiej na s\u0142owa! "
+  - "Lojer: Bo inaczej co, Patrick poszczuje mnie tymi swoimi czerwonymi pryszczami?
+    Dosy\u0107 tego, czas porozmawia\u0107 o powa\u017Cnych sprawach! "
+  - "Patrick: Patrick jest w\u015Bciek\u0142y na prawnika. Patrick nie wsp\xF3\u0142pracuje. "
+  evidenceToUnlock: {fileID: 0}

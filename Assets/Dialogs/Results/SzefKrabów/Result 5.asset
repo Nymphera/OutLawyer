@@ -18,3 +18,25 @@ MonoBehaviour:
   ResultBarColor: {r: 0.7960785, g: 0.41960788, b: 0.9058824, a: 1}
   ResultText: "Ka\u017Cdy diabe\u0142 musi mie\u0107 swojego adwokata."
   resultImage: {fileID: 21300000, guid: 9160290909740ba41a788f734b0bc3d8, type: 3}
+  sentences:
+  - "Szef Krab\xF3w: Dobrze, prawniku. Mo\u017Cemy porozmawia\u0107 jak r\xF3wny
+    z r\xF3wnym. "
+  - "Lojer: C\xF3\u017C, chwil\u0119 to zaj\u0119\u0142o. "
+  - "Lojer: Ale my\u015Bl\u0119, \u017Ce z pewno\u015Bci\u0105 przyda ci si\u0119
+    dobry adwokat. "
+  - "Lojer: Mo\u017Cemy razem zrobi\u0107 wiele dobrych interes\xF3w. "
+  - "Szef Krab\xF3w: Do czego mi si\u0119 w\u0142a\u015Bciwie mo\u017Cesz przyda\u0107?
+    ele dobrych interes\xF3w. "
+  - "Lojer: Chcesz prowadzi\u0107 nielegalne biznesy, rabowa\u0107 budynki, by\u0107
+    szych\u0105. Sporo nielegalnych dzia\u0142a\u0144. "
+  - "Lojer: Lobby z\u0142odziei i oszust\xF3w ci\u0119 wyko\u0144cz\u0105, a policja
+    zwinie ci\u0119 jak nie za rozboje, to za podatki. "
+  - "Szef Krab\xF3w: Hm\u2026to mo\u017Ce utrudnia\u0107 moje aspiracje. "
+  - "Lojer: Dlatego ka\u017Cdy szanuj\u0105cy si\u0119 przest\u0119pca ma swojego
+    adwokata, kt\xF3ry stanie za nim murem. "
+  - "Lojer: Ch\u0119tnie zaoferuj\u0119 swoje us\u0142ugi, przy pomy\u015Blnej wsp\xF3\u0142pracy. "
+  - "Szef Krab\xF3w: Dobra. Czego chcesz? "
+  - "Lojer: Mam tutaj wa\u017Cn\u0105 spraw\u0119 do za\u0142atwienia z hodowc\u0105
+    krab\xF3w. "
+  - "Szef Krab\xF3w: Jasne. Siedzi na szczycie w laboratorium. Masz tu klucz, wsp\xF3lniku. "
+  evidenceToUnlock: {fileID: 0}

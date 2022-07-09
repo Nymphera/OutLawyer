@@ -26,19 +26,26 @@ public class TriggerDialog : MonoBehaviour
         {
             wasDialogPlayed = true;
             startDialog = false;
-            CameraControllerKrabiarnia.Instance.SwitchState("DialogWithKrabiarz");
-            
-            GameManager.Instance.UpdateGameState(GameState.LockInteract);
-            GameObject dialogTree = GameObject.Find("DialogTree");
-            dialogTree.GetComponent<DialogTreeCreator>().dialog = dialogToTrigger;
-            dialogTree.GetComponent<DialogTreeCreator>().CreateTree();
-
-            GameObject dialogManager = GameObject.Find("DialogManager");
-            dialogManager.GetComponent<DialogManager>().dialog = dialogToTrigger;
-            dialogManager.GetComponent<DialogManager>().StartDialog();
-            
-            
+            StartCoroutine(StartDialog());
+     
         }
         
+    }
+
+    private IEnumerator StartDialog()
+    {
+        CameraControllerKrabiarnia.Instance.SwitchState(dialogToTrigger.name);
+
+
+        GameManager.Instance.UpdateGameState(GameState.LockInteract);
+
+        yield return new WaitForSeconds(2f);
+        GameObject dialogTree = GameObject.Find("DialogTree");
+        dialogTree.GetComponent<DialogTreeCreator>().dialog = dialogToTrigger;
+        dialogTree.GetComponent<DialogTreeCreator>().CreateTree();
+
+        GameObject dialogManager = GameObject.Find("DialogManager");
+        dialogManager.GetComponent<DialogManager>().dialog = dialogToTrigger;
+        dialogManager.GetComponent<DialogManager>().StartDialog();
     }
 }

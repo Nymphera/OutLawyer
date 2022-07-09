@@ -17,7 +17,7 @@ public class DialogManager : MonoBehaviour
     
     private Transform tree;
     [SerializeField]
-    private float animationDuration=10, dialogTime = 2f, barIncrease = 0.2f;
+    private float animationDuration=10, dialogTime = 2.5f, barIncrease = 0.2f;
     int currentLevel = 0;
 
     private AudioSource audioSource;
@@ -95,9 +95,15 @@ public class DialogManager : MonoBehaviour
         dialog = null;
     }
 
-    private void Victory(Transform result)
+    private void Victory(int resultNumber)
     {
-        Debug.Log(result);
+        
+        Queue<string> sentences = new Queue<string>();
+        foreach (string sentence in dialog.results[resultNumber].sentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+        StartCoroutine(DisplaySentences(sentences,null));
     }
 
     public void StartDialog()
@@ -303,7 +309,7 @@ public class DialogManager : MonoBehaviour
         {
            if( bars[i].GetComponent<Image>().fillAmount >= 1f)
             {
-                Victory(bars[i].transform.parent);
+                Victory(i);
                 UpdateDialogState(DialogState.victory);
                 break;
             }

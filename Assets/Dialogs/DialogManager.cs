@@ -473,6 +473,12 @@ public class DialogManager : MonoBehaviour
     private void ShowResult(Result result)
     {
         Debug.Log(result.ResultText);
+        Queue<string> sentences = new Queue<string>();
+        foreach(string sentence in result.sentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+        StartCoroutine(DisplaySentences(sentences, null));
     }
 
 }

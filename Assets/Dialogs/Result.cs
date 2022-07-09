@@ -15,5 +15,6 @@ public class Result : ScriptableObject
     public Sprite resultImage;
 
     public string[] sentences;
-    
+
+    public Evidence evidenceToUnlock;
 }

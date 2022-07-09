@@ -30,6 +30,7 @@ public class DialogManager : MonoBehaviour
     private GameControls GameControls;
 
     private bool isDialogEnded=false;
+    private bool victory = false;
 
     private void Awake()
     {
@@ -69,10 +70,10 @@ public class DialogManager : MonoBehaviour
                 break;
             case DialogState.displaySentences:
                 break;
-            case DialogState.victory:
-                UpdateGameState();
+            case DialogState.victory:               
                 break;
             case DialogState.lose:
+                
                 UpdateGameState();
                 break;
             case DialogState.valuate:
@@ -93,13 +94,27 @@ public class DialogManager : MonoBehaviour
         }
         Destroy(GameObject.Find("TalkingImages"));
         dialog = null;
+        if (!victory)
+        {
+            Queue<string> sentences= new Queue<string>();
+            sentences.Enqueue("Dosyæ, koñczy mi siê cierpliwoœæ.");
+            sentences.Enqueue("Nic wiêcej ze mnie nie wyci¹gniesz");
+            StartCoroutine(resultDialog(sentences));
+        }
     }
 
     private void Victory(int resultNumber)
     {
         Debug.Log("Victory");
+        victory = true;
+        UpdateGameState();
         ResultDialog(resultNumber);
-       
+        if (dialog.results[resultNumber].evidenceToUnlock != null)
+        {
+            Debug.Log("Unlock");
+            Evidence ev = dialog.results[resultNumber].evidenceToUnlock;
+            GameEvents.current.TriggerEvidenceUnlocked(ev);
+        }
     }
     private void ResultDialog(int resultNumber)
     {
@@ -110,6 +125,7 @@ public class DialogManager : MonoBehaviour
 
         }
         StartCoroutine(resultDialog(sentences));
+        
     }
 
     private IEnumerator resultDialog(Queue<string> sentences)

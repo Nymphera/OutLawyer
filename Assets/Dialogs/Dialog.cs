@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName ="NewDialog",menuName ="Dialogs/NewDialog",order =0)]
 [System.Serializable]
@@ -13,7 +14,7 @@ public class Dialog : ScriptableObject
     public string[] introductionSentences;
     public AudioClip[] introductionClips;
     public Result[] results;
-    
+    public Sprite npcImage;
 }
 [System.Serializable]
 public class Level

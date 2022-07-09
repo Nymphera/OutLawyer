@@ -166,9 +166,12 @@ public class DialogTreeCreator : MonoBehaviour
     {
         GameObject obj=Instantiate(talkingImagesPrefab, treeParent.parent);
         obj.name = "TalkingImages";
+
         Transform tr  = obj.transform.GetChild(4).GetChild(0);
         TextMeshProUGUI tmp = tr.GetComponent<TextMeshProUGUI>();
         tmp.text = "x" + GameManager.Instance.keyCount;
+
+        obj.transform.GetChild(3).GetComponent<Image>().sprite = dialog.npcImage;
     }
     private void CreateLines()
     {

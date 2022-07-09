@@ -25,7 +25,7 @@ public class OutlineManager : MonoBehaviour
     private float displaySentencesTime=2.5f;
 
     //INVENTORY
-    public Inv inventory = new Inv();
+    
     
     private void Awake()
     {

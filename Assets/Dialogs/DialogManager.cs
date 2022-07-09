@@ -17,7 +17,7 @@ public class DialogManager : MonoBehaviour
     
     private Transform tree;
     [SerializeField]
-    private float animationDuration=10, dialogTime = 2.5f, barIncrease = 0.2f;
+    private float animationDuration=10, dialogTime = 3f, barIncrease = 0.2f;
     int currentLevel = 0;
 
     private AudioSource audioSource;
@@ -97,13 +97,31 @@ public class DialogManager : MonoBehaviour
 
     private void Victory(int resultNumber)
     {
-        
+        Debug.Log("Victory");
+        ResultDialog(resultNumber);
+       
+    }
+    private void ResultDialog(int resultNumber)
+    {
         Queue<string> sentences = new Queue<string>();
         foreach (string sentence in dialog.results[resultNumber].sentences)
         {
             sentences.Enqueue(sentence);
+
         }
-        StartCoroutine(DisplaySentences(sentences,null));
+        StartCoroutine(resultDialog(sentences));
+    }
+
+    private IEnumerator resultDialog(Queue<string> sentences)
+    {
+        TextMeshProUGUI tmp = GameObject.Find("messageText").GetComponent<TextMeshProUGUI>();
+        while (sentences.Count != 0)
+        {
+            string sentence = sentences.Dequeue();
+            tmp.text = sentence;
+            yield return new WaitForSeconds(dialogTime);
+        }
+        tmp.text = "";
     }
 
     public void StartDialog()
@@ -473,9 +491,11 @@ public class DialogManager : MonoBehaviour
     private void ShowResult(Result result)
     {
         Debug.Log(result.ResultText);
+
         Queue<string> sentences = new Queue<string>();
         foreach(string sentence in result.sentences)
         {
+            Debug.Log(sentence);
             sentences.Enqueue(sentence);
         }
         StartCoroutine(DisplaySentences(sentences, null));

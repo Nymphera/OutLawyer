@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private InventoryItem itemToPickUp = null;
-    public Inv inventory = new Inv();
+    public Inv inventory ;
 
 
 

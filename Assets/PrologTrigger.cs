@@ -14,6 +14,7 @@ public class PrologTrigger : MonoBehaviour
     [SerializeField]
     private bool playProlog=true;
     private bool isDialogEnded=false;
+    private int countSentences=0;
     // Start is called before the first frame update
     private void OnMouseDown()
     {
@@ -51,10 +52,16 @@ public class PrologTrigger : MonoBehaviour
             queue.Enqueue(sentence);
         }
         while(queue.Count > 0&&playProlog)
-        {
+        { 
+            countSentences++;
             tmp.text += "\n"+queue.Dequeue();
             tmp.text+="\n";
             yield return new WaitForSeconds(3f);
+            if (countSentences > 9)
+            {
+                tmp.text = "";
+                countSentences = 0;
+            }
         }
         isDialogEnded = true;
     }

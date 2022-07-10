@@ -7,14 +7,14 @@ public class PauseController : MonoBehaviour
 {
     public static PauseController Instance;
     GameControls gameControls;
-    GameObject pausePanel;
+    [SerializeField]
+    private GameObject pausePanel;
     private bool panelState;
     private void Awake()
     {
         gameControls = new GameControls();
         gameControls.Game.GoBack.performed += GoBack_performed;
-        pausePanel = transform.GetChild(0).gameObject;
-        pausePanel.SetActive(false);
+
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -25,7 +25,10 @@ public class PauseController : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        
+
+
+        pausePanel = transform.GetChild(0).gameObject;
+        pausePanel.SetActive(false);
     }
 
     private void OnEnable()
@@ -39,6 +42,7 @@ public class PauseController : MonoBehaviour
 
     private void GoBack_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
+        
         if (GameManager.Instance.CurrentState == GameState.Move || GameManager.Instance.CurrentState == GameState.Office)
         {
             
@@ -47,20 +51,20 @@ public class PauseController : MonoBehaviour
                 GoBackToGame();
             }
             else
-            {
-                StartCoroutine(ShowPanel());              
+            {                
+              StartCoroutine ( ShowPanel());              
             }       
         }
         if(pausePanel.activeSelf&& GameManager.Instance.CurrentState == GameState.LockInteract)
         {
-            GoBackToGame();
+             GoBackToGame();
+            Debug.Log("go back2");
         }
     }
     private IEnumerator ShowPanel()
-    { 
-            pausePanel.SetActive(true);            
-            GameManager.Instance.UpdateGameState(GameState.LockInteract);
+    {    
         yield return null;
+        pausePanel.SetActive(true);
     }
   
     

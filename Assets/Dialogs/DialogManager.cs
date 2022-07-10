@@ -18,6 +18,7 @@ public class DialogManager : MonoBehaviour
     private Transform tree;
     [SerializeField]
     private float animationDuration=10, dialogTime = 3f, barIncrease = 0.2f;
+    [SerializeField]
     int currentLevel = 0;
 
     private AudioSource audioSource;
@@ -155,7 +156,7 @@ public class DialogManager : MonoBehaviour
         
 
         ClearResultsBars();
-
+        currentLevel = 0; 
 
         StartCoroutine(PlayIntroduction());
     }

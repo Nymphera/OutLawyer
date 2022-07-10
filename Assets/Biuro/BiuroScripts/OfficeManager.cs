@@ -35,8 +35,8 @@ public class OfficeManager : MonoBehaviour
         
        
         pinBoardLogic = PinBoard.GetComponent<PinBoardManager>();
-        
-        
+
+        GameManager.OnGameStateChanged += PlaySoundtrack;
         CinemachineSwitcher.OnOfficeStateChanged += CinemachineSwitcher_OnOfficeStateChanged;
         gameControls.Game.MouseLeftClick.performed += MouseLeftClick_performed;
         gameControls.Game.GoBack.performed += LeavePinBoard_performed;
@@ -44,6 +44,17 @@ public class OfficeManager : MonoBehaviour
         
 
     }
+
+    private void PlaySoundtrack(GameState state)
+    {
+        if (state == GameState.Office)
+        {
+            AudioSource source = transform.GetComponent<AudioSource>();
+                if(!source.isPlaying)
+            source.Play();
+        }
+    }
+
     private void OnDestroy()
     {
         CinemachineSwitcher.OnOfficeStateChanged -= CinemachineSwitcher_OnOfficeStateChanged;

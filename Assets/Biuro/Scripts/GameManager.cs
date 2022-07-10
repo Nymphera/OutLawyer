@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         GameEvents.current.onBurnLines += OnnBurnLines;
         GameEvents.current.onLineCreated += OnLineCreated;
         GameEvents.current.onEvidneceUnlocked += UnlockEvidence;
-        UpdateGameState(GameState.Office);
+        UpdateGameState(GameState.Prolog);
     }
 
    
@@ -177,12 +177,12 @@ public class GameManager : MonoBehaviour
                     mouse.SetActive(false);
                 }
                 break;
-            case GameState.CutScene:
+            case GameState.Prolog:
                 {
                     isMoveEnabled = false;
                     isInteractEnabled = false;
                     isPauseEnabled = false;
-                    Cursor.visible = false;
+                    Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                 }
                 break;          
@@ -198,5 +198,5 @@ public class GameManager : MonoBehaviour
        LockInteract,    
        Dialog,      
         Office,       
-        CutScene
+        Prolog
     }

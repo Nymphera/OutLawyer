@@ -8,6 +8,7 @@ public class TriggerKrabiarnia : MonoBehaviour
 {
     private void OnMouseDown()
     {
+        if(GameManager.Instance.CurrentState==GameState.Office)
         LoadKrabiarnia();
     }
     public async void LoadKrabiarnia()

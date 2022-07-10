@@ -65,6 +65,7 @@ public class PauseController : MonoBehaviour
     {    
         yield return null;
         pausePanel.SetActive(true);
+        GameManager.Instance.UpdateGameState(GameState.LockInteract);
     }
   
     

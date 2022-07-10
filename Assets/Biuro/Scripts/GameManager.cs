@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private List<Evidence> unlockedEvidences= new List<Evidence>();
 
     [SerializeField]
-    private GameObject notatnik, mouseText,mouse;
+    private GameObject notatnik,mouse;
     private void Awake()
     {
         
@@ -123,19 +123,22 @@ public class GameManager : MonoBehaviour
 
     public void UpdateGameState(GameState newState)
     {
+       
         CurrentState = newState;
         OnGameStateChanged?.Invoke(newState);
         switch (newState)
         {
             case GameState.Office:
                 {
+                    Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                     isMoveEnabled = false;
                     isInteractEnabled = true;
                     isLookEnabled = false;
+                    isPauseEnabled = true;
                     mouse.SetActive(false);
                     notatnik.SetActive(false);
-                    mouseText.SetActive(false);
+                   
                 }
                 break;
             case GameState.Move:
@@ -143,8 +146,9 @@ public class GameManager : MonoBehaviour
                     isLookEnabled = true;
                     isMoveEnabled = true;
                     isInteractEnabled = true;
+                    isPauseEnabled = true;
                     Cursor.lockState = CursorLockMode.Locked;
-                    mouseText.SetActive(true);
+                    
                     notatnik.SetActive(true);
                     mouse.SetActive(true);
                 }
@@ -156,7 +160,7 @@ public class GameManager : MonoBehaviour
                     isLookEnabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
-                    mouseText.SetActive(false);
+                   
                     notatnik.SetActive(false);
                     mouse.SetActive(false);
                 }
@@ -168,7 +172,7 @@ public class GameManager : MonoBehaviour
                     isLookEnabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
-                    mouseText.SetActive(false);
+                   
                     notatnik.SetActive(false);
                     mouse.SetActive(false);
                 }

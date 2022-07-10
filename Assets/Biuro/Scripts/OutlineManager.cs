@@ -37,7 +37,7 @@ public class OutlineManager : MonoBehaviour
         gameControls.Game.MousePosition.performed += MousePosition_performed;
         gameControls.Game.MouseLeftClick.performed += MouseLeftClick_performed;
         mouseMove = gameControls.Game.MousePosition;
-      
+        
     }  
 
     private void OnEnable()
@@ -89,7 +89,11 @@ public class OutlineManager : MonoBehaviour
                     EnableOutline(selectedObj);
                     
                     outlineObject = selectedObj;
-                    ShowInteractText();
+                    if (currentState == GameState.Move)
+                    {
+                        ShowInteractText();
+                    }
+                    
                 }
             }
         }
@@ -148,7 +152,8 @@ public class OutlineManager : MonoBehaviour
 
     private void ShowInteractText()
     {
-        if (helpText != null)
+        
+        if (helpText != null && currentState == GameState.Move) ;
         {
             TextMeshProUGUI tmp = helpText.GetComponent<TextMeshProUGUI>();
             if (outlineObject.GetComponent<InventoryItem>() !=null)

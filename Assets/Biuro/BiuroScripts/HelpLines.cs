@@ -66,7 +66,7 @@ public class HelpLines : MonoBehaviour
     }
     private void Start()
     {
-       // ShowEvidences();
+        ShowEvidences();
 
        // Create_HelpLines();
 

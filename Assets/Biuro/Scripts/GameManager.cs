@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         GameEvents.current.onBurnLines += OnnBurnLines;
         GameEvents.current.onLineCreated += OnLineCreated;
         GameEvents.current.onEvidneceUnlocked += UnlockEvidence;
-        UpdateGameState(GameState.Prolog);
+        UpdateGameState(GameState.Office);
     }
 
    
@@ -130,15 +130,18 @@ public class GameManager : MonoBehaviour
         {
             case GameState.Office:
                 {
-                    Cursor.visible = true;
-                    Cursor.lockState = CursorLockMode.None;
-                    isMoveEnabled = false;
+                    Debug.Log("Office");
                     isInteractEnabled = true;
-                    isLookEnabled = false;
                     isPauseEnabled = true;
+                   // isMoveEnabled = false;
+                   
+                   // isLookEnabled = false;
+                    
                     mouse.SetActive(false);
                     notatnik.SetActive(false);
-                   
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+
                 }
                 break;
             case GameState.Move:
@@ -160,7 +163,9 @@ public class GameManager : MonoBehaviour
                     isLookEnabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
-                   
+
+                    mouse.SetActive(false);
+                    notatnik.SetActive(false);
                     //notatnik.SetActive(false);
                     //mouse.SetActive(false);
                 }
@@ -168,7 +173,7 @@ public class GameManager : MonoBehaviour
             case GameState.LockInteract:
                 {
                     isMoveEnabled = false;
-                    isInteractEnabled = false;
+                    //isInteractEnabled = false;
                     isLookEnabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;

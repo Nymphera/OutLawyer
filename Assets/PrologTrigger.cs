@@ -16,13 +16,26 @@ public class PrologTrigger : MonoBehaviour
     private bool isDialogEnded=false;
     private int countSentences=0;
     // Start is called before the first frame update
+    private void Start()
+    {
+        if(GameManager.Instance.CurrentState == GameState.Prolog)
+        {
+            transform.GetComponent<AudioSource>().Play();
+            transform.GetComponent<Outline>().OutlineWidth = 5;
+        }
+    }
     private void OnMouseDown()
     {
-        if (!isDialogEnded)
+        if (GameManager.Instance.CurrentState==GameState.Prolog)
         {
             transform.GetComponent<AudioSource>().Stop();
             transform.GetComponent<Outline>().OutlineWidth = 0;
             StartCoroutine(Prolog());
+        }   
+        else
+        {
+            transform.GetComponent<AudioSource>().Stop();
+            GameManager.Instance.UpdateGameState(GameState.Office);
         }
        
     }
@@ -41,6 +54,8 @@ public class PrologTrigger : MonoBehaviour
             GameEvents.current.TriggerEvidenceUnlocked(evidence);
         }
         GameManager.Instance.UpdateGameState(GameState.Office);
+        Destroy(GetComponent<Outline>());
+        Destroy(this);
     }
 
     private IEnumerator DisplaySenstences(string[] sentences)

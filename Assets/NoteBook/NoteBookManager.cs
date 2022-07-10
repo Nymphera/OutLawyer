@@ -11,6 +11,7 @@ public class NoteBookManager : MonoBehaviour
     private TextMeshProUGUI tmp;
     private Vector3 closePosition, openPosition;
     private bool isOpen = false;
+    private int firstTime = 0;
     private void Awake()
     {
         gameControls = new GameControls();
@@ -25,8 +26,9 @@ public class NoteBookManager : MonoBehaviour
         alert = transform.GetChild(0).gameObject;
         alert.SetActive(false);
         closePosition = transform.GetComponent<RectTransform>().anchoredPosition;
-        openPosition = new Vector3(closePosition.x, closePosition.y + 200, closePosition.z);
+        openPosition = new Vector3(closePosition.x, closePosition.y + 400, closePosition.z);
         tmp = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        tmp.text = "";
     }
     private void OnEnable()
     {
@@ -67,8 +69,22 @@ public class NoteBookManager : MonoBehaviour
     {
         Debug.Log(evidence);
         alert.SetActive(true);
-        tmp.text += "\n" +"Odblokowano dowód: "+evidence.Name;
+        int length = GameManager.Instance.GetUnlockedEvidences().Length;
+        if (firstTime == 7)
+        {
+            tmp.text = "Wczeœniej odblokowane dowody: " + (length);
 
+        }
+        if (firstTime == 12)
+        {
+            tmp.text = "Wczeœniej odblokowane dowody: " + (length);
+        }
+        if (firstTime == 16)
+        {
+            tmp.text = "Wczeœniej odblokowane dowody: " + (length);
+        }
+        tmp.text += "\n" +"Odblokowano dowód: "+evidence.Name;
+        firstTime++;
     }
     private IEnumerator MoveUp(Vector2 minPosition, Vector2 maxPosition)
     {

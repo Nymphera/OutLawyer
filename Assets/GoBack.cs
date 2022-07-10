@@ -27,8 +27,10 @@ public class GoBack : MonoBehaviour
     }
     public void goBackToOffice()
     {
-        GameManager.Instance.UpdateGameState(GameState.Office);
-        SceneManager.LoadScene("Biuro");
+        Debug.Log("Tak");
         
+        SceneManager.LoadScene("Biuro");
+        GameManager.Instance.UpdateGameState(GameState.Office);
+        Debug.Log("Nie");
     }
 }

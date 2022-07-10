@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.07784632, g: 0.11597428, b: 0.16366895, a: 1}
+  m_IndirectSpecularColor: {r: 0.07784747, g: 0.11597474, b: 0.16366902, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -464,7 +464,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2102,7 +2102,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5145,7 +5145,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5161,7 +5161,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879535897}
-  m_LocalRotation: {x: 0.0000000045626556, y: 0.96420103, z: -0.26517242, w: 0.0000000165904}
+  m_LocalRotation: {x: -0.0000000045626614, y: 0.96420103, z: -0.26517245, w: -0.000000016590421}
   m_LocalPosition: {x: -1.3576, y: 1.6323853, z: 1.3825437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -38043,7 +38043,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -38474,7 +38474,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145575658}
-  m_LocalRotation: {x: 0.0000000014447209, y: 0.9857992, z: -0.16792852, w: 0.000000008481018}
+  m_LocalRotation: {x: -0.000000001444721, y: 0.9857992, z: -0.16792853, w: -0.000000008481018}
   m_LocalPosition: {x: -1.2238271, y: 0.940531, z: -0.25924444}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -38511,7 +38511,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -39226,9 +39226,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - Zdanie peirwsze
-  - zdanie drugie
-  - "Teraz powinno by\u0107 wygodniej"
+  - "Lojer: No to co, pierwszy dzie\u0144 kiedy wr\xF3ci\u0142o mi prawo do wykonywania
+    zawodu."
+  - "Lojer: I ju\u017C telefon. Wierni klienci czekali."
+  - "Lojer: Kancelaria \"Diabe\u0142 - Adwokat Diab\u0142\xF3w\". Z tej strony Lojer
+    Outlawyer. W czym mog\u0119 s\u0142u\u017Cy\u0107?"
+  - "???: POTRZEBUJ\u0118 POMOCY!"
+  - "Lojer: uch, moje ucho... Przepraszam, czy m\xF3g\u0142by si\u0119 Pan przedstawi\u0107?"
+  - "???: ROBB BANKS. PRZEPRASZAM, NIE MOG\u0118 TERAZ ROZMAWIA\u0106!"
+  - 'Lojer: Ale to Pan dzwoni.'
+  - "Robb Banks: TAK WIEM ALE GONI\u0104 MNIE PIEKIELNE OGARY!"
+  - "Lojer: Panie Banks, zdaje pan sobie spraw\u0119, \u017Ce dodzwoni\u0142 si\u0119
+    Pan do kancelarii prawnej?"
+  - "Robb Banks: Tak, dok\u0142adnie prawa teraz potrzebuj\u0119! Uff, uciek\u0142em!"
+  - "Lojer: Gratuluj\u0119..."
+  - "Robb Banks: A dzi\u0119kuj\u0119, dzi\u0119kuj\u0119! Ja do panie, Panie Fojer
+    dzwoni\u0119 w takiej sprawie..."
+  - "Lojer: L-O-J-E-R. \u015AMIERTELNIKU. Ekhm, to znaczy - Lojer."
+  - "Robb Banks: Przepraszam, Panie Lojer. Dzwoni\u0119 z polecenia przez mojego
+    przyjaciela."
+  - "Robb Banks: Ot\xF3\u017C jestem specjalist\u0105 ds. rozboj\xF3w w Gildii Z\u0142odziei.
+    Wydarzy\u0142a si\u0119 pewna delikatna sprawa..."
+  - "Lojer: Ju\u017C notuj\u0119."
+  - "Robb Banks: Okrad\u0142em kilka dni temu okolicznego hodowc\u0119 krab\xF3w.
+    Przechwyci\u0142em od niego prawdziwy Skarb."
+  - "Robb Banks: Niestety, podczas kradzie\u017Cy zapomnia\u0142em wystawi\u0107
+    po\u015Bwiadczenia o tym \u017Ce dokona\u0142em rabunku."
+  - 'Lojer: Oho...'
+  - "Lojer: Niech zgadn\u0119, \u015Bciga Pana urz\u0105d skarbowy?"
+  - "Robb Banks: Urz\u0105d skarbowy to najmniejszy problem. Ubezpieczalnia od kradzie\u017Cy
+    wys\u0142a\u0142a na mnie skrytob\xF3jc\xF3w!"
+  - "Robb Banks: A na dodatek, nie mog\u0142em legalnie otrzyma\u0107 zap\u0142aty
+    przy oddaniu skradzionego towaru."
+  - "Robb Banks: Nie mam nawet czym zap\u0142aci\u0107 adwokatowi."
+  - 'Lojer: Czyli ten "przyjaciel z polecenia" to przyznanie mnie z urzedu, prawda?'
+  - "Robb Banks: Uff, jak dobrze, \u017Ce si\u0119 rozumiemy."
+  - "Robb Banks: Pomo\u017Ce mi Pan?"
+  - "Lojer: Oczywi\u015Bcie, w ko\u0144cu jest Pan moim klientem. Jest tylko ma\u0142y
+    problem."
+  - "Lojer: Musz\u0119 w tej sprawie przej\u015B\u0107 si\u0119 do tego krabiarza
+    i wybada\u0107 temat."
+  - "Lojer: Niestety nie mog\u0119 opu\u015Bci\u0107 biura przez pewn\u0105...opask\u0119."
+  - "Robb Banks: Zdj\u0105\u0107 j\u0105 Panu?"
+  - "Lojer: Nie nie, dzi\u0119kuj\u0119. To by by\u0142o tylko wi\u0119cej k\u0142opot\xF3w."
+  - "Lojer: U\u017Cyj\u0119 mojego zakl\u0119tego globusu i wy\u015Bl\u0119 swoj\u0105
+    projekcj\u0119."
+  - "Lojer: Tylko, cholera... Dawno nie u\u017Cywa\u0142em tego zakl\u0119cia."
+  - "Lojer: Obrazy kt\xF3re b\u0119d\u0119 widzia\u0142, mog\u0105 by\u0107 troch\u0119
+    zniekszta\u0142cone."
+  - "Lojer: Mam nadziej\u0119 \u017Ce nie b\u0119d\u0119 widzia\u0142 tego czerwonego
+    gluta z reklamy wsz\u0119dzie dooko\u0142a."
+  - "Robb Banks: Dzi\u0119kuj\u0119. Chcia\u0142em jeszcze doda\u0107 \u017Ce...
+    AAAAA!"
+  - 'Lojer: Panie Banks?'
+  - "*URWANY D\u0179WI\u0118K TELEFONU*"
+  - "No, to du\u017Co si\u0119 o sprawie nie dowiedzia\u0142em..."
+  evidences: []
   playProlog: 1
 --- !u!4 &4049908501016596470
 Transform:

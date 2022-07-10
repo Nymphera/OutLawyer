@@ -37,8 +37,8 @@ public class HelpLines : MonoBehaviour
     private void Awake()
     {
      Instance = this;
-       
-       
+
+        GameManager.OnGameStateChanged += OfficeStarted;
         PinBoardManager.OnLineCreated += OnLineCreated;
         PinBoardManager.OnLineDeleted += OnLineDeleted;
         
@@ -53,6 +53,9 @@ public class HelpLines : MonoBehaviour
         blueText = BlueButton.transform.GetChild(0).GetComponent<Text>();
         yellowText = YellowButton.transform.GetChild(0).GetComponent<Text>();
     }
+
+   
+
     private void OnDestroy()
     {
         
@@ -63,13 +66,20 @@ public class HelpLines : MonoBehaviour
     }
     private void Start()
     {
-        ShowEvidences();
+       // ShowEvidences();
 
        // Create_HelpLines();
 
        
 
 
+    }
+    private void OfficeStarted(GameState obj)
+    {
+        if (obj == GameState.Office)
+        {
+            ShowEvidences();
+        }
     }
 
     private void ShowEvidences()

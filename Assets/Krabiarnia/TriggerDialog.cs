@@ -24,22 +24,24 @@ public class TriggerDialog : MonoBehaviour
         
         if (startDialog&&!wasDialogPlayed)
         {
-            wasDialogPlayed = true;
+           
             startDialog = false;
             StartCoroutine(StartDialog());
-     
+            wasDialogPlayed = true;
         }
         
     }
 
     private IEnumerator StartDialog()
     {
+        Debug.Log("before");
         CameraControllerKrabiarnia.Instance.SwitchState(dialogToTrigger.name);
 
+        //GameManager.Instance.UpdateGameState(GameState.LockInteract);
 
-        GameManager.Instance.UpdateGameState(GameState.LockInteract);
-
+       
         yield return new WaitForSeconds(2f);
+        Debug.Log("after");
         GameObject dialogTree = GameObject.Find("DialogTree");
         dialogTree.GetComponent<DialogTreeCreator>().dialog = dialogToTrigger;
         dialogTree.GetComponent<DialogTreeCreator>().CreateTree();
@@ -47,5 +49,7 @@ public class TriggerDialog : MonoBehaviour
         GameObject dialogManager = GameObject.Find("DialogManager");
         dialogManager.GetComponent<DialogManager>().dialog = dialogToTrigger;
         dialogManager.GetComponent<DialogManager>().StartDialog();
+
+        
     }
 }

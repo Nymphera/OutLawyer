@@ -26,7 +26,7 @@ public class NoteBookManager : MonoBehaviour
         alert = transform.GetChild(0).gameObject;
         alert.SetActive(false);
         closePosition = transform.GetComponent<RectTransform>().anchoredPosition;
-        openPosition = new Vector3(closePosition.x, closePosition.y + 400, closePosition.z);
+        openPosition = new Vector3(closePosition.x, closePosition.y + 200, closePosition.z);
         tmp = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         tmp.text = "";
     }

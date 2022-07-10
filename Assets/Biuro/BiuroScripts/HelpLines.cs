@@ -31,8 +31,8 @@ public class HelpLines : MonoBehaviour
     [SerializeField]
     private GameObject linePrefab;
     public HelpLines Instance;
-    
-    
+
+    private bool isItFirstTime = true;
     
     private void Awake()
     {
@@ -58,8 +58,8 @@ public class HelpLines : MonoBehaviour
 
     private void OnDestroy()
     {
-        
-        
+
+        GameManager.OnGameStateChanged -= OfficeStarted;
         PinBoardManager.OnLineCreated -= OnLineCreated;
         PinBoardManager.OnLineDeleted -= OnLineDeleted;
         
@@ -78,13 +78,14 @@ public class HelpLines : MonoBehaviour
     {
         if (obj == GameState.Office)
         {
+          
             ShowEvidences();
         }
     }
 
     private void ShowEvidences()
     {
-        
+        isItFirstTime = false;
         
         Evidence[] unlockedEV  = GameManager.Instance.GetUnlockedEvidences();
         foreach(Evidence evidence in unlockedEV)

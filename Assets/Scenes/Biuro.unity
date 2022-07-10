@@ -464,7 +464,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2102,7 +2102,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5145,7 +5145,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5161,7 +5161,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879535897}
-  m_LocalRotation: {x: -0.0000000045626614, y: 0.96420103, z: -0.26517245, w: -0.000000016590421}
+  m_LocalRotation: {x: 0.0000000045626556, y: 0.96420103, z: -0.26517242, w: 0.0000000165904}
   m_LocalPosition: {x: -1.3576, y: 1.6323853, z: 1.3825437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -38043,7 +38043,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -38511,7 +38511,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -39281,7 +39281,14 @@ MonoBehaviour:
   - 'Lojer: Panie Banks?'
   - "*URWANY D\u0179WI\u0118K TELEFONU*"
   - "No, to du\u017Co si\u0119 o sprawie nie dowiedzia\u0142em..."
-  evidences: []
+  evidences:
+  - {fileID: 11400000, guid: 22d820f08a219f5429cdd265ce42ca43, type: 2}
+  - {fileID: 11400000, guid: c7bc2e4253c905248bc81887a60559a4, type: 2}
+  - {fileID: 11400000, guid: 5b388a1d38feb2e43aab0aa49525f16c, type: 2}
+  - {fileID: 11400000, guid: 918345b74bd390940b301e659d30b364, type: 2}
+  - {fileID: 11400000, guid: 615b166ceedb57e4aaf14b65bef0e65a, type: 2}
+  - {fileID: 11400000, guid: 1d3f36e34a97bc44b8dcef275e5c2ad8, type: 2}
+  - {fileID: 11400000, guid: bfb5b1fa548aa5341bed0b64b786d7f1, type: 2}
   playProlog: 1
 --- !u!4 &4049908501016596470
 Transform:

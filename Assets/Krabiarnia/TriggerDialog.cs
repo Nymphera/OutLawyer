@@ -37,7 +37,7 @@ public class TriggerDialog : MonoBehaviour
         CameraControllerKrabiarnia.Instance.SwitchState(dialogToTrigger.name);
 
 
-        GameManager.Instance.UpdateGameState(GameState.LockInteract);
+       // GameManager.Instance.UpdateGameState(GameState.LockInteract);
 
         yield return new WaitForSeconds(2f);
         GameObject dialogTree = GameObject.Find("DialogTree");

@@ -6,6 +6,7 @@ public class CameraControllerKrabiarnia : MonoBehaviour
 {
     Animator animator;
     public static CameraControllerKrabiarnia Instance;
+    [SerializeField]
     GameObject mouse;
     private void Awake()
     {
@@ -23,24 +24,24 @@ public class CameraControllerKrabiarnia : MonoBehaviour
         else if (animationName == "Negotiations")
         {
             animator.Play(animationName);
-            GameManager.Instance.UpdateGameState(GameState.Interact);
+            GameManager.Instance.UpdateGameState(GameState.LockInteract);
         }
         else if (animationName == "DialogWithKrabiarz")
         {
             animator.Play(animationName);
-            GameManager.Instance.UpdateGameState(GameState.Interact);
+            GameManager.Instance.UpdateGameState(GameState.LockInteract);
         }
         else if (animationName == "DialogWithAldhest")
         {
             animator.Play(animationName);
-            GameManager.Instance.UpdateGameState(GameState.Interact);
+            GameManager.Instance.UpdateGameState(GameState.LockInteract);
         }
         else if (animationName == "DialogWithHodowca")
         {
             animator.Play(animationName);
-            GameManager.Instance.UpdateGameState(GameState.Interact);
+            GameManager.Instance.UpdateGameState(GameState.LockInteract);
         }
 
-        mouse.SetActive(GameManager.Instance.CurrentState != GameState.Interact);
+       // mouse.SetActive(GameManager.Instance.CurrentState != GameState.Interact);
     }
 }

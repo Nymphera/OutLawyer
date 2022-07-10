@@ -161,8 +161,8 @@ public class GameManager : MonoBehaviour
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                    
-                    notatnik.SetActive(false);
-                    mouse.SetActive(false);
+                  //  notatnik.SetActive(false);
+                  //  mouse.SetActive(false);
                 }
                 break;
             case GameState.LockInteract:

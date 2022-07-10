@@ -8054,6 +8054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d334c6d18dc33d43ba8da4be01ea6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouse: {fileID: 0}
 --- !u!1001 &349669259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14281,7 +14282,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567300753}
-  m_LocalRotation: {x: -0.002793363, y: 0.9707978, z: -0.011317236, w: -0.23961596}
+  m_LocalRotation: {x: -0.002793369, y: 0.9707978, z: -0.011317261, w: -0.23961599}
   m_LocalPosition: {x: -12.1380005, y: 11.262, z: -53.06276}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -40409,6 +40410,10 @@ PrefabInstance:
     - target: {fileID: 4810702337611264817, guid: 75ff33dfa3e4fea40be66c80e130d0ac, type: 3}
       propertyPath: m_SizeDelta.x
       value: 1920.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4810702337611264817, guid: 75ff33dfa3e4fea40be66c80e130d0ac, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4810702337611264818, guid: 75ff33dfa3e4fea40be66c80e130d0ac, type: 3}
       propertyPath: m_Color.a

@@ -17,9 +17,10 @@ MonoBehaviour:
   earlierCrossPoint: {fileID: 11400000, guid: 7949153df1e8d4e49b2993a7cb104b90, type: 2}
   strategy: 0
   sentences:
-  - "Lojer: A wi\u0119c sk\u0105d Ty si\u0119 tu wzi\u0105\u0142e\u015B? Nie mog\u0142e\u015B
-    zej\u015B\u0107 po drabinie, nie s\u0105dze \u017Ce dom dalej by sta\u0142 jakby\u015B
-    si\u0119 tu podkopa\u0142. Wi\u0119c jak to by\u0142o?\r\n"
+  - "Lojer: A wi\u0119c sk\u0105d Ty si\u0119 tu wzi\u0105\u0142e\u015B?\n"
+  - "Lojer: Nie mog\u0142e\u015B zej\u015B\u0107 po drabinie, nie s\u0105dze \u017Ce
+    dom dalej by sta\u0142 jakby\u015B si\u0119 tu podkopa\u0142."
+  - "Lojer: Wi\u0119c jak to by\u0142o?\r"
   - "Aldhest: Czy to nie oczywiste? By\u0142em tu gdy zacz\u0119li budowa\u0107 ten
     dom.\r\n"
   - "Lojer: Przepraszam je\u015Bli to niegrzeczne ale czy m\xF3g\u0142bym spyta\u0107
@@ -27,7 +28,8 @@ MonoBehaviour:
   - "Aldhest: Niewiele mniej ni\u017C ta planeta. Nie udawaj zdziwionego. M\xF3wi\u0142em
     \u017Ce jestem boskim bytem.\r\n"
   - "Lojer: Ten budynek wygl\u0105da na do\u015B\u0107 stary, dziesi\u0105tki lat
-    sp\u0119dzonych w piwnicy\u2026 Jakim cudem nie dopad\u0142o Ci\u0119 szale\u0144stwo?\r\n"
+    sp\u0119dzonych w piwnicy\u2026\n"
+  - "Lojer: Jakim cudem nie dopad\u0142o Ci\u0119 szale\u0144stwo?\r"
   - "Aldhest: Do\u015B\u0107 o tym, tracimy czas."
   audioClips: []
   cost: 0

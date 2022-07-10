@@ -19,14 +19,15 @@ MonoBehaviour:
   sentences:
   - "Lojer: Wie Pan po co komu\u015B Pana krab?\r\n"
   - "Patrick: Oczywi\u015Bcie \u017Ce wiem! Ci barbarzy\u0144cy z tego klubu dla
-    bladych proponowali kupno krab\xF3w Patricka wiele razy. Chc\u0105 sprzedawa\u0107
-    je jako przystawki! Patrick przep\u0119dzi\u0142 ich wi\u0119c i kaza\u0142 nie
-    wraca\u0107.\r\n"
+    bladych proponowali kupno krab\xF3w Patricka wiele razy. \n"
+  - "Patrick: Chc\u0105 sprzedawa\u0107 je jako przystawki! Patrick przep\u0119dzi\u0142
+    ich wi\u0119c i kaza\u0142 nie wraca\u0107.\r"
   - "Lojer: W\u0142a\u015Bciciel bardzo dobrze prosperuj\u0105cej restauracji wynaj\u0105\u0142
     kogo\u015B aby w\u0142ama\u0142 si\u0119 po 1 kraba? Ci\u0119\u017Cko mi w to
     uwierzy\u0107.\r\n"
   - "Patrick: Patricka nie obchodzi czy Pan wierzy czy nie, Patrick wie \u017Ce chcieli
-    wzi\u0105\u0107 wi\u0119cej, jednak nie spodziewali si\u0119 \u017Ce kraby Patricka
-    znaj\u0105 krabate. Patrick przeklina ich ca\u0142\u0105 Patricka egzystencj\u0105!\r\n"
+    wzi\u0105\u0107 wi\u0119cej.\n"
+  - "Patrick: Jednak nie spodziewali si\u0119 \u017Ce kraby Patricka znaj\u0105 krabate.
+    Patrick przeklina ich ca\u0142\u0105 Patricka egzystencj\u0105!\r"
   audioClips: []
   cost: 0

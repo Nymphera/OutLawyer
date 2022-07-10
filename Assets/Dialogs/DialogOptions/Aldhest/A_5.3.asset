@@ -19,17 +19,20 @@ MonoBehaviour:
   sentences:
   - "Lojer: S\u0142ysza\u0142 Pan mo\u017Ce jakie\u015B podejrzane odg\u0142osy z
     g\xF3ry? Jaka\u015B szarpanina albo krzyki?\r\n"
-  - "Aldhest: Tutejsze kraby ucz\u0105 si\u0119 krabate od najm\u0142odszych lat,
-    s\u0142ysze odg\u0142osy walki w ka\u017Cdy wtorek i pi\u0105tek. Urz\u0105dzane
-    s\u0105 te\u017C sparingi w praktycznie ka\u017Cdy dzie\u0144 tygodnia. To prawda
-    \u017Ce s\u0142ysza\u0142em walk\u0119 ale pomy\u015Bla\u0142em \u017Ce to nic
-    podejrzanego.\r\n"
+  - "Aldhest: Tutejsze kraby ucz\u0105 si\u0119 krabate od najm\u0142odszych lat."
+  - "Aldhest: S\u0142ysze odg\u0142osy walki w ka\u017Cdy wtorek i pi\u0105tek."
+  - "Aldhest: Urz\u0105dzane s\u0105 te\u017C sparingi w praktycznie ka\u017Cdy dzie\u0144
+    tygodnia. "
+  - "Aldhest: To prawda \u017Ce s\u0142ysza\u0142em walk\u0119 ale pomy\u015Bla\u0142em
+    \u017Ce to nic podejrzanego."
   - "Lojer: A wi\u0119c Skarb te\u017C \u0107wiczy\u0142a?\r\n"
   - "Aldhest: Tak\u2026 Nie tylko \u0107wiczy\u0142a ale mia\u0142a czarny pas!\r\n"
   - "Lojer: Przepraszam za moj\u0105 niewiedz\u0119 ale czy kto\u015B znaj\u0105cy
     krabate da\u0142by si\u0119 uprowadzi\u0107?\r\n"
-  - "Aldhest: Absolutnie nie, pierwsze czego uczy krabate jest obrona przed atakami
-    z zaskoczenia. Niemo\u017Cliwe aby jaki\u015B przeci\u0119tny rabu\u015B j\u0105
-    zaskoczy\u0142.\r\n"
+  - 'Aldhest: Absolutnie nie, pierwsze czego uczy krabate jest obrona przed atakami
+    z zaskoczenia.
+
+'
+  - "Aldhest: Niemo\u017Cliwe aby jaki\u015B przeci\u0119tny rabu\u015B j\u0105 zaskoczy\u0142.\r\n"
   audioClips: []
   cost: 0

@@ -24,8 +24,8 @@ MonoBehaviour:
   - "Lojer: Rozumiem. Niezbyt imponuj\u0105ce, to zupe\u0142nie tak jakby nikt nie
     chcia\u0142 Ci s\u0142u\u017Cy\u0107 z w\u0142asnej woli.\r\n"
   - "Aldhest: Jeszcze jedno s\u0142owo i-\r\n"
-  - "Lojer: I co? Zawo\u0142asz tego starca \u017Ceby si\u0119 mn\u0105 zaj\u0105\u0142?
-    Zrozum w ko\u0144cu \u017Ce nie jeste\u015B w stanie mnie przestraszy\u0107,
+  - "Lojer: I co? Zawo\u0142asz tego starca \u017Ceby si\u0119 mn\u0105 zaj\u0105\u0142?\n"
+  - "Lojer: Zrozum w ko\u0144cu \u017Ce nie jeste\u015B w stanie mnie przestraszy\u0107,
     dla swojego w\u0142asnego dobra.\r\n"
   audioClips: []
   cost: 0

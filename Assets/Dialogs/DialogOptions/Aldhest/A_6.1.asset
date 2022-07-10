@@ -18,8 +18,9 @@ MonoBehaviour:
   strategy: 4
   sentences:
   - "Lojer: To znaczy \u017Ce albo Patrick nie dopilnowa\u0142 trening\xF3w, czego
-    bym si\u0119 po nim spodziewa\u0142, kolejna pora\u017Cka na pewno pokaza\u0142aby
-    Panu \u017Ce o wiele lepiej nadaje si\u0119 do tego stanowiska\r\n"
+    bym si\u0119 po nim spodziewa\u0142."
+  - "Lojer:  Kolejna pora\u017Cka na pewno pokaza\u0142aby Panu \u017Ce o wiele lepiej
+    nadaje si\u0119 do tego stanowiska\r."
   - "Aldhest: \u2026\r\n"
   - "Lojer: Albo Skarb wcale nie zosta\u0142a uprowadzona\r\n"
   audioClips: []

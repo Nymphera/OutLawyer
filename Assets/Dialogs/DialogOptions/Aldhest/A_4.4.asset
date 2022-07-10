@@ -18,11 +18,13 @@ MonoBehaviour:
   strategy: 0
   sentences:
   - "Lojer: W ko\u0144cu jakie\u015B istotne informacje, ju\u017C my\u015Bla\u0142em
-    \u017Ce do niczego nie dojd\u0119.\r Wi\u0119c po kradzie\u017Cy Patrick nic
-    Ci nie powiedzia\u0142?\r\n"
+    \u017Ce do niczego nie dojd\u0119.\r\n"
+  - "Lojer: Wi\u0119c po kradzie\u017Cy Patrick nic Ci nie powiedzia\u0142?\r\n"
   - "Aldhest: Nie jest to co\u015B na tyle istotnego \u017Ceby zawraca\u0142 mi tym
-    g\u0142owotu\u0142\xF3w, to nawet lepiej \u017C\u0119 Skarb znik-\r\n"
-  - "Lojer: Dobra dobra nie rozp\u0119dzaj si\u0119, oczekiwa\u0142em prostej odpowiedzi
-    a nie rozprawki na temat waszych relacji.\r\n"
+    g\u0142owotu\u0142\xF3w.\n"
+  - "Aldhest: To nawet lepiej \u017C\u0119 Skarb znik-\r\n"
+  - "Lojer: Dobra dobra nie rozp\u0119dzaj si\u0119!\n"
+  - "Lojer: Oczekiwa\u0142em prostej odpowiedzi a nie rozprawki na temat waszych
+    relacji.\r\n"
   audioClips: []
   cost: 0

@@ -25,11 +25,14 @@ MonoBehaviour:
     mo\u017Ce do\u0142\u0105czy\u0107?\r\n"
   - "Aldhest: \u017Baden Fight Club tylko szko\u0142a krabate. Ka\u017Cdy krab musi
     pozna\u0107 cho\u0107by podstawy.\r\n"
-  - "Lojer: To znaczy \u017Ce Skarb te\u017C by\u0142a wyszkolona? Co\u015B mi tu
-    nie gra, jak kto\u015B znaj\u0105cy karate da\u0142 si\u0119 tak \u0142atwo porwa\u0107?\r\n"
-  - "Aldhest: Nie karate tylko KRABATE. To staro\u017Cytna sztuka walki wykorzystuj\u0105ca
-    szczypce jako mordercz\u0105 bro\u0144! Ale prawda \u017Ce nie ma to sensu, Skarb
-    by\u0142a czarnym pasem, niemo\u017Cliwe \u017Ceby zosta\u0142a pokonana przez
-    jakiego\u015B przeci\u0119tnego z\u0142odzieja.\r\n"
+  - "Lojer: To znaczy \u017Ce Skarb te\u017C by\u0142a wyszkolona?"
+  - "Lojer: Co\u015B mi tu nie gra, jak kto\u015B znaj\u0105cy karate da\u0142 si\u0119
+    tak \u0142atwo porwa\u0107?\r"
+  - 'Aldhest: Nie karate tylko KRABATE.'
+  - "Aldhest: To staro\u017Cytna sztuka walki wykorzystuj\u0105ca szczypce jako mordercz\u0105
+    bro\u0144!\n"
+  - "Aldhest: Ale prawda \u017Ce nie ma to sensu, Skarb by\u0142a czarnym pasem."
+  - "Aldhest: Niemo\u017Cliwe \u017Ceby zosta\u0142a pokonana przez jakiego\u015B
+    przeci\u0119tnego z\u0142odzieja.\r"
   audioClips: []
   cost: 0

@@ -20,12 +20,15 @@ MonoBehaviour:
   - "Lojer: Przepraszam bardzo za naj\u015Bcie Panie Patricku, ale czy m\xF3g\u0142bym
     zada\u0107 Panu kilka pyta\u0144 dotycz\u0105cych zaistnia\u0142ej sprawy?\r\n"
   - "Patrick: Patrick wiedzia\u0142 \u017Ce ten s\u0105siad spod 4 pr\u0119dzej czy
-    p\xF3\u017Aniej wyl\u0105duje w wi\u0119zieniu. A szkoda, Patrick go uwa\u017Ca\u0142
-    za mi\u0142ego cz\u0142owieka, nawet czasem Patrickowi na hodowli pomaga\u0142.\r\n"
+    p\xF3\u017Aniej wyl\u0105duje w wi\u0119zieniu."
+  - "Patrick:  A szkoda, Patrick go uwa\u017Ca\u0142 za mi\u0142ego cz\u0142owieka!"
+  - "Patrick:  Nawet czasem Patrickowi na hodowli pomaga\u0142.\r"
   - "Lojer: Nie, nie. Panie Patricku ja jestem tu w sprawie kradzie\u017Cy kt\xF3ra
-    mia\u0142a miejsce kilka dni temu. Czy mog\u0119 zada\u0107 Panu par\u0119 pyta\u0144?\r\n"
-  - "Patrick: Hmmm, Patrick chyba nie wynajmowa\u0142 Prawnika. No c\xF3\u017C lepsze
-    to ni\u017C nic. Prosz\u0119 pytac Panie filozofie, tylko szybko nie mam ca\u0142ego
-    dnia.\r\n"
+    mia\u0142a miejsce kilka dni temu.\n"
+  - "Lojer: Czy mog\u0119 zada\u0107 Panu par\u0119 pyta\u0144?\r"
+  - "Patrick: Hmmm, Patrick chyba nie wynajmowa\u0142 Prawnika."
+  - "Patrick: No c\xF3\u017C lepsze to ni\u017C nic.\n"
+  - "Patrick: Prosz\u0119 pytac Panie filozofie, tylko szybko nie mam ca\u0142ego
+    dnia.\r.\n"
   audioClips: []
   cost: 0

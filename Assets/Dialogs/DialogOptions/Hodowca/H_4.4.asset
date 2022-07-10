@@ -18,16 +18,18 @@ MonoBehaviour:
   strategy: 1
   sentences:
   - "Lojer: Nie zastanawia\u0142 si\u0119 Pan jaki interes mia\u0142 sprawca w okradaniu
-    Pana z jednego kraba? Pomijaj\u0105c b\xF3l jaki to Panu sprawi?\r\n"
-  - "Patrick: To oczywiste jaki, Ci barbarzy\u0144cy z tego klubu dla bladych proponowali
-    kupno krab\xF3w Patricka wiele razy. Chc\u0105 sprzedawa\u0107 je jako przystawki!
-    Patrick przep\u0119dzi\u0142 ich wi\u0119c i kaza\u0142 nie wraca\u0107. Pewnie
-    chcieli wzi\u0105\u0107 wi\u0119cej ale nie spodziewali si\u0119 \u017Ce kraby
-    Patricka s\u0105 mistrzami krabate.\r\n"
+    Pana z jednego kraba?\n"
+  - "Pomijaj\u0105c b\xF3l jaki to Panu sprawi?\r"
+  - "Patrick: To oczywiste w jakim celu, Ci barbarzy\u0144cy z tego klubu dla bladych
+    proponowali kupno krab\xF3w Patricka wiele razy. "
+  - "Patrick:  Chc\u0105 sprzedawa\u0107 je jako przystawki! Patrick przep\u0119dzi\u0142
+    ich wi\u0119c i kaza\u0142 nie wraca\u0107. "
+  - "Patrick: Pewnie chcieli wzi\u0105\u0107 wi\u0119cej ale nie spodziewali si\u0119
+    \u017Ce moje kraby s\u0105 mistrzami krabate.\r\n"
   - "Lojer: Sugeruje Pan \u017Ce w\u0142a\u015Bciciel restauracji wampir\xF3w za
     tym stoi?\r\n"
-  - "Patrick: Patrick nie sugeruje, Patrick wie \u017Ce to on. Patrick wie te\u017C
-    \u017Ce gniew wielkiego boga krab\xF3w dosi\u0119gnie go, nie wa\u017Cne gdzie
-    b\u0119dzie si\u0119 chowa\u0142.\r\n"
+  - "Patrick: Patrick nie sugeruje, Patrick wie \u017Ce to on.\n"
+  - "Patrick: Patrick wie te\u017C \u017Ce gniew wielkiego boga krab\xF3w dosi\u0119gnie
+    go, nie wa\u017Cne gdzie b\u0119dzie si\u0119 chowa\u0142.\r"
   audioClips: []
   cost: 0

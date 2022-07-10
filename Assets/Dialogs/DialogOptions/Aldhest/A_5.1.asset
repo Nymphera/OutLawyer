@@ -18,15 +18,17 @@ MonoBehaviour:
   strategy: 4
   sentences:
   - "Lojer: Tak jest Panie. Czy s\u0142ysza\u0142 Pan odg\u0142osy walki?\r\n"
-  - "Aldhest: Tutejsze kraby ucz\u0105 si\u0119 krabate od najm\u0142odszych lat,
-    s\u0142ysze odg\u0142osy walki w ka\u017Cdy wtorek i pi\u0105tek. Urz\u0105dzane
-    s\u0105 te\u017C sparingi w praktycznie ka\u017Cdy dzie\u0144 tygodnia. To prawda
-    \u017Ce s\u0142ysza\u0142em walk\u0119 ale pomy\u015Bla\u0142em \u017Ce to nic
-    podejrzanego.\r\n"
+  - "Aldhest: Tutejsze kraby ucz\u0105 si\u0119 krabate od najm\u0142odszych lat.\n"
+  - "Aldhest: S\u0142ysze odg\u0142osy walki w ka\u017Cdy wtorek i pi\u0105tek.\n"
+  - "Aldhest: Urz\u0105dzane s\u0105 te\u017C sparingi w praktycznie ka\u017Cdy dzie\u0144
+    tygodnia. \n\r\n"
+  - "Aldhest: To prawda \u017Ce s\u0142ysza\u0142em walk\u0119 ale pomy\u015Bla\u0142em
+    \u017Ce to nic podejrzanego.\n\r\n"
   - "Lojer: Jak na \u015Bwietnego lidera przysta\u0142o, dba Pan o swoich podopiecznych
     ucz\u0105c ich jak si\u0119 broni\u0107.\r\n"
   - "Aldhest: Jak teraz o tym wspomnia\u0142em to przypomnia\u0142em sobie \u017Ce
-    Skarb by\u0142a czarnym pasem. Nie ma szans aby ktokolwiek z mniejszym do\u015Bwiadczeniem
-    bojowym m\xF3g\u0142 j\u0105 porwa\u0107.\r\n\r\n"
+    Skarb by\u0142a czarnym pasem. \r\n\r\n"
+  - "Aldhest: Nie ma szans aby ktokolwiek z mniejszym do\u015Bwiadczeniem bojowym
+    m\xF3g\u0142 j\u0105 porwa\u0107.\n\r\n"
   audioClips: []
   cost: 0

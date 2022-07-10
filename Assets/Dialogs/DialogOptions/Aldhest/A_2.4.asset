@@ -20,11 +20,12 @@ MonoBehaviour:
   - "Lojer: Jaka jest Pana relacja z hodowc\u0105?\r\n"
   - "Aldhest: Patrick jest moim s\u0142ug\u0105."
   - "Lojer: D\u0142ugo si\u0119 znacie?\r\n"
-  - "Aldhest: Bardzo d\u0142ugo, pami\u0119tam jak by\u0142 jeszcze m\u0142ody, teraz
-    zosta\u0142 z niego stary piernik niezdolny do najbardziej podstawowych obowi\u0105zk\xF3w
-    s\u0142ugi.\r\n"
+  - "Aldhest: Bardzo d\u0142ugo, pami\u0119tam jak by\u0142 jeszcze m\u0142ody...\n"
+  - "Aldhest: Teraz zosta\u0142 z niego stary piernik niezdolny do najbardziej podstawowych
+    obowi\u0105zk\xF3w s\u0142ugi.\r\n"
   - "Lojer: Przypuszczam \u017Ce Patrick schodzi tu regularnie.\r\n"
   - "Aldhest: Nie widzia\u0142em go od dobrych 3 tygodni, po tym jak ostatnio spad\u0142
-    z drabiny. Chyba wystarczy na temat tego starego pryka\u2026\r\n"
+    z drabiny.\n"
+  - "Aldhest:  Chyba wystarczy na temat tego starego pryka\u2026\r\n"
   audioClips: []
   cost: 0

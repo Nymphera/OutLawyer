@@ -18,14 +18,16 @@ MonoBehaviour:
   strategy: 4
   sentences:
   - "Lojer: Czy by\u0142 Pan obecny podczas zaj\u015Bcia?\r\n"
-  - "Patrick: O tak Patrick by\u0142 obecny w \u0142\xF3\u017Cku. Noc jest od spania,
-    chyba \u017Ce jest okres godowy moich podopiecznych. Wtedy Patrick musi nadzorowa\u0107
-    aby wszystko posz\u0142o zgodnie z planem.\r\n"
+  - "Patrick: O tak Patrick by\u0142 obecny w \u0142\xF3\u017Cku. \n"
+  - "Patrick: Noc jest od spania, chyba \u017Ce jest okres godowy moich podopiecznych.\n"
+  - "Patrick: Wtedy Patrick musi nadzorowa\u0107 aby wszystko posz\u0142o zgodnie
+    z planem.\r"
   - "Lojer: S\u0105dz\u0105c po miejscu zdarzenia dosz\u0142o tam do walki, musi
-    Pan mie\u0107 bardzo g\u0142\u0119boki sen je\u015Bli to Pana nie obudzi\u0142o.
-    Zazdroszcz\u0119 umiej\u0119tno\u015Bci.\r\n"
+    Pan mie\u0107 bardzo g\u0142\u0119boki sen je\u015Bli to Pana nie obudzi\u0142o."
+  - "Lojer: Zazdroszcz\u0119 umiej\u0119tno\u015Bci.\r"
   - "Patrick: Patrick nauczy\u0142 si\u0119 jak spa\u0107 aby spa\u0107 a nie nie
-    spa\u0107. Patrick nawet kiedy\u015B przespa\u0142 atak na jego obozowisko\u2026\rA
-    mo\u017Ce Patrickowi si\u0119 tylko wydaje?\r\n"
+    spa\u0107.\n"
+  - "Patrick: Patrick nawet kiedy\u015B przespa\u0142 atak na jego obozowisko...\n"
+  - "Patrick:  \u2026\rA mo\u017Ce Patrickowi si\u0119 tylko wydaje?\r"
   audioClips: []
   cost: 0

@@ -19,12 +19,13 @@ MonoBehaviour:
   sentences:
   - "Lojer: Jaka jest Pana relacja z hodowc\u0105? Jest Pana s\u0142ug\u0105 jak
     mniemam?\r\n"
-  - "Aldhest: Zgadza si\u0119, bezu\u017Cytecznym ale wiernym, tylko dlatego jeszcze
-    si\u0119 go nie pozby\u0142em."
-  - "Lojer: Czyli je\u015Bli znalaz\u0142by si\u0119 kto\u015B bardziej u\u017Cyteczny,
-    kto\u015B z dobr\u0105 edukacj\u0105, ponadprzeci\u0119tnym intelektem i diabelsko
-    przystojn\u0105 buzi\u0105, m\xF3g\u0142by przej\u0105\u0107 jego miejsce?"
-  - "Aldhest: Wydajesz si\u0119 dosy\u0107 kompetentny\u2026 Odeszli\u015Bmy jednak
-    od tematu, jeszcze jakie\u015B pytania?\r\n"
+  - "Aldhest: Zgadza si\u0119, bezu\u017Cytecznym ale wiernym."
+  - "Aldhest: Tylko dlatego jeszcze si\u0119 go nie pozby\u0142em.\n"
+  - "Lojer: Czyli je\u015Bli znalaz\u0142by si\u0119 kto\u015B bardziej u\u017Cyteczny..."
+  - "Lojer: Kto\u015B z dobr\u0105 edukacj\u0105, ponadprzeci\u0119tnym intelektem
+    i diabelsko przystojn\u0105 buzi\u0105...\n"
+  - "Lojer: M\xF3g\u0142by przej\u0105\u0107 jego miejsce?\n"
+  - "Aldhest: Wydajesz si\u0119 dosy\u0107 kompetentny\u2026\n"
+  - "Aldhest: Odeszli\u015Bmy jednak od tematu, jeszcze jakie\u015B pytania?\r\n"
   audioClips: []
   cost: 0

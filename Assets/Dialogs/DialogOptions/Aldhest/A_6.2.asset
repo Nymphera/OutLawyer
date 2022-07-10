@@ -20,11 +20,13 @@ MonoBehaviour:
   - "Lojer: Czyli \u017Ce ja da\u0142bym rad\u0119 czy nie? Bo troch\u0119 si\u0119
     pogubi\u0142em.\r\n"
   - "Aldhest: Oczywi\u015Bcie \u017Ce nie, je\u015Bli nie jeste\u015B do\u015Bwiadczonym
-    wojownikiem zosta\u0142by\u015B powalony w 3 sekundy. Skrab zawsze pilnowa\u0142a
-    aby jej szczypce by\u0142y naostrzone wi\u0119c twoja g\u0142owa zosta\u0142aby
-    zapewne od\u0142\u0105czona od reszty cia\u0142a.\r\n"
+    wojownikiem zosta\u0142by\u015B powalony w 3 sekundy.\n"
+  - "Aldhest: Skrab zawsze pilnowa\u0142a aby jej szczypce by\u0142y naostrzone.\n"
+  - "Aldhest: Twoja g\u0142owa zosta\u0142aby zapewne od\u0142\u0105czona od reszty
+    cia\u0142a.\r\n"
   - "Lojer: W takim razie czy mo\u017Cliwe jest \u017Ce Skarb wcale nie zosta\u0142a
-    porwana?\r\nMo\u017Ce znudzi\u0142o jej si\u0119 \u017Cycie w tym starym domu
-    i postanowi\u0142a wyruszy\u0107 w \u015Bwiat?\r\n\r\n"
+    porwana?\r\n\r\n"
+  - "Lojer: Mo\u017Ce znudzi\u0142o jej si\u0119 \u017Cycie w tym starym domu i postanowi\u0142a
+    wyruszy\u0107 w \u015Bwiat?\r\r\n\r\n"
   audioClips: []
   cost: 0

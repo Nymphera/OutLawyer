@@ -23,10 +23,11 @@ MonoBehaviour:
   - "Lojer: Wi\u0119c zaprzeczy Pan te\u017C faktu \u017Ce Skrab prawdopodobnie uciek\u0142a
     z w\u0142asnej woli, a nie zosta\u0142a ukradziona?\r\n"
   - "Patrick: Wszystko tutaj jest w jak najlepszym porz\u0105dku. Patrick dba o kraby
-    a kraby s\u0142uchaj\u0105 Patricka. Patrick nie wie sk\u0105d Pan filozof wzi\u0105\u0142
-    te herezje! Kraby Patricka nigdy nie by\u0142y grzeczniejsze!\r\n"
+    a kraby s\u0142uchaj\u0105 Patricka. "
   - 'Lojer: Jak tam Pan sobie chce, ja tylko wymieniam fakty.
 
 '
+  - "Patrick: Patrick nie wie sk\u0105d Pan filozof wzi\u0105\u0142 te herezje! Kraby
+    Patricka nigdy nie by\u0142y grzeczniejsze!\r"
   audioClips: []
   cost: 0

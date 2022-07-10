@@ -20,13 +20,15 @@ MonoBehaviour:
   - "Lojer: Czyli \u017Ce nie pami\u0119tasz czy co\u015B zrobi\u0142e\u015B?\r\n"
   - "Patrick: Wie Pan filozof jak to jest w wieku Patricka, od sklerozy nie mo\u017Cna
     uciec.\r\n"
-  - "Lojer: Jaka tam skleroza, jestem pewny \u017Ce je\u015Bli zapyta\u0142bym Pana
-    o jaki\u015B bardzo ma\u0142o znany fakt o krabach to odpowiedzia\u0142by Pan
-    od razu. Na przyk\u0142ad jak du\u017Cy jest przeci\u0119tny krab.\r\n"
-  - "Patrick: Od 15 do 18 centymetr\xF3w. Jednak kraby Patricka s\u0105 lepiej zadbane
-    wi\u0119c rosn\u0105 wi\u0119ksze, najmniejszy krab w hodowli Patricka, Skarb
-    ma 21 centymetr\xF3w d\u0142ugo\u015Bci, najwi\u0119kszy za\u015B nazywa si\u0119
-    Stasiek i jego d\u0142ugo\u015B\u0107 to 34 centymetry.\r\n"
+  - 'Lojer: Jaka tam skleroza!'
+  - "Lojer: Jestem pewny \u017Ce je\u015Bli zapyta\u0142bym Pana o jaki\u015B bardzo
+    ma\u0142o znany fakt o krabach to odpowiedzia\u0142by Pan od razu. "
+  - "Lojer: Na przyk\u0142ad ile \u015Brednio wa\u017Cy krab\u2026"
+  - "Patrick: Od 15 do 18 centymetr\xF3w. \n"
+  - "Patrick: Jednak kraby Patricka s\u0105 lepiej zadbane wi\u0119c rosn\u0105 wi\u0119ksze,
+    najmniejszy krab w hodowli Patricka..."
+  - "Patrick: Skarb ma 21 centymetr\xF3w d\u0142ugo\u015Bci, najwi\u0119kszy za\u015B
+    nazywa si\u0119 Stasiek i jego d\u0142ugo\u015B\u0107 to 34 centymetry.\r"
   - "Lojer: Wow\u2026\r\n"
   audioClips: []
   cost: 0

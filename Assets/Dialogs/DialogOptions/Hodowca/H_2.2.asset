@@ -17,20 +17,26 @@ MonoBehaviour:
   earlierCrossPoint: {fileID: 11400000, guid: 766b7b422d5399b4fa91f9d85369b45d, type: 2}
   strategy: 2
   sentences:
-  - "Lojer: Po co te nerwy Patricku. Na pewno nie masz zbyt wielu humanoid\xF3w z
-    kt\xF3rymi mo\u017Cesz porozmawia\u0107.\r\n"
-  - "Patrick: Po co Patrickowi ludzie czy inne demony skoro ma kraby. S\u0105 o wiele
-    lepsze i \u0142adniejsze ni\u017C te oble\u015Bne humanoidy. Jakby Patrick m\xF3g\u0142
-    to zmieni\u0142by si\u0119 w kraba bez zastanowienia.\r\n"
+  - 'Lojer: Po co te nerwy Patricku.
+
+'
+  - "Lojer: Na pewno nie masz zbyt wielu humanoid\xF3w z kt\xF3rymi mo\u017Cesz porozmawia\u0107.\r"
+  - 'Patrick: Po co Patrickowi ludzie czy inne demony skoro ma kraby.
+
+'
+  - "Patrick: S\u0105 o wiele lepsze i \u0142adniejsze ni\u017C te oble\u015Bne humanoidy.\n"
+  - "Patrick: Jakby Patrick m\xF3g\u0142 to zmieni\u0142by si\u0119 w kraba bez zastanowienia.\r"
   - "Lojer: Skoro o krabach mowa to mo\u017Ce przejdziemy do pyta\u0144.\r By\u0142e\u015B
     obecny przy kradzie\u017Cy?\r\n"
-  - "Patrick: O tak Patrick by\u0142 obecny w \u0142\xF3\u017Cku. Noc jest od spania,
-    chyba \u017Ce jest okres godowy moich podopiecznych. Wtedy Patrick musi nadzorowa\u0107
-    aby wszystko posz\u0142o zgodnie z planem.\r\n"
+  - "Patrick: O tak Patrick by\u0142 obecny w \u0142\xF3\u017Cku. "
+  - "Patrick: Noc jest od spania, chyba \u017Ce jest okres godowy moich podopiecznych.\n"
+  - "Patrick: Wtedy Patrick musi nadzorowa\u0107 aby wszystko posz\u0142o zgodnie
+    z planem.\r"
   - "Lojer: S\u0105dz\u0105c po \u015Bladach walki musia\u0142o by\u0107 g\u0142o\u015Bno,
     jakim cudem Ci\u0119 to nie obudzi\u0142o?\r\n"
   - "Patrick: Patrick nauczy\u0142 si\u0119 jak spa\u0107 aby spa\u0107 a nie nie
-    spa\u0107. Patrick nawet kiedy\u015B przespa\u0142 atak na jego obozowisko\u2026\rA
-    mo\u017Ce m\xF3zg Patricka zn\xF3w go oszukuje?\r\n"
+    spa\u0107."
+  - "Patrick: Patrick nawet kiedy\u015B przespa\u0142 atak na jego obozowisko..."
+  - "Patrick:  \u2026\rA mo\u017Ce Patrickowi si\u0119 tylko wydaje?\r"
   audioClips: []
   cost: 0

@@ -17,13 +17,14 @@ MonoBehaviour:
   earlierCrossPoint: {fileID: 11400000, guid: 0261883c5414ec7439af5577f99e80d9, type: 2}
   strategy: 3
   sentences:
-  - "Lojer: Bardzo mi mi\u0142o Panie Aldhe\u015Bcie. *lojer delikatnie ukl\u0119ka*
-    Nazywam si\u0119 Lojer, prawnik, prowadz\u0119 dochodzenie na temat kradzie\u017Cy
-    do kt\xF3rej dosz\u0142o w tym budynku. Chcia\u0142bym zada\u0107 Panu kilka
-    pyta\u0144.\r\n"
+  - "Lojer: Bardzo mi mi\u0142o Panie Aldhe\u015Bcie. \n"
+  - "Lojer: Nazywam si\u0119 Lojer, prawnik, prowadz\u0119 dochodzenie na temat kradzie\u017Cy
+    do kt\xF3rej dosz\u0142o w tym budynku."
+  - "Lojer:  Chcia\u0142bym zada\u0107 Panu kilka pyta\u0144..\n"
   - "Aldhest: A je\u015Bli odm\xF3wi\u0119 odpowiedzi?\r\n"
   - "Lojer: Wtedy ta rozmowa  to strata czasu nie tylko dla mnie ale i dla Pana.
-    Mog\u0119 wi\u0119c zaczyna\u0107?\r\n"
+    \n"
+  - "Lojer: Mog\u0119 wi\u0119c zaczyna\u0107?\r\n"
   - "Aldhest: \u2026 s\u0142ucham.\r\n"
   audioClips: []
   cost: 0

@@ -18,13 +18,14 @@ MonoBehaviour:
   strategy: 4
   sentences:
   - "Lojer: Niech kto\u015B mnie uszczypnie bo chyba \u015Bni\u0119! Padam na kolana
-    jako tw\xF3j wierny s\u0142uga. *lojer pada na kolana*\r\n"
-  - "Aldhest: Mo\u017Cesz podnie\u015B\u0107 g\u0142ow\u0119. Okaza\u0142e\u015B
-    mi nale\u017Cyty szacunek wi\u0119c Ci\u0119 oszcz\u0119dz\u0119.\r\nJak Ci na
-    imi\u0119 i czego tu szukasz?\r\n"
+    jako tw\xF3j wierny s\u0142uga.\n"
+  - "Aldhest: Mo\u017Cesz podnie\u015B\u0107 g\u0142ow\u0119.\r\n"
+  - "Aldhest: Okaza\u0142e\u015B mi nale\u017Cyty szacunek wi\u0119c Ci\u0119 oszcz\u0119dz\u0119.\r\r\n"
+  - "Aldhest: Jak Ci na imi\u0119 i czego tu szukasz?\r\n"
   - "Lojer: Nazywam si\u0119 Lojer, jestem prawnikiem i badam spraw\u0119 kradzie\u017Cy
-    pewnego kraba.\r\nTo by\u0142by zaszczyt,  je\u015Bli odpowiedzia\u0142by Pan
-    na kilka moich pyta\u0144.\r\n"
+    pewnego kraba.\r\n"
+  - "Lojer: To by\u0142by zaszczyt,  je\u015Bli odpowiedzia\u0142by Pan na kilka
+    moich pyta\u0144.\r"
   - "Aldhest: Zawsze ch\u0119tnie porozmawiam z moimi poddanymi, tylko szybko nie
     mam ca\u0142ego dnia.\r\n"
   audioClips: []

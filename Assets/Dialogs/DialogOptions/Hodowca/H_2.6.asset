@@ -24,13 +24,21 @@ MonoBehaviour:
   - "Lojer: Mam si\u0119 przestraszy\u0107 takiego w\u0105t\u0142ego starca? Prosz\u0119
     nie \u017Cartowa\u0107.\r\n"
   - "Patrick: Ten w\u0105t\u0142y starzec ma ze sob\u0105 armi\u0119 krab\xF3w przygotowan\u0105
-    na tego typu sytuacje.\r Jedno s\u0142owo Patricka i zostanie Pan szybko zutylizowany.\r\n"
+    na takie sytuacje.\r"
+  - "Patrick:  Jedno s\u0142owo Patricka i zostanie Pan szybko zutylizowany.\r\n"
   - "Lojer: Czekam wi\u0119c na to s\u0142owo\u2026"
   - 'Patrick: KRABFATHER!!!
 
 '
+  - 'Lojer:...
+
+'
+  - 'Patrick:...
+
+'
   - "Lojer: Tak w\u0142a\u015Bnie my\u015Bla\u0142em, to ja przejd\u0119 to pyta\u0144.\r
-    Czy by\u0142 Pan w domu podczas tego zaj\u015Bcia?\r\n"
+    \r\n"
+  - "Lojer: Czy by\u0142 Pan w domu podczas tego zaj\u015Bcia?"
   - 'Patrick:...
 
 '

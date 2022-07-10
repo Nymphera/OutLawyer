@@ -18,15 +18,17 @@ MonoBehaviour:
   strategy: 2
   sentences:
   - "Lojer: Ale nie s\u0142ysza\u0142 Pan nic? \u017Badnej szarpaniny ani nic?\r\n"
-  - "Aldhest: Tutejsze kraby ucz\u0105 si\u0119 krabate od najm\u0142odszych lat,
-    s\u0142ysze odg\u0142osy walki w ka\u017Cdy wtorek i pi\u0105tek. Urz\u0105dzane
-    s\u0105 te\u017C sparingi w praktycznie ka\u017Cdy dzie\u0144 tygodnia. To prawda
-    \u017Ce s\u0142ysza\u0142em walk\u0119 ale pomy\u015Bla\u0142em \u017Ce to nic
-    podejrzanego.\r\n"
+  - "Aldhest: Tutejsze kraby ucz\u0105 si\u0119 krabate od najm\u0142odszych lat."
+  - "Aldhest: S\u0142ysze odg\u0142osy walki w ka\u017Cdy wtorek i pi\u0105tek."
+  - "Aldhest: Urz\u0105dzane s\u0105 te\u017C sparingi w praktycznie ka\u017Cdy dzie\u0144
+    tygodnia. "
+  - "Aldhest: To prawda \u017Ce s\u0142ysza\u0142em walk\u0119 ale pomy\u015Bla\u0142em
+    \u017Ce to nic podejrzanego."
   - "Lojer: Ciekawe jak to jest walczy\u0107 z krabem, my\u015Blisz \u017Ce da\u0142bym
     rad\u0119 waszemu najsilniejszemu krabowi?\r\n"
   - "Aldhest: Najsilniejszemu? Jak teraz o tym my\u015Bl\u0119 to Skarb by\u0142a
-    czarnym pasem. Nie ma szans aby ktokolwiek z mniejszym do\u015Bwiadczeniem bojowym
+    czarnym pasem.\n"
+  - "Aldhest: Nie ma szans aby ktokolwiek z mniejszym do\u015Bwiadczeniem bojowym
     m\xF3g\u0142 j\u0105 porwa\u0107.\r\n"
   audioClips: []
   cost: 0

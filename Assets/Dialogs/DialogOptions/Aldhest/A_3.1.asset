@@ -18,11 +18,12 @@ MonoBehaviour:
   strategy: 4
   sentences:
   - "Lojer: Zdarza\u0142y si\u0119 ju\u017C wcze\u015Bniej podobne sytuacje m\xF3j
-    Panie? Kradzie\u017Ce, wypadki itp.\r\n"
-  - "Aldhest: Nie ma dnia bez jakiego\u015B wypadku, wielokrotnie mieli\u015Bmy w\u0142amywaczy.
-    Zazywczaj jednak nic nie znika. Ma\u0142o kto chce ukra\u015B\u0107 kraba.\r\n"
-  - "Lojer: Nie zdawa\u0142em sobie sprawy z tego jaki Patrick jest bezu\u017Cyteczny.
-    Zas\u0142ugujesz na znacznie lepszego s\u0142ug\u0119 Panie.\r\n"
+    Panie? Kradzie\u017Ce, wypadki?\r\n"
+  - "Aldhest: Nie ma dnia bez jakiego\u015B wypadku, wielokrotnie mieli\u015Bmy w\u0142amywaczy.\n"
+  - "Aldhest: Zazwyczaj jednak nic nie znika. Ma\u0142o kto chce ukra\u015B\u0107
+    kraba.\r\n"
+  - "Lojer: Nie zdawa\u0142em sobie sprawy z tego jaki Patrick jest bezu\u017Cyteczny.\n"
+  - "Lojer: Zas\u0142ugujesz na znacznie lepszego s\u0142ug\u0119 Panie.\r\n"
   - "Aldhest: Do\u015B\u0107 o tym, tracimy czas.\r\n"
   audioClips: []
   cost: 0

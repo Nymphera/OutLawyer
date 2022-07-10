@@ -17,17 +17,20 @@ MonoBehaviour:
   earlierCrossPoint: {fileID: 11400000, guid: abeda2b5b24079a4486f5207eeb31dcf, type: 2}
   strategy: 2
   sentences:
-  - "Lojer: Dobra dobra ju\u017C przechodz\u0119 dalej, my\u015Bla\u0142em \u017Ce
-    przyda si\u0119 Panu ma\u0142a pogaw\u0119dka, nie wygl\u0105da jakby du\u017Co
-    os\xF3b poza Patrickiem tu schodzi\u0142o.\r\n"
+  - "Lojer: Dobra dobra ju\u017C przechodz\u0119 dalej.\n"
+  - "Lojer: My\u015Bla\u0142em \u017Ce przyda si\u0119 Panu ma\u0142a pogaw\u0119dka."
+  - "Lojer: Nie wygl\u0105da jakby du\u017Co os\xF3b poza Patrickiem tu schodzi\u0142o.\r"
   - "Aldhest: Nie ukrywam \u017Ce podoba mi si\u0119 rozmowa z kim\u015B innym raz
-    na jaki\u015B czas, zbli\u017Ca si\u0119 jednak moja popo\u0142udniowa drzemka
-    wi\u0119c nie mamy zbyt du\u017Co czasu.\r\n"
-  - "Lojer: Dobrze wi\u0119c na czym sko\u0144czy\u0142em.. Aaaa tak, wi\u0119c Patrick
-    nie powiedzia\u0142 Ci o znikni\u0119ciu Skarba?\r\n"
+    na jaki\u015B czas.\n"
+  - "Aldhest: Zbli\u017Ca si\u0119 jednak moja popo\u0142udniowa drzemka wi\u0119c
+    nie mamy zbyt du\u017Co czasu.\r"
+  - "Lojer: Dobrze wi\u0119c na czym sko\u0144czy\u0142em...\n"
+  - "Lojer: Aaaa tak, wi\u0119c Patrick nie powiedzia\u0142 Ci o znikni\u0119ciu
+    Skarba?\r"
   - "Aldhest: Nie jest to co\u015B na tyle istotnego \u017Ceby zawraca\u0142 mi tym
-    g\u0142owotu\u0142\xF3w, to nawet lepiej \u017Ce Skarb znikn\u0105\u0142. Mo\u017Ce
-    Patrick w ko\u0144cu zacznie si\u0119 zajmowa\u0107 swoimi obowi\u0105zkami zamiast
-    bawi\u0107 si\u0119 w dom."
+    g\u0142owotu\u0142\xF3w."
+  - "Aldhest: To nawet lepiej \u017Ce Skarb znikn\u0105\u0142."
+  - "Aldhest:  Mo\u017Ce Patrick w ko\u0144cu zacznie si\u0119 zajmowa\u0107 swoimi
+    obowi\u0105zkami zamiast bawi\u0107 si\u0119 w dom."
   audioClips: []
   cost: 0

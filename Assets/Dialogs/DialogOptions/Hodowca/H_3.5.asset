@@ -29,9 +29,9 @@ MonoBehaviour:
   - "Lojer: Czym si\u0119 Pan zajmowa\u0142 wcze\u015Bniej?\r\n"
   - "Patrick:...\r"
   - "Lojer: Ile gatunk\xF3w krab\xF3w posiada Pan w hodowli?\r\n"
-  - "Patrick: Patrick posiada tylko 622 gatunki krab\xF3w, w przysz\u0142o\u015Bci
-    Patrick planuje powi\u0119ksza\u0107 swoj\u0105 hodowl\u0119 a\u017C w ko\u0144cu
-    Patrick zbierze wszystkie 4508 gatunk\xF3w.\r\n"
+  - "Patrick: Patrick posiada tylko 622 gatunki krab\xF3w.\n"
+  - "Patrick: W przysz\u0142o\u015Bci Patrick planuje powi\u0119ksza\u0107 swoj\u0105
+    hodowl\u0119 a\u017C w ko\u0144cu Patrick zbierze wszystkie 4508 gatunk\xF3w.\r"
   - "Lojer: Interesuj\u0105ce\u2026\r\n"
   audioClips: []
   cost: 0

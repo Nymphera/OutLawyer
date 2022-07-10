@@ -18,14 +18,18 @@ MonoBehaviour:
   strategy: 0
   sentences:
   - "Lojer: Nie wiedzia\u0142em \u017Ce staro\u017Cytne imperium atlantydy mie\u015Bci
-    si\u0119 w ogrodzie szalonego cz\u0142owieka. Jeste\u015B panem kurzu kt\xF3ry
-    si\u0119 tutaj unosi?\r\n"
+    si\u0119 w kotle szalonego cz\u0142owieka. \n"
+  - "Lojer: Jeste\u015B panem kurzu kt\xF3ry si\u0119 tutaj unosi?\r\n"
   - "Aldhest: Milcze\u0107! Nie my\u015Bl sobie \u017Ce ujdziesz st\u0105d z \u017Cyciem
-    po tej zniewadze! Przygotuj swoj\u0105 czaszk\u0119 na u\u015Bcisk o sile prasy
-    hydraulicznej!\r\n"
-  - "Lojer: Oooo uszczypniesz mnie w policzek? Nie interesuje mnie twoje wyimaginowane
-    imperium, od razu wida\u0107 \u017Ce jeste\u015B jednym z tych co tylko w gadce
-    s\u0105 dobrzy. Odpowiesz mi teraz grzecznie na kilka pyta\u0144.\r\n"
+    po tej zniewadze!\n"
+  - "Aldhest: Przygotuj swoj\u0105 czaszk\u0119 na u\u015Bcisk o sile prasy hydraulicznej!\r\n"
+  - 'Lojer: Oooo uszczypniesz mnie w policzek?
+
+'
+  - 'Lojer: Nie interesuje mnie twoje wyimaginowane imperium.'
+  - "Lojer: Od razu wida\u0107 \u017Ce jeste\u015B jednym z tych co tylko w gadce
+    s\u0105 dobrzy. "
+  - "Lojer: Odpowiesz mi teraz grzecznie na kilka pyta\u0144.\r"
   - "Aldhest: \u2026\r\n"
   audioClips: []
   cost: 0

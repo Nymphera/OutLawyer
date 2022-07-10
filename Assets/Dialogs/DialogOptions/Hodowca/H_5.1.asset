@@ -18,15 +18,15 @@ MonoBehaviour:
   strategy: 4
   sentences:
   - "Lojer: No dobrze w takim razie to ju\u017C ostatnie pytanie z mojej strony.
-    Przepraszam je\u015Bli Pana ura\u017C\u0119, ale czy tutejsze kraby maj\u0105
-    podstawy do tego aby chcie\u0107 st\u0105d uciec?\r\n"
-  - "Patrick: Tak jak Pan filozof my\u015Bla\u0142, Patrick czuje si\u0119 ura\u017Cony.
-    Wszystko tutaj jest w jak najlepszym porz\u0105dku. Patrick dba o kraby a kraby
-    s\u0142uchaj\u0105 Patricka.\r\n"
+    \n"
+  - "Lojer: Przepraszam je\u015Bli Pana ura\u017C\u0119, ale czy tutejsze kraby maj\u0105
+    podstawy do tego aby chcie\u0107 st\u0105d uciec?\r"
+  - "Patrick: Wszystko tutaj jest w jak najlepszym porz\u0105dku. Patrick dba o kraby
+    a kraby s\u0142uchaj\u0105 Patricka.\r"
   - "Lojer: I nie do\u015Bwiadczy\u0142 Pan ostatnio \u017Cadnego oporu?\r\n"
-  - "Patrick: Patrick nie ma poj\u0119cia o czym Pan filozof m\xF3wi. Wszystkie kraby
-    Patricka s\u0105 bardzo grzeczne i nigdy nie pomy\u015Bla\u0142yby nawet o buncie
-    czy te\u017C ucieczce!\r\n"
+  - "Patrick: Patrick nie ma poj\u0119cia o czym Pan filozof m\xF3wi. \n"
+  - "Patrick: Wszystkie kraby Patricka s\u0105 bardzo grzeczne i nigdy nie pomy\u015Bla\u0142yby
+    nawet o buncie czy te\u017C ucieczce!\r"
   - "Lojer: Jeszcze raz bardzo Pana przepraszam, nie mia\u0142em na celu Pana urazi\u0107
     Panie Patricku.\r\n"
   audioClips: []

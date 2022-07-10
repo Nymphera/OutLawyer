@@ -20,17 +20,20 @@ MonoBehaviour:
   - "Lojer: No dobrze w takim razie par\u0119 ostatnich pyta\u0144 i ju\u017C Panu
     nie zawracam g\u0142owy.\r Czy wie Pan w jakim celu Pana jeden krab m\xF3g\u0142
     zosta\u0107 ukradziony?\r\n"
+  - "Lojer: Czy wie Pan w jakim celu Pana jeden krab m\xF3g\u0142 zosta\u0107 ukradziony?\r"
   - "Patrick: To oczywiste w jakim celu, Ci barbarzy\u0144cy z tego klubu dla bladych
-    proponowali kupno krab\xF3w Patricka wiele razy. Chc\u0105 sprzedawa\u0107 je
-    jako przystawki! Patrick przep\u0119dzi\u0142 ich wi\u0119c i kaza\u0142 nie
-    wraca\u0107. Pewnie chcieli wzi\u0105\u0107 wi\u0119cej ale nie spodziewali si\u0119
+    proponowali kupno krab\xF3w Patricka wiele razy. "
+  - "Patrick:  Chc\u0105 sprzedawa\u0107 je jako przystawki! Patrick przep\u0119dzi\u0142
+    ich wi\u0119c i kaza\u0142 nie wraca\u0107. "
+  - "Patrick: Pewnie chcieli wzi\u0105\u0107 wi\u0119cej ale nie spodziewali si\u0119
     \u017Ce moje kraby s\u0105 mistrzami krabate.\r\n"
   - 'Lojer: Klubu dla bladych? Przepraszam ale nie rozumiem.
 
 '
   - "Patrick: No tych jak im tam? A tak, wampir\xF3w. Kto\u015B uzna\u0142 \u017Ce
-    otwarcie restauracji dla wampir\xF3w to b\u0119dzie dobry pomys\u0142. Patrick
-    nawet nie mia\u0142 nic przeciwko zanim nie zachcia\u0142o im si\u0119 krab\xF3w
-    Patricka!! Patrick przeklina ich ca\u0142\u0105 Patricka egzystencj\u0105!\r\n"
+    otwarcie restauracji dla wampir\xF3w to b\u0119dzie dobry pomys\u0142. "
+  - "Patrick: Patrick nawet nie mia\u0142 nic przeciwko zanim nie zachcia\u0142o
+    im si\u0119 krab\xF3w Patricka!! "
+  - "Patrick: Patrick przeklina ich ca\u0142\u0105 Patricka egzystencj\u0105!\r"
   audioClips: []
   cost: 0

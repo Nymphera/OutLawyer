@@ -17,19 +17,24 @@ MonoBehaviour:
   earlierCrossPoint: {fileID: 11400000, guid: a808f7111ee2ca547bbecae57335215f, type: 2}
   strategy: 4
   sentences:
-  - "Lojer: Przepraszam bardzo za naj\u015Bcie Panie Patricku, ale jak tylko us\u0142ysza\u0142em
-    co si\u0119 sta\u0142o musia\u0142em si\u0119 zabra\u0107 za t\u0119 spraw\u0119.\r\n"
+  - "Lojer: Przepraszam bardzo za naj\u015Bcie Panie Patricku...\n"
+  - "Lojer:  Ale jak tylko us\u0142ysza\u0142em co si\u0119 sta\u0142o musia\u0142em
+    si\u0119 zabra\u0107 za t\u0119 spraw\u0119.\r"
   - "Patrick: Patrick wiedzia\u0142 \u017Ce ten s\u0105siad spod 4 pr\u0119dzej czy
-    p\xF3\u017Aniej wyl\u0105duje w wi\u0119zieniu. A szkoda, Patrick go uwa\u017Ca\u0142
-    za mi\u0142ego cz\u0142owieka, nawet czasem Patrickowi na hodowli pomaga\u0142.\r\n"
-  - "Lojer: S\u0105siad spod\u2026 Aaa tak tak biedny cz\u0142owiek no ale prawo
-    dogoni ka\u017Cdego pr\u0119dzej czy p\xF3\u017Aniej.\r\n"
+    p\xF3\u017Aniej wyl\u0105duje w wi\u0119zieniu."
+  - "Patrick:  A szkoda, Patrick go uwa\u017Ca\u0142 za mi\u0142ego cz\u0142owieka!"
+  - "Patrick:  Nawet czasem Patrickowi na hodowli pomaga\u0142.\r"
+  - "Lojer: S\u0105siad spod\u2026\n"
+  - "Lojer: Aaa tak tak biedny cz\u0142owiek no ale prawo dogoni ka\u017Cdego pr\u0119dzej
+    czy p\xF3\u017Aniej.\r"
   - "Lojer: Ja jednak jestem tu w innej sprawie. Dosz\u0142y do mnie s\u0142uchy
-    \u017Ce zosta\u0142 Pan okradziony. Prosz\u0119 przyj\u0105\u0107 moje najszczersze
-    kondolencje, niestety b\u0119d\u0119 musia\u0142 zapyta\u0107 Pana o ca\u0142e
-    zaj\u015Bcie. Mam nadziej\u0119 \u017Ce nie b\u0119dzie z tym problemu.\r\n"
+    \u017Ce zosta\u0142 Pan okradziony."
+  - "Lojer: Prosz\u0119 przyj\u0105\u0107 moje najszczersze kondolencje.\n"
+  - "Lojer: Niestety b\u0119d\u0119 musia\u0142 zapyta\u0107 Pana o ca\u0142e zaj\u015Bcie."
+  - "Lojer: Mam nadziej\u0119 \u017Ce nie b\u0119dzie z tym problemu.\r"
   - "Patrick: Tak, tak Patrick dzi\u0119kuj\u0119, ale czy Patrick wynajmowa\u0142
-    Prawnika? Przekl\u0119ty Patrick wszystko zapomina. No dobrze Panie filozofie,
-    prosz\u0119 pyta\u0107.\r\n\r\n"
+    Prawnika?\n\r\n"
+  - "Patrick: Przekl\u0119ty Patrick wszystko zapomina.\n\r\n"
+  - "Patrick: No dobrze Panie filozofie, prosz\u0119 pyta\u0107.\r\n"
   audioClips: []
   cost: 0

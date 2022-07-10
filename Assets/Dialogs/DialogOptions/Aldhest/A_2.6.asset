@@ -23,14 +23,16 @@ MonoBehaviour:
   - "Lojer: S\u0142ug\u0105?\r\n"
   - "Aldhest: Tak w\u0142a\u015Bnie powiedzia\u0142em.\r\n"
   - "Lojer: Mam uwierzy\u0107 \u017Ce kto\u015B dobrowolnie zdecydowa\u0142 si\u0119
-    s\u0142u\u017Cy\u0107 ogrodowemu krabowi?"
-  - "Aldhest: Je\u015Bli mi nie ufasz mozesz spytac jego samego."
+    s\u0142u\u017Cy\u0107 s\u0142oikowemu krabowi?"
+  - "Lojer: Wiesz co ja my\u015Bl\u0119? Jestem pewny \u017Ce w jaki\u015B spos\xF3b
+    go zmusi\u0142e\u015B. pytania?"
+  - "Lojer: Wiesz jak d\u0142ugo mo\u017Cesz siedzie\u0107 za co\u015B takiego?\r"
+  - "Aldhest: Je\u015Bli mi nie ufasz mo\u017Cesz spyta\u0107 jego samego."
   - "Lojer: Nawet kto\u015B tak szalony jak on nie jest zdolny do czego\u015B takiego.
-    Wiesz co ja my\u015Bl\u0119? Jestem pewny \u017Ce w jaki\u015B spos\xF3b go zmusi\u0142e\u015B.
-    Wiesz jak d\u0142ugo mo\u017Cesz siedzie\u0107 za co\u015B takiego?\r\n"
+    \n"
   - "Aldhest: \u2026"
-  - "L: I je\u015Bli my\u015Blisz \u017Ce nie jestem w stanie tego udowodni\u0107
-    to si\u0119 grubo mylisz\u2026 Rozumiem \u017Ce mog\u0119 przej\u015B\u0107 do
-    kolejnego pytania?"
+  - "Lojer: I je\u015Bli my\u015Blisz \u017Ce nie jestem w stanie tego udowodni\u0107
+    to si\u0119 grubo mylisz\u2026"
+  - "Lojer: Rozumiem \u017Ce mog\u0119 przej\u015B\u0107 do kolejnego pytania?"
   audioClips: []
   cost: 0

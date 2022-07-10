@@ -22,10 +22,10 @@ MonoBehaviour:
   - "Aldhest: Spieszno Ci na tamten \u015Bwiat je\u015Bli \u015Bmiesz oskar\u017Ca\u0107
     mnie o bycie podr\xF3bk\u0105!"
   - "Lojer: Oczywi\u015Bcie nie mia\u0142em na celu ura\u017Cenie Pana, jednak praca
-    nauczy\u0142a mnie by\u0107 ostro\u017Cnym. Poza tym te rogi nie s\u0105 tylko
-    na pokaz\u2026"
-  - "Aldhest: Hmmm\u2026 Wydajesz si\u0119 godny bycia moim s\u0142ug\u0105. Pytaj
-    wi\u0119c o co chcesz, jestem pewny \u017Ce wkr\xF3tce zauwa\u017Cysz m\xF3j
-    boski majestat.\r\n"
+    nauczy\u0142a mnie by\u0107 ostro\u017Cnym."
+  - "Lojer: Poza tym te rogi nie s\u0105 tylko na pokaz\u2026\r\n"
+  - "Aldhest: Hmmm\u2026 Wydajesz si\u0119 godny bycia moim s\u0142ug\u0105. \n"
+  - "Aldhest: Pytaj wi\u0119c o co chcesz, jestem pewny \u017Ce wkr\xF3tce zauwa\u017Cysz
+    m\xF3j boski majestat.\r\n"
   audioClips: []
   cost: 0

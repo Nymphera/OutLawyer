@@ -17,12 +17,14 @@ MonoBehaviour:
   earlierCrossPoint: {fileID: 11400000, guid: e7c0e1480ef99ea478bd0db44a1fdcd2, type: 2}
   strategy: 3
   sentences:
-  - "Lojer: Dobrze, ostatnie pytanie Panie Patricku. Czy Skrab lub inne tutejsze
-    kraby mia\u0142y podstawy do ucieczki st\u0105d? Czy zaobserwowa\u0142 Pan jaki\u015B
-    op\xF3r podczas opieki nad Pana krabami?\r\n"
+  - "Lojer: Dobrze, ostatnie pytanie Panie Patricku. Czy Skarb lub inne tutejsze
+    kraby mia\u0142y podstawy do ucieczki st\u0105d? \n"
+  - "Lojer: Czy zaobserwowa\u0142 Pan jaki\u015B op\xF3r podczas opieki nad Pana
+    krabami?\r\n"
   - "Patrick: Wszystko tutaj jest w jak najlepszym porz\u0105dku. Patrick dba o kraby
-    a kraby s\u0142uchaj\u0105 Patricka. Patrick nie wie sk\u0105d Pan filozof wzi\u0105\u0142
-    te herezje! Kraby Patricka nigdy nie by\u0142y grzeczniejsze!\r\n"
+    a kraby s\u0142uchaj\u0105 Patricka. "
+  - "Patrick: Patrick nie wie sk\u0105d Pan filozof wzi\u0105\u0142 te herezje! Kraby
+    Patricka nigdy nie by\u0142y grzeczniejsze!\r\n"
   - "Lojer: Rozumiem\u2026\r\n"
   audioClips: []
   cost: 0

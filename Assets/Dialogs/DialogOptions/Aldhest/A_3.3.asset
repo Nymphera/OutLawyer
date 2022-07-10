@@ -17,13 +17,15 @@ MonoBehaviour:
   earlierCrossPoint: {fileID: 11400000, guid: 7949153df1e8d4e49b2993a7cb104b90, type: 2}
   strategy: 1
   sentences:
-  - "Lojer: Skrab, M\xF3wi to Panu co\u015B?\r\n"
+  - "Lojer: Skarb, M\xF3wi to Panu co\u015B?\r\n"
   - "Aldhest: Nietypowe imi\u0119 kt\xF3re jest dodatkowo niezbyt \u015Bmiesznym
-    \u017Cartem, Patrick by\u0142 z siebie bardzo dumny gdy je wymy\u015Bli\u0142.\r\n"
-  - "Lojer: Jak Pan my\u015Bli, dlaczego akurat ten krab zosta\u0142 ukradziony?
-    Nie jest najwi\u0119kszy ani najbardziej unikatowy, przynajmniej z wygl\u0105du.\r\n"
-  - "Aldhest: Patrick kocha wszystkie kraby bez wyj\u0105tku ale Skrab zawsze by\u0142a
-    jego ulubienic\u0105. Wci\u0105\u017C powtarza\u0142 \u017Ce jest jak c\xF3rka
-    kt\xF3rej nigdy nie mia\u0142.\r\n"
+    \u017Cartem.\n"
+  - "Aldhest: Patrick by\u0142 z siebie bardzo dumny gdy je wymy\u015Bli\u0142.\r\n"
+  - "Lojer: Jak Pan my\u015Bli, dlaczego akurat ten krab zosta\u0142 ukradziony?\n"
+  - "Lojer: Nie jest najwi\u0119kszy ani najbardziej unikatowy, przynajmniej z wygl\u0105du.\r\n"
+  - "Aldhest: Patrick kocha wszystkie kraby bez wyj\u0105tku ale Skarb zawsze by\u0142a
+    jego ulubienic\u0105. \n"
+  - "Aldhest: Wci\u0105\u017C powtarza\u0142 \u017Ce jest jak c\xF3rka kt\xF3rej
+    nigdy nie mia\u0142.\r.. \n"
   audioClips: []
   cost: 0

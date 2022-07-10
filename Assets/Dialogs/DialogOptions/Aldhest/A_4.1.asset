@@ -17,17 +17,18 @@ MonoBehaviour:
   earlierCrossPoint: {fileID: 11400000, guid: abeda2b5b24079a4486f5207eeb31dcf, type: 2}
   strategy: 4
   sentences:
-  - "Lojer: Przepraszam bardzo m\xF3j Panie, ju\u017C przechodz\u0119 dalej.\r Wi\u0119c
-    Patrick nie poinformowa\u0142 Pana o znikni\u0119ciu Skarba?\r\n"
-  - "Aldhest: Nie pofatygowa\u0142 si\u0119, jednak nie mam mu tego za z\u0142e.
-    Znikni\u0119cie jednego ma\u0142ego kraba to nie koniec \u015Bwiata, to nawet
-    lepiej \u017Ce skrab znikn\u0105\u0142. Mo\u017Ce Patrick w ko\u0144cu zacznie
-    si\u0119 zajmowa\u0107 swoimi obowi\u0105zkami zamiast bawi\u0107 si\u0119 w
-    dom.\r\n"
-  - "Lojer: Nie mog\u0119 uwierzy\u0107 \u017Ce nie zosta\u0142 za to ukarany. M\xF3j
-    Panie musisz bardziej stanowczo rz\u0105dzi\u0107 swoimi poddanymi. Inaczej nigdy
-    si\u0119 nie naucz\u0105."
-  - "Aldhest: Podoba mi si\u0119 tw\xF3j entuzjazm, jednak nie jest to rozmowa o
-    prac\u0119. Sko\u0144cz to ca\u0142e przes\u0142uchanie i wtedy do tego przejdziemy."
+  - "Lojer: Przepraszam bardzo m\xF3j Panie, ju\u017C przechodz\u0119 dalej.\r\n"
+  - "Lojer: Wi\u0119c Patrick nie poinformowa\u0142 Pana o znikni\u0119ciu Skarba?\r"
+  - "Aldhest: Nie pofatygowa\u0142 si\u0119, jednak nie mam mu tego za z\u0142e.\n"
+  - "Aldhest: Znikni\u0119cie jednego ma\u0142ego kraba to nie koniec \u015Bwiata."
+  - "Aldhest:  To nawet lepiej \u017Ce Skarb znikn\u0105\u0142. "
+  - "Aldhest:  Mo\u017Ce Patrick w ko\u0144cu zacznie si\u0119 zajmowa\u0107 swoimi
+    obowi\u0105zkami  zamiast bawi\u0107 si\u0119 w dom.\r"
+  - "Lojer: Nie mog\u0119 uwierzy\u0107 \u017Ce nie zosta\u0142 za to ukarany."
+  - "Lojer:  M\xF3j Panie musisz bardziej stanowczo rz\u0105dzi\u0107 swoimi poddanymi."
+  - "Lojer:  Inaczej nigdy si\u0119 nie naucz\u0105."
+  - "Aldhest: Podoba mi si\u0119 tw\xF3j entuzjazm..."
+  - "Aldhest: Jednak nie jest to rozmowa o prac\u0119. "
+  - "Aldhest: Sko\u0144cz to ca\u0142e przes\u0142uchanie i wtedy do tego przejdziemy."
   audioClips: []
   cost: 0

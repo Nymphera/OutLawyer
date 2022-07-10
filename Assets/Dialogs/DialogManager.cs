@@ -154,7 +154,7 @@ public class DialogManager : MonoBehaviour
         Results = GameObject.Find("Results");
         Debug.Log(tree.position);
         
-
+        
         ClearResultsBars();
         currentLevel = 0; 
 

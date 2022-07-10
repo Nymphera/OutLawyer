@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private List<Evidence> unlockedEvidences= new List<Evidence>();
 
     [SerializeField]
-    private GameObject notatnik, mouseText;
+    private GameObject notatnik, mouseText,mouse;
     private void Awake()
     {
         
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         GameEvents.current.onBurnLines += OnnBurnLines;
         GameEvents.current.onLineCreated += OnLineCreated;
         GameEvents.current.onEvidneceUnlocked += UnlockEvidence;
-       // UpdateGameState(GameState.Office);
+        UpdateGameState(GameState.Office);
     }
 
    
@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
+        
     }
 
 
@@ -133,6 +133,9 @@ public class GameManager : MonoBehaviour
                     isMoveEnabled = false;
                     isInteractEnabled = true;
                     isLookEnabled = false;
+                    mouse.SetActive(false);
+                    notatnik.SetActive(false);
+                    mouseText.SetActive(false);
                 }
                 break;
             case GameState.Move:
@@ -143,6 +146,7 @@ public class GameManager : MonoBehaviour
                     Cursor.lockState = CursorLockMode.Locked;
                     mouseText.SetActive(true);
                     notatnik.SetActive(true);
+                    mouse.SetActive(true);
                 }
                 break;
             case GameState.Interact:
@@ -154,6 +158,7 @@ public class GameManager : MonoBehaviour
                     Cursor.lockState = CursorLockMode.None;
                     mouseText.SetActive(false);
                     notatnik.SetActive(false);
+                    mouse.SetActive(false);
                 }
                 break;
             case GameState.LockInteract:
@@ -165,6 +170,7 @@ public class GameManager : MonoBehaviour
                     Cursor.lockState = CursorLockMode.None;
                     mouseText.SetActive(false);
                     notatnik.SetActive(false);
+                    mouse.SetActive(false);
                 }
                 break;
             case GameState.CutScene:

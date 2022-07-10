@@ -28,6 +28,15 @@ public class PauseController : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        gameControls.Enable();
+    }
+    private void OnDestroy()
+    {
+        gameControls.Game.GoBack.performed -= GoBack_performed;
+    }
+
     private void GoBack_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         if (GameManager.Instance.CurrentState == GameState.Move || GameManager.Instance.CurrentState == GameState.Office)
@@ -49,18 +58,11 @@ public class PauseController : MonoBehaviour
     }
     private IEnumerator ShowPanel()
     { 
-            pausePanel.SetActive(true);
-            yield return null;
-            GameManager.Instance.UpdateGameState(GameState.LockInteract);        
+            pausePanel.SetActive(true);            
+            GameManager.Instance.UpdateGameState(GameState.LockInteract);
+        yield return null;
     }
-    private void OnEnable()
-    {
-        gameControls.Enable();
-    }
-    private void OnDestroy()
-    {
-        gameControls.Game.GoBack.performed -= GoBack_performed;
-    }
+  
     
     public void GoBackToGame()
     {
